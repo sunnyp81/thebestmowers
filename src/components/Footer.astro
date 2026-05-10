@@ -1,0 +1,41 @@
+---
+import { POWER_TYPE_HUBS, BRAND_HUBS, SITE } from '../lib/site';
+---
+<footer class="border-t border-slate-200 bg-slate-50 mt-20">
+  <div class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+    <div>
+      <h3 class="font-bold text-soil-900 mb-3">By Power Type</h3>
+      <ul class="space-y-2 text-slate-600">
+        {POWER_TYPE_HUBS.map((h) => (<li><a href={`/${h.slug}/`} class="hover:text-grass-700">{h.label} mowers</a></li>))}
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-bold text-soil-900 mb-3">Top Brands</h3>
+      <ul class="space-y-2 text-slate-600">
+        {BRAND_HUBS.slice(0, 8).map((b) => (<li><a href={`/brands/${b}/`} class="hover:text-grass-700 capitalize">{b.replace('-', ' ')}</a></li>))}
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-bold text-soil-900 mb-3">Advice</h3>
+      <ul class="space-y-2 text-slate-600">
+        <li><a href="/advice/maintenance/" class="hover:text-grass-700">Maintenance</a></li>
+        <li><a href="/advice/troubleshooting/" class="hover:text-grass-700">Troubleshooting</a></li>
+        <li><a href="/advice/lawn-care/" class="hover:text-grass-700">Lawn care</a></li>
+        <li><a href="/advice/safety-legal/" class="hover:text-grass-700">Safety &amp; legal</a></li>
+        <li><a href="/advice/garden-size/" class="hover:text-grass-700">By garden size</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-bold text-soil-900 mb-3">{SITE.name}</h3>
+      <ul class="space-y-2 text-slate-600">
+        <li><a href="/about/" class="hover:text-grass-700">About + how we test</a></li>
+        <li><a href="/contact/" class="hover:text-grass-700">Contact</a></li>
+        <li><a href="/affiliate-disclosure/" class="hover:text-grass-700">Affiliate disclosure</a></li>
+        <li><a href="/privacy/" class="hover:text-grass-700">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+    © {new Date().getFullYear()} {SITE.publisher}. Independent reviews — we may earn a commission on qualifying purchases.
+  </div>
+</footer>

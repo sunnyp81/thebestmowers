@@ -1,0 +1,22 @@
+---
+import { POWER_TYPE_HUBS } from '../lib/site';
+---
+<header class="border-b border-slate-200 bg-white sticky top-0 z-30">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-6">
+    <a href="/" class="flex items-center gap-2 text-grass-800 font-bold text-xl">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 19h18M5 19V9l7-5 7 5v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="12" cy="13" r="2.5" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      The Best Mowers
+    </a>
+    <nav class="hidden md:flex items-center gap-5 text-sm font-medium">
+      {POWER_TYPE_HUBS.map((h) => (
+        <a href={`/${h.slug}/`} class="text-slate-700 hover:text-grass-700">{h.label}</a>
+      ))}
+      <a href="/brands/" class="text-slate-700 hover:text-grass-700">Brands</a>
+      <a href="/advice/" class="text-slate-700 hover:text-grass-700">Advice</a>
+      <a href="/best-lawn-mowers/" class="bg-grass-700 hover:bg-grass-800 text-white px-3 py-1.5 rounded-md">Best of {new Date().getFullYear()}</a>
+    </nav>
+  </div>
+</header>

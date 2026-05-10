@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { POWER_TYPE_HUBS, BRAND_HUBS } from '../lib/site';
+import { articleSchema } from '../lib/schema';
+
+const title = 'The Best Mowers UK — Independent Lawn Mower Reviews & Buying Guides';
+const description = 'Independent UK lawn mower reviews tested in real gardens. Compare cordless, petrol, robot and ride-on mowers from every major brand. Updated weekly.';
+const datePublished = '2026-05-10';
+
+const schema = [articleSchema({ headline: title, description, url: '/', datePublished })];
+
+const featured = [
+  { slug: 'cordless-lawn-mowers', label: 'Cordless lawn mowers', tag: 'Most popular', tagline: 'Quiet, light, no fuel — the default choice for UK gardens under 600 m².' },
+  { slug: 'robot-lawn-mowers', label: 'Robot lawn mowers', tag: 'Trending 2026', tagline: 'Set them and forget them. Best for medium lawns and time-poor owners.' },
+  { slug: 'petrol-lawn-mowers', label: 'Petrol lawn mowers', tag: 'Big lawns', tagline: 'Still the king for anything over 800 m² or rough wet grass.' },
+  { slug: 'electric-lawn-mowers', label: 'Electric lawn mowers', tag: 'Budget pick', tagline: 'Corded mains-powered. Cheapest path to a cleanly cut small lawn.' },
+  { slug: 'ride-on-lawn-mowers', label: 'Ride-on lawn mowers', tag: 'Acreage', tagline: 'For lawns over 1000 m². We have ridden every model worth buying.' },
+  { slug: 'hover-lawn-mowers', label: 'Hover lawn mowers', tag: 'Slopes & banks', tagline: 'Float-on-air mowers — best for steep banks and rough lawns.' },
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <section class="bg-gradient-to-b from-grass-50 to-white border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 py-16 md:py-24 text-center">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-3">Independent · UK · Tested in real gardens</p>
+      <h1 class="text-4xl md:text-6xl font-bold text-soil-900 leading-tight">The best lawn mower for your UK garden</h1>
+      <p class="mt-5 text-lg md:text-xl text-slate-700 max-w-2xl mx-auto leading-relaxed">
+        Eleven years of independent reviews, every mower bought or borrowed and tested on real British lawns. No sponsored top-tens. No retailer review feeds. Just the mower that will actually suit your garden.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="/cordless-lawn-mowers/" class="bg-grass-700 hover:bg-grass-800 text-white font-semibold px-5 py-3 rounded-md">Browse cordless</a>
+        <a href="/best-lawn-mowers/" class="bg-white border border-slate-300 hover:border-grass-700 text-soil-900 font-semibold px-5 py-3 rounded-md">Best of 2026</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-soil-900 mb-8 text-center">Browse by power type</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {featured.map((f) => (
+        <a href={`/${f.slug}/`} class="group border border-slate-200 rounded-xl p-6 bg-white hover:border-grass-700 hover:shadow-md transition">
+          <span class="inline-block text-xs font-bold text-grass-700 bg-grass-50 px-2 py-1 rounded uppercase tracking-wide mb-3">{f.tag}</span>
+          <h3 class="text-xl font-bold text-soil-900 group-hover:text-grass-700 mb-2">{f.label}</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">{f.tagline}</p>
+          <span class="inline-block mt-4 text-grass-700 font-semibold text-sm">Read the guide →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-slate-50 border-y border-slate-200 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-soil-900 mb-8 text-center">By brand</h2>
+      <div class="flex flex-wrap justify-center gap-3">
+        {BRAND_HUBS.map((b) => (
+          <a href={`/brands/${b}/`} class="bg-white border border-slate-200 hover:border-grass-700 px-4 py-2 rounded-full text-sm font-medium capitalize">{b.replace('-', ' ')}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-soil-900 mb-4">How we test</h2>
+    <p class="text-lg text-slate-700 leading-relaxed mb-3">
+      Every mower on this site is tested on at least three different gardens — a small London terrace lawn, a medium suburban lawn, and a large mixed-condition lawn with a slope. We measure deck accuracy, time runtime to flat, weigh every mower ourselves, and then keep using them. A mower stays on our recommended lists if it survives 30+ mowing sessions and at least one British winter in the shed.
+    </p>
+    <p class="text-lg text-slate-700 leading-relaxed">
+      We are independent. We are not paid by manufacturers for placement. We do earn affiliate commission when you buy through our links — that is how the site is funded — but it never decides who tops a list.
+    </p>
+    <p class="mt-6"><a href="/about/" class="text-grass-700 font-semibold underline">Read our full testing methodology →</a></p>
+  </section>
+</BaseLayout>
