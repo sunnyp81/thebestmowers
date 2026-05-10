@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { BRAND_HUBS } from '../../lib/site';
+import { articleSchema, breadcrumbSchema } from '../../lib/schema';
+
+const title = 'Lawn Mower Brands UK — Reviewed & Compared';
+const description = 'Independent UK reviews of every major lawn mower brand. Bosch, Ryobi, Husqvarna, Gtech, Flymo, Stihl, Makita, Mountfield and more — full ranges compared.';
+const path = '/brands/';
+const datePublished = '2026-05-10';
+
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Brands', url: path }];
+
+const brandSummary: Record<string, { tagline: string; tier: string }> = {
+  bosch: { tagline: 'Mainstream German engineering. Power for All battery platform spans every garden tool you own.', tier: 'Mainstream' },
+  ryobi: { tagline: 'ONE+ 18 V battery powers 200+ tools. The cheapest sensible cordless platform in the UK.', tier: 'Value' },
+  husqvarna: { tagline: 'Invented robot mowing. Premium ride-ons and trade-grade petrol. Pricey but lasts decades.', tier: 'Premium' },
+  gtech: { tagline: 'Light, friendly, made-in-Britain cordless. Brilliant for small lawns. Pricey batteries.', tier: 'Premium' },
+  flymo: { tagline: 'Owns the hover mower category and budget electric. Started the whole UK domestic mower market.', tier: 'Value' },
+  stihl: { tagline: 'Trade-grade petrol and cordless. Best UK dealer network of any brand here.', tier: 'Premium' },
+  makita: { tagline: 'LXT 18 V and XGT 40 V platforms. Built like trade tools. Pricey, lasts.', tier: 'Premium' },
+  dewalt: { tagline: 'XR 18 V and FlexVolt 18/54 V. Strong on power, smaller garden range than rivals.', tier: 'Premium' },
+  worx: { tagline: 'Best budget cordless platform. Vision robot mower is the cheapest serious wire-free.', tier: 'Value' },
+  einhell: { tagline: 'German brand undercutting Bosch by 20–30% with build quality 90% as good.', tier: 'Value' },
+  mountfield: { tagline: 'Italian-built petrol and ride-on. Best value in their respective categories.', tier: 'Value' },
+  stiga: { tagline: 'Sister brand to Mountfield. Strong on collection ride-ons.', tier: 'Mid' },
+  cobra: { tagline: 'British-designed, Briggs-engined petrol. Best mid-range value in petrol.', tier: 'Mid' },
+  hyundai: { tagline: 'Korean-branded, China-built. Cheap petrol mowers — works, won\'t outlive you.', tier: 'Budget' },
+  'mac-allister': { tagline: 'B&Q\'s house brand. Budget cordless and electric — surprisingly decent for the price.', tier: 'Budget' },
+  qualcast: { tagline: 'Argos heritage brand. Cheap and cheerful — a known quantity for first-time buyers.', tier: 'Budget' },
+};
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-5xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+    <header class="mb-10">
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Lawn Mower Brands</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        There are about sixteen brands worth taking seriously in the UK lawn mower market. Some are global giants, some are British heritage names, some are newer entrants doing genuinely interesting things. Here's an honest read on each — what they're good at, where they fit, and which one matches your garden.
+      </p>
+    </header>
+
+    <div class="grid sm:grid-cols-2 gap-5">
+      {BRAND_HUBS.map((slug) => {
+        const info = brandSummary[slug];
+        const name = slug.replace('-', ' ');
+        return (
+          <a href={`/brands/${slug}/`} class="group block border border-slate-200 rounded-xl p-5 bg-white hover:border-grass-700 hover:shadow-md transition">
+            <div class="flex items-start justify-between gap-3">
+              <h2 class="text-xl font-bold text-soil-900 group-hover:text-grass-700 capitalize">{name}</h2>
+              <span class="text-xs font-semibold text-grass-700 bg-grass-50 px-2 py-1 rounded uppercase tracking-wide">{info?.tier}</span>
+            </div>
+            <p class="mt-2 text-slate-600 text-sm leading-relaxed">{info?.tagline}</p>
+            <span class="inline-block mt-3 text-grass-700 font-semibold text-sm">Read full brand guide →</span>
+          </a>
+        );
+      })}
+    </div>
+  </article>
+</BaseLayout>

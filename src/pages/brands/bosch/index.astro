@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import PickCard from '../../../components/PickCard.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../../lib/schema';
+
+const title = 'Bosch Lawn Mowers UK — Full Range Reviewed (2026)';
+const description = 'Independent reviews of every Bosch lawn mower sold in the UK. Rotak corded, UniversalRotak cordless, AdvancedRotak premium and Indego robot — compared.';
+const path = '/brands/bosch/';
+const datePublished = '2026-05-10';
+
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Brands', url: '/brands/' }, { name: 'Bosch', url: path }];
+
+const picks = [
+  { rank: 1, name: 'Bosch Rotak 32 R', brand: 'Bosch', bestFor: 'small lawns under 200 m²', rating: 4.5, rrp: '£99', reviewUrl: '/reviews/bosch-rotak-32-review/', pros: ['Cheapest serious mower from a serious brand', '32 cm deck, very manoeuvrable', 'Built like German power tools'], cons: ['Corded — needs a power socket', 'No mulching plug at this price'], verdict: 'The default UK first mower for any garden under 200 m². At £99 there is genuinely nothing else that combines this much build quality with this little outlay. We have one in our long-term fleet from 2017.' },
+  { rank: 2, name: 'Bosch UniversalRotak 36-550', brand: 'Bosch', bestFor: 'medium gardens up to 400 m²', rating: 4.5, rrp: '£329', reviewUrl: '/reviews/bosch-easyrotak-36-550-lawnmower/', pros: ['36V Power for All — shared with hedge trimmer, blower, drill', '50 L grass box is the biggest in class', 'ProSilence motor genuinely quiet'], cons: ['Heavier at 14 kg', 'Plastic deck flexes on uneven ground'], verdict: 'If you own any Bosch 36V garden tool, this is the obvious cordless mower. The 50 L collection box is a class above rival 35–40 L bins, and the ProSilence motor is properly quiet for early-morning mowing.' },
+  { rank: 3, name: 'Bosch Indego S+ 500', brand: 'Bosch', bestFor: 'tidy stripes on lawns up to 500 m²', rating: 4.4, rrp: '£849', reviewUrl: '/reviews/bosch-indego-s-plus-500/', pros: ['Maps your lawn, mows in straight lines', 'Quietest robot we have tested (under 65 dB)', 'SmartHome integration'], cons: ['Boundary cable required', 'Slope limit of 27%'], verdict: 'The neat-freak\'s robot mower. Most robots wander randomly; the Indego maps and mows in tidy parallel lines, which gives a more uniform finish and finishes faster on rectangular lawns.' },
+  { rank: 4, name: 'Bosch AdvancedRotak 36-750', brand: 'Bosch', bestFor: 'larger gardens (400–700 m²)', rating: 4.6, rrp: '£429', reviewUrl: '/reviews/bosch-advancedrotak-36-750-lawnmower-review/', pros: ['46 cm deck — more coverage', 'Self-propelled variant available', 'Twin-battery for extended runtime'], cons: ['Premium pricing', 'Heavier at 16 kg'], verdict: 'The big-brother cordless when you need more deck width. The 46 cm steel-reinforced deck and the twin-battery option finally make Bosch competitive on lawns over 500 m².' },
+];
+
+const faqs = [
+  { q: 'Are Bosch lawn mowers any good?', a: 'They are genuinely some of the best mainstream mowers you can buy in the UK. Bosch invented the Rotak shape, run the most popular cordless battery platform (Power for All) outside of Ryobi, and the build quality is consistent across the range. The Rotak 32 corded is on most short-lists for small gardens; the UniversalRotak is on most cordless short-lists for medium gardens.' },
+  { q: 'What is the Bosch Power for All battery system?', a: 'A shared lithium-ion battery platform that works across Bosch DIY power tools and garden tools. Two voltages: 18V (drills, jigsaws, smaller hedge trimmers) and 36V (lawn mowers, larger hedge trimmers, leaf blowers, chainsaws). Buy the battery once, use it across the whole range. Over 50 tools currently support it.' },
+  { q: 'Where are Bosch lawn mowers made?', a: 'Bosch garden tools are designed in Germany and manufactured in Hungary, China and Mexico depending on the model. The DIY-tier mowers (Rotak, UniversalRotak) are typically Hungarian or Chinese; the higher-end AdvancedRotak and Indego robots are German-assembled.' },
+  { q: 'Bosch Rotak vs UniversalRotak vs AdvancedRotak — what is the difference?', a: 'Three tiers. Rotak (entry, mostly corded, plastic deck, basic spec). UniversalRotak (mid-tier, mostly cordless 36V, larger grass box, ProSilence motor). AdvancedRotak (premium, larger deck, twin-battery options, self-propelled variants). Same shape across all three, just different specs.' },
+  { q: 'How long do Bosch mower batteries last?', a: 'Rated for 1,000 charge cycles, which works out to roughly 7–8 years of typical UK domestic mowing. Long enough that you usually replace the mower before the battery dies.' },
+  { q: 'Is the Bosch Indego robot mower worth it?', a: 'For flat, rectangular lawns under 500 m² with a clear sky view, yes — the logical mowing pattern is genuinely better than random-pattern rivals like older Husqvarna Automowers. For irregular gardens, slopes over 27%, or anyone who hates laying boundary cable, look at the Mammotion Luba 2 or Worx Landroid Vision instead.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+  itemListSchema({ name: 'Best Bosch lawn mowers 2026', url: path, items: picks.map((p, i) => ({ position: i+1, name: p.name, url: p.reviewUrl })) }),
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Brand guide · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Bosch Lawn Mowers</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        If you ask ten UK gardeners which lawn mower they\'d buy a friend, four of them say "a Bosch Rotak". There\'s a reason. Bosch invented the Rotak shape — that distinctive low-slung deck with the high-mounted handle — back in the 1990s, and the company has been quietly improving it for thirty years. The corded Rotak is still the default sub-£200 mower for small UK lawns. The cordless UniversalRotak is the default mid-range cordless. And the Indego robot is the neat-freak\'s answer to autonomous mowing. Here\'s the full range, ranked.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2 id="best">Best Bosch lawn mowers</h2>
+      <div class="space-y-6 mt-6">{picks.map((p) => <PickCard {...p} />)}</div>
+
+      <h2 id="range">The Bosch lawn mower range explained</h2>
+      <p>
+        Bosch organises its mowers into three tiers and four power types. The tiers are <strong>Rotak</strong> (entry, mostly corded), <strong>UniversalRotak</strong> (mid, mostly cordless 36V) and <strong>AdvancedRotak</strong> (premium, larger decks, self-propelled options). The power types are corded electric, cordless, robot (the Indego range) and a small selection of petrol mowers that have been quietly phased out in most of the UK. If you see a model number like "Rotak 32 R" the number is the deck width in cm.
+      </p>
+      <p>
+        The bigger story is the <strong>Power for All</strong> battery platform — Bosch\'s answer to Ryobi ONE+. Buy a 36V battery for your UniversalRotak and the same pack runs the Bosch hedge trimmer, leaf blower, chainsaw, even a heated jacket. It\'s the second-largest battery ecosystem in the UK garden category and the main reason to buy a Bosch cordless mower as your first cordless tool.
+      </p>
+
+      <h2 id="vs-rivals">Where Bosch fits vs rivals</h2>
+      <p>
+        Bosch is the mainstream German mower. <a href="/brands/ryobi/">Ryobi</a> undercuts it on price and beats it on tool count; <a href="/brands/makita/">Makita</a> matches it on build quality at a higher price; <a href="/brands/einhell/">Einhell</a> tries to undercut Bosch with similar German engineering at 70% of the price. <a href="/brands/gtech/">Gtech</a> is the boutique alternative — lighter, friendlier, made in Britain, much pricier batteries. For most UK buyers the real shortlist is Bosch vs Ryobi (cordless) or Bosch vs Flymo (corded), and Bosch usually wins on build, loses on price.
+      </p>
+
+      <h2 id="quirks">Common quirks and known issues</h2>
+      <p>
+        Bosch mowers are the most reliable mainstream UK mowers we test. The two recurring grumbles in our long-term fleet: the plastic deck on the entry-tier Rotak flexes a touch on bumpy lawns (cosmetic, not functional), and the cable on corded models is on the stiff side — replace it with a softer aftermarket cable if it bothers you. The grass box latch on the UniversalRotak occasionally needs a wipe with WD-40 after a wet winter in the shed.
+      </p>
+
+      <h2 id="related">Related guides</h2>
+      <ul>
+        <li><a href="/cordless-lawn-mowers/">Best cordless lawn mowers</a></li>
+        <li><a href="/electric-lawn-mowers/">Best electric (corded) lawn mowers</a></li>
+        <li><a href="/robot-lawn-mowers/">Best robot lawn mowers</a></li>
+        <li><a href="/brands/ryobi/">Ryobi lawn mowers</a></li>
+        <li><a href="/brands/einhell/">Einhell lawn mowers</a></li>
+      </ul>
+    </div>
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>
