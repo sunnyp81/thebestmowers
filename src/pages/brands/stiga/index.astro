@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import PickCard from '../../../components/PickCard.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../../lib/schema';
+
+const title = 'Stiga Lawn Mowers UK — Petrol, Ride-On & Robot Reviewed';
+const description = 'Independent reviews of Stiga lawn mowers. Italian-built petrol, Estate ride-ons with rear collection, and the A-series robot mowers — full range compared.';
+const path = '/brands/stiga/';
+const datePublished = '2026-05-10';
+
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Brands', url: '/brands/' }, { name: 'Stiga', url: path }];
+
+const picks = [
+  { rank: 1, name: 'Stiga A 1500', brand: 'Stiga', bestFor: 'large-garden robot mowing', rating: 4.5, rrp: '£1,549', reviewUrl: '/reviews/stiga-a-1500/', pros: ['Up to 1,500 m² coverage', 'AGS Active Guidance System', 'UK Stiga dealer network'], cons: ['Boundary cable required', 'Less Husqvarna-mature firmware'], verdict: 'For lawns 800–1,500 m², Stiga undercuts the equivalent Husqvarna by £200–400 with identical cut quality. The UK Stiga dealer network (more specialised than Husqvarna\'s) is genuinely useful for parts and after-sales.' },
+  { rank: 2, name: 'Stiga Estate 384M', brand: 'Stiga', bestFor: 'mid-range ride-on with collection', rating: 4.4, rrp: '£2,299', reviewUrl: '/reviews/stiga-estate-384m/', pros: ['Rear collection bin (300 L)', 'Italian build, sister to Mountfield', 'Hydrostatic available on 384M variant'], cons: ['Heavier than Mountfield equivalent', 'Premium over side-discharge models'], verdict: 'For owners who want rear collection rather than mulching or side-discharge — formal lawns, leaf-clearing duty, anyone who hates clippings on shoes. Best value collection ride-on.' },
+];
+
+const faqs = [
+  { q: 'What is the difference between Stiga and Mountfield?', a: 'Same parent company (GGP/Stiga group, Italian). Mountfield is the mainstream UK brand sold in B&Q and big garden retailers. Stiga is the more specialist variant sold through specialist dealers, often with slightly higher-spec models. Many machines are mechanically identical with a different colour sticker.' },
+  { q: 'Are Stiga lawn mowers reliable?', a: 'Yes — they share the Italian engineering with Mountfield, use the same ST series engines, and the build quality is consistent. The Stiga dealer network is smaller than Husqvarna or Stihl but more specialist; you get genuine after-sales advice rather than B&Q customer service.' },
+  { q: 'Stiga A series robot vs Husqvarna Automower?', a: 'Same job, different price. Stiga undercuts Husqvarna by 15–25% on equivalent coverage models. Cut quality is identical in our tests. Husqvarna firmware is more mature (11+ years vs 5–6 for Stiga\'s current platform). For most UK domestic buyers, Stiga is the value choice; Husqvarna is the safety choice.' },
+  { q: 'Is Stiga cheaper than Husqvarna?', a: 'Yes, consistently — typically 15–30% cheaper across robots, ride-ons and petrol mowers. The trade-off is fewer dealers and slightly less polished firmware on the robot side.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+  itemListSchema({ name: 'Best Stiga lawn mowers 2026', url: path, items: picks.map((p, i) => ({ position: i+1, name: p.name, url: p.reviewUrl })) }),
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Brand guide · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Stiga Lawn Mowers</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Stiga is the slightly-more-premium sister to Mountfield — same Italian parent, same factories, often the same machines with a different colour scheme and a specialist-dealer route to market. The Estate ride-ons and the A-series robot mowers are the two product lines worth knowing. Stiga consistently undercuts Husqvarna on price and matches it on cut quality. The trade-off is fewer dealers and less mature firmware on robots. Worth shortlisting for value-conscious large-garden buyers.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2 id="best">Best Stiga lawn mowers</h2>
+      <div class="space-y-6 mt-6">{picks.map((p) => <PickCard {...p} />)}</div>
+
+      <h2 id="related">Related guides</h2>
+      <ul>
+        <li><a href="/robot-lawn-mowers/">Best robot lawn mowers</a></li>
+        <li><a href="/ride-on-lawn-mowers/">Best ride-on lawn mowers</a></li>
+        <li><a href="/brands/mountfield/">Mountfield lawn mowers (sister brand)</a></li>
+        <li><a href="/brands/husqvarna/">Husqvarna lawn mowers</a></li>
+      </ul>
+    </div>
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

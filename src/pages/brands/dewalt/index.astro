@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import PickCard from '../../../components/PickCard.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../../lib/schema';
+
+const title = 'DeWalt Lawn Mowers UK — XR 18V & FlexVolt Range Reviewed';
+const description = 'Independent reviews of DeWalt cordless lawn mowers. XR 18V and FlexVolt 18/54V platforms compared. Trade-grade kit at trade-grade prices.';
+const path = '/brands/dewalt/';
+const datePublished = '2026-05-10';
+
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Brands', url: '/brands/' }, { name: 'DeWalt', url: path }];
+
+const picks = [
+  { rank: 1, name: 'DeWalt DCMW564 (twin 18V XR)', brand: 'DeWalt', bestFor: 'XR ecosystem owners', rating: 4.6, rrp: '£449 bare', reviewUrl: '/reviews/dewalt-dcmw564/', pros: ['Twin-18V XR — runs your existing batteries', '48 cm steel deck', 'Brushless self-propelled drive'], cons: ['Bare-tool pricing means batteries are extra', 'Smaller UK garden range than Makita'], verdict: 'The right cordless mower for the millions of UK households that own a DeWalt drill or driver. Twin-18V XR runs two of your existing batteries together for 36V output. Steel deck, self-propelled, built like a tool.' },
+  { rank: 2, name: 'DeWalt DCMWP500 (FlexVolt 54V)', brand: 'DeWalt', bestFor: 'larger gardens, FlexVolt owners', rating: 4.5, rrp: '£599 bare', reviewUrl: '/reviews/dewalt-dcmwp500/', pros: ['54V FlexVolt — high sustained power', '53 cm deck', 'Cuts long grass without bogging down'], cons: ['FlexVolt batteries are expensive', 'Heavy at 26 kg'], verdict: 'A serious cordless mower on DeWalt\'s FlexVolt 54V system — same battery used by the chainsaw, mitre saw, and brushcutter. For anyone with an existing FlexVolt collection and a 600 m²+ lawn, this is a no-brainer.' },
+];
+
+const faqs = [
+  { q: 'Are DeWalt lawn mowers any good?', a: 'They\'re trade-grade and they\'re built like it. Whether they\'re "any good for you" depends entirely on whether you already own DeWalt 18V XR or FlexVolt batteries — buying a DeWalt mower bare-tool when you already have batteries is a great deal. Buying a complete kit with batteries is significantly more expensive than the equivalent Bosch or Ryobi for similar real-world performance.' },
+  { q: 'XR vs FlexVolt — which DeWalt platform for a mower?', a: 'XR is the standard 18V platform — drills, drivers, saws, lights. The mowers using XR run two batteries together for 36V output. FlexVolt is the higher-voltage platform that runs at 18V or 54V depending on the tool — mowers, chainsaws, mitre saws use 54V. If you\'re already in XR, get the XR mower. If you have FlexVolt or plan to do heavier outdoor work, FlexVolt.' },
+  { q: 'Are DeWalt mowers made in Britain?', a: 'No — DeWalt is American (Stanley Black & Decker). Modern DeWalt cordless tools are manufactured in China, the USA and Mexico. The brand has a UK distribution and dealer network but no UK production.' },
+  { q: 'DeWalt vs Makita for cordless mowing?', a: 'Both are trade-grade, both expensive, both excellent. Makita LXT has a wider tool range (more cross-compatibility); DeWalt FlexVolt has a higher voltage option for serious outdoor work. On lawn mowers specifically, Makita has more model options in the UK currently. If you don\'t own either platform, Makita is the safer bet for tool-count flexibility.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+  itemListSchema({ name: 'Best DeWalt lawn mowers 2026', url: path, items: picks.map((p, i) => ({ position: i+1, name: p.name, url: p.reviewUrl })) }),
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Brand guide · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">DeWalt Lawn Mowers</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        DeWalt is the yellow-and-black trade brand most British DIYers and tradesmen know better than any other. The lawn mowers are a relatively recent addition to the UK range — the company is much better known here for drills, drivers and circular saws — but the FlexVolt 54V and XR 18V batteries that have powered millions of UK building sites also power a respectable little garden range now. Like Makita, DeWalt mowers make most sense if you\'re already in the battery ecosystem.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2 id="best">Best DeWalt lawn mowers</h2>
+      <div class="space-y-6 mt-6">{picks.map((p) => <PickCard {...p} />)}</div>
+
+      <h2 id="range">The DeWalt range explained</h2>
+      <p>
+        DeWalt has two lawn mower lines. <strong>XR 18V</strong> models run twin 18V batteries in series for 36V output — same individual cells as your XR drill. <strong>FlexVolt 18V/54V</strong> models run the auto-switching FlexVolt batteries at 54V for sustained higher power — same battery that runs the FlexVolt chainsaw and mitre saw. The garden range is smaller than Makita\'s — 4–5 mowers in the UK, plus hedge trimmers, blowers, and brushcutters on the same batteries.
+      </p>
+
+      <h2 id="vs-rivals">Where DeWalt fits vs rivals</h2>
+      <p>
+        Direct rival is <a href="/brands/makita/">Makita</a> — both trade-grade, both expensive, both excellent. <a href="/brands/ryobi/">Ryobi</a> ONE+ has 200+ tools to DeWalt XR\'s 100+ in the UK. <a href="/brands/bosch/">Bosch</a> Power for All is the consumer-tier mainstream alternative. For pure mower performance, the differences between Makita, DeWalt, Bosch and Ryobi are smaller than the marketing suggests — battery ecosystem is the real decision driver.
+      </p>
+
+      <h2 id="related">Related guides</h2>
+      <ul>
+        <li><a href="/cordless-lawn-mowers/">Best cordless lawn mowers</a></li>
+        <li><a href="/brands/makita/">Makita lawn mowers</a></li>
+        <li><a href="/brands/ryobi/">Ryobi lawn mowers</a></li>
+        <li><a href="/brands/bosch/">Bosch lawn mowers</a></li>
+      </ul>
+    </div>
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

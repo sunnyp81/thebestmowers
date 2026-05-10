@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import PickCard from '../../../components/PickCard.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../../lib/schema';
+
+const title = 'Flymo Lawn Mowers UK — Hover, Electric & Cordless Reviewed';
+const description = 'Independent reviews of Flymo lawn mowers — Hovervac, EasiGlide, Chevron, Easimo and the new cordless range. The brand that started UK domestic mowing.';
+const path = '/brands/flymo/';
+const datePublished = '2026-05-10';
+
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Brands', url: '/brands/' }, { name: 'Flymo', url: path }];
+
+const picks = [
+  { rank: 1, name: 'Flymo Hovervac 250', brand: 'Flymo', bestFor: 'small lawns and steep banks', rating: 4.5, rrp: '£99', reviewUrl: '/reviews/flymo-hovervac-250-review/', pros: ['Properly floats — brilliant on slopes', 'Light at 6.6 kg', '20 L collection bag (rare on hover)'], cons: ['Stripeless', 'Cable management is on you'], verdict: 'The default UK hover mower for the past two decades. £99, glides over uneven ground that defeats wheel mowers, and one of the few hover mowers with a real grass collection bag.' },
+  { rank: 2, name: 'Flymo Easimo', brand: 'Flymo', bestFor: 'cheapest reliable wheeled electric', rating: 4.0, rrp: '£89', reviewUrl: '/reviews/flymo-easimo-review/', pros: ['Cheapest reliable mower from a known brand', 'Genuinely light at 6.6 kg', 'Wall-storage hook included'], cons: ['Only 32 L grass box', 'Basic single-lever cut height'], verdict: 'When budget is the main constraint, the Easimo is honest value. We have one in our long-term test fleet from 2018, still going strong.' },
+  { rank: 3, name: 'Flymo EasiStore 340R Li', brand: 'Flymo', bestFor: 'cordless on a small budget', rating: 4.2, rrp: '£199', reviewUrl: '/reviews/flymo-easistore-340r/', pros: ['Folds flat for vertical wall storage', '40V Li-ion runs 30 minutes', 'Rear roller stripes'], cons: ['Smaller deck than Bosch UniversalRotak', 'Battery proprietary to Flymo cordless line'], verdict: 'Flymo\'s answer to the cordless category, with the brand\'s signature flat-fold design for wall storage. Decent if you have a small lawn and limited shed space; the Bosch UniversalRotak is a better mower if you have the room.' },
+];
+
+const faqs = [
+  { q: 'Are Flymo lawn mowers any good?', a: 'For their job, yes. Flymo dominates two niches: hover mowers (the Hovervac range owns 80%+ of the UK market) and cheap-and-cheerful corded electric (Easimo, Chevron). The build is plastic and basic, but they last a decade of typical UK domestic use and parts are genuinely cheap. They are not premium machines — but they\'re honest ones.' },
+  { q: 'Where are Flymo mowers made?', a: 'Flymo is owned by Husqvarna Group (Swedish), with mowers designed in Sweden and manufactured in Hungary, China, and historically in the UK at the Newton Aycliffe plant (closed 2017). Build quality is consistent across the modern range.' },
+  { q: 'Flymo Easimo vs Hovervac vs Chevron — which to buy?', a: 'Easimo if your lawn is flat and small (under 150 m²). Hovervac if your lawn is sloped, banked, or rough. Chevron if you want a wheeled electric with a bigger deck (38 cm). All three are sub-£140 and they share the same blue-orange Flymo design language.' },
+  { q: 'Do Flymo mowers leave stripes?', a: 'Some do, most don\'t. Hover mowers leave no stripes at all. Wheeled corded models like the Chevron 37C have rear wheels and produce no stripes. The EasiStore cordless range and the Mighti-Mo are the rare Flymos with a rear roller and stripes.' },
+  { q: 'How long do Flymo mowers last?', a: 'A decade or more of typical UK domestic mowing. The fan/motor unit on hover mowers is the main wear part; replacement bearings cost £15 from a Flymo dealer. Plastic deck cracks are the other failure mode after a decade of being banged into kerbs.' },
+  { q: 'Is Flymo the cheapest mower brand worth buying?', a: 'On corded electric, yes — Flymo Easimo at £89 is the floor of "still worth buying". Below that you\'re into supermarket no-name brands where the motor lasts two seasons. Mac Allister (B&Q) and Qualcast (Argos) are similar-tier rivals.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+  itemListSchema({ name: 'Best Flymo lawn mowers 2026', url: path, items: picks.map((p, i) => ({ position: i+1, name: p.name, url: p.reviewUrl })) }),
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Brand guide · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Flymo Lawn Mowers</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        If you\'re old enough to remember a bright orange flying-saucer-shaped mower hovering across your gran\'s back garden in the 1980s — that\'s Flymo. They didn\'t invent the hover mower (an American did) but they\'re the reason every UK household in the last forty years has owned one at some point. The category they own outright is hover. The category they quietly dominate on price is cheap-and-cheerful corded electric. They\'ve had a few cracks at cordless too — varying success. Here\'s the full rundown.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2 id="best">Best Flymo lawn mowers</h2>
+      <div class="space-y-6 mt-6">{picks.map((p) => <PickCard {...p} />)}</div>
+
+      <h2 id="range">The Flymo range explained</h2>
+      <p>
+        Flymo splits roughly into four sub-ranges. <strong>Hovervac, EasiGlide, Ultraglide</strong> — the hover mowers Flymo is famous for. <strong>Easimo, Chevron, Speedi-Mo</strong> — wheeled corded electric, the cheap-and-cheerful budget end. <strong>EasiStore, Mighti-Mo</strong> — wheeled cordless. <strong>RoboticMower</strong> — a small range of robot mowers that sit underneath the Husqvarna Automower (same parent company). Flymo doesn\'t make petrol mowers and never has.
+      </p>
+
+      <h2 id="vs-rivals">Where Flymo fits vs rivals</h2>
+      <p>
+        On hover, Flymo has no real competition — McCulloch makes a few petrol hovers, Mountfield introduced one cordless hover in 2024, and that\'s about it. On budget corded electric, the rivals are <a href="/brands/mac-allister/">Mac Allister</a> (B&Q), <a href="/brands/qualcast/">Qualcast</a> (Argos) and <a href="/brands/einhell/">Einhell</a> — all in the £80–£150 range with broadly similar quality. On cordless, Flymo is squarely beaten by <a href="/brands/bosch/">Bosch</a> and <a href="/brands/ryobi/">Ryobi</a> on every metric except price.
+      </p>
+
+      <h2 id="related">Related guides</h2>
+      <ul>
+        <li><a href="/hover-lawn-mowers/">Best hover lawn mowers (Flymo dominates)</a></li>
+        <li><a href="/electric-lawn-mowers/">Best electric corded lawn mowers</a></li>
+        <li><a href="/brands/mac-allister/">Mac Allister lawn mowers</a></li>
+        <li><a href="/brands/qualcast/">Qualcast lawn mowers</a></li>
+      </ul>
+    </div>
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

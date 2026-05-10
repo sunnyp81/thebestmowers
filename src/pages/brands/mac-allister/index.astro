@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import PickCard from '../../../components/PickCard.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../../lib/schema';
+
+const title = 'Mac Allister Lawn Mowers UK — B&Q\'s House Brand Reviewed';
+const description = 'Independent reviews of Mac Allister lawn mowers — B&Q\'s house brand. Cordless and electric mowers that punch above their price tag. Who they\'re for.';
+const path = '/brands/mac-allister/';
+const datePublished = '2026-05-10';
+
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Brands', url: '/brands/' }, { name: 'Mac Allister', url: path }];
+
+const picks = [
+  { rank: 1, name: 'Mac Allister MLMP1500S', brand: 'Mac Allister', bestFor: 'cheapest reliable corded electric', rating: 4.0, rrp: '£75', reviewUrl: '/reviews/mac-allister-mlmp1500s/', pros: ['Under £80 from B&Q', '34 cm deck', 'Click-and-collect at thousands of stores'], cons: ['Plastic deck and handle', 'No mulching plug'], verdict: 'When budget is hard-capped at £100 and the lawn is small, the Mac Allister works. Two-year B&Q warranty, parts via Kingfisher\'s supply chain, surprisingly decent for the price.' },
+];
+
+const faqs = [
+  { q: 'Are Mac Allister lawn mowers any good?', a: 'For sub-£100 corded electric mowers on a small lawn, surprisingly yes. Mac Allister is B&Q\'s house brand (owned by Kingfisher plc, the same parent that owns Castorama and Brico Dépôt). The mowers are sourced from various Far East factories with a B&Q-specified spec. Build quality is honest budget — better than no-name supermarket brands, not as refined as Bosch or Flymo.' },
+  { q: 'Where can I buy Mac Allister mowers?', a: 'B&Q only — high-street stores and bnq.co.uk. They\'re not stocked by other retailers. Click-and-collect to over a thousand UK B&Q stores makes returns easy if the mower has a problem.' },
+  { q: 'Is Mac Allister the same as Bosch or Flymo?', a: 'No. Mac Allister is a B&Q-exclusive brand using its own factories. The mowers are not rebadged Bosches or Flymos. They\'re cheaper and built to a budget price point.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+  itemListSchema({ name: 'Best Mac Allister lawn mowers 2026', url: path, items: picks.map((p, i) => ({ position: i+1, name: p.name, url: p.reviewUrl })) }),
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Brand guide · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Mac Allister Lawn Mowers</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Mac Allister is the B&Q house brand — Kingfisher plc\'s answer to "we need a mower for £69". Sounds budget, is budget, and yet the corded electric mowers are honestly fine for small UK lawns. Two-year warranty backed by B&Q\'s national returns network. Click-and-collect across a thousand stores. Not a step up from Bosch or Flymo, but a step up from no-name Amazon brands. Worth knowing about if budget rules.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2 id="best">Best Mac Allister lawn mowers</h2>
+      <div class="space-y-6 mt-6">{picks.map((p) => <PickCard {...p} />)}</div>
+
+      <h2 id="related">Related guides</h2>
+      <ul>
+        <li><a href="/electric-lawn-mowers/">Best electric corded lawn mowers</a></li>
+        <li><a href="/brands/flymo/">Flymo lawn mowers (similar tier)</a></li>
+        <li><a href="/brands/qualcast/">Qualcast lawn mowers (Argos equivalent)</a></li>
+      </ul>
+    </div>
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

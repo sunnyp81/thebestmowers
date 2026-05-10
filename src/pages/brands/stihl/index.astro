@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import PickCard from '../../../components/PickCard.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../../lib/schema';
+
+const title = 'Stihl Lawn Mowers UK — Petrol & Cordless Range Reviewed';
+const description = 'Independent reviews of Stihl lawn mowers. Trade-grade petrol mowers, AK and AP cordless platforms, and where Stihl fits vs Husqvarna in 2026.';
+const path = '/brands/stihl/';
+const datePublished = '2026-05-10';
+
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Brands', url: '/brands/' }, { name: 'Stihl', url: path }];
+
+const picks = [
+  { rank: 1, name: 'Stihl RM 248', brand: 'Stihl', bestFor: 'premium petrol push', rating: 4.6, rrp: '£549', reviewUrl: '/reviews/stihl-rm-248/', pros: ['Stihl-built EVC engine', 'Single-lever cut height', 'Best UK petrol-mower dealer network'], cons: ['Push only — no self-propelled', 'Premium for a 46 cm push mower'], verdict: 'A petrol push mower built like trade gear. Stihl after-sales is the strongest in the UK petrol category — every reasonable-sized town has a Stihl dealer with parts in stock.' },
+  { rank: 2, name: 'Stihl RMA 339 C', brand: 'Stihl', bestFor: 'cordless on AK platform', rating: 4.5, rrp: '£399', reviewUrl: '/reviews/stihl-rma-339-c/', pros: ['Stihl AK shared battery system', '37 cm deck, brushless motor', 'Comfort-grade ergonomics'], cons: ['Battery sold separately on most retailers', 'Smaller battery range than Bosch/Ryobi'], verdict: 'Stihl\'s consumer cordless mower on the AK battery platform — same battery as the AK hedge trimmer, blower and chainsaw. Not the best mower at the price (Bosch wins) but the best build quality at the price.' },
+  { rank: 3, name: 'Stihl RMA 765 V', brand: 'Stihl', bestFor: 'professional cordless on AP', rating: 4.7, rrp: '£999', reviewUrl: '/reviews/stihl-rma-765-v/', pros: ['Stihl AP commercial battery platform', '63 cm deck, self-propelled', 'Built for sustained heavy use'], cons: ['Pricey for domestic use', 'AP batteries are commercial-priced'], verdict: 'A commercial-grade cordless mower on the Stihl AP battery system used by professional landscapers. For a serious lawn (1,000 m²+) where you want trade reliability without petrol maintenance, this is the answer.' },
+];
+
+const faqs = [
+  { q: 'Are Stihl lawn mowers worth the premium?', a: 'For petrol push mowers and trade-grade cordless, yes — Stihl build quality is genuinely a step up from mainstream brands and the dealer network is unmatched in the UK. For consumer-grade cordless on small lawns, the price premium over Bosch or Ryobi is harder to justify unless you\'re building a Stihl tool ecosystem.' },
+  { q: 'What is the difference between Stihl AK and AP batteries?', a: 'AK is the consumer/homeowner platform — smaller batteries (1.4–4.0 Ah), lower current, lighter tools. AP is the professional/commercial platform — larger batteries (4.0–9.4 Ah), higher sustained current, designed for daily 8-hour landscaping use. Tools are not cross-compatible between the two systems.' },
+  { q: 'Are Stihl mowers made in Germany?', a: 'Yes — Stihl is a privately-owned German company (founded 1926) with production in Germany, Austria, Switzerland and the United States. Most Stihl mowers sold in the UK are German-made. The company famously refuses to sell through DIY mass-market channels — you buy through specialist Stihl dealers, which is why the dealer network is so strong.' },
+  { q: 'Stihl vs Husqvarna — which is better?', a: 'Honestly, they\'re neck-and-neck on quality. Stihl tends to lead on petrol push mowers and chainsaws; Husqvarna leads on robot mowers and ride-ons. On cordless, both have solid platforms with different battery systems. Pick whichever has the closer dealer.' },
+  { q: 'Why don\'t supermarkets and DIY stores sell Stihl?', a: 'Stihl chose decades ago not to distribute through mass-market retailers. The reasoning: dealer-only sales mean parts are always available, advice is genuine, and the brand stays premium. The downside: you can\'t bulk-buy a Stihl from B&Q on a Saturday, you have to find a dealer.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+  itemListSchema({ name: 'Best Stihl lawn mowers 2026', url: path, items: picks.map((p, i) => ({ position: i+1, name: p.name, url: p.reviewUrl })) }),
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Brand guide · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Stihl Lawn Mowers</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Stihl is the brand that local landscapers swear by — and it\'s not a coincidence. Privately-owned German company since 1926, dealer-only sales (you won\'t find one at B&Q), built like proper trade tools. The mowers are excellent, particularly the petrol push range and the AP-platform cordless. The catch: you pay a premium for the build, and there are no Stihl mowers under £400. Worth knowing before you start shopping.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2 id="best">Best Stihl lawn mowers</h2>
+      <div class="space-y-6 mt-6">{picks.map((p) => <PickCard {...p} />)}</div>
+
+      <h2 id="range">The Stihl range explained</h2>
+      <p>
+        Stihl runs three lawn mower ranges. <strong>RM</strong> — petrol mowers (RM 2.0, RM 248, RM 545 etc., the number is the deck width-ish). <strong>RMA</strong> — battery-cordless mowers on either AK (consumer) or AP (commercial) batteries. <strong>iMOW</strong> — robot mowers, less mature than Husqvarna Automower but improving. There\'s no Stihl ride-on, no electric corded, no hover. Stihl is choosy about what it makes.
+      </p>
+
+      <h2 id="vs-rivals">Where Stihl fits vs rivals</h2>
+      <p>
+        <a href="/brands/husqvarna/">Husqvarna</a> is the obvious cross-shop. Both are premium dealer-network brands, both Scandinavian-feeling, both expensive. Husqvarna has the edge on robots and ride-ons; Stihl edges petrol push mowers. <a href="/brands/makita/">Makita</a> is the trade-grade cordless rival — broadly equivalent quality, slightly different battery philosophy. For a domestic UK garden, the question is usually "Stihl petrol vs Honda petrol" or "Stihl cordless vs Bosch cordless" — and the answer depends on whether you value dealer support over price.
+      </p>
+
+      <h2 id="related">Related guides</h2>
+      <ul>
+        <li><a href="/petrol-lawn-mowers/">Best petrol lawn mowers</a></li>
+        <li><a href="/cordless-lawn-mowers/">Best cordless lawn mowers</a></li>
+        <li><a href="/brands/husqvarna/">Husqvarna lawn mowers</a></li>
+        <li><a href="/brands/makita/">Makita lawn mowers</a></li>
+      </ul>
+    </div>
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>
