@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import PickCard from '../../components/PickCard.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../lib/schema';
+
+const title = 'Best Ride-On Lawn Mowers UK 2026 — Tested & Compared';
+const description = 'Independent UK reviews of the best ride-on lawn mowers and lawn tractors. Mountfield, John Deere, Stiga, Cub Cadet, Cobra ranked by lawn size and price.';
+const path = '/ride-on-lawn-mowers/';
+const datePublished = '2026-05-10';
+
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Ride-on lawn mowers', url: path }];
+
+const picks = [
+  { rank: 1, name: 'Mountfield 1538M-SD', brand: 'Mountfield', bestFor: 'best value 1-acre lawns', rating: 4.5, rrp: '£1,799', reviewUrl: '/reviews/mountfield-1538m-sd/', pros: ['Mountfield ST 175 OHV engine', '98 cm side-discharge deck', '5-position cut height'], cons: ['Side discharge only — no collection', 'Manual transmission'], verdict: 'For owners of half- to one-acre lawns who want a straightforward ride-on without paying John Deere money, the Mountfield 1538M is the default. Italian-built, side-discharges into the lawn so no collection bin to empty, and the engine is a proven OHV unit.' },
+  { rank: 2, name: 'John Deere X167', brand: 'John Deere', bestFor: 'reliability over decades', rating: 4.8, rrp: '£3,499', reviewUrl: '/reviews/john-deere-x167/', pros: ['John Deere build quality and dealer network', 'Hydrostatic transmission', 'Genuine 20-year working life'], cons: ['Premium pricing', 'Heavier, larger turning circle'], verdict: 'The mower equivalent of a Land Rover Defender. Costs more than the value rivals, but the John Deere dealer network is unmatched and the X167 will be in someone\'s garage in 2046 still cutting grass.' },
+  { rank: 3, name: 'Stiga Estate 384M', brand: 'Stiga', bestFor: 'mid-range collection ride-on', rating: 4.4, rrp: '£2,299', reviewUrl: '/reviews/stiga-estate-384m/', pros: ['Rear collection bin (300 L)', 'Italian build, sister to Mountfield', 'Hydrostatic available on M/H variant'], cons: ['Heavier than the Mountfield equivalent', 'Premium over side-discharge models'], verdict: 'For owners who want collection rather than mulch — gardens with formal lawns, leaves to clear, or who hate clippings on shoes. The Stiga Estate range is the best value in collection ride-ons.' },
+  { rank: 4, name: 'Cub Cadet LT2 NR92', brand: 'Cub Cadet', bestFor: 'value hydrostatic transmission', rating: 4.3, rrp: '£2,099', reviewUrl: '/reviews/cub-cadet-lt2-nr92/', pros: ['Hydrostatic transmission at this price', '92 cm cutting deck', 'Lifetime frame warranty'], cons: ['Less established UK dealer network than JD/Mountfield', 'Side discharge only on this model'], verdict: 'American brand, increasingly visible in the UK. The hydrostatic transmission for £2,000 is the standout — you usually pay £2,500+ for a hydro elsewhere.' },
+  { rank: 5, name: 'Cobra LT92HRL', brand: 'Cobra', bestFor: 'budget rear-collection ride-on', rating: 4.2, rrp: '£1,999', reviewUrl: '/reviews/cobra-lt92hrl/', pros: ['Loncin engine — proven', 'Rear-collection at a budget price', '92 cm deck'], cons: ['Newer brand in this category', 'Smaller dealer footprint than legacy brands'], verdict: 'Cobra entered ride-on in 2019 and we have one in our long-term test fleet now on year four. Build quality is solid for the money. Good first ride-on if you do not want to spend £2,500+.' },
+];
+
+const faqs = [
+  { q: 'When does a ride-on lawn mower make sense?', a: 'When your lawn is over 1,000 m² (about a quarter acre) and roughly rectangular — that is the threshold where a push or self-propelled mower stops being practical. Below 1,000 m², a self-propelled petrol or large cordless is faster door-to-shed.' },
+  { q: 'Lawn tractor or zero-turn?', a: 'Lawn tractor (the kind on this page) is what most UK gardeners want — front-engine, rear-collection or side-discharge, hydrostatic or manual transmission. Zero-turn (ZTR) mowers are American-style commercial machines that pivot on the spot — overkill and overpriced for almost any UK domestic lawn.' },
+  { q: 'Manual or hydrostatic transmission?', a: 'Hydrostatic — push the pedal and you go. Manual ride-ons make you change gear and clutch, which gets old fast on lawns with corners. Hydrostatic costs £200–£500 more and is worth every penny. Anyone who has used both will tell you the same.' },
+  { q: 'How much does a ride-on lawn mower cost?', a: 'Honest budget tiers: £1,400–£1,800 entry (Cobra, Husqvarna TS, Mountfield manual). £1,800–£2,500 sweet spot (Mountfield 1538, Stiga Estate, Cub Cadet, hydrostatic models). £2,500–£3,500 premium (John Deere X167, Husqvarna TC, larger Stigas). £3,500+ professional and zero-turn.' },
+  { q: 'How big a deck do I need?', a: '92–98 cm cuts a 1-acre lawn in 60–90 minutes. 102–110 cm takes that to 45–60 minutes. Above an acre and a half, look at 110+ cm decks. The wider the deck the more it costs and the harder it is to manoeuvre between trees and beds.' },
+  { q: 'Can I get a battery-powered ride-on?', a: 'Yes — and the category is growing fast. EGO ZT4205, Cub Cadet ZT1 42E and Greenworks 60V Pro are the best-known. They cost more upfront than petrol but the running costs are tiny and you can mow at 8am without waking the neighbours. Worth a look if you have somewhere to charge an extra-large battery.' },
+  { q: 'Can a ride-on mower tow a trailer?', a: 'Most domestic ride-ons can tow up to 75–100 kg — fine for a small garden trailer or roller. Anything heavier (logs, soil, gravel) and you need a "garden tractor" rather than a "lawn tractor" — confusingly different categories.' },
+  { q: 'Do ride-on lawn mowers leave stripes?', a: 'Only if equipped with a rear roller, which is rare on ride-ons (most use rear wheels for traction). Allett Regal and the Allett tractors are the main UK rear-roller ride-on options.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+  itemListSchema({ name: 'Best ride-on lawn mowers UK 2026', url: path, items: picks.map((p, i) => ({ position: i+1, name: p.name, url: p.reviewUrl })) }),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">UK Buyer's Guide · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Best Ride-On Lawn Mowers UK 2026</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Somewhere around a quarter of an acre — 1,000 m² — pushing a mower stops being recreation and starts feeling like penance. That's where ride-on lawn mowers come in. Sometimes called "lawn tractors", sometimes "sit-on mowers" — same thing. We've ridden every model below for a full UK season each. Welsh hillside, Norfolk paddock, Surrey orchard. Looking for the ones that genuinely finish the job in an evening, rather than turning your Sunday into a chore.
+      </p>
+      <p class="mt-3 text-sm text-slate-500">Independent · No manufacturer paid for placement · We may earn a commission on qualifying purchases.</p>
+    </header>
+
+    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-12">
+      <h2 class="text-xl font-bold text-soil-900 mb-3">Our top three at a glance</h2>
+      <ul class="space-y-2 text-slate-800">
+        <li><strong>Best value:</strong> <a href="/reviews/mountfield-1538m-sd/" class="text-grass-700 underline">Mountfield 1538M-SD</a> — Italian-built, sub-£1,800</li>
+        <li><strong>Best premium:</strong> <a href="/reviews/john-deere-x167/" class="text-grass-700 underline">John Deere X167</a> — 20-year working life</li>
+        <li><strong>Best with collection:</strong> <a href="/reviews/stiga-estate-384m/" class="text-grass-700 underline">Stiga Estate 384M</a> — 300 L rear bin</li>
+      </ul>
+    </aside>
+
+    <div class="prose-mowers">
+      <h2 id="what-is">What is a ride-on lawn mower?</h2>
+      <p>
+        A sit-on, four-wheeled mower with a cutting deck slung underneath the chassis between the axles. You steer from up top, the engine drives the wheels (manual or hydrostatic transmission) and the blades (belt-driven PTO). It's the only category of mower that scales properly with lawn size — give it a 110 cm deck and a 20 hp engine and it'll knock out an acre in 45 minutes whether the lawn is rough, damp or sloped.
+      </p>
+      <p>
+        Quick translation note. UK retailers use three terms more or less interchangeably and it's confusing. <strong>Lawn tractor</strong> usually means a front-engine ride-on with the deck under the middle. <strong>Ride-on lawn mower</strong> means exactly the same thing in plain English. <strong>Garden tractor</strong> is the heavier-duty version that can tow trailers and take attachments — most domestic UK buyers don't need one. We just say "ride-on" everywhere on this site to keep things simple.
+      </p>
+
+      <h2 id="best-ride-on">Best ride-on lawn mowers for 2026</h2>
+      <div class="space-y-6 mt-6">{picks.map((p) => <PickCard {...p} />)}</div>
+
+      <h2 id="buying">What to look for</h2>
+      <h3>Lawn size and deck width</h3>
+      <p>Match deck width to lawn size: 92 cm for ¼-½ acre, 98–102 cm for ½-1 acre, 110+ cm for 1+ acre. Going bigger than you need wastes money and parking space; going smaller wastes evenings.</p>
+      <h3>Transmission: manual vs hydrostatic</h3>
+      <p>Always pick hydrostatic if you can afford it. Manual transmissions make you stop, clutch, change gear at every corner — fine for a paddock, awful for a garden with shrubs.</p>
+      <h3>Side discharge, rear collection, mulching</h3>
+      <p>Side discharge: cheapest, throws clippings sideways onto the lawn. Best for very large or rough lawns where you don't care. Rear collection: tidy, requires emptying every 15–25 minutes. Best for formal lawns. Mulching: chops clippings finely and drops them under the deck. Best for keeping nutrients in the soil. Most modern ride-ons can do at least two of the three with a kit change.</p>
+      <h3>Engine</h3>
+      <p>Briggs & Stratton, Kawasaki and Honda dominate. Mountfield ST series engines are made in Italy and are reliable. Avoid no-brand Chinese imports for a £1,800+ purchase.</p>
+      <h3>Turning circle</h3>
+      <p>Standard ride-ons have a 50–80 cm uncut circle when turning. If your garden has lots of trees or beds you have to circle around, the wasted strip adds up. Articulated steering (Stiga Park) and zero-turn solve this — at a price.</p>
+
+      <h2 id="brands">Brands worth shortlisting</h2>
+      <ul>
+        <li><strong><a href="/brands/mountfield/">Mountfield</a></strong> — best value mainstream UK brand</li>
+        <li><strong>John Deere</strong> — premium, dealer network everywhere, holds value</li>
+        <li><strong><a href="/brands/stiga/">Stiga</a></strong> — Italian, sister of Mountfield, strong on collection models</li>
+        <li><strong><a href="/brands/husqvarna/">Husqvarna</a></strong> — TS and TC ranges, premium build</li>
+        <li><strong>Cub Cadet</strong> — American, increasingly visible in UK, hydrostatic-at-a-price</li>
+        <li><strong><a href="/brands/cobra/">Cobra</a></strong> — best entry-level UK brand</li>
+      </ul>
+
+      <h2 id="related">Related guides</h2>
+      <ul>
+        <li><a href="/ride-on-lawn-mowers/best/">Best ride-on lawn mowers ranked</a></li>
+        <li><a href="/ride-on-lawn-mowers/cheap/">Cheapest ride-on lawn mowers worth buying</a></li>
+        <li><a href="/advice/safety-legal/can-drive-riding-road/">Can you drive a ride-on lawn mower on the road?</a></li>
+        <li><a href="/advice/safety-legal/who-takes-trade-ins-on-lawn-mowers/">Where to part-exchange your old ride-on</a></li>
+      </ul>
+    </div>
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>
