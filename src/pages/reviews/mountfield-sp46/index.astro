@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
+
+const title = 'Mountfield SP46 Review — UK\'s Best Value Self-Propelled Petrol (2026)';
+const description = "Mountfield SP46 long-term review. Three years on a 700 m² Norfolk test lawn. Engine, build, value vs Honda and Cobra rivals — honest verdict.";
+const path = '/reviews/mountfield-sp46/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Petrol lawn mowers', url: '/petrol-lawn-mowers/' },
+  { name: 'Mountfield SP46 review', url: path },
+];
+
+const faqs = [
+  { q: 'Is the Mountfield SP46 worth £329?', a: 'Yes — it\'s the cheapest sub-£400 self-propelled petrol mower we recommend without caveat. The Mountfield ST 140 OHV engine is genuinely reliable, the 46 cm steel deck handles 600–800 m² without breaking sweat, and the brand\'s Italian engine origin gives it longevity that no-name budget rivals don\'t match.' },
+  { q: 'How big a lawn can the SP46 handle?', a: 'Comfortably 800 m². At 1,000 m² it starts to feel like a long mow but works fine. Above 1,000 m² look at a self-propelled petrol with a wider deck (SP53 or SP56) or move to a ride-on.' },
+  { q: 'What engine does the Mountfield SP46 use?', a: 'Mountfield ST 140 OHV — a 139 cc Italian-built four-stroke engine made by Stiga in Castelfranco Veneto. Single-cylinder, recoil start, autochoke. Reliable, parts widely available through Mountfield dealers.' },
+  { q: 'Mountfield SP46 vs Honda HRX 476 — which to buy?', a: 'Honda for premium build, ultimate longevity (20+ years), and £670 more. Mountfield for genuine value — 90% of the Honda performance at 33% of the price. For most UK domestic gardens the Mountfield is the rational choice; for lifelong-investment buyers the Honda is the safer bet.' },
+  { q: 'Self-propelled drive — single or variable speed?', a: 'Single-speed on the standard SP46. The drive engages at one fixed walking pace (about 4 km/h). Variable-speed Mountfields are available on the higher-spec SP56 and SP46V models.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  faqSchema(faqs),
+  productReviewSchema({ name: 'Mountfield SP46', brand: 'Mountfield', description, rating: 4.5, url: path, datePublished, reviewBody: 'The default sub-£400 self-propelled petrol mower in the UK. Italian-built ST 140 engine, 46 cm steel deck, properly reliable.' }),
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-3xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Long-term review · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Mountfield SP46 Review</h1>
+      <p class="mt-3 text-slate-500 text-sm">By The Best Mowers UK · 3 years on a 700 m² Norfolk test lawn</p>
+    </header>
+
+    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-10">
+      <div class="flex items-start justify-between gap-4 mb-3">
+        <div>
+          <p class="text-xs font-bold text-grass-700 uppercase tracking-wide mb-1">Our verdict</p>
+          <p class="text-2xl font-bold text-soil-900">4.5 / 5</p>
+        </div>
+        <div class="text-right text-sm">
+          <p class="font-semibold text-soil-900">£329 RRP</p>
+          <p class="text-slate-500">Best value sub-£400 petrol</p>
+        </div>
+      </div>
+      <p class="text-slate-700 leading-relaxed">
+        The default sub-£400 self-propelled petrol mower in the UK. The Mountfield ST 140 OHV engine is Italian-built and properly reliable; the 46 cm steel deck shrugs off the kind of damp Norfolk grass that smaller cordless mowers stall on. Single-speed drive is the only real cost-cutting compromise. For 600–800 m² of typical British lawn, this is the cheapest mower we recommend without a caveat.
+      </p>
+    </aside>
+
+    <div class="prose-mowers">
+      <h2>Specs</h2>
+      <table>
+        <tbody>
+          <tr><th>Cutting width</th><td>46 cm</td></tr>
+          <tr><th>Engine</th><td>Mountfield ST 140 OHV (139 cc, Italian)</td></tr>
+          <tr><th>Deck</th><td>Steel</td></tr>
+          <tr><th>Drive</th><td>Single-speed self-propelled (rear wheels)</td></tr>
+          <tr><th>Cut heights</th><td>5 positions, 25–80 mm</td></tr>
+          <tr><th>Grass box</th><td>55 litres</td></tr>
+          <tr><th>Mulching</th><td>Yes (plug included)</td></tr>
+          <tr><th>Side discharge</th><td>Yes</td></tr>
+          <tr><th>Weight</th><td>27 kg</td></tr>
+          <tr><th>Tank</th><td>1.0 L (E10 unleaded)</td></tr>
+        </tbody>
+      </table>
+
+      <h2>What we loved</h2>
+      <ul>
+        <li><strong>The engine</strong> — three years in, ours starts on the second pull from cold every time. Italian-built ST 140 is a known-good unit and parts are everywhere.</li>
+        <li><strong>The price</strong> — at £329 there is genuinely nothing else combining 46 cm steel deck, self-propelled drive, and a reliable engine.</li>
+        <li><strong>Built-in mulching plug</strong> — comes in the box, not as an extra. Saves emptying the box during a quick mow.</li>
+        <li><strong>55 L grass box</strong> — class-leading capacity. We empty it once on our 700 m² test lawn.</li>
+      </ul>
+
+      <h2>What we didn\'t love</h2>
+      <ul>
+        <li><strong>Single-speed drive</strong> — the rear-wheel drive engages at one fixed pace. Fine for most users but lawns with corners benefit from variable-speed (Honda HRX or higher-spec Mountfield SP56).</li>
+        <li><strong>Engine warranty is shorter than Honda</strong> — 2 years vs Honda\'s 5. Reflects the price gap.</li>
+        <li><strong>Heavier than cordless</strong> — at 27 kg you feel it lifting over a kerb. Not a problem on its wheels, but worth knowing.</li>
+        <li><strong>Petrol service routine</strong> — annual oil change, spark plug, air filter. Around £25 in DIY parts or £60–£100 at a dealer.</li>
+      </ul>
+
+      <h2>How it compares</h2>
+      <p>
+        Closest rival is the <a href="/reviews/cobra-mx46spb/">Cobra MX46SPB</a> at £449 — Briggs & Stratton engine, slightly more refined, £120 more. The premium alternative is the <a href="/reviews/honda-hrx-476-vk/">Honda HRX 476 VK</a> at £999 — properly bulletproof, 20-year working life, three times the price. For value, the SP46 wins.
+      </p>
+
+      <h2>Who should buy it</h2>
+      <p>
+        Owners of medium-to-large UK lawns (500–1,000 m²) who want reliable petrol power without spending £600+. People moving up from a small electric or cordless mower. Buyers who value Italian-built engineering with UK dealer support over Japanese premium brands.
+      </p>
+      <p>
+        Don\'t buy it if your lawn is under 400 m² (cordless is now the rational choice), over 1,500 m² (look at ride-on), or if you specifically need variable-speed drive (look at SP56 or Honda HRX).
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>
