@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const title = 'Contact The Best Mowers — Get in Touch';
+const description = 'Contact The Best Mowers for review queries, corrections, press samples or advertising. Independent UK lawn mower reviews since 2015.';
+const path = '/contact/';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Contact', url: path },
+];
+
+const schema = [breadcrumbSchema(crumbs)];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-3xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+    <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight mb-6">Contact Us</h1>
+    <div class="prose-mowers">
+      <p>Got a question about a review, spotted an error, or want to send a product for testing? We'd love to hear from you.</p>
+      <p>Email: <a href="mailto:hello@thebestmowers.co.uk">hello@thebestmowers.co.uk</a></p>
+      <h2>Press & review samples</h2>
+      <p>We accept mowers for independent testing. We don't guarantee positive coverage — our reviews reflect real-world performance on UK lawns. Send details of the product and we'll let you know if it fits our testing schedule.</p>
+      <h2>Corrections</h2>
+      <p>If you spot a factual error, outdated price or broken link, please let us know. We aim to fix corrections within 24 hours.</p>
+      <h2>Advertising</h2>
+      <p>We don't accept sponsored reviews or paid placements. We earn through affiliate commissions on qualifying purchases — disclosed on every page.</p>
+    </div>
+  </article>
+</BaseLayout>

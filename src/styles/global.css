@@ -19,6 +19,7 @@
 }
 
 html { scroll-behavior: smooth; }
+:focus-visible { outline: 2px solid var(--color-grass-600); outline-offset: 2px; }
 
 body {
   font-family: var(--font-sans);
@@ -33,7 +34,8 @@ body {
 .prose-mowers ul { @apply list-disc pl-6 mb-4 text-slate-700 space-y-1; }
 .prose-mowers ol { @apply list-decimal pl-6 mb-4 text-slate-700 space-y-1; }
 .prose-mowers a  { @apply text-grass-700 underline underline-offset-2 hover:text-grass-900; }
-.prose-mowers table { @apply w-full text-sm border-collapse my-6; }
+.prose-mowers table { @apply w-full text-sm border-collapse my-6; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+@media (min-width: 768px) { .prose-mowers table { display: table; overflow-x: visible; } }
 .prose-mowers th { @apply text-left px-3 py-2 bg-grass-50 border border-slate-200 font-semibold; }
 .prose-mowers td { @apply px-3 py-2 border border-slate-200 align-top; }
 .prose-mowers blockquote { @apply border-l-4 border-grass-400 bg-grass-50 rounded-r-lg px-5 py-4 my-6 italic text-slate-700; }

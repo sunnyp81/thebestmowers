@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const title = 'Affiliate Disclosure — The Best Mowers';
+const description = 'How The Best Mowers earns money. Full transparency on affiliate links, review independence and editorial policy.';
+const path = '/affiliate-disclosure/';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Affiliate disclosure', url: path },
+];
+
+const schema = [breadcrumbSchema(crumbs)];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-3xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+    <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight mb-6">Affiliate Disclosure</h1>
+    <div class="prose-mowers">
+      <p>The Best Mowers is reader-supported. When you buy through links on our site, we may earn an affiliate commission at no extra cost to you.</p>
+      <h2>How it works</h2>
+      <p>We link to retailers like Amazon UK, Screwfix, and Toolstation. If you click a link and make a purchase, we receive a small percentage of the sale. This is standard affiliate marketing and is how most independent review sites fund their work.</p>
+      <h2>Does this affect our reviews?</h2>
+      <p>No. Our reviews are based on real-world testing on UK lawns. We don't accept payment for positive reviews, and manufacturers cannot influence our ratings or recommendations. If a product is poor, we say so — regardless of affiliate potential.</p>
+      <h2>Which programmes do we use?</h2>
+      <ul>
+        <li>Amazon Associates</li>
+        <li>Screwfix affiliate programme</li>
+        <li>Toolstation affiliate programme</li>
+      </ul>
+      <h2>Editorial independence</h2>
+      <p>We buy most products ourselves or accept loan units for testing. Loan units are returned after testing. We never accept editorial oversight from manufacturers or retailers.</p>
+    </div>
+  </article>
+</BaseLayout>

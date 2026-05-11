@@ -1,6 +1,7 @@
 ---
 import { POWER_TYPE_HUBS } from '../lib/site';
 ---
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-grass-700 focus:text-white focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
 <header class="border-b border-slate-200 bg-white sticky top-0 z-30">
   <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-6">
     <a href="/" class="flex items-center gap-2 text-grass-800 font-bold text-xl">
@@ -18,5 +19,29 @@ import { POWER_TYPE_HUBS } from '../lib/site';
       <a href="/advice/" class="text-slate-700 hover:text-grass-700">Advice</a>
       <a href="/best-lawn-mowers/" class="bg-grass-700 hover:bg-grass-800 text-white px-3 py-1.5 rounded-md">Best of {new Date().getFullYear()}</a>
     </nav>
+    <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2 text-slate-700" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
   </div>
+  <nav id="mobile-menu" class="md:hidden hidden border-t border-slate-200 bg-white px-4 py-4" aria-label="Mobile navigation">
+    <ul class="space-y-1 text-sm font-medium">
+      {POWER_TYPE_HUBS.map((h) => (
+        <li><a href={`/${h.slug}/`} class="block py-2 px-2 rounded text-slate-700 hover:bg-grass-50 hover:text-grass-700">{h.label} mowers</a></li>
+      ))}
+      <li class="border-t border-slate-100 mt-2 pt-2"><a href="/brands/" class="block py-2 px-2 rounded text-slate-700 hover:bg-grass-50 hover:text-grass-700">Brands</a></li>
+      <li><a href="/advice/" class="block py-2 px-2 rounded text-slate-700 hover:bg-grass-50 hover:text-grass-700">Advice</a></li>
+      <li class="mt-2"><a href="/best-lawn-mowers/" class="block text-center bg-grass-700 hover:bg-grass-800 text-white px-3 py-2.5 rounded-md">Best of {new Date().getFullYear()}</a></li>
+    </ul>
+  </nav>
 </header>
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', String(open));
+    btn.innerHTML = open
+      ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>'
+      : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
+  });
+</script>
