@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+
+const title = 'Lawn Mower Safety & UK Legal Guide 2026';
+const description = 'Essential safety tips and UK legal information for lawn mower owners. Covers noise rules, PPE, storage, children and ride-on road use.';
+const path = '/advice/safety-legal/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Advice', url: '/advice/' },
+  { name: 'Safety & legal', url: path },
+];
+
+const faqs = [
+  {
+    q: 'Can my neighbour complain about me mowing the lawn?',
+    a: 'Yes, under the Environmental Protection Act 1990 if the noise constitutes a statutory nuisance. In practice, most councils treat complaints case by case. Mowing between 8 AM and 8 PM on weekdays and 9 AM–6 PM on Sundays is generally considered reasonable. A cordless mower at 80 dB is far less likely to trigger complaints than a petrol mower at 95+ dB.',
+  },
+  {
+    q: 'Do I need to wear safety gear when mowing?',
+    a: 'Legally, no — PPE requirements apply to workplaces under the Health and Safety at Work Act 1974, not private gardens. Practically, steel-toe boots and eye protection are sensible, especially with petrol mowers. Ear protection is recommended for any mower above 85 dB used for more than 15 minutes.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Safety & Legal · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Mower Safety &amp; UK Legal Guide</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Mowers are the most common cause of garden injury in the UK. A few minutes of common sense keeps you and your neighbours safe — and legal.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>Basic safety rules</h2>
+      <ul>
+        <li>Never mow in flip-flops or bare feet — closed-toe shoes minimum, ideally steel-toe</li>
+        <li>Clear the lawn of stones, toys, sticks and dog mess before starting</li>
+        <li>Never put your hands near the blade while the mower is connected to power</li>
+        <li>Mow across slopes, not up and down (reduces the risk of the mower sliding into you)</li>
+        <li>Keep children and pets indoors while mowing</li>
+        <li>Don't refuel a petrol mower while the engine is hot</li>
+      </ul>
+
+      <h2>Noise regulations in the UK</h2>
+      <p>
+        There's no specific law banning mowing at particular times, but the Environmental Protection Act 1990 covers noise nuisance. Most local councils recommend: <strong>weekdays 8 AM–8 PM, Saturdays 9 AM–6 PM, Sundays and bank holidays 10 AM–6 PM.</strong> Cordless mowers (78–84 dB) are far less likely to cause issues than petrol (92–100 dB).
+      </p>
+
+      <h2>Children and mowers</h2>
+      <p>
+        The RoSPA recommends children under 12 should not operate any mower, and under-16s should not use ride-on mowers. Never carry a child on a ride-on mower — it's one of the most common causes of serious garden injury in the UK.
+      </p>
+
+      <h2>Storing fuel safely</h2>
+      <p>
+        Under the Petroleum (Consolidation) Regulations 2014, you can store up to 30 litres of petrol at home in suitable containers (metal or approved plastic). Keep it in a well-ventilated outbuilding, not in the house or an attached garage. Use a proper fuel can — not a random plastic bottle.
+      </p>
+
+      <h2>Related guides</h2>
+      <ul>
+        <li><a href="/advice/safety-legal/can-drive-riding-road/">Can you drive a ride-on mower on UK roads?</a></li>
+        <li><a href="/advice/safety-legal/who-takes-trade-ins-on-lawn-mowers/">Where to trade in old mowers</a></li>
+      </ul>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

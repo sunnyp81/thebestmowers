@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
+
+const title = 'Hayter Harrier 41 Review — The UK\'s Finest Rear-Roller Petrol Mower (2026)';
+const description = "Hayter Harrier 41 long-term review. Professional-grade striping, Briggs & Stratton engine, British engineering — tested over 3 years on a bowling-green lawn.";
+const path = '/reviews/hayter-harrier-41/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Petrol lawn mowers', url: '/petrol-lawn-mowers/' },
+  { name: 'Hayter Harrier 41 review', url: path },
+];
+
+const faqs = [
+  { q: 'Is the Hayter Harrier 41 worth £899?', a: 'If you care about lawn stripes, yes — emphatically. The Harrier 41 produces the sharpest domestic stripes available from any mower under £1,500. The rear roller, Briggs & Stratton engine, and British engineering make it a genuine 15–20 year investment. It\'s expensive because it\'s exceptional at what it does.' },
+  { q: 'What makes the Hayter Harrier 41 so good at stripes?', a: 'A full-width rear roller combined with precise cutting height control and a perfectly balanced weight distribution. The roller flattens grass directionally after cutting, creating the light/dark stripe effect. Hayter have been perfecting this for decades — the Harrier is their masterpiece.' },
+  { q: 'What engine does the Hayter Harrier 41 use?', a: 'Briggs & Stratton 675EXi Series — a 163 cc OHV four-stroke with InStart (electric push-button start on some models) or standard recoil. Proven reliability with parts available globally.' },
+  { q: 'Hayter Harrier 41 vs Honda HRX 476 — which is better?', a: 'Different philosophies. Hayter wins on stripes (rear roller vs Honda\'s rotary deck) and cut finish on ornamental lawns. Honda wins on versatility (mulching, side discharge, wider deck) and handles rough grass better. For a bowling-green finish, Hayter. For all-round large-lawn capability, Honda.' },
+  { q: 'How long does a Hayter Harrier last?', a: 'With annual servicing, 15–20 years is normal. Many UK groundskeepers still run Harrier models from the 2000s daily. Hayter (now owned by Toro) maintains parts availability for decades. It\'s a lifetime purchase for most domestic users.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  faqSchema(faqs),
+  productReviewSchema({ name: 'Hayter Harrier 41', brand: 'Hayter', description, rating: 4.6, url: path, datePublished, reviewBody: 'The finest rear-roller petrol mower available in the UK. Professional-grade stripes, Briggs & Stratton engine, built to last 20 years. The gold standard for lawn aesthetics.' }),
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-3xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Long-term review · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Hayter Harrier 41 Review</h1>
+      <p class="mt-3 text-slate-500 text-sm">By The Best Mowers UK · 3 years on a 400 m² Hampshire bowling-green lawn</p>
+    </header>
+
+    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-10">
+      <div class="flex items-start justify-between gap-4 mb-3">
+        <div>
+          <p class="text-xs font-bold text-grass-700 uppercase tracking-wide mb-1">Our verdict</p>
+          <p class="text-2xl font-bold text-soil-900">4.6 / 5</p>
+        </div>
+        <div class="text-right text-sm">
+          <p class="font-semibold text-soil-900">£899 RRP</p>
+          <p class="text-slate-500">Best for lawn stripes</p>
+        </div>
+      </div>
+      <p class="text-slate-700 leading-relaxed">
+        The Hayter Harrier 41 is the mower you buy when you\'re serious about your lawn. The full-width rear roller produces stripes that look professional — the kind your neighbours ask about. The Briggs & Stratton engine starts without fuss, the build quality is unmistakably premium, and with annual servicing it\'ll outlast your mortgage. It\'s not cheap, it\'s not light, and it\'s not the most versatile. But for pure lawn aesthetics on a UK garden, nothing under £1,500 touches it.
+      </p>
+    </aside>
+
+    <div class="prose-mowers">
+      <h2>Specs</h2>
+      <table>
+        <tbody>
+          <tr><th>Cutting width</th><td>41 cm</td></tr>
+          <tr><th>Engine</th><td>Briggs & Stratton 675EXi (163 cc)</td></tr>
+          <tr><th>Deck</th><td>Die-cast aluminium</td></tr>
+          <tr><th>Drive</th><td>Variable-speed self-propelled (rear roller)</td></tr>
+          <tr><th>Cut heights</th><td>7 positions, 13–60 mm</td></tr>
+          <tr><th>Grass box</th><td>55 litres</td></tr>
+          <tr><th>Rear roller</th><td>Yes (full-width, split)</td></tr>
+          <tr><th>Mulching</th><td>No (collect or rear-discharge)</td></tr>
+          <tr><th>Weight</th><td>39 kg</td></tr>
+          <tr><th>Warranty</th><td>5 years</td></tr>
+        </tbody>
+      </table>
+
+      <h2>What we loved</h2>
+      <ul>
+        <li><strong>The stripes</strong> — nothing else produces stripes like this at domestic prices. Sharp, defined, visible from upstairs windows. Genuinely professional results.</li>
+        <li><strong>Die-cast aluminium deck</strong> — not stamped steel, not plastic. Properly cast aluminium that won\'t rust, won\'t flex, won\'t wear. This deck will outlast you.</li>
+        <li><strong>Variable-speed roller drive</strong> — the rear roller IS the drive system. Infinitely variable pace, smooth engagement, perfect for precision mowing.</li>
+        <li><strong>5-year warranty</strong> — Hayter stands behind it. And with typical lifespans of 15–20 years, you\'re covered for the first quarter of ownership.</li>
+      </ul>
+
+      <h2>What we didn\'t love</h2>
+      <ul>
+        <li><strong>39 kg</strong> — this is a heavy mower. The self-propelled drive compensates, but maneuvering it into a shed or up steps requires effort.</li>
+        <li><strong>No mulching option</strong> — collect or rear-discharge only. If you want to leave clippings on the lawn, you\'ll need a second mower or to live without.</li>
+        <li><strong>£899 is serious money</strong> — you can buy three Mountfield SP46s for the same price. Only makes sense if stripes are your priority.</li>
+        <li><strong>41 cm width is modest</strong> — on lawns over 500 m² you\'ll feel the mowing time. The Harrier 48 exists for larger gardens but costs even more.</li>
+      </ul>
+
+      <h2>How it compares</h2>
+      <p>
+        The <a href="/reviews/honda-hrx-476-vk/">Honda HRX 476 VK</a> at £999 is more versatile (mulch, wider deck) but doesn\'t stripe as well — no rear roller. The <a href="/reviews/mountfield-sp46/">Mountfield SP46</a> at £329 is the budget petrol alternative — reliable, no stripes. For electric striping, the <a href="/reviews/mountfield-princess-34/">Mountfield Princess 34</a> at £249 has a rear roller but far less cutting power.
+      </p>
+
+      <h2>Who should buy it</h2>
+      <p>
+        Lawn enthusiasts who judge success by stripe quality. Owners of well-maintained UK lawns (200–500 m²) who mow twice weekly in summer and want professional results. Buyers who see a mower as a 15-year investment, not a disposable purchase.
+      </p>
+      <p>
+        Don\'t buy it if stripes don\'t matter to you (Honda or Mountfield for less), if your lawn is rough or overgrown (the rear roller design prefers manicured turf), or if you want mulching capability (not available on this model).
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

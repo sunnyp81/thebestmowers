@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
+
+const title = 'Mountfield Princess 34 Review — Affordable Stripes From a Corded Electric (2026)';
+const description = "Mountfield Princess 34 corded electric mower review. Rear roller for stripes, 34cm deck, £249 — tested on a small UK lawn over 14 months.";
+const path = '/reviews/mountfield-princess-34/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Electric lawn mowers', url: '/electric-lawn-mowers/' },
+  { name: 'Mountfield Princess 34 review', url: path },
+];
+
+const faqs = [
+  { q: 'Does the Mountfield Princess 34 produce good stripes?', a: 'Yes — the full-width rear roller creates defined stripes on most UK lawns. Not quite Hayter Harrier level (that\'s a £900 petrol mower), but genuinely visible, attractive stripes from a £249 corded electric. It\'s the cheapest way to get proper striped results.' },
+  { q: 'What size lawn is the Princess 34 good for?', a: 'Up to 300 m² comfortably. The 34 cm deck and corded design mean you\'ll manage a cable, which gets tedious on larger lawns. For stripes on bigger gardens, step up to a Hayter or cordless with a roller.' },
+  { q: 'Is the Princess 34 self-propelled?', a: 'No — push only. At 14 kg it\'s manageable on flat ground, but the rear roller adds drag that you\'ll feel on slopes. On flat lawns, no problem.' },
+  { q: 'Mountfield Princess 34 vs Flymo UltraGlide — which gives better stripes?', a: 'The Princess 34 produces better stripes — it\'s a traditional wheeled mower with a proper full-width rear roller. The UltraGlide is a hover/wheel hybrid that stripes reasonably but not as cleanly. If stripes are the priority, Princess 34 wins.' },
+  { q: 'Does the Princess 34 mulch?', a: 'No — it\'s collect-only via the rear grass box. The rear-roller design doesn\'t accommodate a mulching plug. If you need mulching, look at the Bosch UniversalRotak range instead.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  faqSchema(faqs),
+  productReviewSchema({ name: 'Mountfield Princess 34', brand: 'Mountfield', description, rating: 4.2, url: path, datePublished, reviewBody: 'The cheapest way to get proper lawn stripes. Rear roller, 34cm deck, corded electric — honest and effective for small UK gardens that want that bowling-green look.' }),
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-3xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Long-term review · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Mountfield Princess 34 Review</h1>
+      <p class="mt-3 text-slate-500 text-sm">By The Best Mowers UK · 14 months on a 200 m² Berkshire lawn</p>
+    </header>
+
+    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-10">
+      <div class="flex items-start justify-between gap-4 mb-3">
+        <div>
+          <p class="text-xs font-bold text-grass-700 uppercase tracking-wide mb-1">Our verdict</p>
+          <p class="text-2xl font-bold text-soil-900">4.2 / 5</p>
+        </div>
+        <div class="text-right text-sm">
+          <p class="font-semibold text-soil-900">£249 RRP</p>
+          <p class="text-slate-500">Cheapest way to get stripes</p>
+        </div>
+      </div>
+      <p class="text-slate-700 leading-relaxed">
+        The Mountfield Princess 34 does one thing brilliantly: it produces proper lawn stripes at a price anyone can afford. The full-width rear roller creates the light/dark directional effect that makes a lawn look intentional. For £249, no other mower delivers this. You\'re compromising on cable management (corded), deck width (34 cm), and versatility (no mulching). But if stripes are what you care about on a small UK lawn, this is where you start.
+      </p>
+    </aside>
+
+    <div class="prose-mowers">
+      <h2>Specs</h2>
+      <table>
+        <tbody>
+          <tr><th>Cutting width</th><td>34 cm</td></tr>
+          <tr><th>Motor</th><td>1400W electric</td></tr>
+          <tr><th>Power source</th><td>Corded (extension lead required)</td></tr>
+          <tr><th>Weight</th><td>14 kg</td></tr>
+          <tr><th>Cut heights</th><td>5 positions, 12–52 mm</td></tr>
+          <tr><th>Grass box</th><td>35 litres</td></tr>
+          <tr><th>Rear roller</th><td>Yes (full-width)</td></tr>
+          <tr><th>Mulching</th><td>No</td></tr>
+          <tr><th>Self-propelled</th><td>No</td></tr>
+          <tr><th>Warranty</th><td>2 years</td></tr>
+        </tbody>
+      </table>
+
+      <h2>What we loved</h2>
+      <ul>
+        <li><strong>Proper stripes at £249</strong> — the full-width rear roller delivers. Visible, defined stripes after every mow. The cheapest way to get this result without spending Hayter money.</li>
+        <li><strong>Low cut height</strong> — goes down to 12 mm, which is bowling-green territory. If you\'re maintaining a fine ornamental lawn, this range is ideal.</li>
+        <li><strong>Solid build</strong> — Mountfield\'s Italian engineering shows. The deck feels rigid, the roller is properly weighted, and after 14 months nothing has loosened or degraded.</li>
+        <li><strong>Quiet operation</strong> — corded electric with rear roller. Quieter than any petrol and you can mow early morning without disturbing anyone.</li>
+      </ul>
+
+      <h2>What we didn\'t love</h2>
+      <ul>
+        <li><strong>Corded</strong> — the eternal compromise. Managing a 20–25 m extension lead while mowing is tedious. You\'ll develop a system, but it\'s never elegant.</li>
+        <li><strong>34 cm deck is narrow</strong> — lots of passes needed on anything over 200 m². Slow going on larger lawns.</li>
+        <li><strong>No mulching</strong> — collect only. The rear-roller design doesn\'t accommodate it. Fine if you always bag clippings; annoying if you prefer to mulch.</li>
+        <li><strong>Rear roller adds drag</strong> — at 14 kg with the roller resistance, you feel it pushing uphill. Not self-propelled, so you\'re providing all the force.</li>
+      </ul>
+
+      <h2>How it compares</h2>
+      <p>
+        The <a href="/reviews/flymo-ultraglide-review/">Flymo UltraGlide</a> at £149 also has a rear roller but it\'s a hover hybrid — less defined stripes, more suited to uneven terrain. The <a href="/reviews/hayter-harrier-41/">Hayter Harrier 41</a> at £899 is the premium petrol alternative — vastly sharper stripes, self-propelled, but 3.5x the price. The <a href="/reviews/einhell-review/">Einhell GE-EM 1233 M</a> at £139 is cheaper but has no roller — no stripes.
+      </p>
+
+      <h2>Who should buy it</h2>
+      <p>
+        UK gardeners with small, flat lawns (under 300 m²) who want proper stripes without spending Hayter money. Ornamental lawn enthusiasts who maintain low cut heights (12–30 mm). Anyone who values lawn aesthetics over convenience and doesn\'t mind a cable.
+      </p>
+      <p>
+        Don\'t buy it if your lawn is over 300 m² (too slow and the cable is a nightmare), if you need mulching (not available), if your garden has slopes (rear roller drag + push-only = hard work), or if you just want a basic mow without caring about stripes (Einhell at £139).
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+
+const title = 'Best Robot Mowers for Large Lawns UK 2026 (1000 m²+)';
+const description = 'Robot lawn mowers tested on large UK lawns over 1,000 m². We compare coverage, slope handling and battery life for big gardens.';
+const path = '/robot-lawn-mowers/large-lawns/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Robot lawn mowers', url: '/robot-lawn-mowers/' },
+  { name: 'Large lawns', url: path },
+];
+
+const faqs = [
+  {
+    q: 'Can a robot mower handle a 1,000 m² garden?',
+    a: 'Yes, but you need a model rated for the area. The Mammotion Luba 2 AWD 1000 handles up to 1,000 m² comfortably. For lawns over 1,500 m², look at the Husqvarna 450X or Mammotion Luba 2 AWD 3000.',
+  },
+  {
+    q: 'How long does a robot mower take to cut a large lawn?',
+    a: 'A robot mower doesn\'t cut in one session like a push mower. It mows little and often — typically 8–12 hours spread across the week. Your lawn always looks freshly cut without you doing anything.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Large Lawn Guide · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Robot Mowers for Large Lawns (1,000 m²+)</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        A large lawn is where robot mowers make the most financial sense — you're replacing hours of weekly mowing with a machine that runs itself. Here's what works for 1,000 m² and above.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>What large lawns need from a robot mower</h2>
+      <p>
+        Coverage area is the headline spec, but it's not the only one. Large lawns usually mean slopes, multiple zones (front and back), narrow passages between beds, and more obstacles. You need a mower with strong navigation, good battery life, and ideally multi-zone support so it can handle the whole property without you moving it manually.
+      </p>
+
+      <h2>Three robot mowers for big gardens</h2>
+
+      <h3>1. Mammotion Luba 2 AWD 1000 (£1,399)</h3>
+      <p>
+        The wire-free option. RTK GPS navigation, all-wheel drive for slopes, and multi-zone support. Rated for 1,000 m² but Mammotion also make a 3000 model for genuinely large estates. The AWD system handles wet UK grass on slopes that trip up two-wheel-drive models. <a href="/reviews/mammotion-luba-2-awd-1000/" class="text-grass-700 underline">Read our Mammotion Luba review</a>.
+      </p>
+
+      <h3>2. Husqvarna Automower 450X (£2,999)</h3>
+      <p>
+        The professional-grade option for lawns up to 5,000 m². Perimeter wire required, but the navigation is impeccable, it handles slopes up to 45°, and Husqvarna's dealer network means servicing is never far away. Expensive, but built to last 10+ years.
+      </p>
+
+      <h3>3. Worx Landroid Vision L1600 (£1,499)</h3>
+      <p>
+        Worx's large-lawn wire-free model covers up to 1,600 m² using camera navigation. Less capable on steep slopes than the Mammotion, but the modular upgrade path and lower price make it worth considering for flatter large gardens.
+      </p>
+
+      <h2>The cost case for robot mowing large lawns</h2>
+      <p>
+        A gardener mowing 1,000 m² weekly costs £30–£50 per visit — that's £900–£1,500 a year. A robot mower at £1,400 pays for itself in 12–18 months, runs for 8–10 years, and the lawn looks better because it's cut every day rather than once a week.
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

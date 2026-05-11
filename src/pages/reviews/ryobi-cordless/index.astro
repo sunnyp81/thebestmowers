@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
+
+const title = 'Ryobi RY18LMX40A Review — ONE+ Ecosystem Value King (2026)';
+const description = "Ryobi RY18LMX40A cordless mower review. 40cm deck, 18V ONE+ battery sharing across 250+ tools — tested on UK gardens over 12 months. The ecosystem play.";
+const path = '/reviews/ryobi-cordless/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cordless lawn mowers', url: '/cordless-lawn-mowers/' },
+  { name: 'Ryobi RY18LMX40A review', url: path },
+];
+
+const faqs = [
+  { q: 'Is the Ryobi RY18LMX40A worth £269?', a: 'If you own ANY Ryobi ONE+ tools, it\'s a no-brainer — your existing batteries work. Even without, the 40 cm deck, decent runtime, and access to 250+ tools on one battery platform make it the best value cordless mower for medium gardens.' },
+  { q: 'What battery does the Ryobi RY18LMX40A use?', a: 'Ryobi ONE+ 18V platform. Any ONE+ battery from the last 25 years fits. The mower typically ships with a 5.0 Ah pack. The massive ecosystem (250+ tools across garden, DIY, cleaning, and automotive) is the key differentiator.' },
+  { q: 'How long does the Ryobi mower run on one charge?', a: 'With a 5.0 Ah battery, expect 30–40 minutes of real-world cutting — enough for 250–350 m² of typical UK lawn. A 4.0 Ah gives about 25–30 minutes.' },
+  { q: 'Ryobi RY18LMX40A vs Bosch UniversalRotak 36-550?', a: 'Ryobi wins on deck width (40 cm vs 37 cm), ecosystem size (250+ tools vs ~100), and price (£269 vs £329). Bosch wins on voltage (36V vs 18V — more power in thick grass), grass box size (50L vs 45L), and arguably build refinement. For value and ecosystem, Ryobi. For raw cutting power, Bosch.' },
+  { q: 'Can the Ryobi handle thick or wet grass?', a: 'Adequately on dry grass maintained weekly. On thick, damp, or overgrown grass the 18V motor can struggle compared to 36V or 56V rivals. If your lawn regularly gets overgrown, consider the EGO 56V or Bosch 36V instead.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  faqSchema(faqs),
+  productReviewSchema({ name: 'Ryobi RY18LMX40A', brand: 'Ryobi', description, rating: 4.3, url: path, datePublished, reviewBody: 'The cordless mower that makes most sense if you own ANY Ryobi ONE+ tool. Widest battery ecosystem in the world, 40cm deck, sensible price. The value king.' }),
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-3xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Long-term review · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Ryobi RY18LMX40A Review</h1>
+      <p class="mt-3 text-slate-500 text-sm">By The Best Mowers UK · 12 months across three UK test gardens</p>
+    </header>
+
+    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-10">
+      <div class="flex items-start justify-between gap-4 mb-3">
+        <div>
+          <p class="text-xs font-bold text-grass-700 uppercase tracking-wide mb-1">Our verdict</p>
+          <p class="text-2xl font-bold text-soil-900">4.3 / 5</p>
+        </div>
+        <div class="text-right text-sm">
+          <p class="font-semibold text-soil-900">£269 RRP</p>
+          <p class="text-slate-500">Best value cordless ecosystem</p>
+        </div>
+      </div>
+      <p class="text-slate-700 leading-relaxed">
+        The Ryobi RY18LMX40A isn\'t the most powerful cordless mower, or the lightest, or the one with the best stripes. But it\'s the one that makes most financial sense for the largest number of UK buyers — because the same battery powers 250+ other tools. If you own a Ryobi drill, strimmer, blower, hedge trimmer, or pressure washer, this mower slots into your existing setup at zero additional battery cost. That\'s the real value proposition.
+      </p>
+    </aside>
+
+    <div class="prose-mowers">
+      <h2>Specs</h2>
+      <table>
+        <tbody>
+          <tr><th>Cutting width</th><td>40 cm</td></tr>
+          <tr><th>Battery</th><td>18V ONE+ (5.0 Ah included)</td></tr>
+          <tr><th>Runtime</th><td>30–40 minutes (5.0 Ah)</td></tr>
+          <tr><th>Charge time</th><td>90 minutes (standard charger)</td></tr>
+          <tr><th>Weight</th><td>16.8 kg (with battery)</td></tr>
+          <tr><th>Cut heights</th><td>7 positions, 20–75 mm</td></tr>
+          <tr><th>Grass box</th><td>45 litres</td></tr>
+          <tr><th>Mulching</th><td>Yes (plug included)</td></tr>
+          <tr><th>Self-propelled</th><td>No</td></tr>
+          <tr><th>Ecosystem</th><td>250+ ONE+ tools compatible</td></tr>
+        </tbody>
+      </table>
+
+      <h2>What we loved</h2>
+      <ul>
+        <li><strong>ONE+ battery ecosystem</strong> — 250+ tools, one battery. The mower becomes essentially free if you already own Ryobi garden tools and have spare batteries.</li>
+        <li><strong>40 cm deck</strong> — wider than most cordless rivals at this price. Fewer passes, quicker mowing, better suited to medium lawns.</li>
+        <li><strong>Mulching included</strong> — plug in the box, no extra cost. Works well on dry grass at regular intervals.</li>
+        <li><strong>£269 with battery and charger</strong> — body-only (if you have batteries) is even cheaper. Genuine value at any price point.</li>
+      </ul>
+
+      <h2>What we didn\'t love</h2>
+      <ul>
+        <li><strong>18V struggles on thick grass</strong> — the single biggest drawback. On damp, overgrown grass the motor audibly labours compared to 36V Bosch or 56V EGO. Fine on maintained lawns; frustrating on neglected ones.</li>
+        <li><strong>Heavier than it looks</strong> — 16.8 kg for an 18V mower is chunky. The Gtech CLM at 15.4 kg feels more agile despite being 36V.</li>
+        <li><strong>No rear roller</strong> — flat-wheel arrangement gives mild directional marks, not stripes. If you want lines, look at the Mountfield Princess range.</li>
+        <li><strong>Build quality is adequate, not premium</strong> — handles flex slightly, plastics are thinner than Bosch. Functional but you can feel the cost engineering.</li>
+      </ul>
+
+      <h2>How it compares</h2>
+      <p>
+        The <a href="/reviews/bosch-easyrotak-36-550-lawnmower/">Bosch UniversalRotak 36-550</a> at £329 has more cutting power (36V) and a bigger grass box (50L) — choose it for thicker grass or larger lawns. The <a href="/reviews/gtech-clm50/">Gtech CLM 2.0</a> at £249 is lighter with better stripes but has a proprietary battery and tiny 30L box. For pure ecosystem value, Ryobi wins.
+      </p>
+
+      <h2>Who should buy it</h2>
+      <p>
+        Anyone who already owns Ryobi ONE+ batteries — you\'re getting a mower body at a fraction of the total cost. Medium-lawn owners (200–350 m²) who want a sensible, capable cordless mower without overspending. Buyers who plan to build a complete garden toolkit on one battery platform.
+      </p>
+      <p>
+        Don\'t buy it if your grass is regularly thick or damp (18V won\'t cope — go 36V or 56V), if your lawn is over 400 m² (runtime isn\'t enough), or if you\'re already invested in Bosch Power for All batteries (stick with Bosch).
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

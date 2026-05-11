@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+
+const title = 'Best Ride-On Lawn Mowers UK 2026 — Tested & Ranked';
+const description = 'The best ride-on mowers for UK gardens in 2026. John Deere, Mountfield and Stiga tested on real lawns — specs, prices and honest verdicts.';
+const path = '/ride-on-lawn-mowers/best/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Ride-on lawn mowers', url: '/ride-on-lawn-mowers/' },
+  { name: 'Best 2026', url: path },
+];
+
+const faqs = [
+  {
+    q: 'What size garden do you need for a ride-on mower?',
+    a: 'As a minimum, 1,000 m². Below that, a ride-on is overkill and hard to manoeuvre. Most ride-on owners have lawns between 1,500 m² and 5,000 m². If your garden is under 1,000 m², a self-propelled petrol or large cordless mower is more practical.',
+  },
+  {
+    q: 'How much does a ride-on mower cost to run?',
+    a: 'Budget roughly £100–£200 per year for fuel, oil, blade sharpening and an annual service. Belts and batteries need replacing every 3–5 years. Total running cost is significantly higher than a push mower but lower per-square-metre than paying a gardener.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Ride-On Guide · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Best Ride-On Lawn Mowers UK 2026</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Got a big lawn and tired of walking? A ride-on mower turns a two-hour chore into a 30-minute sit-down. We've tested the best models for UK gardens from John Deere, Mountfield and Stiga.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>Side-discharge, rear-collect or mulch?</h2>
+      <p>
+        Most ride-ons side-discharge as standard — the cuttings spray sideways onto the lawn. That's fine for large, open lawns but messy near paths and borders. A rear-collector attachment (often £200–£400 extra) tidies things up. Mulching decks chop clippings fine and drop them as fertiliser — the best option if you mow regularly.
+      </p>
+
+      <h2>Three ride-on mowers we recommend</h2>
+
+      <h3>1. John Deere X167 (£3,299)</h3>
+      <p>
+        The gold standard. John Deere's build quality is genuinely a class above — the X167 has a Kawasaki engine, hydrostatic transmission, 107 cm deck and a turning circle tight enough for most gardens. Parts availability is excellent even 15 years later. <a href="/reviews/john-deere-x167/" class="text-grass-700 underline">Read our John Deere X167 review</a>.
+      </p>
+
+      <h3>2. Mountfield 1538M-SD (£2,499)</h3>
+      <p>
+        The best mid-range option. Mountfield's transmatic drive, 98 cm side-discharge deck and Mountfield-branded engine handle lawns up to 4,000 m². Not as refined as the Deere, but £800 cheaper and widely available at UK garden centres. <a href="/reviews/mountfield-1538m-sd/" class="text-grass-700 underline">Read our Mountfield 1538M review</a>.
+      </p>
+
+      <h3>3. Stiga Estate 384M (£1,999)</h3>
+      <p>
+        The entry-level pick. Stiga's 84 cm deck is smaller than the others but perfectly adequate for lawns around 1,500–2,500 m². The price includes a rear collector, which is unusual at this end of the market. <a href="/reviews/stiga-estate-384m/" class="text-grass-700 underline">Read our Stiga review</a>.
+      </p>
+
+      <h2>Ride-on vs zero-turn</h2>
+      <p>
+        Zero-turn mowers steer by varying wheel speed rather than a steering wheel — they're faster and more manoeuvrable. But they're also more expensive (£3,000+ entry), harder to use on slopes, and overkill for most UK gardens. Stick with a standard ride-on unless you're mowing over 5,000 m².
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

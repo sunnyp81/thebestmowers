@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { articleSchema, breadcrumbSchema, itemListSchema } from '../../lib/schema';
+
+const title = 'Best Lawn Mowers UK 2026 — Every Type Tested & Ranked';
+const description = 'The best lawn mowers for UK gardens in 2026. Cordless, petrol, electric, robot, hover and ride-on — all tested independently on real lawns.';
+const path = '/best-lawn-mowers/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Best lawn mowers 2026', url: path },
+];
+
+const hubs = [
+  { position: 1, name: 'Best cordless lawn mowers', url: '/cordless-lawn-mowers/' },
+  { position: 2, name: 'Best petrol lawn mowers', url: '/petrol-lawn-mowers/' },
+  { position: 3, name: 'Best electric lawn mowers', url: '/electric-lawn-mowers/' },
+  { position: 4, name: 'Best robot lawn mowers', url: '/robot-lawn-mowers/' },
+  { position: 5, name: 'Best hover lawn mowers', url: '/hover-lawn-mowers/' },
+  { position: 6, name: 'Best ride-on lawn mowers', url: '/ride-on-lawn-mowers/' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  itemListSchema({ name: 'Best lawn mowers UK 2026 by type', url: path, items: hubs }),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Master Guide · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Best Lawn Mowers UK 2026</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Six types of mower, dozens of models, one question: which is right for your garden? We've tested them all across three UK gardens. Start here, then drill into the type that fits.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>Choose your mower type</h2>
+      <p>
+        The first and most important decision is power type. Get this right and the rest — brand, model, features — falls into place. Here's a quick guide, or jump straight to the full hub page for each type.
+      </p>
+
+      <h3><a href="/cordless-lawn-mowers/" class="text-grass-700 underline">Cordless lawn mowers</a></h3>
+      <p>
+        The default choice for most UK gardens under 600 m². Quiet, light, cheap to run, and the battery works across your other garden tools. Our top pick: the <a href="/reviews/gtech-clm50/" class="text-grass-700 underline">Gtech CLM 2.0</a>.
+      </p>
+
+      <h3><a href="/petrol-lawn-mowers/" class="text-grass-700 underline">Petrol lawn mowers</a></h3>
+      <p>
+        Still the best option for large gardens over 600 m², heavy wet grass, and anyone who wants maximum cutting power. Our top pick: the <a href="/reviews/honda-hrx-476-vk/" class="text-grass-700 underline">Honda HRX 476</a>.
+      </p>
+
+      <h3><a href="/electric-lawn-mowers/" class="text-grass-700 underline">Electric lawn mowers (corded)</a></h3>
+      <p>
+        The budget option for small gardens under 200 m² near a power socket. Cheapest to buy, lightest to carry, and perfectly capable on a front lawn. Just watch the cable.
+      </p>
+
+      <h3><a href="/robot-lawn-mowers/" class="text-grass-700 underline">Robot lawn mowers</a></h3>
+      <p>
+        Set it and forget it. Best for 200–1,000 m² lawns where you value your time more than £800. The lawn looks better from daily micro-cutting. Our top pick: the <a href="/reviews/husqvarna-automower-305/" class="text-grass-700 underline">Husqvarna 305</a>.
+      </p>
+
+      <h3><a href="/hover-lawn-mowers/" class="text-grass-700 underline">Hover lawn mowers</a></h3>
+      <p>
+        Light, manoeuvrable, and the only real option for banks and steep slopes. Not great for a flat lawn, but unbeatable on awkward terrain.
+      </p>
+
+      <h3><a href="/ride-on-lawn-mowers/" class="text-grass-700 underline">Ride-on lawn mowers</a></h3>
+      <p>
+        For lawns over 1,000 m². Turns a two-hour push into a 30-minute sit-down. Our top pick: the <a href="/reviews/john-deere-x167/" class="text-grass-700 underline">John Deere X167</a>.
+      </p>
+
+      <h2>Not sure which type? Use garden size</h2>
+      <p>
+        Our <a href="/advice/garden-size/" class="text-grass-700 underline">mower-by-garden-size guide</a> has a simple table matching your lawn area to the right mower type and budget. It's the quickest way to narrow down.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+
+const title = 'Lawn Mower Maintenance Guide — Keep Your Mower Running';
+const description = 'Essential lawn mower maintenance for UK owners. Covers cleaning, blade sharpening, oil changes, winter storage and seasonal checklists.';
+const path = '/advice/maintenance/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Advice', url: '/advice/' },
+  { name: 'Maintenance', url: path },
+];
+
+const faqs = [
+  {
+    q: 'How often should I service my lawn mower?',
+    a: 'Cordless: sharpen the blade once a year and clean the deck after every 3–4 mows. Petrol: full service (oil, spark plug, air filter, blade) once a year — ideally at the start of the mowing season in March.',
+  },
+  {
+    q: 'Can I jet wash my lawn mower?',
+    a: 'Avoid it. Pressure washers force water into bearings, electrics and the engine. Use a stiff brush and a garden hose on a gentle setting instead. Tip the mower on its side (air filter up on petrol models) and scrape dried grass off the deck with a paint scraper.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Maintenance Guide · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Lawn Mower Maintenance Guide</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        A well-maintained mower cuts better, lasts longer and costs less to run. Here's what to do and when — for both cordless and petrol.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>After every mow</h2>
+      <ul>
+        <li>Brush loose grass off the top of the deck and around the blade housing</li>
+        <li>Empty the grass box completely — damp clippings left overnight go mouldy</li>
+        <li>Wipe the blade area if you can see clumps building up</li>
+      </ul>
+
+      <h2>Monthly (during mowing season)</h2>
+      <ul>
+        <li>Tip the mower and scrape dried grass off the underside of the deck with a paint scraper</li>
+        <li>Check the blade for nicks and chips — a damaged blade tears grass instead of cutting it</li>
+        <li>On petrol mowers: check the oil level</li>
+        <li>On cordless: inspect the battery contacts for corrosion or debris</li>
+      </ul>
+
+      <h2>Annual service (March, before the season starts)</h2>
+      <h3>Cordless mowers</h3>
+      <ul>
+        <li><a href="/advice/maintenance/sharpen-blade/" class="text-grass-700 underline">Sharpen or replace the blade</a></li>
+        <li>Clean the deck thoroughly</li>
+        <li>Charge the battery to 50–80% if stored over winter</li>
+        <li>Check wheels and height adjustment for wear</li>
+      </ul>
+
+      <h3>Petrol mowers</h3>
+      <ul>
+        <li>Change the engine oil (SAE 30 for most Honda/Briggs engines)</li>
+        <li>Replace the spark plug (typically NGK or Champion, £3–£5)</li>
+        <li>Clean or replace the air filter</li>
+        <li>Sharpen or replace the blade</li>
+        <li>Drain old fuel or add stabiliser</li>
+        <li>Check the pull cord for fraying</li>
+      </ul>
+
+      <h2>Winter storage</h2>
+      <p>
+        Clean the mower thoroughly, sharpen the blade, and store it somewhere dry. For petrol mowers, either drain the fuel completely or add fuel stabiliser. For cordless, store the battery at 40–60% charge in a frost-free location — never leave it fully discharged over winter, as this can permanently damage lithium-ion cells.
+      </p>
+
+      <h2>Related guides</h2>
+      <ul>
+        <li><a href="/advice/maintenance/sharpen-blade/">How to sharpen mower blades</a></li>
+        <li><a href="/advice/troubleshooting/">Common mower problems and fixes</a></li>
+      </ul>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

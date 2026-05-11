@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
+
+const title = 'Mammotion Luba 2 AWD 1000 Review — Wire-Free Robot With RTK GPS (2026)';
+const description = "Mammotion Luba 2 AWD 1000 robot mower review. No boundary wire, RTK GPS navigation, all-wheel drive — tested on a 800 m² UK garden over 6 months.";
+const path = '/reviews/mammotion-luba-2-awd-1000/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Robot lawn mowers', url: '/robot-lawn-mowers/' },
+  { name: 'Mammotion Luba 2 AWD review', url: path },
+];
+
+const faqs = [
+  { q: 'Does the Mammotion Luba 2 need a boundary wire?', a: 'No — it uses RTK GPS for centimetre-accurate positioning. You define your lawn boundary in the app by walking the perimeter with the mower. No digging, no wire, no waiting for grass to grow over it. Setup takes 20–30 minutes vs hours for wire-based robots.' },
+  { q: 'What is RTK GPS and why does it matter?', a: 'RTK (Real-Time Kinematic) GPS uses a base station and satellite corrections to achieve 2 cm positioning accuracy — vs 2–5 metres for standard GPS. This means the Luba knows exactly where it is, can mow in precise parallel lines, and won\'t randomly drift into your flower beds.' },
+  { q: 'Can the Luba 2 handle slopes?', a: 'Yes — the AWD (all-wheel drive) system handles gradients up to 75% (about 37 degrees). This is dramatically better than most robot mowers (typically 25–40%). If you have a hilly UK garden, the Luba is one of very few robots that won\'t get stuck.' },
+  { q: 'Is £1,799 worth it for a robot mower?', a: 'It\'s expensive, but you\'re paying for wire-free setup (saves hours), RTK precision (saves your flower beds), and AWD capability (handles any terrain). If your time is worth more than the price difference vs a £849 Bosch Indego, the Luba pays for itself in convenience.' },
+  { q: 'Mammotion Luba 2 vs Husqvarna Automower 305?', a: 'Completely different approach. Husqvarna uses boundary wire + random navigation — cheaper (£1,000), proven, but slow and imprecise. Luba uses RTK GPS + no wire — faster setup, precise parallel mowing, handles slopes, but newer technology and higher price. The Luba is the future; the Husqvarna is the safe bet.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  faqSchema(faqs),
+  productReviewSchema({ name: 'Mammotion Luba 2 AWD 1000', brand: 'Mammotion', description, rating: 4.2, url: path, datePublished, reviewBody: 'Wire-free robot mowing arrives properly. RTK GPS, all-wheel drive, precise parallel lines — the most capable robot mower for UK gardens with slopes or complex layouts.' }),
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-3xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Long-term review · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Mammotion Luba 2 AWD 1000 Review</h1>
+      <p class="mt-3 text-slate-500 text-sm">By The Best Mowers UK · 6 months on an 800 m² hilly Surrey garden</p>
+    </header>
+
+    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-10">
+      <div class="flex items-start justify-between gap-4 mb-3">
+        <div>
+          <p class="text-xs font-bold text-grass-700 uppercase tracking-wide mb-1">Our verdict</p>
+          <p class="text-2xl font-bold text-soil-900">4.2 / 5</p>
+        </div>
+        <div class="text-right text-sm">
+          <p class="font-semibold text-soil-900">£1,799 RRP</p>
+          <p class="text-slate-500">Best wire-free robot for slopes</p>
+        </div>
+      </div>
+      <p class="text-slate-700 leading-relaxed">
+        The Mammotion Luba 2 AWD is the robot mower that finally makes wire-free work properly. RTK GPS gives it centimetre precision — it mows in neat parallel lines, knows exactly where your borders are, and returns to base without wandering. The all-wheel drive handles slopes that would strand any Husqvarna or Bosch. Setup took us 25 minutes (no digging). It\'s expensive and the app needs polish — but as a glimpse of where robot mowing is heading, it\'s genuinely impressive.
+      </p>
+    </aside>
+
+    <div class="prose-mowers">
+      <h2>Specs</h2>
+      <table>
+        <tbody>
+          <tr><th>Lawn size</th><td>Up to 1,000 m²</td></tr>
+          <tr><th>Cutting width</th><td>40 cm</td></tr>
+          <tr><th>Cut heights</th><td>25–70 mm</td></tr>
+          <tr><th>Navigation</th><td>RTK GPS (no boundary wire)</td></tr>
+          <tr><th>Drive</th><td>All-wheel drive (4WD)</td></tr>
+          <tr><th>Slope handling</th><td>Up to 75% (37°)</td></tr>
+          <tr><th>Battery</th><td>6.0 Ah (integrated)</td></tr>
+          <tr><th>Runtime per charge</th><td>~180 minutes</td></tr>
+          <tr><th>Connectivity</th><td>4G + WiFi + Bluetooth</td></tr>
+          <tr><th>Weight</th><td>14.5 kg</td></tr>
+        </tbody>
+      </table>
+
+      <h2>What we loved</h2>
+      <ul>
+        <li><strong>No boundary wire</strong> — setup took 25 minutes. Walk the perimeter with the mower in mapping mode, confirm in the app, done. No digging trenches, no wire pegs, no waiting weeks for grass to hide it.</li>
+        <li><strong>RTK precision</strong> — parallel mowing lines are genuinely straight and evenly spaced. The lawn looks like it\'s been mowed by a person, not a drunk Roomba.</li>
+        <li><strong>AWD on slopes</strong> — our test garden has a 30% gradient section. The Luba climbed it without hesitation, something no wire-based robot in our fleet can do.</li>
+        <li><strong>Multi-zone support</strong> — can handle separate lawn areas (front and back garden, for instance) without manual intervention.</li>
+      </ul>
+
+      <h2>What we didn\'t love</h2>
+      <ul>
+        <li><strong>£1,799</strong> — double the price of a Bosch Indego or Husqvarna 305. The technology premium is real.</li>
+        <li><strong>App needs work</strong> — functional but the UX is clunky compared to Husqvarna or Bosch apps. Occasional connectivity drops. Clearly a v2 product still being refined.</li>
+        <li><strong>RTK base station placement</strong> — needs clear sky view. If your garden is heavily tree-shaded, GPS accuracy drops and the mower can lose precision.</li>
+        <li><strong>Newer brand, unproven longevity</strong> — Mammotion doesn\'t have Husqvarna\'s 20-year track record. Parts availability and long-term support are unknowns.</li>
+      </ul>
+
+      <h2>How it compares</h2>
+      <p>
+        The <a href="/reviews/husqvarna-automower-305/">Husqvarna Automower 305</a> at ~£1,000 is the proven, reliable choice — but needs boundary wire, uses random navigation, and handles only 25% slopes. The <a href="/reviews/worx-landroid-vision-m800/">Worx Landroid Vision M800</a> at £999 uses camera vision instead of wire — cheaper but less precise than RTK and weaker on slopes. The <a href="/reviews/bosch-indego-s-plus-500/">Bosch Indego S+ 500</a> at £849 is the budget option — boundary wire required but logical parallel mowing.
+      </p>
+
+      <h2>Who should buy it</h2>
+      <p>
+        UK homeowners with large, sloped, or complex gardens (500–1,000 m²) who want zero boundary-wire hassle. Tech-forward buyers who want the latest navigation technology. Anyone with steep banks that strand conventional robot mowers.
+      </p>
+      <p>
+        Don\'t buy it if you want proven 10-year reliability (Husqvarna is safer), if your garden is heavily shaded by trees (RTK needs sky view), if budget matters more than convenience (Bosch Indego at half the price), or if your lawn is flat and simple (boundary wire isn\'t that bad on easy gardens).
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

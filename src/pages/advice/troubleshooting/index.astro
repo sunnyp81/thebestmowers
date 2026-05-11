@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+
+const title = 'Lawn Mower Troubleshooting — Common Problems & Fixes';
+const description = 'Fix common lawn mower problems yourself. Covers won\'t start, cuts unevenly, stalls on wet grass, battery draining fast and more.';
+const path = '/advice/troubleshooting/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Advice', url: '/advice/' },
+  { name: 'Troubleshooting', url: path },
+];
+
+const faqs = [
+  {
+    q: 'Why does my lawn mower leave clumps of grass?',
+    a: 'Three common causes: the blade is dull (tears instead of cutting), the deck is clogged with old clippings, or the grass is too wet. Sharpen the blade, scrape the deck clean, and mow when the grass is dry.',
+  },
+  {
+    q: 'How long should a cordless mower battery last?',
+    a: 'A quality lithium-ion battery should last 500–1,000 charge cycles, which is 5–8 years for most UK gardeners. If your battery is dying after 10 minutes when it used to last 30, it\'s reached end of life and needs replacing.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Troubleshooting · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Common Mower Problems &amp; Fixes</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Before you take it to a repair shop or buy a new one, most mower problems have a simple fix you can do in the shed.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>Mower won't start</h2>
+      <h3>Cordless</h3>
+      <ul>
+        <li>Check the battery is fully clicked in — a half-seated battery is the most common cause</li>
+        <li>Try the battery in another tool to confirm it holds charge</li>
+        <li>Check the safety lever (bail arm) is fully engaged — most mowers won't start without it</li>
+        <li>Inspect the battery contacts for corrosion and clean with a dry cloth</li>
+      </ul>
+      <h3>Petrol</h3>
+      <ul>
+        <li>Check there's fresh fuel in the tank (fuel older than 30 days can go stale)</li>
+        <li>Check the spark plug — remove it, clean or replace (£3–£5 from Screwfix)</li>
+        <li>Check the air filter — a clogged filter starves the engine of air</li>
+        <li>Prime the engine (3 presses on the primer bulb) and set the choke to 'start'</li>
+      </ul>
+
+      <h2>Mower cuts unevenly</h2>
+      <ul>
+        <li><strong>Dull blade</strong> — the most common cause. <a href="/advice/maintenance/sharpen-blade/" class="text-grass-700 underline">Sharpen it</a></li>
+        <li><strong>Uneven wheels</strong> — check all four wheels are at the same height setting</li>
+        <li><strong>Bent blade</strong> — remove and check on a flat surface. Replace if bent</li>
+        <li><strong>Clogged deck</strong> — scrape dried grass from the underside</li>
+      </ul>
+
+      <h2>Mower stalls on wet or long grass</h2>
+      <p>
+        Raise the cut height for the first pass — trying to take 5 cm off in one go overwhelms most mowers. On wet grass, mow slowly and make narrower passes. If a cordless mower keeps cutting out, the motor protection is kicking in — let it cool for 5 minutes and try again with a higher cut.
+      </p>
+
+      <h2>Battery draining too fast (cordless)</h2>
+      <ul>
+        <li>Battery age — after 500+ cycles, capacity drops noticeably</li>
+        <li>Dull blade — the motor works harder to turn a dull blade, draining the battery faster</li>
+        <li>Grass too long — raise the height setting</li>
+        <li>Extreme cold — lithium-ion batteries lose 10–20% capacity below 5°C</li>
+      </ul>
+
+      <h2>Excessive vibration</h2>
+      <p>
+        Usually a bent or unbalanced blade. Remove the blade, check it's straight on a flat surface, and <a href="/advice/maintenance/sharpen-blade/" class="text-grass-700 underline">check the balance</a>. If the blade is straight but vibration persists, the crankshaft may be bent (common after hitting a rock) — that's a repair-shop job.
+      </p>
+
+      <h2>Still stuck?</h2>
+      <p>
+        Most UK mower brands have phone support lines that are genuinely helpful. Bosch, Ryobi and Gtech all offer free troubleshooting calls. For petrol mowers, your local garden machinery dealer can diagnose most issues for £20–£30.
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

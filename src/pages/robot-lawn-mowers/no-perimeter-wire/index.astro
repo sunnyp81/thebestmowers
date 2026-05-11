@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+
+const title = 'Best Wire-Free Robot Lawn Mowers UK 2026 — No Perimeter Wire';
+const description = 'Robot mowers that don\'t need a perimeter wire. Camera and GPS models tested on UK lawns — setup in minutes, not hours.';
+const path = '/robot-lawn-mowers/no-perimeter-wire/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Robot lawn mowers', url: '/robot-lawn-mowers/' },
+  { name: 'No perimeter wire', url: path },
+];
+
+const faqs = [
+  {
+    q: 'How do wire-free robot mowers know where the lawn ends?',
+    a: 'They use either cameras (Worx Vision, EcoVacs Goat) or RTK GPS (Mammotion Luba, Segway Navimow). Camera models recognise grass vs non-grass in real time. GPS models follow a virtual boundary you draw in the app using a reference station.',
+  },
+  {
+    q: 'Are wire-free robot mowers as reliable as wired ones?',
+    a: 'In 2026, yes. The first generation had edge-detection issues, but current camera and RTK GPS models are as accurate as perimeter wire within 2–3 cm. They\'re also easier to move between zones and don\'t break when you aerate the lawn.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Wire-Free Guide · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Wire-Free Robot Mowers — No Perimeter Wire Needed</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        The biggest reason people avoided robot mowers was the perimeter wire — burying it, maintaining it, repairing it when it breaks. Wire-free models fix all of that. Here's what's actually good in 2026.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>Camera vs GPS — two approaches</h2>
+      <p>
+        <strong>Camera-based</strong> (Worx Vision, EcoVacs Goat): an onboard camera spots the difference between grass and path/border in real time. Works well on defined edges, struggles on lawns that blend into rough ground. <strong>RTK GPS</strong> (Mammotion Luba, Segway Navimow): a base station provides centimetre-accurate positioning. You draw the boundary in an app once, and the mower follows it precisely. Better for complex gardens with multiple zones.
+      </p>
+
+      <h2>Three wire-free models worth buying</h2>
+
+      <h3>1. Mammotion Luba 2 AWD 1000 (£1,399)</h3>
+      <p>
+        RTK GPS, all-wheel drive, handles slopes up to 38° and lawns up to 1,000 m². The best wire-free robot mower available right now. Setup takes about 20 minutes. <a href="/reviews/mammotion-luba-2-awd-1000/" class="text-grass-700 underline">Read our full Mammotion Luba review</a>.
+      </p>
+
+      <h3>2. Worx Landroid Vision M800 (£999)</h3>
+      <p>
+        Camera-based navigation for lawns up to 800 m². The AI vision handles garden furniture, toys and pets well. Modular — you can add GPS later if you want more precision. <a href="/reviews/worx-landroid-vision-m800/" class="text-grass-700 underline">Read our Worx Vision review</a>.
+      </p>
+
+      <h3>3. Segway Navimow i108E (£899)</h3>
+      <p>
+        Segway's RTK GPS mower for lawns up to 800 m². Quieter than the Mammotion, slightly less capable on steep slopes, but £500 cheaper. Good mid-range option if your garden is relatively flat.
+      </p>
+
+      <h2>Is wire-free ready for prime time?</h2>
+      <p>
+        Yes. The tech has matured rapidly since 2023. Edge accuracy is within 2–3 cm on RTK models, camera models handle most garden layouts without issue, and you skip the single worst part of robot mower ownership — the wire installation and repair cycle.
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

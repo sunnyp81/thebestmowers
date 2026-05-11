@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+
+const title = 'EGO Lawn Mowers UK 2026 — 56V Arc Lithium Range Reviewed';
+const description = "Complete guide to EGO lawn mowers available in the UK. 56V Arc Lithium battery system, range overview, which EGO to buy and how they compare to rivals.";
+const path = '/brands/ego/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Brands', url: '/brands/' },
+  { name: 'EGO', url: path },
+];
+
+const faqs = [
+  { q: 'Are EGO mowers any good?', a: 'EGO make arguably the most powerful cordless mowers you can buy. Their 56V Arc Lithium platform delivers genuinely petrol-rivalling torque, and the build quality is a clear step above budget cordless brands. The trade-off is price — EGO mowers start around £400 body-only.' },
+  { q: 'Where can I buy EGO mowers in the UK?', a: 'Amazon UK, Screwfix, Toolstation, and specialist garden machinery dealers. EGO don\'t sell direct in the UK. Screwfix often has the best bundle deals with batteries included.' },
+  { q: 'Do EGO batteries work across all EGO tools?', a: 'Yes — the 56V Arc Lithium battery fits every EGO outdoor tool: mowers, strimmers, blowers, hedge trimmers, chainsaws. One battery, one charger, the full ecosystem. The 5.0 Ah battery is the sweet spot for mowers.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  faqSchema(faqs),
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-3xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Brand guide · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">EGO Lawn Mowers UK</h1>
+      <p class="mt-3 text-slate-500 text-sm">By The Best Mowers UK</p>
+    </header>
+
+    <div class="prose-mowers">
+      <p>EGO are the brand that finally made cordless mowers a serious alternative to petrol for large UK gardens. Their 56V Arc Lithium system delivers more torque than any other consumer battery platform, and the build quality sits comfortably between Bosch and Honda. They're not cheap — but if you want cordless power that genuinely replaces a petrol engine, EGO is where you start.</p>
+
+      <h2>The 56V Arc Lithium system</h2>
+      <p>Every EGO tool runs on the same 56V battery. Buy a mower and you've got the battery for a blower, strimmer, hedge trimmer and chainsaw. The 5.0 Ah pack (included with most mower kits) runs a 52 cm self-propelled mower for 45–60 minutes — enough for 600–800 m² of typical British lawn.</p>
+
+      <h2>Which EGO mower to buy</h2>
+      <table>
+        <thead><tr><th>Model</th><th>Deck</th><th>Drive</th><th>Best for</th><th>Price</th></tr></thead>
+        <tbody>
+          <tr><td><a href="/reviews/ego-lm2122e-sp/">LM2122E-SP</a></td><td>52 cm</td><td>Self-propelled</td><td>Large gardens 500–800 m²</td><td>~£549</td></tr>
+          <tr><td>LM2021E-SP</td><td>50 cm</td><td>Self-propelled</td><td>Medium-large gardens</td><td>~£449</td></tr>
+          <tr><td>LM1903E-SP</td><td>47 cm</td><td>Self-propelled</td><td>Medium gardens</td><td>~£399</td></tr>
+        </tbody>
+      </table>
+
+      <h2>How EGO compares</h2>
+      <p>Against <a href="/brands/bosch/">Bosch</a>: EGO wins on raw power and deck size. Bosch wins on price and the broader Power for All tool ecosystem. Against <a href="/brands/ryobi/">Ryobi</a>: EGO wins on build quality and motor power. Ryobi wins on price and tool count (200+ ONE+ tools). Against <a href="/brands/stihl/">Stihl</a>: close contest — Stihl's AP/AK system is equally well-built, slightly less powerful, dealer-only distribution.</p>
+
+      <h2>Who should buy EGO</h2>
+      <p>UK lawn owners with 400–1,000 m² who want to go cordless without compromising on power. People building a single-battery garden tool kit and want the most powerful option. Anyone replacing a petrol mower and worried about cordless being "too weak" — EGO is the antidote to that fear.</p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

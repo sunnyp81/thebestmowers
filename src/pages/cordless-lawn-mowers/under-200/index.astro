@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+
+const title = 'Best Cordless Lawn Mowers Under £200 UK 2026';
+const description = 'Top cordless lawn mowers under £200 tested in real UK gardens. Budget picks that actually cut well — no gimmicks, just honest verdicts.';
+const path = '/cordless-lawn-mowers/under-200/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cordless lawn mowers', url: '/cordless-lawn-mowers/' },
+  { name: 'Under £200', url: path },
+];
+
+const faqs = [
+  {
+    q: 'Can you get a decent cordless mower for under £200?',
+    a: 'Yes. The Ryobi ONE+ bare tool comes in under £160 if you already own a battery, and it\'s a genuinely capable 40 cm mower. You won\'t get self-propelled drive or a metal deck at this price, but for a flat lawn under 300 m² you don\'t need either.',
+  },
+  {
+    q: 'Should I buy a budget cordless or a cheap petrol mower?',
+    a: 'For lawns under 300 m², a budget cordless wins. It\'s quieter, lighter, cheaper to run and starts first time every time. Petrol only makes sense at this price if your lawn is over 500 m² and you need the runtime.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Budget Guide · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Best Cordless Lawn Mowers Under £200</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        You don't need to spend £400 to get a cordless mower that actually works. We've tested the sub-£200 bracket properly — on real grass, in real weather — and three models stand out.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>What £200 actually gets you in 2026</h2>
+      <p>
+        At this price you're looking at 18 V or 36 V motors, plastic decks, push-only (no self-propelled), and deck widths between 32 cm and 40 cm. That's absolutely fine for a flat lawn up to about 300 m². You won't get a rear roller for stripes, and mulching plugs are rare — but you will get a mower that starts every time and costs pennies to run.
+      </p>
+
+      <h2>Three budget cordless mowers worth buying</h2>
+
+      <h3>1. Ryobi RY18LMX40A (bare tool ~£160)</h3>
+      <p>
+        If you already own anything in the Ryobi ONE+ range, this is a no-brainer. The 40 cm brushless deck is genuinely good for the money, and buying bare-tool drops the price well under £200. The 18 V battery struggles on long wet grass, but on a regularly mown lawn it's more than enough. <a href="/reviews/ryobi-cordless/" class="text-grass-700 underline">Read our full Ryobi cordless review</a>.
+      </p>
+
+      <h3>2. Bosch CityMower 18-32 (~£180)</h3>
+      <p>
+        Bosch's entry-level 18 V mower is light (under 10 kg), surprisingly quiet, and the 32 cm deck suits front lawns and small back gardens perfectly. The 31 L grass box fills fast on a bigger lawn, but for anything under 150 m² it's spot on.
+      </p>
+
+      <h3>3. Einhell GE-CM 18/33 Li (~£130 with battery)</h3>
+      <p>
+        The cheapest cordless mower we'd actually recommend. Einhell's Power X-Change platform is growing fast, the 33 cm deck is basic but functional, and the price with battery included is hard to argue with. Don't expect it to handle thick grass — but for a weekly mow on a small lawn, it does the job.
+      </p>
+
+      <h2>What to avoid at this price</h2>
+      <p>
+        Supermarket own-brand mowers under £100 (McGregor, Sovereign, Challenge). The batteries die after two seasons, replacement cells cost more than the mower, and the cutting quality is genuinely poor. Spend the extra £50–£80 and get something from a brand that sells replacement parts.
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

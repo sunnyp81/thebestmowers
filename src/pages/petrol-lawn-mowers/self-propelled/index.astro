@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+
+const title = 'Best Self-Propelled Petrol Lawn Mowers UK 2026';
+const description = 'Self-propelled petrol mowers tested on real UK lawns. We cover the best models for medium to large gardens — honest verdicts, no fluff.';
+const path = '/petrol-lawn-mowers/self-propelled/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Petrol lawn mowers', url: '/petrol-lawn-mowers/' },
+  { name: 'Self-propelled', url: path },
+];
+
+const faqs = [
+  {
+    q: 'Is a self-propelled petrol mower worth the extra cost?',
+    a: 'If your lawn is over 300 m² or has any slope at all, yes. Pushing a 25–30 kg petrol mower uphill every week gets old fast. Self-propelled adds £50–£150 to the price and saves your knees.',
+  },
+  {
+    q: 'Front-wheel or rear-wheel drive — which is better?',
+    a: 'Rear-wheel drive gives better traction on slopes and damp grass. Front-wheel drive is easier to turn at the end of each stripe. For most UK gardens, rear-wheel is the better choice.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Petrol Guide · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Best Self-Propelled Petrol Mowers UK 2026</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        If you've got a big garden and you're sick of pushing, a self-propelled petrol mower does the hard work for you. We've tested the best options from Mountfield, Honda and Cobra on real UK lawns.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>Why self-propelled matters</h2>
+      <p>
+        A self-propelled mower drives its own wheels — you just steer. On a flat 200 m² lawn that's a nice-to-have. On a sloped 600 m² garden, it's the difference between enjoying the mow and dreading it. Most use a rear-wheel drive system powered off the engine via a belt.
+      </p>
+
+      <h2>Three self-propelled petrol mowers we recommend</h2>
+
+      <h3>1. Mountfield SP46 Elite (£449)</h3>
+      <p>
+        The workhorse. Mountfield's 46 cm steel deck, Honda GCVx170 engine, variable-speed rear drive and a 60 L grass box. This is the mower UK garden centres sell more of than anything else, and for good reason — it just works, year after year. <a href="/reviews/mountfield-sp46/" class="text-grass-700 underline">Read our Mountfield SP46 review</a>.
+      </p>
+
+      <h3>2. Honda HRX 476 VK (£899)</h3>
+      <p>
+        The premium pick. Honda's own GCVx200 engine, Versamow selective mulching, Roto-Stop blade brake (engine keeps running when you let go), and a build quality that'll outlast most gardens. Expensive, but you're buying a mower for 15+ years. <a href="/reviews/honda-hrx-476-vk/" class="text-grass-700 underline">Read our Honda HRX review</a>.
+      </p>
+
+      <h3>3. Cobra MX46SPB (£349)</h3>
+      <p>
+        The budget self-propelled option. Cobra's Briggs &amp; Stratton-powered 46 cm mower does everything the Mountfield does at £100 less. Build quality isn't quite as polished, but the engine and drive system are solid. <a href="/reviews/cobra-mx46spb/" class="text-grass-700 underline">Read our Cobra review</a>.
+      </p>
+
+      <h2>Self-propelled vs push — the honest trade-off</h2>
+      <p>
+        Self-propelled costs more, weighs slightly more (the drive mechanism adds 2–3 kg), and has one more thing that can break. But on any lawn over 300 m² or with a slope, you'll be glad you paid the extra. Push mowers are best kept for small, flat gardens.
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+
+const title = 'Choosing a Lawn Mower by Garden Size — UK Guide 2026';
+const description = 'Which lawn mower for your garden size? Our UK guide covers the best mower type for gardens from under 100 m² to over 1,000 m².';
+const path = '/advice/garden-size/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Advice', url: '/advice/' },
+  { name: 'Garden size', url: path },
+];
+
+const faqs = [
+  {
+    q: 'How do I measure my lawn size?',
+    a: 'Pace it out (one adult stride is roughly 0.75 m) and multiply length by width. For irregular shapes, break the lawn into rectangles and add them up. Or use Google Maps\' measure tool — it\'s surprisingly accurate.',
+  },
+  {
+    q: 'What\'s the average UK garden size?',
+    a: 'About 188 m² according to the Office for National Statistics, though this varies hugely by region. London averages under 100 m², while rural detached houses commonly have 500–1,000 m² of lawn.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Buying Advice · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Choosing a Mower by Garden Size</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Garden size is the single most important factor in choosing a mower. Get this right and everything else falls into place.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>Mower recommendations by lawn size</h2>
+      <table>
+        <thead>
+          <tr><th>Lawn size</th><th>Best mower type</th><th>Deck width</th><th>Budget</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Under 100 m²</td><td>Corded electric or small cordless</td><td>30–33 cm</td><td>£80–£200</td></tr>
+          <tr><td>100–300 m²</td><td>Cordless (18–36 V)</td><td>33–38 cm</td><td>£150–£350</td></tr>
+          <tr><td>300–600 m²</td><td>Cordless (36–56 V) or petrol push</td><td>38–43 cm</td><td>£250–£500</td></tr>
+          <tr><td>600–1,000 m²</td><td>Self-propelled petrol, large cordless, or robot</td><td>43–51 cm</td><td>£400–£1,500</td></tr>
+          <tr><td>1,000 m²+</td><td>Ride-on or robot mower</td><td>76–107 cm</td><td>£800–£3,500</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Under 100 m² — front lawns and courtyards</h2>
+      <p>
+        A corded electric is honestly the most practical choice here. You're two minutes from a power socket, the mow takes 10 minutes, and you save £100+ vs cordless. If you hate the cable, a small 18 V cordless like the Bosch CityMower does the job.
+      </p>
+
+      <h2>100–300 m² — the typical UK semi</h2>
+      <p>
+        This is cordless territory. A 36 V mower with a 33–38 cm deck will finish in 20–30 minutes on a single charge. The <a href="/reviews/gtech-clm50/" class="text-grass-700 underline">Gtech CLM 2.0</a> and <a href="/reviews/bosch-easyrotak-36-550-lawnmower/" class="text-grass-700 underline">Bosch UniversalRotak 36-550</a> are the sweet spot.
+      </p>
+
+      <h2>300–600 m² — larger detached gardens</h2>
+      <p>
+        You need at least 36 V cordless with a 40 cm+ deck, or a petrol push mower. Self-propelled becomes worth the extra at the top end of this range. The <a href="/reviews/ryobi-cordless/" class="text-grass-700 underline">Ryobi RY18LMX40A</a> or a Mountfield petrol are solid picks.
+      </p>
+
+      <h2>600–1,000 m² — country houses and large gardens</h2>
+      <p>
+        Self-propelled is essential. Either a 56 V cordless like the <a href="/reviews/ego-lm2122e-sp/" class="text-grass-700 underline">EGO LM2122E-SP</a>, a self-propelled petrol, or a robot mower. This is the crossover zone — any power type works if you pick the right model.
+      </p>
+
+      <h2>1,000 m²+ — estates and large rural properties</h2>
+      <p>
+        Ride-on mower or a large-area robot mower. Pushing anything across 1,000+ m² weekly is not realistic long-term. See our <a href="/ride-on-lawn-mowers/best/" class="text-grass-700 underline">ride-on guide</a> or <a href="/robot-lawn-mowers/large-lawns/" class="text-grass-700 underline">large-lawn robot guide</a>.
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

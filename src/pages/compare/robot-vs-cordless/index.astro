@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+
+const title = 'Robot vs Cordless Lawn Mowers — Which Should You Buy?';
+const description = 'Robot mowers vs cordless mowers compared for UK gardens. We cover cost, convenience, lawn quality and which wins for different garden sizes.';
+const path = '/compare/robot-vs-cordless/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Compare', url: '/compare/' },
+  { name: 'Robot vs Cordless', url: path },
+];
+
+const faqs = [
+  {
+    q: 'Does a robot mower cut as well as a cordless?',
+    a: 'Differently. A robot mower cuts little and often (daily), which keeps the lawn consistently short and returns tiny clippings as mulch. A cordless mower cuts once a week, removing more growth per session. Over time, robot-mown lawns often look healthier because of the constant micro-cutting.',
+  },
+  {
+    q: 'Can I use both a robot mower and a cordless mower?',
+    a: 'Yes, and many people do. The robot handles weekly maintenance mowing, and a cordless comes out for edge tidying, the first spring cut when grass is long, or areas the robot can\'t reach.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Comparison · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Robot vs Cordless Lawn Mowers</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        One mows itself, the other you push. But which actually makes more sense for your garden, your budget and your weekends?
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>Side-by-side comparison</h2>
+      <table>
+        <thead>
+          <tr><th>Factor</th><th>Robot</th><th>Cordless</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Your effort</td><td>Zero (set and forget)</td><td>30–90 mins per week</td></tr>
+          <tr><td>Upfront cost</td><td>£500–£3,000</td><td>£150–£700</td></tr>
+          <tr><td>Running cost</td><td>~£10/year electricity</td><td>~£5/year electricity</td></tr>
+          <tr><td>Lawn quality</td><td>Excellent (daily micro-cut)</td><td>Good (weekly cut)</td></tr>
+          <tr><td>Stripes</td><td>No (random pattern)</td><td>Yes (with rear roller)</td></tr>
+          <tr><td>Noise</td><td>55–65 dB</td><td>78–84 dB</td></tr>
+          <tr><td>Handles obstacles</td><td>Varies by model</td><td>You steer around them</td></tr>
+          <tr><td>Edge cutting</td><td>Poor (needs strimmer)</td><td>Good</td></tr>
+          <tr><td>Long grass</td><td>Can\'t handle &gt;8 cm</td><td>Handles up to 15 cm</td></tr>
+          <tr><td>Theft risk</td><td>Moderate (sits outdoors)</td><td>Low (stored in shed)</td></tr>
+        </tbody>
+      </table>
+
+      <h2>When a robot mower makes sense</h2>
+      <p>
+        If you value your weekends more than £800–£1,500, a robot mower is transformative. You genuinely never mow again. The lawn looks better because daily cutting is healthier for the grass. And the noise is so low you can run it overnight without bothering anyone.
+      </p>
+      <p>
+        Best for: lawns 200–1,000 m², regular shapes, people who hate mowing. See our <a href="/robot-lawn-mowers/best/" class="text-grass-700 underline">best robot mower guide</a>.
+      </p>
+
+      <h2>When a cordless mower makes sense</h2>
+      <p>
+        If you actually enjoy mowing (plenty of people do), want stripes, have a tight budget, or need to handle long grass and rough patches that a robot can't cope with. Cordless mowers are also better for irregular gardens with lots of obstacles, narrow passages and raised beds.
+      </p>
+      <p>
+        Best for: any lawn size, stripe lovers, budget-conscious buyers. See our <a href="/cordless-lawn-mowers/" class="text-grass-700 underline">best cordless mower guide</a>.
+      </p>
+
+      <h2>The verdict</h2>
+      <p>
+        If money's no object and you want your time back, buy a robot mower. If you want control, stripes and the best value, buy a cordless. If you can afford both, do what a surprising number of our readers do — run the robot during the week and use the cordless for a proper stripe session at the weekend.
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

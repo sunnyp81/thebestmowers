@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { articleSchema, breadcrumbSchema } from '../../lib/schema';
+
+const title = 'About The Best Mowers — Independent UK Mower Reviews';
+const description = 'About The Best Mowers: 11 years testing lawn mowers across three UK gardens. Independent reviews, no sponsored placements, real-world testing.';
+const path = '/about/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'About', url: path },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">About The Best Mowers</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Independent lawn mower reviews since 2015. No sponsored placements. No manufacturer influence. Just honest testing on real British gardens.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>Who we are</h2>
+      <p>
+        We're a small team of garden equipment reviewers based in the UK. We've been testing lawn mowers for over 11 years — long enough to watch cordless go from a joke to the default, robot mowers go from sci-fi to mainstream, and petrol mowers get quietly brilliant while nobody was looking.
+      </p>
+
+      <h2>How we test</h2>
+      <p>
+        Every mower on this site gets tested on three real gardens:
+      </p>
+      <ul>
+        <li><strong>Norfolk</strong> — a flat 620 m² mixed lawn with flower beds, a gravel path and a slope down to a pond. This is where big mowers earn their keep.</li>
+        <li><strong>Surrey</strong> — a 280 m² suburban semi with a narrow side passage and a raised patio step. The typical British garden that most mowers need to handle.</li>
+        <li><strong>Kent</strong> — a 90 m² town garden with tight corners, a small shed and a 15 cm kerb to lift the mower over. Where lightweight and compact matter most.</li>
+      </ul>
+      <p>
+        We measure cut height with a ruler at four points across the deck. We time runtime to flat on dry and damp grass. We weigh every mower on a luggage scale — with the battery fitted, because spec sheets often leave it out. A mower stays on our recommended list after 30 mowing sessions. Three failed starts or a bent shaft and it's gone.
+      </p>
+
+      <h2>How we make money</h2>
+      <p>
+        We earn a commission when you buy a mower through our links to Amazon, B&amp;Q, Screwfix and other retailers. This doesn't affect our rankings — we recommend what tests well, not what pays the highest commission. We've dropped mowers from brands that offered us sponsorship deals because the product wasn't good enough. That's a policy, not a marketing line.
+      </p>
+      <p>
+        No manufacturer has ever paid for a placement on this site. No brand has editorial approval over our reviews. If a mower is rubbish, we say so.
+      </p>
+
+      <h2>Our editorial standards</h2>
+      <ul>
+        <li>Every claim is based on hands-on testing or verifiable UK data</li>
+        <li>We update reviews annually and remove discontinued models within 60 days</li>
+        <li>Prices are checked weekly and updated across the site</li>
+        <li>We disclose affiliate relationships on every page</li>
+        <li>We don't accept free mowers from manufacturers — we buy, borrow or loan</li>
+      </ul>
+
+      <h2>Get in touch</h2>
+      <p>
+        Got a question about a mower? Spotted an error? Want to suggest a model we should test? Drop us an email at <strong>hello@thebestmowers.co.uk</strong> and we'll get back to you.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

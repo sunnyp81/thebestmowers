@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+
+const title = 'Best Cordless Lawn Mowers With Rear Roller UK 2026';
+const description = 'Cordless mowers with a rear roller for proper stripes. Tested on real UK lawns — we show you which actually deliver clean lines.';
+const path = '/cordless-lawn-mowers/with-roller/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cordless lawn mowers', url: '/cordless-lawn-mowers/' },
+  { name: 'With roller', url: path },
+];
+
+const faqs = [
+  {
+    q: 'Do all cordless mowers with a rear roller leave stripes?',
+    a: 'Yes, if the roller is full-width and weighted properly. Cheap mowers sometimes fit a narrow roller that only flattens the centre strip — check the roller spans the full deck width before buying.',
+  },
+  {
+    q: 'Are rear-roller cordless mowers heavier?',
+    a: 'Slightly. The roller adds 1–2 kg compared to a wheeled equivalent. The Gtech CLM manages to keep total weight under 12 kg including battery, which is impressive for a roller mower.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Stripes Guide · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Cordless Lawn Mowers With a Rear Roller</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Want proper stripes without the faff of a petrol engine? A rear roller is the only way to get them from a rotary mower. Here are the cordless options that actually deliver.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>How a rear roller creates stripes</h2>
+      <p>
+        The roller sits behind the blade and flattens the grass in the direction you're mowing. Walk one way, the grass bends towards you (light). Walk the other way, it bends away (dark). That's your stripe. No roller, no stripes — it really is that simple. Most cordless mowers under £250 use rear wheels instead, which don't stripe at all.
+      </p>
+
+      <h2>Three cordless roller mowers worth buying</h2>
+
+      <h3>1. Gtech CLM 2.0 (£249)</h3>
+      <p>
+        The best-selling cordless roller mower in the UK for good reason. Light, easy to use, and the stripes genuinely look the part on a 200 m² lawn. The 33 cm deck is small for bigger gardens, but for a typical British semi it's ideal. <a href="/reviews/gtech-clm50/" class="text-grass-700 underline">Read our full Gtech CLM review</a>.
+      </p>
+
+      <h3>2. Mountfield Princess 34 Li-48 (£399)</h3>
+      <p>
+        Steel deck, 48 V motor, full-width rear roller. This is the cordless version of the classic Princess that's been striping British lawns for decades. Heavier than the Gtech but noticeably more solid underfoot. <a href="/reviews/mountfield-princess-34/" class="text-grass-700 underline">Read our Mountfield Princess review</a>.
+      </p>
+
+      <h3>3. Webb Classic 33 cm Roller (£189)</h3>
+      <p>
+        The budget option. Webb's 40 V roller mower won't win any awards for build quality, but it stripes surprisingly well and comes in under £200 with battery. Best for small, flat lawns where you want the look without the spend.
+      </p>
+
+      <h2>Roller mower or cylinder mower for stripes?</h2>
+      <p>
+        Cylinder mowers cut like scissors and give the sharpest possible stripe. But they're expensive, hate long grass, and need regular adjustment. A rotary with a rear roller gives 80% of the stripe quality with none of the hassle. For most people, that's the right trade-off.
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>
