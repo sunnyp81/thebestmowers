@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../lib/schema';
+
+const title = 'Best Battery Powered Lawn Mowers for Small Yards UK';
+const description = 'Battery powered lawn mowers for small gardens and yards. Lightweight models under 10kg, compact 30cm decks, and affordable options for modest lawns.';
+const path = '/battery-for-small-yard/';
+const datePublished = '2026-05-10';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cordless lawn mowers', url: '/cordless-lawn-mowers/' },
+  { name: 'Small yards', url: path },
+];
+
+const faqs = [
+  {
+    q: 'What size battery mower do I need for a small yard?',
+    a: 'For gardens under 200 m², an 18V or 24V battery mower with a 30-33cm deck is perfect. These models weigh just 7-10kg and run for 30-40 minutes — enough for most small UK yards twice over. You don\'t need the power or deck width of larger models, so you save money and get a lighter, more manageable machine.',
+  },
+  {
+    q: 'Are smaller battery mowers easier to store?',
+    a: 'Yes, significantly. Small-yard battery mowers typically weigh 8-12kg (versus 18-20kg for medium mowers) and have compact 30-33cm decks. They fit easily into garden sheds, garage corners, or under stairs. Storage is often one of the biggest advantages for UK gardeners with limited space.',
+  },
+  {
+    q: 'Can a battery mower handle a small awkward yard with corners?',
+    a: 'Absolutely. Smaller deck widths (30cm) are actually superior for tight spaces, corners, and around garden furniture. The lightweight construction makes them much easier to maneuver in confined areas. If your small yard has a complex layout, a compact battery mower is genuinely better than a larger machine.',
+  },
+  {
+    q: 'What\'s the cheapest good battery mower for a small garden?',
+    a: 'The Ryobi RY18LMX40A bare tool starts around £80-£120 (battery sold separately), or roughly £160-£200 with a battery included. For budget brands, Argos Qualcast and B&Q Mac Allister models start under £100 with battery, though build quality is lower.',
+  },
+  {
+    q: 'How often do I need to charge the battery for a small yard?',
+    a: 'For most small yards under 150 m², you\'ll charge once per week. Larger small yards (150-250 m²) might benefit from a second battery for mid-mow swaps, but most single-battery owners are comfortable emptying the grass box once and mowing finish-to-finish on one charge.',
+  },
+  {
+    q: 'Are lightweight battery mowers powerful enough for small lawns?',
+    a: 'Yes. For modest lawns that are regularly maintained (mowed every 7-10 days), a lightweight 18V model is perfectly adequate. Only if you\'re attempting to mow long, damp growth on thick clay soil do you need the extra power of a 36V+ machine. Most small-yard scenarios favour lightweight over brute force.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Buying Guide · Updated May 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Battery Powered Lawn Mowers for Small Yards</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Small UK yards (under 250 m²) — terraces, maisonettes, and compact suburban gardens — don't need the power or size of a full-blown lawn mower. A lightweight battery mower is cheaper, easier to use, and more practical for tight spaces.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>Why a lightweight battery mower for a small yard?</h2>
+      <p>
+        For any garden under 250 m², larger mowers are overkill. A typical full-size battery mower weighs 16-20kg; a small-yard model weighs 8-12kg — that difference matters when you're maneuvering around tight corners, lifting the machine in and out of a garden shed, or simply holding it one-handed to access under a garden bench.
+      </p>
+      <p>
+        Small-yard battery mowers also cost less (often £150-£300 versus £300-£600 for larger models) because they use 18V or 24V batteries instead of 36V+, and their smaller decks (30-33cm) mean less metal and engineering. For a London terrace with a 60 m² lawn or a maisonette yard with 150 m², this is the perfect mower category.
+      </p>
+
+      <h2>Battery mower options for small yards</h2>
+      <p>
+        <strong>Ultra-budget option:</strong> Argos Qualcast or B&Q Mac Allister budget corded electric mowers (£80-£120 with battery). These work fine for small, regularly mown lawns, but build quality is basic — expect them to last 2-3 seasons rather than 5-8.
+      </p>
+      <p>
+        <strong>Best value:</strong> Ryobi RY18LMX40A bare tool (from £90) fits the Ryobi ONE+ 18V ecosystem — if you already own Ryobi drills or strimmers, the mower integrates neatly. Brushless motor, decent build, and you can use the same battery across 200+ tools.
+      </p>
+      <p>
+        <strong>Premium small-yard option:</strong> Gtech CLM (around £250) is lightweight (only 8.5kg), cuts beautifully, and lasts well. It's expensive for a small-yard mower but offers unbeatable build quality if budget allows.
+      </p>
+
+      <h2>Deck size — why 30cm is often better for small spaces</h2>
+      <p>
+        Most full-size mowers have 36-40cm decks; small-yard models use 30-33cm. This isn't a disadvantage — it's an advantage. A narrower deck is easier to maneuver around garden furniture, narrow paths, and tight corners. For a 100 m² terrace lawn, a 30cm deck gives you the same mowing time as a 40cm deck on a 300 m² garden (one or two passes depending on layout), while being dramatically easier to handle.
+      </p>
+
+      <h2>Storage and garden shed considerations</h2>
+      <p>
+        A lightweight 30cm battery mower fits into any garden shed, garage corner, or even under a garden bench. A typical small-yard mower measures about 80cm long × 40cm wide × 50cm tall when upright, and weighs just 8-12kg. This matters in the UK where garden space is precious and storage is often tight.
+      </p>
+
+      <h2>Runtime for small gardens</h2>
+      <p>
+        A standard 2-4Ah 18V battery runs for 30-40 minutes, covering roughly 150-250 m² at a comfortable pace. For most small yards that need mowing once per week, a single battery is ample. You'll run it to empty on a small garden, charge overnight, and never need a second battery — saving £50-£100 versus buying a spare.
+      </p>
+
+      <h2>Which mower manufacturers make small-yard models?</h2>
+      <p>
+        Most major brands offer compact options: Ryobi (ONE+ ecosystem), Bosch (PowerAll range), Gtech (CLM range), Makita (18V/24V options), DeWalt, and Einhell. Budget retailers Argos (Qualcast) and B&Q (Mac Allister) have the cheapest entry points, though durability is lower.
+      </p>
+
+      <h2>Small yards, tight neighbours: the noise advantage</h2>
+      <p>
+        Most UK small yards are urban or suburban — terraced houses, flats with gardens, maisonettes with limited outdoor space. These properties are invariably close to neighbours. A battery mower running at 76–82 dB is barely louder than normal conversation; petrol mowers hit 95–100 dB and annoy neighbours three gardens away. For a London terrace or shared-wall semi, this alone is reason enough to choose battery. You can mow at 7:30am without inciting a neighbour war. With petrol, anything before 9am on a weekend feels antisocial to everyone within earshot.
+      </p>
+
+      <h2>The compact deck advantage: tight spaces matter</h2>
+      <p>
+        A 30 cm deck isn't a compromise for small gardens — it's actually superior. Most full-size mowers are 36–40 cm wide; in a small urban garden full of tight corners, narrow raised beds, and garden furniture, a narrower deck maneuvers dramatically better. You're not making extra passes for lack of width — you're making fewer passes because you're not wrestling an unwieldy machine around obstacles. For a 100 m² courtyard garden or a 150 m² suburban terrace, a 30 cm deck finishes faster and with less effort than a full-size 40 cm model.
+      </p>
+
+      <h2>Total cost of ownership for small-yard battery mowers</h2>
+      <p>
+        Budget battery mower (Argos Qualcast or B&amp;Q Mac Allister): £100–£150 upfront, 2–3 seasons lifespan, ~£30 per year. Premium small-yard mower (Gtech CLM or Ryobi ONE+): £200–£300 upfront, 5–8 year lifespan, ~£40–£50 per year. The premium option works out cheaper per year, plus you keep the battery and can upgrade the mower later. For UK gardeners planning to stay in the same house for more than three years, spending an extra £100–£150 upfront usually pays for itself in durability alone.
+      </p>
+
+      <h2>Related guides</h2>
+      <ul>
+        <li><a href="/cordless-lawn-mowers/">Complete cordless lawn mower buying guide</a></li>
+        <li><a href="/cordless-lawn-mowers/under-200/">Best battery mowers under £200</a></li>
+        <li><a href="/electric-lawn-mowers/">Corded electric mowers (good for yards with nearby power)</a></li>
+        <li><a href="/hover-lawn-mowers/">Hover mowers (another lightweight option)</a></li>
+      </ul>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>
