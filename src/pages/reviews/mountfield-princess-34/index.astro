@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OwnerVoices from '../../../components/OwnerVoices.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
@@ -102,6 +103,8 @@ const schema = [
         Don\'t buy it if your lawn is over 300 m² (too slow and the cable is a nightmare), if you need mulching (not available), if your garden has slopes (rear roller drag + push-only = hard work), or if you just want a basic mow without caring about stripes (Einhell at £139).
       </p>
     </div>
+
+    <OwnerVoices modelKey="mountfield-princess-34" />
 
     <FAQ {faqs} />
   </article>

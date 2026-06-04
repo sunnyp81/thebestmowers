@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OwnerVoices from '../../../components/OwnerVoices.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
@@ -102,6 +103,8 @@ const schema = [
         Don\'t buy it if your grass is regularly thick or damp (18V won\'t cope - go 36V or 56V), if your lawn is over 400 m² (runtime isn\'t enough), or if you\'re already invested in Bosch Power for All batteries (stick with Bosch).
       </p>
     </div>
+
+    <OwnerVoices modelKey="ryobi-cordless" />
 
     <FAQ {faqs} />
   </article>

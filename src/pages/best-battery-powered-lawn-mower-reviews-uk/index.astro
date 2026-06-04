@@ -5,6 +5,7 @@ import FAQ from '../../components/FAQ.astro';
 import PickCard from '../../components/PickCard.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import HowWeResearch from '../../components/HowWeResearch.astro';
+import OwnerVoices from '../../components/OwnerVoices.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../lib/schema';
 import { amazonSearch } from '../../lib/affiliate';
 
@@ -46,7 +47,7 @@ const picks = [
   {
     rank: 3, name: 'Gtech CLM 2.0', brand: 'Gtech',
     bestFor: 'small to medium gardens, ease of use', rating: 4.6, rrp: '£230-£270',
-    voltage: '36 V', cut: '33 cm', battery: '1× integrated Li-ion', runtime: 'covers ~200 m² per charge', weight: '~12 kg',
+    voltage: '48 V', cut: '33 cm', battery: '1× 48 V Li-ion, 50 L box', runtime: 'covers ~400 m² claimed', weight: '~12 kg',
     reviewUrl: '/reviews/gtech-clm50/', affiliateUrl: '',
     image: '/images/compact_cordless_easy_storage.webp',
     pros: ['Light enough to carry one-handed', 'Rear roller leaves real stripes', 'Simple, foolproof to live with'],
@@ -252,6 +253,8 @@ const schema = [
         <li><a href="/advice/mowing-wet-grass/">Can you mow wet grass?</a></li>
       </ul>
     </section>
+
+    <OwnerVoices keys={['ego-lm2122e-sp','bosch-easyrotak-36-550-lawnmower','gtech-clm50','makita-dlm382','ryobi-cordless','mountfield-princess-34']} heading="What owners actually say about our top picks" />
 
     <FAQ {faqs} />
   </article>

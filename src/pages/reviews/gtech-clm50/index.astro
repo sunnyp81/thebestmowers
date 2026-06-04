@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OwnerVoices from '../../../components/OwnerVoices.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
@@ -140,6 +141,8 @@ const schema = [
 
       <p>The pattern across UK Reddit threads: people switching from petrol to cordless almost universally don\'t go back. The Gtech specifically gets praised for being light and easy - the battery ecosystem lock-in is the consistent caveat, which matches our review.</p>
     </div>
+
+    <OwnerVoices modelKey="gtech-clm50" />
 
     <FAQ {faqs} />
   </article>

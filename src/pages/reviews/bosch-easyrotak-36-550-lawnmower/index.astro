@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OwnerVoices from '../../../components/OwnerVoices.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
@@ -102,6 +103,8 @@ const schema = [
         Don\'t buy it if your lawn is tiny (under 200 m² - the Gtech is lighter and friendlier), if you need stripes (look at a rear-roller model like the Mountfield Princess 34), or if you\'re already deep in the Ryobi ONE+ ecosystem.
       </p>
     </div>
+
+    <OwnerVoices modelKey="bosch-easyrotak-36-550-lawnmower" />
 
     <FAQ {faqs} />
   </article>

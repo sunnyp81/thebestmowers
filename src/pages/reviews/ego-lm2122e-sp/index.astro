@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OwnerVoices from '../../../components/OwnerVoices.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
@@ -102,6 +103,8 @@ const schema = [
         Don\'t buy it if your lawn is under 400 m² (you\'re overpaying - Bosch or Gtech at half the price will do), if you need defined stripes (look at a rear-roller model), or if budget is tight (Ryobi ONE+ at £269 covers smaller lawns).
       </p>
     </div>
+
+    <OwnerVoices modelKey="ego-lm2122e-sp" />
 
     <FAQ {faqs} />
   </article>
