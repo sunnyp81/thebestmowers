@@ -3,31 +3,33 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FAQ from '../../components/FAQ.astro';
 import PickCard from '../../components/PickCard.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import HowWeResearch from '../../components/HowWeResearch.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../lib/schema';
 
-const title = 'Best Electric Lawn Mowers UK 2026 — Corded Mowers Tested';
-const description = 'Independent UK reviews of the best corded electric lawn mowers. Compare Bosch, Flymo, Mountfield, Einhell — tested in real gardens. Best buys £90–£200.';
+const title = 'Best Electric Lawn Mowers UK 2026 - Corded Mowers Compared';
+const description = 'Independent UK guide to the best corded electric lawn mowers. Compare Bosch, Flymo, Mountfield, Einhell from specs and verified owner reviews. Best buys £90-£200.';
 const path = '/electric-lawn-mowers/';
 const datePublished = '2026-05-10';
 
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Electric lawn mowers', url: path }];
 
 const picks = [
-  { rank: 1, name: 'Bosch Rotak 32 R', brand: 'Bosch', bestFor: 'small gardens under 200 m²', rating: 4.5, rrp: '£99', reviewUrl: '/reviews/bosch-rotak-32-review/', pros: ['Genuinely cheap and genuinely well-built', '32 cm deck — easy in tight gardens', '31 L grass box punches above its weight'], cons: ['No mulching plug', 'Cable management is on you'], verdict: 'The default electric mower we recommend for any UK garden under 200 m². Quiet, light, the build quality is what you expect from Bosch, and at the £99 mark it undercuts pretty much everything decent. The 32 cm deck is the right balance between coverage and tight-corner agility.' },
-  { rank: 2, name: 'Flymo Easimo', brand: 'Flymo', bestFor: 'simple lawns, smallest budget', rating: 4.0, rrp: '£89', reviewUrl: '/reviews/flymo-easimo-review/', pros: ['Cheapest reliable mower from a known brand', 'Light at 6.6 kg', 'Easy to store on a wall hook'], cons: ['Only 32 L grass box', 'Single-lever cut height adjustment is basic'], verdict: 'When budget is the primary constraint, the Flymo Easimo is honest value. It will not stripe, it will not mulch, but it will keep a small lawn cut for years. We have one in our long-term test fleet from 2018 still going strong.' },
-  { rank: 3, name: 'Bosch Rotak 37 LI', brand: 'Bosch', bestFor: 'medium gardens (200–400 m²)', rating: 4.6, rrp: '£199', reviewUrl: '/reviews/bosch-rotak-37-review/', pros: ['37 cm deck for medium-lawn coverage', 'Steel deck — feels significantly more solid', 'Mulching plug included'], cons: ['Heavier than 32 cm models at 12.6 kg', 'Cable feels dated in 2026'], verdict: 'The sweet spot of the corded electric range. A 37 cm steel deck handles 400 m² without complaint, the mulching plug saves emptying the box, and the build quality outlasts the cordless equivalents at half the price.' },
-  { rank: 4, name: 'Einhell GE-EM 1233 M', brand: 'Einhell', bestFor: 'value-pick mulching', rating: 4.2, rrp: '£139', reviewUrl: '/reviews/einhell-review/', pros: ['Cheap mulching capability', 'Decent 33 L grass box', 'Solid Einhell warranty network'], cons: ['Plastic deck flexes', 'Handle is fiddly to fold'], verdict: 'Einhell consistently undercuts the German rivals by 20–30% with mowers that are 90% as good. The GE-EM 1233 M is the cheapest electric mower we trust to mulch properly.' },
-  { rank: 5, name: 'Mountfield Princess 34 (corded)', brand: 'Mountfield', bestFor: 'classic stripes from a corded mower', rating: 4.4, rrp: '£249', reviewUrl: '/reviews/mountfield-princess-34/', pros: ['True rear roller for stripes', 'Steel deck and Italian build', '40 L collection'], cons: ['Heavier at 17 kg', 'Pricey for a corded mower'], verdict: 'The only corded mower on this list with a real rear roller and the kind of sharp stripes you usually pay petrol money for. If your lawn is small, near a socket, and stripes are non-negotiable — this is the one.' },
+  { rank: 1, name: 'Bosch Rotak 32 R', brand: 'Bosch', bestFor: 'small gardens under 200 m²', rating: 4.5, rrp: '£99', reviewUrl: '/reviews/bosch-rotak-32-review/', pros: ['Genuinely cheap and genuinely well-built', '32 cm deck - easy in tight gardens', '31 L grass box punches above its weight'], cons: ['No mulching plug', 'Cable management is on you'], verdict: 'The default electric mower we recommend for any UK garden under 200 m². Quiet, light, the build quality is what you expect from Bosch, and at the £99 mark it undercuts pretty much everything decent. The 32 cm deck is the right balance between coverage and tight-corner agility.' },
+  { rank: 2, name: 'Flymo Easimo', brand: 'Flymo', bestFor: 'simple lawns, smallest budget', rating: 4.0, rrp: '£89', reviewUrl: '/reviews/flymo-easimo-review/', pros: ['Cheapest reliable mower from a known brand', 'Light at 6.6 kg', 'Easy to store on a wall hook'], cons: ['Only 32 L grass box', 'Single-lever cut height adjustment is basic'], verdict: 'When budget is the primary constraint, the Flymo Easimo is honest value. It will not stripe, it will not mulch, but owner reviews report it keeping a small lawn cut for years.' },
+  { rank: 3, name: 'Bosch Rotak 37 LI', brand: 'Bosch', bestFor: 'medium gardens (200-400 m²)', rating: 4.6, rrp: '£199', reviewUrl: '/reviews/bosch-rotak-37-review/', pros: ['37 cm deck for medium-lawn coverage', 'Steel deck - feels significantly more solid', 'Mulching plug included'], cons: ['Heavier than 32 cm models at 12.6 kg', 'Cable feels dated in 2026'], verdict: 'The sweet spot of the corded electric range. A 37 cm steel deck handles 400 m² without complaint, the mulching plug saves emptying the box, and the build quality outlasts the cordless equivalents at half the price.' },
+  { rank: 4, name: 'Einhell GE-EM 1233 M', brand: 'Einhell', bestFor: 'value-pick mulching', rating: 4.2, rrp: '£139', reviewUrl: '/reviews/einhell-review/', pros: ['Cheap mulching capability', 'Decent 33 L grass box', 'Solid Einhell warranty network'], cons: ['Plastic deck flexes', 'Handle is fiddly to fold'], verdict: 'Einhell consistently undercuts the German rivals by 20-30% with mowers that are 90% as good. The GE-EM 1233 M is the cheapest electric mower we would recommend for proper mulching.' },
+  { rank: 5, name: 'Mountfield Princess 34 (corded)', brand: 'Mountfield', bestFor: 'classic stripes from a corded mower', rating: 4.4, rrp: '£249', reviewUrl: '/reviews/mountfield-princess-34/', pros: ['True rear roller for stripes', 'Steel deck and Italian build', '40 L collection'], cons: ['Heavier at 17 kg', 'Pricey for a corded mower'], verdict: 'The only corded mower on this list with a real rear roller and the kind of sharp stripes you usually pay petrol money for. If your lawn is small, near a socket, and stripes are non-negotiable - this is the one.' },
 ];
 
 const faqs = [
-  { q: 'Are electric corded lawn mowers any good in 2026?', a: 'For lawns under 200 m² that are within 25 metres of a power socket, yes. They are the cheapest serious mower category, parts last, and the only running cost is electricity (around 1–2p per mow). Most UK households who own a small front lawn would be perfectly served by a £100 corded electric.' },
-  { q: 'Corded electric or cordless — which should I buy?', a: 'Corded if (1) your lawn is under 200 m², (2) there is a socket within 25 metres, and (3) budget matters more than convenience. Cordless if any of those three are not true. Cordless is now genuinely better for most people, but corded is half the price and just as effective on a small lawn near a socket.' },
-  { q: 'How long is the cable on an electric lawn mower?', a: 'Mowers themselves usually only have a 30 cm pigtail with a UK three-pin plug — you supply the extension. A 25 m outdoor extension reel costs £20–£30 from B&Q or Screwfix, RCD-protected ones £35–£45. Always use an RCD plug or socket — never just a household extension lead — when mowing in the rain or on damp grass.' },
+  { q: 'Are electric corded lawn mowers any good in 2026?', a: 'For lawns under 200 m² that are within 25 metres of a power socket, yes. They are the cheapest serious mower category, parts last, and the only running cost is electricity (around 1-2p per mow). Most UK households who own a small front lawn would be perfectly served by a £100 corded electric.' },
+  { q: 'Corded electric or cordless - which should I buy?', a: 'Corded if (1) your lawn is under 200 m², (2) there is a socket within 25 metres, and (3) budget matters more than convenience. Cordless if any of those three are not true. Cordless is now genuinely better for most people, but corded is half the price and just as effective on a small lawn near a socket.' },
+  { q: 'How long is the cable on an electric lawn mower?', a: 'Mowers themselves usually only have a 30 cm pigtail with a UK three-pin plug - you supply the extension. A 25 m outdoor extension reel costs £20-£30 from B&Q or Screwfix, RCD-protected ones £35-£45. Always use an RCD plug or socket - never just a household extension lead - when mowing in the rain or on damp grass.' },
   { q: 'Can I cut the cable and what happens if I do?', a: 'It happens. Most modern electric mowers have an RCD plug that trips instantly when the cable is severed, so the shock risk is minimal. The bigger problem is the cable: replacing the moulded plug and a 1 m section of cable is a 10-minute job with a screwdriver and a kit from Screwfix for under £10.' },
   { q: 'Do corded electric mowers leave stripes?', a: 'Only if they have a rear roller. Most under £200 use rear wheels and produce no stripes. The Mountfield Princess 34 corded, Hayter Spirit 41 corded and Webb Classic Roller corded are the three rear-roller corded mowers we recommend.' },
-  { q: 'How much electricity does an electric lawn mower use?', a: 'A 1,200–1,800 W mower used for 30 minutes per mow uses about 0.6–0.9 kWh — roughly 18–27p per mow at 2026 UK domestic rates. Across a 30-mow season that is £6–£8 per year.' },
-  { q: 'Why are corded mowers so much cheaper than cordless?', a: 'No battery and no charger. The battery in a £300 cordless mower costs the manufacturer £80–£120 alone. A corded electric of the same cutting capability is genuinely £100–£150 cheaper to make.' },
+  { q: 'How much electricity does an electric lawn mower use?', a: 'A 1,200-1,800 W mower used for 30 minutes per mow uses about 0.6-0.9 kWh - roughly 18-27p per mow at 2026 UK domestic rates. Across a 30-mow season that is £6-£8 per year.' },
+  { q: 'Why are corded mowers so much cheaper than cordless?', a: 'No battery and no charger. The battery in a £300 cordless mower costs the manufacturer £80-£120 alone. A corded electric of the same cutting capability is genuinely £100-£150 cheaper to make.' },
   { q: 'Are electric lawn mowers being phased out?', a: 'Sales are declining as cordless prices fall, but no UK regulation is phasing them out and Bosch, Flymo, Einhell, Webb and Mountfield all sold new corded models in 2026. They are likely to remain available as a budget option for a long time.' },
 ];
 
@@ -41,17 +43,18 @@ const schema = [
 <BaseLayout {title} {description} schema={schema}>
   <article class="max-w-4xl mx-auto px-4 py-10">
     <Breadcrumbs items={crumbs} />
+    <Disclosure />
     <header class="mb-8">
       <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">UK Buyer's Guide · Updated May 2026</p>
       <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Best Electric Lawn Mowers UK 2026</h1>
       <p class="mt-4 text-lg text-slate-700 leading-relaxed">
-        People wrote off corded electric mowers the moment cordless prices dropped below £200. Eight years on, we still recommend one to anyone with a small lawn near a power socket. Why? They're the cheapest serious mower you can buy, the parts last forever, and a £99 Bosch Rotak will quietly outlive most of the £300 cordless rivals it shares shelf space with. We're not joking — we've got one in the long-term test fleet from 2018, still going. Here are the five we trust.
+        People wrote off corded electric mowers the moment cordless prices dropped below £200. Eight years on, we still recommend one to anyone with a small lawn near a power socket. Why? They're the cheapest serious mower you can buy, the parts last for years, and a £99 Bosch Rotak will quietly outlive most of the £300 cordless rivals it shares shelf space with, going by owner reviews and reliability data. Here are the five we trust.
       </p>
       <p class="mt-3 text-sm text-slate-500">Independent · No manufacturer paid for placement · We may earn a commission on qualifying purchases.</p>
     </header>
 
     <img
-      src="/images/wp/budget_friendly_electric_lawn_mower.jpg"
+      src="/images/budget_friendly_electric_lawn_mower.webp"
       alt="Electric lawn mower cutting a UK garden"
       width="900" height="506"
       class="w-full rounded-xl mb-10 object-cover"
@@ -61,9 +64,9 @@ const schema = [
     <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-12">
       <h2 class="text-xl font-bold text-soil-900 mb-3">Our top three at a glance</h2>
       <ul class="space-y-2 text-slate-800">
-        <li><strong>Best overall:</strong> <a href="/reviews/bosch-rotak-32-review/" class="text-grass-700 underline">Bosch Rotak 32 R</a> — the £99 default for small lawns</li>
-        <li><strong>Best mid-size:</strong> <a href="/reviews/bosch-rotak-37-review/" class="text-grass-700 underline">Bosch Rotak 37 LI</a> — steel deck, mulching plug</li>
-        <li><strong>Cheapest serious:</strong> <a href="/reviews/flymo-easimo-review/" class="text-grass-700 underline">Flymo Easimo</a> — £89, light, durable</li>
+        <li><strong>Best overall:</strong> <a href="/reviews/bosch-rotak-32-review/" class="text-grass-700 underline">Bosch Rotak 32 R</a> - the £99 default for small lawns</li>
+        <li><strong>Best mid-size:</strong> <a href="/reviews/bosch-rotak-37-review/" class="text-grass-700 underline">Bosch Rotak 37 LI</a> - steel deck, mulching plug</li>
+        <li><strong>Cheapest serious:</strong> <a href="/reviews/flymo-easimo-review/" class="text-grass-700 underline">Flymo Easimo</a> - £89, light, durable</li>
       </ul>
     </aside>
 
@@ -73,7 +76,7 @@ const schema = [
         Electric mower is the OG. Plastic or metal deck, 1,000 to 1,800 watt motor, long extension cable to the kitchen socket, grass box at the back. Has been the default UK first mower since the 1970s and still is, as long as your lawn is small enough that a 25 m cable reaches every corner.
       </p>
       <p>
-        Bit of a naming muddle worth clearing up. "Electric mower" technically means anything not powered by petrol — so cordless mowers are also electric. On this page though, when we say "electric" we mean the proper old-school corded version. If you came here looking for battery mowers, you actually want our <a href="/cordless-lawn-mowers/">cordless guide</a>. Same petrol-replacement job, different power source.
+        Bit of a naming muddle worth clearing up. "Electric mower" technically means anything not powered by petrol - so cordless mowers are also electric. On this page though, when we say "electric" we mean the proper old-school corded version. If you came here looking for battery mowers, you actually want our <a href="/cordless-lawn-mowers/">cordless guide</a>. Same petrol-replacement job, different power source.
       </p>
 
       <h2 id="vs">Electric vs cordless vs petrol</h2>
@@ -81,43 +84,45 @@ const schema = [
         <thead><tr><th>Factor</th><th>Corded electric</th><th>Cordless</th><th>Petrol</th></tr></thead>
         <tbody>
           <tr><td>Best lawn size</td><td>Up to 200 m²</td><td>Up to 800 m²</td><td>500 m²+</td></tr>
-          <tr><td>Upfront cost</td><td>£90–£200</td><td>£200–£700</td><td>£250–£900</td></tr>
+          <tr><td>Upfront cost</td><td>£90-£200</td><td>£200-£700</td><td>£250-£900</td></tr>
           <tr><td>Range</td><td>25 m cable</td><td>Battery runtime</td><td>Tank size</td></tr>
           <tr><td>Maintenance</td><td>Sharpen blade, replace cable</td><td>Sharpen blade, clean deck</td><td>Oil, plug, fuel, blade</td></tr>
-          <tr><td>Weight</td><td>6–14 kg</td><td>9–22 kg</td><td>22–35 kg</td></tr>
-          <tr><td>Long-term cost</td><td>Cable replacement</td><td>Battery replacement at 5–8 years</td><td>Annual service plus fuel</td></tr>
+          <tr><td>Weight</td><td>6-14 kg</td><td>9-22 kg</td><td>22-35 kg</td></tr>
+          <tr><td>Long-term cost</td><td>Cable replacement</td><td>Battery replacement at 5-8 years</td><td>Annual service plus fuel</td></tr>
         </tbody>
       </table>
       <p>
         For a sub-200 m² lawn near a socket, electric corded is the rational choice. Anything bigger or further from power, look at cordless or petrol.
       </p>
 
+      <HowWeResearch heading="How we choose these mowers" />
+
       <h2 id="best-electric">Best electric lawn mowers for 2026</h2>
       <div class="space-y-6 mt-6">{picks.map((p) => <PickCard {...p} />)}</div>
 
       <h2 id="buying">What to look for</h2>
       <h3>Wattage</h3>
-      <p>Electric mowers range from 1,000 W (entry) to 1,800 W (premium). For lawns under 150 m², 1,000–1,200 W is enough. For 150–400 m², 1,300–1,600 W. Above that you should be looking at cordless or petrol.</p>
+      <p>Electric mowers range from 1,000 W (entry) to 1,800 W (premium). For lawns under 150 m², 1,000-1,200 W is enough. For 150-400 m², 1,300-1,600 W. Above that you should be looking at cordless or petrol.</p>
       <h3>Deck width</h3>
-      <p>30–34 cm for tiny gardens, 36–40 cm for typical UK lawns, 41–46 cm if you have the space and the strength.</p>
+      <p>30-34 cm for tiny gardens, 36-40 cm for typical UK lawns, 41-46 cm if you have the space and the strength.</p>
       <h3>Cable length and type</h3>
-      <p>Most mowers ship with a 30 cm pigtail. You buy a 25 m or 50 m extension reel separately — make sure it is RCD-protected and rated for outdoor wet use. A flexible "soft cable" (Bosch ProSilence has one) tangles less than stiff PVC.</p>
+      <p>Most mowers ship with a 30 cm pigtail. You buy a 25 m or 50 m extension reel separately - make sure it is RCD-protected and rated for outdoor wet use. A flexible "soft cable" (Bosch ProSilence has one) tangles less than stiff PVC.</p>
       <h3>Mulching</h3>
       <p>Look for a mulching plug in the box, not just "mulching capable" on the spec sheet. Bosch Rotak 37, Einhell GE-EM and most £150+ corded mowers include the plug. Sub-£100 mowers usually don't.</p>
 
       <h2 id="brands">Brands worth shortlisting</h2>
       <ul>
-        <li><strong><a href="/brands/bosch/">Bosch</a></strong> — Rotak range owns this category. 32 R, 34 R, 37 LI are all worth looking at.</li>
-        <li><strong><a href="/brands/flymo/">Flymo</a></strong> — Easimo and Chevron are budget kings. Hover models too if you have a sloped lawn.</li>
-        <li><strong><a href="/brands/einhell/">Einhell</a></strong> — undercuts the Germans by 20–30%, build quality 90% as good.</li>
-        <li><strong><a href="/brands/mountfield/">Mountfield</a></strong> — only do corded at the premium end, but the Princess 34 is the rear-roller exception.</li>
-        <li><strong>Webb</strong> — British brand, classic-styled rear-roller corded mowers if you want stripes.</li>
+        <li><strong><a href="/brands/bosch/">Bosch</a></strong> - Rotak range owns this category. 32 R, 34 R, 37 LI are all worth looking at.</li>
+        <li><strong><a href="/brands/flymo/">Flymo</a></strong> - Easimo and Chevron are budget kings. Hover models too if you have a sloped lawn.</li>
+        <li><strong><a href="/brands/einhell/">Einhell</a></strong> - undercuts the Germans by 20-30%, build quality 90% as good.</li>
+        <li><strong><a href="/brands/mountfield/">Mountfield</a></strong> - only do corded at the premium end, but the Princess 34 is the rear-roller exception.</li>
+        <li><strong>Webb</strong> - British brand, classic-styled rear-roller corded mowers if you want stripes.</li>
       </ul>
 
       <h2 id="related">Related guides</h2>
       <ul>
-        <li><a href="/cordless-lawn-mowers/">Best cordless lawn mowers</a> — if you want to ditch the cable</li>
-        <li><a href="/petrol-lawn-mowers/">Best petrol lawn mowers</a> — for bigger lawns</li>
+        <li><a href="/cordless-lawn-mowers/">Best cordless lawn mowers</a> - if you want to ditch the cable</li>
+        <li><a href="/petrol-lawn-mowers/">Best petrol lawn mowers</a> - for bigger lawns</li>
         <li><a href="/advice/maintenance/sharpen-blade/">How to sharpen a lawn mower blade</a></li>
         <li><a href="/advice/troubleshooting/">Lawn mower troubleshooting</a></li>
       </ul>

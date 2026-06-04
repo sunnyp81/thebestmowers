@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { articleSchema, breadcrumbSchema } from '../../lib/schema';
+
+const title = 'Lawn Mower Advice & How-To Guides - The Best Mowers UK';
+const description = 'Practical UK lawn mower advice: maintenance, troubleshooting, mowing technique, battery care and buying help. Clear, research-led guides.';
+const path = '/advice/';
+const datePublished = '2024-06-01';
+const dateModified = '2026-06-04';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Advice', url: path },
+];
+
+const sections = [
+  { title: 'Maintenance', url: '/advice/maintenance/', text: 'Keep your mower cutting cleanly: sharpening blades, mulching, and battery care.' },
+  { title: 'Troubleshooting', url: '/advice/troubleshooting/', text: 'Fixes for the common faults: won’t start, overheating, cutting out.' },
+  { title: 'Garden size', url: '/advice/garden-size/', text: 'Match the right mower type and deck width to the size of your lawn.' },
+  { title: 'Safety & legal', url: '/advice/safety-legal/', text: 'Ride-on road rules, trade-ins and safe mowing.' },
+];
+
+const guides = [
+  { url: '/buying-guide/cordless-vs-petrol-vs-electric/', label: 'Cordless vs petrol vs electric: which to buy' },
+  { url: '/advice/maintenance/sharpen-blade/', label: 'How to sharpen a lawn mower blade' },
+  { url: '/advice/maintenance/battery-care/', label: 'Cordless mower battery care & runtime' },
+  { url: '/advice/maintenance/mulching/', label: 'Mulching vs collecting explained' },
+  { url: '/advice/mowing-wet-grass/', label: 'Can you mow wet grass?' },
+  { url: '/chainsaw-oil/', label: 'Can I use chainsaw oil in my mower?' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified }),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+    <header class="mb-8">
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Lawn mower advice &amp; how-to guides</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Practical, research-led help for getting the best from your mower, whatever you run. Browse by topic or jump into a popular guide below.
+      </p>
+    </header>
+
+    <div class="grid sm:grid-cols-2 gap-5 mb-12">
+      {sections.map((s) => (
+        <a href={s.url} class="group border border-slate-200 rounded-xl p-6 bg-white hover:border-grass-700 hover:shadow-md transition">
+          <h2 class="text-xl font-bold text-soil-900 group-hover:text-grass-700 mb-2">{s.title}</h2>
+          <p class="text-slate-600 text-sm leading-relaxed">{s.text}</p>
+        </a>
+      ))}
+    </div>
+
+    <h2 class="text-2xl font-bold text-soil-900 mb-4">Popular guides</h2>
+    <ul class="space-y-2">
+      {guides.map((g) => (
+        <li><a href={g.url} class="text-grass-700 underline underline-offset-2 hover:text-grass-900">{g.label}</a></li>
+      ))}
+    </ul>
+  </article>
+</BaseLayout>

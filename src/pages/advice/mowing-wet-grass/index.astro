@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+
+const title = 'Can You Mow Wet Grass? (And Should You)';
+const description = 'Can you mow wet grass safely? The risks, clumping, tearing, rust, clogging and shock hazard with corded mowers, plus how to do it if you have no choice.';
+const path = '/advice/mowing-wet-grass/';
+const datePublished = '2024-06-01';
+const dateModified = '2026-06-04';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Advice', url: '/advice/' },
+  { name: 'Mowing wet grass', url: path },
+];
+
+const faqs = [
+  {
+    q: 'Is it bad to mow wet grass?',
+    a: 'It is not ideal. Wet grass clumps, gets torn rather than cut cleanly, clogs the deck and grass box, and can spread lawn disease. It is also harder on the mower and slippery underfoot. If you can wait for the lawn to dry, do, but with a sharp blade and a raised cut height you can mow damp grass when you have to.',
+  },
+  {
+    q: 'Can you mow wet grass with a cordless or electric mower?',
+    a: 'A <strong>cordless (battery) mower</strong> is the safest electric option in the damp because there is no trailing mains cable. A <strong>corded electric mower carries a genuine shock risk in wet conditions</strong>, never run a mains lead through wet grass, and always use an RCD. Many cordless mowers are rated IPX4 for rain resistance, but check your model and never mow in a downpour.',
+  },
+  {
+    q: 'Will mowing wet grass damage my mower?',
+    a: 'Repeatedly mowing soaking grass shortens deck and blade life. Wet clippings cake under the deck and trap moisture against bare metal, which encourages rust, and the extra load drains a battery or labours a petrol engine faster. Clean the deck after every wet mow to limit the harm.',
+  },
+  {
+    q: 'Why does my mower keep clogging in wet grass?',
+    a: 'Wet clippings are heavy and sticky, so they pack into the discharge chute and grass box instead of flowing through. Raise the cut height, slow right down, take half-width passes, and consider side discharge instead of collecting. Stopping to clear a clog (with the power disconnected) every few minutes is normal in the wet.',
+  },
+  {
+    q: 'How long should I wait for grass to dry before mowing?',
+    a: 'After overnight dew, a few hours of morning sun or a light breeze is usually enough, mid to late morning is the sweet spot in UK summer. After heavy rain, give it most of a day if you can. The grass blades should spring back upright and not feel slick.',
+  },
+  {
+    q: 'Does cutting wet grass cause lawn disease?',
+    a: 'It can contribute. Torn, bruised grass tips and damp clumps left lying on the surface create ideal conditions for fungal problems such as fusarium and red thread. Cutting cleanly with a sharp blade and not leaving thick wet clippings on the lawn reduces the risk.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Lawn Care Advice · Updated June 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Can You Mow Wet Grass? (And Should You)</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        In a British summer, waiting for a perfectly dry lawn can mean waiting all week. So the honest question is not just "can you", it is "can you do it without wrecking the lawn or the mower". Here is the straight answer.
+      </p>
+    </header>
+
+    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-12">
+      <h2 class="text-xl font-bold text-soil-900 mb-2">Short answer</h2>
+      <p class="text-slate-800">
+        Yes, you <em>can</em> mow wet grass, but you generally <em>should not</em> if you can help it. Wet grass tears instead of cutting cleanly, clumps and clogs, encourages rust and lawn disease, and is slippery underfoot. If you genuinely have no choice, raise the cut height, use a sharp blade, go slowly, and, crucially, <strong>never use a corded electric mower on soaking grass</strong> because of the shock risk.
+      </p>
+    </aside>
+
+    <div class="prose-mowers">
+      <h2>The risks of mowing wet grass</h2>
+
+      <h3>It tears rather than cuts</h3>
+      <p>
+        Wet grass blades flatten and bend away from the spinning blade instead of standing up to be sliced. The result is bruised, frayed tips rather than a clean cut. Ragged tips brown off and look untidy a day or two later, exactly the same problem you get from a blunt blade.
+      </p>
+
+      <h3>Clumping and clogging</h3>
+      <p>
+        Damp clippings are heavy and sticky. They mat together into clumps that smother the lawn beneath, and they pack solidly into the discharge chute and grass box. Expect to stop and clear the deck far more often than on a dry day.
+      </p>
+
+      <h3>Rust and wear on the mower</h3>
+      <p>
+        Wet clippings cake onto the underside of the deck and hold moisture against the metal, which is how rust starts. The extra mass also loads the motor or engine harder, draining a battery faster and labouring a petrol engine. Over time, regular wet mowing simply wears a machine out sooner.
+      </p>
+
+      <h3>Slipping, and the electric shock hazard</h3>
+      <p>
+        Wet grass is slippery, and slopes become genuinely dangerous. More serious still: <strong>a corded electric mower and a trailing mains cable on wet grass is a real electrocution risk</strong>. If you must mow damp grass with electric, use a cordless battery mower, not a corded one, and always plug any mains equipment into an RCD.
+      </p>
+
+      <h3>Lawn disease</h3>
+      <p>
+        Torn tips and clumps of wet cuttings left on the surface create warm, damp conditions where fungal diseases such as red thread and fusarium thrive. Cutting cleanly and clearing wet clippings keeps the lawn healthier.
+      </p>
+
+      <h2>How to mow wet grass if you must</h2>
+      <p>
+        Sometimes the forecast leaves no dry window before the grass gets too long. If you have to mow damp grass, stack the odds in your favour:
+      </p>
+      <ul>
+        <li><strong>Raise the cut height.</strong> Take less off in one pass, a higher setting clogs less and stresses the lawn less. You can always lower it for a tidy-up once the grass dries.</li>
+        <li><strong>Start with a sharp blade.</strong> A keen edge is the single best defence against tearing. If yours is dull, read <a href="/advice/maintenance/sharpen-blade/">how to sharpen a lawn mower blade</a> first.</li>
+        <li><strong>Go slowly, in narrow passes.</strong> Half-width passes and a slow walking pace give the blade time to cut and the deck time to clear.</li>
+        <li><strong>Use side discharge, not collection.</strong> Spitting clippings out sideways clogs far less than forcing them into a grass box. Avoid mulching in the wet entirely, it clogs worst of all.</li>
+        <li><strong>Empty the box often and clear the chute.</strong> Don't wait for a full clog. Disconnect the power (remove the battery or spark plug lead) before clearing anything by hand.</li>
+        <li><strong>Clean the deck afterwards.</strong> Scrape off caked clippings while they are still soft to stop rust forming.</li>
+      </ul>
+
+      <h2>Cordless, petrol and corded electric in the wet</h2>
+      <p>
+        The power type changes how sensible, and how safe, wet mowing is.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Power type</th><th>In wet grass</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Cordless (battery)</strong></td><td>Safest electric option, no trailing cable. Many are IPX4 rain-rated. Runtime drops because wet grass is heavier work, so expect a shorter mow per charge.</td></tr>
+          <tr><td><strong>Petrol</strong></td><td>Most torque for heavy wet grass, but the deck still clogs and the machine is heavy on slippery, soft ground. Clean and dry it afterwards to protect the metalwork.</td></tr>
+          <tr><td><strong>Corded electric</strong></td><td><strong>Avoid in the wet.</strong> A mains lead across wet grass is a genuine shock hazard. If unavoidable, use an RCD and keep the cable well clear of the cutting area, but a cordless mower is the far safer choice.</td></tr>
+        </tbody>
+      </table>
+      <p>
+        If wet mowing is a regular fact of life in your garden, a battery mower removes the most dangerous part of the equation by getting rid of the cable. See the <a href="/best-battery-powered-lawn-mower-reviews-uk/">best battery-powered mowers</a>, or weigh up all three in our <a href="/compare/cordless-vs-petrol/">cordless vs petrol vs electric guide</a>.
+      </p>
+
+      <h2>The bottom line</h2>
+      <p>
+        Mow dry whenever you can, it is kinder to the lawn, the mower and your back. When the British weather forces your hand, a sharp blade, a high cut, slow narrow passes and side discharge will get you through. Just keep that corded mower in the shed until things dry out.
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

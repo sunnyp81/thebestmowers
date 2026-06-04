@@ -1,0 +1,11 @@
+---
+// ASA/FTC affiliate disclosure - place near the top of every money page.
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props as Props;
+---
+<aside class={`flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 text-amber-900 ${compact ? 'px-3 py-2 text-xs' : 'px-4 py-3 text-sm'} my-4`} role="note">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mt-0.5 shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  <p>
+    <strong>Affiliate disclosure:</strong> we may earn a commission if you buy through links on this page, at no extra cost to you. It never affects our picks. <a href="/affiliate-disclosure/" class="underline font-medium">How this works</a>.
+  </p>
+</aside>

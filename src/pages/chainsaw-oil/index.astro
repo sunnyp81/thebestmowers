@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../lib/schema';
+
+const title = 'Can I Use Chainsaw Oil in My Lawn Mower? (UK Guide)';
+const description = 'Can you use chainsaw (chain bar) oil in a lawn mower? Short answer: no. Here is the right oil for petrol mowers, 2-stroke vs 4-stroke, and what goes wrong if you get it wrong.';
+const path = '/chainsaw-oil/';
+const datePublished = '2024-06-01';
+const dateModified = '2026-06-04';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Advice', url: '/advice/' },
+  { name: 'Chainsaw oil in a lawn mower', url: path },
+];
+
+const faqs = [
+  {
+    q: 'Can I use chainsaw bar oil as engine oil in my mower?',
+    a: 'No. Chainsaw bar and chain oil is a tacky lubricant designed to cling to a moving chain. It has the wrong viscosity and lacks the detergents and anti-wear additives a four-stroke engine sump needs. Using it in the crankcase can cause overheating, deposits and accelerated wear. Use <strong>SAE 30</strong> or <strong>10W-30</strong> four-stroke engine oil instead.',
+  },
+  {
+    q: 'My mower is a two-stroke. Can I add chainsaw oil to the petrol?',
+    a: 'No. Two-stroke mowers need a dedicated <strong>two-stroke (2T) engine oil</strong> mixed with petrol at the ratio in your manual (commonly 40:1 or 50:1). Chainsaw bar oil is a separate chain lubricant, not a fuel-mix oil, and will not burn cleanly. Two-stroke chainsaws also use a separate 2T oil in the fuel; the bar oil reservoir is a different thing entirely.',
+  },
+  {
+    q: 'What oil does a petrol lawn mower take?',
+    a: 'Most walk-behind petrol mowers use <strong>SAE 30</strong> in summer, or a multigrade <strong>10W-30</strong> for cold-start performance. Always check the handbook for your exact engine (Briggs &amp; Stratton, Honda, Mountfield and Kohler all specify a grade). Capacity is usually around 0.5 to 0.6 litres.',
+  },
+  {
+    q: 'I accidentally put chainsaw oil in the sump. What now?',
+    a: 'Do not start the engine, or run it only briefly if it is already mixed. Drain the crankcase fully, refill with the correct SAE 30 or 10W-30, and run it for a few minutes to circulate clean oil. If it ran hot or sounded rough, drain and refill once more. A single mistake caught early rarely causes lasting damage.',
+  },
+  {
+    q: 'Do cordless or electric mowers need engine oil?',
+    a: 'No. Battery and corded electric mowers have an electric motor with sealed bearings and <strong>no oil sump at all</strong>. There is nothing to drain, top up or change. That is one of the biggest maintenance savings of going cordless. See our <a href="/best-battery-powered-lawn-mower-reviews-uk/">battery mower reviews</a>.',
+  },
+  {
+    q: 'Can I use car engine oil in my mower instead?',
+    a: 'Often yes, within reason. A good quality <strong>10W-30</strong> car oil meeting modern API specs is acceptable in many four-stroke mowers, and some manuals explicitly allow it. Pure <strong>SAE 30</strong> is still the classic small-engine choice in warm weather. What you must not use is chainsaw bar oil, gearbox oil or two-stroke oil in a four-stroke sump.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Maintenance Advice · Updated June 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Can I Use Chainsaw Oil in My Lawn Mower?</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        It is a fair question, there is a bottle of chainsaw oil in the shed, the mower needs oil, why not? The trouble is that "chainsaw oil" and "mower oil" are two completely different products doing two completely different jobs.
+      </p>
+    </header>
+
+    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-12">
+      <h2 class="text-xl font-bold text-soil-900 mb-2">Short answer</h2>
+      <p class="text-slate-800">
+        No. <strong>Chainsaw bar and chain oil is not a substitute for engine oil.</strong> It is a sticky chain lubricant with the wrong viscosity and none of the detergent or anti-wear additives a four-stroke engine sump needs. A petrol mower needs proper <strong>SAE 30</strong> or <strong>10W-30</strong> four-stroke engine oil. A two-stroke mower needs dedicated <strong>two-stroke (2T) oil mixed into the petrol</strong>, again, not chain oil. And a <a href="/best-battery-powered-lawn-mower-reviews-uk/" class="text-grass-700 underline">cordless or electric mower</a> needs no engine oil at all.
+      </p>
+    </aside>
+
+    <div class="prose-mowers">
+      <h2>Why people ask this in the first place</h2>
+      <p>
+        The confusion is understandable. A chainsaw uses two kinds of oil: a <strong>two-stroke engine oil</strong> mixed into the petrol to lubricate the engine, and a separate <strong>bar and chain oil</strong> pumped onto the cutting chain. When someone says "chainsaw oil" they usually mean the tacky bar oil, the thick, stringy stuff you pour into the bar reservoir. That product is engineered to cling to a fast-moving chain in the open air, not to circulate through and protect the inside of an engine.
+      </p>
+      <p>
+        Pour bar oil into a mower crankcase and you are asking a clinging chain lubricant to do the job of a finely balanced engine oil. It cannot. The viscosity is wrong, it carries tackifiers that have no place in a sump, and it has none of the cleaning, anti-corrosion and anti-wear additives that engine oil relies on.
+      </p>
+
+      <h2>What oil a petrol mower actually needs</h2>
+      <p>
+        A petrol walk-behind mower has a small four-stroke engine with an oil sump, just like a car, but tiny. It needs a proper <strong>four-stroke (4T) engine oil</strong>:
+      </p>
+      <ul>
+        <li><strong>SAE 30</strong>, the classic single-grade small-engine oil. Ideal for typical UK summer mowing temperatures.</li>
+        <li><strong>10W-30</strong>, a multigrade that flows better on cold mornings and is fine across the whole season. A safe default if you are unsure.</li>
+        <li><strong>5W-30 or synthetic</strong>, specified by some newer engines for easier cold starts and longer drain intervals. Check the handbook.</li>
+      </ul>
+      <p>
+        Engine makers such as Briggs &amp; Stratton, Honda and Kohler print the exact grade and the sump capacity (usually around 0.5 to 0.6 litres) in the manual. Use that as your final word over any general guide.
+      </p>
+
+      <h2>Two-stroke vs four-stroke mowers</h2>
+      <p>
+        Knowing which type you have decides everything about oiling.
+      </p>
+      <table>
+        <thead>
+          <tr><th></th><th>Four-stroke (most modern mowers)</th><th>Two-stroke (older / lightweight)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Oil location</td><td>Separate oil sump you fill and drain</td><td>No sump, oil is mixed into the petrol</td></tr>
+          <tr><td>Oil type</td><td>SAE 30 / 10W-30 four-stroke oil</td><td>Two-stroke (2T) oil, mixed to ratio</td></tr>
+          <tr><td>Fuel</td><td>Petrol only</td><td>Petrol pre-mixed with 2T oil (e.g. 40:1)</td></tr>
+          <tr><td>Maintenance</td><td>Oil changes each season</td><td>Mix fresh fuel each time, no oil change</td></tr>
+        </tbody>
+      </table>
+      <p>
+        For a four-stroke, you change the oil in the sump. For a two-stroke, you never put oil in a sump because there is not one, instead you add the correct ratio of two-stroke oil to the petrol. Neither type uses chainsaw bar oil anywhere.
+      </p>
+
+      <h3>The two-stroke ratio matters</h3>
+      <p>
+        Two-stroke mowers run on petrol pre-mixed with 2T oil at a ratio set by the manufacturer, commonly 40:1 or 50:1. Get this wrong and you either starve the engine of lubrication (too little oil) or foul the plug and smoke heavily (too much). Measure it properly and use fresh fuel; stale two-stroke mix is a common cause of hard starting.
+      </p>
+
+      <h2>What happens if you use the wrong oil</h2>
+      <p>
+        Using chainsaw bar oil, gearbox oil or two-stroke oil in a four-stroke sump can cause real harm:
+      </p>
+      <ul>
+        <li><strong>Overheating</strong>, the wrong viscosity does not carry heat away from bearings and cylinder walls as designed.</li>
+        <li><strong>Deposits and gumming</strong>, tackifiers and the lack of detergents leave residue that clogs oilways.</li>
+        <li><strong>Accelerated wear</strong>, missing anti-wear additives means metal-on-metal contact under load.</li>
+        <li><strong>Smoke and fouling</strong>, bar oil does not burn cleanly if any reaches the combustion chamber.</li>
+        <li><strong>Hard starting and rough running</strong>, the first signs something is wrong.</li>
+      </ul>
+      <p>
+        Caught quickly, a single mistake is usually recoverable: drain the sump fully, refill with the correct grade, and run a short cleaning cycle. Left to run for hours, it can shorten the engine's life considerably.
+      </p>
+
+      <h2>The simplest answer of all: skip engine oil entirely</h2>
+      <p>
+        None of this applies to battery or corded electric mowers. An electric motor has sealed, lifetime-lubricated bearings and <strong>no oil sump, no spark plug and no fuel</strong>. There is nothing to drain, mix or top up, you sharpen the blade, clean the deck and charge the battery, and that is the whole maintenance routine.
+      </p>
+      <p>
+        If oil changes and fuel mixing are exactly the chores you would rather avoid, that is one of the strongest reasons UK gardeners are switching. See how the three power types compare in our <a href="/compare/cordless-vs-petrol/">cordless vs petrol vs electric buying guide</a>, or jump straight to the <a href="/best-battery-powered-lawn-mower-reviews-uk/">best battery-powered mowers we recommend</a>.
+      </p>
+
+      <h2>Related guides</h2>
+      <ul>
+        <li><a href="/best-battery-powered-lawn-mower-reviews-uk/">Best battery-powered lawn mowers (UK)</a></li>
+        <li><a href="/compare/cordless-vs-petrol/">Cordless vs petrol vs electric, which to buy</a></li>
+        <li><a href="/advice/maintenance/sharpen-blade/">How to sharpen a lawn mower blade</a></li>
+      </ul>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

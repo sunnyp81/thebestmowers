@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import Disclosure from '../../../components/Disclosure.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+import { amazonSearch } from '../../../lib/affiliate';
+
+const title = 'Greenworks Cordless Lawn Mowers UK: Range, Best Models & Review 2026';
+const description = 'Complete guide to Greenworks cordless lawn mowers in the UK. The 24V, 40V, 48V, 60V and 80V battery platforms explained, top models, a comparison table and the brand\'s pros and cons.';
+const path = '/brands/greenworks/';
+const datePublished = '2024-06-01';
+const dateModified = '2026-06-04';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Brands', url: '/brands/' },
+  { name: 'Greenworks', url: path },
+];
+
+const faqs = [
+  { q: 'Are Greenworks mowers any good?', a: 'Greenworks are one of the strongest value brands in cordless. They were battery-only from the start, so the whole range is built around lithium platforms rather than adapted from petrol designs. Cut quality, runtime and build are good for the money, and the 48V and 60V mowers in particular punch above their price. The trade-off is a smaller dealer network than EGO or Bosch and a few too many overlapping battery systems.' },
+  { q: 'Which Greenworks battery platform should I buy?', a: 'For a small lawn, the 24V or 40V platforms are light and affordable. For a medium-to-large UK garden, the 48V (two 24V packs) and 60V systems are the sweet spot - strong torque, sensible runtime, reasonable price. The 80V platform is for big, rough lawns where you want maximum power. Pick the platform first, because the battery only fits its own range.' },
+  { q: 'Are Greenworks batteries cross-compatible?', a: 'Within a platform, yes - a 40V battery fits any 40V Greenworks tool, a 60V fits any 60V tool, and so on. Across platforms, no: a 40V pack will not run a 60V mower. The clever exception is the 48V mowers, which run two 24V batteries in series, so a 24V owner can share packs between small tools and the bigger mower.' },
+  { q: 'Where can I buy Greenworks mowers in the UK?', a: 'Amazon UK is the main route, with Greenworks\' own UK store, B&Q and selected garden machinery retailers also stocking the range. Bundle deals with batteries and a charger included are usually better value than buying the mower bare and adding a pack separately.' },
+  { q: 'Greenworks vs EGO - which is better?', a: 'EGO wins on outright build quality, dealer support and the refinement of its 56V system. Greenworks wins on price for comparable power, especially with the 60V and 80V mowers. If budget is the priority and you want high-voltage cordless, Greenworks is the value pick; if you want the most polished premium cordless and broad dealer backup, EGO edges it.' },
+  { q: 'Do Greenworks mowers handle long, wet grass?', a: 'The higher-voltage models do. A 48V, 60V or 80V Greenworks with a brushless motor has the torque to cut through long, damp UK grass without stalling, per the manufacturer specifications. The entry-level 24V and 40V machines are happier on a regularly mown lawn that is kept short. Match the voltage to how rough your grass typically gets.' },
+  { q: 'How long do Greenworks mowers run on one charge?', a: 'Manufacturer runtime figures sit in the 30-60 minute range depending on the platform and battery size. As a coverage estimate, that covers roughly 250-600 m² of typical lawn from a full charge, with the higher-voltage, larger-Ah packs at the top end. Runtime is a claim rather than an independent measurement - long or wet grass will use the charge faster.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-3xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Brand guide · Updated June 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Greenworks Cordless Lawn Mowers UK</h1>
+      <p class="mt-3 text-slate-500 text-sm">By The Best Mowers UK</p>
+    </header>
+
+    <Disclosure />
+
+    <div class="prose-mowers">
+      <p>Greenworks are the value champions of cordless. Unlike the brands that adapted petrol mowers into battery ones, Greenworks were lithium-only from the start, so every machine is designed around a battery platform rather than retro-fitted to one. The result is a range that consistently delivers good cut quality, runtime and build for less than the premium names - and that, at the 48V and 60V end, genuinely rivals petrol on a large UK lawn for a noticeably lower price.</p>
+
+      <h2>The Greenworks battery platforms</h2>
+      <p>Greenworks runs several voltage platforms, and the most important thing to understand is that a battery only fits tools in its own platform. Pick the platform that matches your lawn first, then choose the mower.</p>
+      <ul>
+        <li><strong>24V</strong> - the entry tier. Light, cheap, for small lawns and hand tools. Two 24V packs combine to power the 48V mowers.</li>
+        <li><strong>40V</strong> - a popular all-rounder for small-to-medium gardens. Good balance of weight, runtime and price.</li>
+        <li><strong>48V</strong> - runs two 24V batteries in series for more cutting torque while keeping the affordable 24V battery platform. A clever sweet spot for medium UK lawns.</li>
+        <li><strong>60V</strong> - the strong mid-to-large garden tier. Brushless power, sensible runtime, the platform most people should look at for 400 m²+.</li>
+        <li><strong>80V</strong> - the top consumer tier for big, rough lawns. Near-petrol torque at a Greenworks price.</li>
+      </ul>
+
+      <h2>Top Greenworks mowers</h2>
+      <p>Three models cover most UK gardens - a light 40V for small-to-medium lawns, the value-leading 48V, and a strong 60V for larger plots.</p>
+
+      <h3>Greenworks GD40LM45 (40V, 45 cm)</h3>
+      <p>A 40V push mower with a generous 45 cm deck - wide for the voltage - that suits a medium-to-large lawn kept regularly mown. Brushless motor, light enough to handle easily, and it sits on the well-stocked 40V platform so the battery shares with strimmers, blowers and hedge trimmers. The best Greenworks buy if you want one affordable battery system across the whole garden. <a href={amazonSearch('Greenworks GD40LM45 lawn mower')} rel="nofollow sponsored noopener noreferrer" target="_blank">Check price on Amazon</a>.</p>
+
+      <h3>Greenworks 48V G48LM41K2X (48V, 41 cm)</h3>
+      <p>The value pick of the range. It runs two 24V batteries in series for 48V of cutting power, so you get real torque while staying on the cheap, light 24V battery platform. The 41 cm deck and brushless motor handle a typical 300-450 m² UK lawn comfortably, and the twin-24V trick means the packs double up with 24V hand tools. For most British gardens, this is the Greenworks to buy. <a href={amazonSearch('Greenworks 48V G48LM41K2X lawn mower')} rel="nofollow sponsored noopener noreferrer" target="_blank">Check price on Amazon</a>.</p>
+
+      <h3>Greenworks 60V (GD60LM46SP, 46 cm self-propelled)</h3>
+      <p>Step up to 60V and the self-propelled 46 cm mower for a large lawn or one with slopes. The higher voltage gives the torque to cut through longer, damper grass, and the driven wheels take the effort out of a big mow. It costs more than the 48V but undercuts a comparable EGO, making it the value route to near-petrol cordless power. <a href={amazonSearch('Greenworks 60V self propelled lawn mower')} rel="nofollow sponsored noopener noreferrer" target="_blank">Check price on Amazon</a>.</p>
+
+      <h2>Greenworks mower comparison</h2>
+      <table>
+        <thead><tr><th>Model</th><th>Platform</th><th>Deck</th><th>Drive</th><th>Best for</th><th>Price</th></tr></thead>
+        <tbody>
+          <tr><td>GD40LM45</td><td>40V</td><td>45 cm</td><td>Push</td><td>Small-to-medium lawns, shared 40V tools</td><td>£200-£280</td></tr>
+          <tr><td>G48LM41K2X</td><td>48V (2 × 24V)</td><td>41 cm</td><td>Push</td><td>Best value, typical UK lawn 300-450 m²</td><td>£250-£330</td></tr>
+          <tr><td>GD60LM46SP</td><td>60V</td><td>46 cm</td><td>Self-propelled</td><td>Large or sloping lawns 400-700 m²</td><td>£350-£450</td></tr>
+        </tbody>
+      </table>
+      <p class="text-sm text-slate-500">Prices are typical UK bands and move with seasonal deals - check the live price before buying.</p>
+
+      <h2>Pros and cons of Greenworks</h2>
+      <table>
+        <thead><tr><th>Pros</th><th>Cons</th></tr></thead>
+        <tbody>
+          <tr><td>Excellent value - high-voltage power for less than EGO or Bosch</td><td>Smaller UK dealer and service network than the premium brands</td></tr>
+          <tr><td>Battery-only heritage; every mower designed around lithium</td><td>Several overlapping platforms make the range confusing to navigate</td></tr>
+          <tr><td>Brushless motors across the mid and upper range</td><td>Build quality a notch below EGO and Makita at the very top end</td></tr>
+          <tr><td>Clever 48V system reuses cheap 24V packs</td><td>Batteries do not cross between platforms (40V will not run 60V)</td></tr>
+        </tbody>
+      </table>
+
+      <h2>How Greenworks compares</h2>
+      <p>Against <a href="/brands/ego/">EGO</a>: EGO wins on build quality, refinement and dealer support; Greenworks wins on price for similar power. Against <a href="/brands/bosch/">Bosch</a>: Bosch has the broader cross-tool Power for All ecosystem and high-street availability; Greenworks offers more voltage for the money. Against <a href="/brands/ryobi/">Ryobi</a>: Ryobi has the enormous ONE+ tool count; Greenworks has stronger high-voltage mowers for large lawns.</p>
+
+      <h2>Who should buy Greenworks</h2>
+      <p>Budget-minded UK gardeners who want strong cordless power without paying premium-brand prices - especially anyone with a large or sloping lawn eyeing the 60V or 80V mowers as a cheaper alternative to EGO. The brand suits buyers happy to buy online and do their own light maintenance, rather than those who want a local dealer down the road. If value-for-power is your priority, Greenworks is hard to beat.</p>
+
+      <h2>Related guides</h2>
+      <ul>
+        <li><a href="/best-battery-powered-lawn-mower-reviews-uk/">Best battery-powered lawn mowers - full UK reviews</a></li>
+        <li><a href="/cordless-lawn-mowers/self-propelled/">Best self-propelled cordless mowers</a></li>
+        <li><a href="/cordless-lawn-mowers/small-gardens/">Best cordless mowers for small gardens</a></li>
+        <li><a href="/buying-guide/cordless-vs-petrol-vs-electric/">Cordless vs petrol vs electric - which to buy</a></li>
+      </ul>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

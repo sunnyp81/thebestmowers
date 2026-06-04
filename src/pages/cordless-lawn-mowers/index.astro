@@ -3,10 +3,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FAQ from '../../components/FAQ.astro';
 import PickCard from '../../components/PickCard.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import HowWeResearch from '../../components/HowWeResearch.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../lib/schema';
+import { amazonSearch } from '../../lib/affiliate';
 
-const title = 'Best Cordless Lawn Mowers UK 2026 — Tested by Real Gardeners';
-const description = "Independent UK reviews of the best cordless lawn mowers for 2026. Tested in real gardens — battery life, deck size, build quality and value compared.";
+const title = 'Best Cordless Lawn Mowers UK 2026 - Research-Led Picks';
+const description = "Independent UK guide to the best cordless lawn mowers for 2026. Battery life, deck size, build quality and value compared from specs and verified owner reviews.";
 const path = '/cordless-lawn-mowers/';
 const datePublished = '2026-05-10';
 
@@ -21,7 +24,7 @@ const picks = [
     brand: 'Gtech', bestFor: 'small to medium UK gardens',
     rating: 4.6, rrp: '£249',
     reviewUrl: '/reviews/gtech-clm50/',
-    affiliateUrl: 'https://www.amazon.co.uk/dp/B07S26C8VP?tag=tbm-21',
+    affiliateUrl: amazonSearch('Gtech CLM 2.0 lawn mower'),
     pros: ['Light enough to carry one-handed', 'Stripes that genuinely look the part', 'Click-out battery lasts a 200 m² lawn easily'],
     cons: ['No mulching plug in the box', 'Pricey vs supermarket brands'],
     verdict: 'The CLM is the cordless mower we recommend most often to first-time buyers. It cuts cleanly, the rear roller leaves visible stripes on a typical British lawn, and the 36-minute runtime covers a 200 m² garden with a full battery to spare. Two niggles: no mulching plug as standard, and the 33 cm deck means a long mow on anything over 350 m².',
@@ -31,7 +34,7 @@ const picks = [
     brand: 'Bosch', bestFor: 'medium gardens up to 400 m²',
     rating: 4.5, rrp: '£329',
     reviewUrl: '/reviews/bosch-easyrotak-36-550-lawnmower/',
-    pros: ['ProSilence motor — genuinely quiet', 'Works on the 36 V Power for All platform', '50 L grass box is enormous for the class'],
+    pros: ['ProSilence motor - genuinely quiet', 'Works on the 36 V Power for All platform', '50 L grass box is enormous for the class'],
     cons: ['Heavier than the Gtech at 14 kg', 'Plastic deck flexes on uneven ground'],
     verdict: 'If you already own Bosch garden tools, the 36 V Power for All battery shared across hedge trimmers, blowers and strimmers makes the UniversalRotak the obvious pick. The 50 L box and 40 cm deck are class-leading for a sub-£350 cordless.',
   },
@@ -40,16 +43,16 @@ const picks = [
     brand: 'Ryobi', bestFor: 'Ryobi ONE+ owners',
     rating: 4.4, rrp: '£269 (with battery)',
     reviewUrl: '/reviews/ryobi-cordless/',
-    pros: ['Slots into the 18 V ONE+ ecosystem (200+ tools)', 'Self-propelled drive on the 40 cm model', 'Brushless motor — long lifespan'],
+    pros: ['Slots into the 18 V ONE+ ecosystem (200+ tools)', 'Self-propelled drive on the 40 cm model', 'Brushless motor - long lifespan'],
     cons: ['Single 18 V battery struggles on damp grass', 'Cut height adjustment is fiddly'],
-    verdict: 'For the half a million UK households that already own a Ryobi drill or strimmer, the RY18LMX40A is the cheapest sensible cordless mower on the market — buy bare-tool and you are spending under £160 for a real 40 cm deck. It is not the most powerful mower here, but on a dry, regularly mown lawn it is more than enough.',
+    verdict: 'For the half a million UK households that already own a Ryobi drill or strimmer, the RY18LMX40A is the cheapest sensible cordless mower on the market - buy bare-tool and you are spending under £160 for a real 40 cm deck. It is not the most powerful mower here, but on a dry, regularly mown lawn it is more than enough.',
   },
   {
     rank: 4, name: 'EGO LM2122E-SP',
-    brand: 'EGO', bestFor: 'large gardens (500–800 m²)',
+    brand: 'EGO', bestFor: 'large gardens (500-800 m²)',
     rating: 4.7, rrp: '£599',
     reviewUrl: '/reviews/ego-lm2122e-sp/',
-    pros: ['56 V — petrol-equivalent power', 'Self-propelled at variable speed', 'IPX4-rated against rain'],
+    pros: ['56 V - petrol-equivalent power', 'Self-propelled at variable speed', 'IPX4-rated against rain'],
     cons: ['Expensive', 'Stripes are softer than rear-roller mowers'],
     verdict: 'The closest a cordless gets to the feel of a petrol self-propelled mower. The 56 V motor cuts long, wet grass that smaller cordless mowers stall on, and the variable-speed drive makes a 600 m² lawn an actual pleasure. If your garden is bigger than 400 m² and you want to ditch petrol, this is the one.',
   },
@@ -58,7 +61,7 @@ const picks = [
     brand: 'Mountfield', bestFor: 'classic stripes on a small lawn',
     rating: 4.3, rrp: '£399',
     reviewUrl: '/reviews/mountfield-princess-34/',
-    pros: ['Steel deck — feels solid', 'True rear roller for sharp stripes', '48 V system'],
+    pros: ['Steel deck - feels solid', 'True rear roller for sharp stripes', '48 V system'],
     cons: ['Only 34 cm cut', 'Battery sold separately on some retailers'],
     verdict: 'A proper Italian-built mower for a fraction of the cost of a petrol Princess. If you care about stripes more than acreage, this is the cheapest way to get them from a battery mower with a metal deck.',
   },
@@ -67,19 +70,19 @@ const picks = [
 const faqs = [
   {
     q: 'How big a garden can a cordless lawn mower handle?',
-    a: 'As a rule of thumb, a single-battery 18 V cordless mower (2.0–4.0 Ah) cuts 150–250 m² on a charge. A 36 V or 40 V mower with a 4–6 Ah battery covers 300–500 m². Twin-battery 36 V/56 V machines reach 600–1000 m² before needing a swap. If your garden is over 1000 m², either buy a second battery or look at petrol or robot.',
+    a: 'As a rule of thumb, a single-battery 18 V cordless mower (2.0-4.0 Ah) cuts 150-250 m² on a charge. A 36 V or 40 V mower with a 4-6 Ah battery covers 300-500 m². Twin-battery 36 V/56 V machines reach 600-1000 m² before needing a swap. If your garden is over 1000 m², either buy a second battery or look at petrol or robot.',
   },
   {
-    q: 'Cordless or petrol — which is best for the UK?',
+    q: 'Cordless or petrol - which is best for the UK?',
     a: 'For the typical British garden under 500 m², cordless wins. UK lawns are smaller than US lawns, mowing windows are short between rain showers, and noise rules in many neighbourhoods make petrol awkward after 6pm or on Sunday mornings. Petrol still has the edge on lawns over 800 m², on heavy wet grass, and where you genuinely prefer the cut feel of a high-RPM blade.',
   },
   {
     q: 'Are cordless lawn mowers powerful enough for long grass?',
-    a: 'A 36 V or higher cordless mower with a brushless motor will cut grass up to about 15 cm without complaint. Below 36 V or with brushed motors, you will stall on long, damp lawns. The trick is to raise the cut height for the first pass and lower it for the second — same as you would with petrol.',
+    a: 'A 36 V or higher cordless mower with a brushless motor will cut grass up to about 15 cm without complaint. Below 36 V or with brushed motors, you will stall on long, damp lawns. The trick is to raise the cut height for the first pass and lower it for the second - same as you would with petrol.',
   },
   {
     q: 'What is the difference between cordless and battery lawn mowers?',
-    a: 'They are the same thing. UK retailers and manufacturers use both terms — "cordless lawn mower" is the older phrase, "battery lawn mower" the newer one. Both refer to a rechargeable lithium-ion mower with no power lead and no petrol engine.',
+    a: 'They are the same thing. UK retailers and manufacturers use both terms - "cordless lawn mower" is the older phrase, "battery lawn mower" the newer one. Both refer to a rechargeable lithium-ion mower with no power lead and no petrol engine.',
   },
   {
     q: 'Do cordless lawn mowers leave stripes?',
@@ -87,15 +90,15 @@ const faqs = [
   },
   {
     q: 'How long do cordless lawn mower batteries last before they need replacing?',
-    a: 'A quality lithium-ion battery (Bosch, Makita, Ryobi, EGO, DeWalt) is rated for 500–1000 charge cycles, which works out to 5–8 years for the average UK gardener mowing 25–30 times a year. Cheap own-brand cells from supermarket mowers tend to give up after 2–3 seasons.',
+    a: 'A quality lithium-ion battery (Bosch, Makita, Ryobi, EGO, DeWalt) is rated for 500-1000 charge cycles, which works out to 5-8 years for the average UK gardener mowing 25-30 times a year. Cheap own-brand cells from supermarket mowers tend to give up after 2-3 seasons.',
   },
   {
     q: 'Can you mulch with a cordless lawn mower?',
-    a: 'Most modern cordless mowers from Bosch, EGO, Stihl, Ryobi and Makita support mulching — you fit a plug into the rear discharge channel which forces clippings to be cut multiple times before being dropped back onto the lawn as fine fertiliser. Cheaper models often do not include the mulching plug or cannot mulch at all.',
+    a: 'Most modern cordless mowers from Bosch, EGO, Stihl, Ryobi and Makita support mulching - you fit a plug into the rear discharge channel which forces clippings to be cut multiple times before being dropped back onto the lawn as fine fertiliser. Cheaper models often do not include the mulching plug or cannot mulch at all.',
   },
   {
     q: 'What battery voltage should I look for?',
-    a: 'For a small lawn (under 200 m²), 18 V or 24 V is fine. For a medium lawn (200–400 m²), aim for 36 V. For anything larger, 40 V, 48 V, 56 V or twin-18 V. The voltage drives motor torque — higher voltage cuts long, wet grass without bogging down.',
+    a: 'For a small lawn (under 200 m²), 18 V or 24 V is fine. For a medium lawn (200-400 m²), aim for 36 V. For anything larger, 40 V, 48 V, 56 V or twin-18 V. The voltage drives motor torque - higher voltage cuts long, wet grass without bogging down.',
   },
 ];
 
@@ -113,12 +116,13 @@ const schema = [
 <BaseLayout {title} {description} schema={schema}>
   <article class="max-w-4xl mx-auto px-4 py-10">
     <Breadcrumbs items={crumbs} />
+    <Disclosure />
 
     <header class="mb-8">
       <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">UK Buyer's Guide · Updated May 2026</p>
       <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Best Cordless Lawn Mowers UK 2026</h1>
       <p class="mt-4 text-lg text-slate-700 leading-relaxed">
-        Five years ago, telling someone to buy a cordless mower for anything bigger than a courtyard would've earned you a funny look. Today? A £300 battery mower will out-cut a £200 petrol all day long. Quieter, lighter, no fiddling with choke and primer, and yes — it'll finish a 500 m² lawn on one charge without breaking a sweat. We've put every mower on this page through real British gardens. Damp morning grass. Lumpy lawns. The works.
+        Five years ago, telling someone to buy a cordless mower for anything bigger than a courtyard would've earned you a funny look. Today a £300 battery mower will out-cut a £200 petrol all day long. Quieter, lighter, no fiddling with choke and primer, and on a typical 500 m² lawn it finishes on one charge. Our picks here are built from manufacturer specifications, verified owner reviews on Amazon UK and retailer sites, and UK pricing data, cross-checked so the figures match the box.
       </p>
       <p class="mt-3 text-sm text-slate-500">
         Independent · No manufacturer paid for placement · We may earn a commission on qualifying purchases.
@@ -126,7 +130,7 @@ const schema = [
     </header>
 
     <img
-      src="/images/wp/cordless_lawn_mower_convenience-1.jpg"
+      src="/images/cordless_lawn_mower_convenience-1.webp"
       alt="Cordless lawn mower being used on a UK garden lawn"
       width="900" height="506"
       class="w-full rounded-xl mb-10 object-cover"
@@ -137,22 +141,22 @@ const schema = [
     <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-12">
       <h2 class="text-xl font-bold text-soil-900 mb-3">Our top three at a glance</h2>
       <ul class="space-y-2 text-slate-800">
-        <li><strong>Best overall:</strong> <a href="/reviews/gtech-clm50/" class="text-grass-700 underline">Gtech CLM 2.0</a> — the easiest, lightest cordless to live with for a small UK garden</li>
-        <li><strong>Best value:</strong> <a href="/reviews/bosch-easyrotak-36-550-lawnmower/" class="text-grass-700 underline">Bosch UniversalRotak 36-550</a> — biggest grass box and shared battery platform</li>
-        <li><strong>Best for big gardens:</strong> <a href="/reviews/ego-lm2122e-sp/" class="text-grass-700 underline">EGO LM2122E-SP</a> — petrol-equivalent power, genuinely</li>
+        <li><strong>Best overall:</strong> <a href="/reviews/gtech-clm50/" class="text-grass-700 underline">Gtech CLM 2.0</a> - the easiest, lightest cordless to live with for a small UK garden</li>
+        <li><strong>Best value:</strong> <a href="/reviews/bosch-easyrotak-36-550-lawnmower/" class="text-grass-700 underline">Bosch UniversalRotak 36-550</a> - biggest grass box and shared battery platform</li>
+        <li><strong>Best for big gardens:</strong> <a href="/reviews/ego-lm2122e-sp/" class="text-grass-700 underline">EGO LM2122E-SP</a> - petrol-equivalent power, genuinely</li>
       </ul>
     </aside>
 
     <div class="prose-mowers">
       <h2 id="what-is">So what actually is a cordless lawn mower?</h2>
       <p>
-        Same machine you've always known — rotary deck, blade underneath, grass box at the back — except the petrol engine and the mains cable have been swapped out for a lithium-ion battery that clicks into the deck. That's it. Most mowers above £200 use a brushless motor (better, quieter, lasts longer), the battery slots in like a power tool, and you press a button instead of yanking a starter cord.
+        Same machine you've always known - rotary deck, blade underneath, grass box at the back - except the petrol engine and the mains cable have been swapped out for a lithium-ion battery that clicks into the deck. That's it. Most mowers above £200 use a brushless motor (better, quieter, lasts longer), the battery slots in like a power tool, and you press a button instead of yanking a starter cord.
       </p>
       <p>
-        Why did the category explode between 2018 and 2024? Three things lined up at once. Battery cells got 80% cheaper. Brushless motors got cheap. And the big brands — Bosch, Ryobi, DeWalt, Makita — started sharing one battery across an entire range of tools. So that £150 battery you bought for the mower? It also runs your hedge trimmer, your strimmer, your blower and the drill in the shed. That's why cordless is now the default first mower for most UK households. It just makes sense.
+        Why did the category explode between 2018 and 2024? Three things lined up at once. Battery cells got 80% cheaper. Brushless motors got cheap. And the big brands - Bosch, Ryobi, DeWalt, Makita - started sharing one battery across an entire range of tools. So that £150 battery you bought for the mower? It also runs your hedge trimmer, your strimmer, your blower and the drill in the shed. That's why cordless is now the default first mower for most UK households. It just makes sense.
       </p>
 
-      <h2 id="vs">Cordless vs petrol vs corded electric — which to buy</h2>
+      <h2 id="vs">Cordless vs petrol vs corded electric - which to buy</h2>
       <p>
         Three power types, three different jobs. Get this decision right and the rest of the buying process is easy.
       </p>
@@ -162,30 +166,24 @@ const schema = [
         </thead>
         <tbody>
           <tr><td>Best lawn size</td><td>Up to 800 m²</td><td>500 m² and up</td><td>Up to 200 m²</td></tr>
-          <tr><td>Upfront cost</td><td>£200–£700</td><td>£250–£900</td><td>£90–£200</td></tr>
-          <tr><td>Running cost (per mow)</td><td>1–3p electricity</td><td>30–80p petrol</td><td>1–2p electricity</td></tr>
-          <tr><td>Noise</td><td>78–84 dB</td><td>92–100 dB</td><td>78–82 dB</td></tr>
+          <tr><td>Upfront cost</td><td>£200-£700</td><td>£250-£900</td><td>£90-£200</td></tr>
+          <tr><td>Running cost (per mow)</td><td>1-3p electricity</td><td>30-80p petrol</td><td>1-2p electricity</td></tr>
+          <tr><td>Noise</td><td>78-84 dB</td><td>92-100 dB</td><td>78-82 dB</td></tr>
           <tr><td>Maintenance</td><td>Sharpen blade, clean deck</td><td>Oil, spark plug, fuel, blade</td><td>Sharpen blade, replace cable</td></tr>
           <tr><td>Cold-start hassle</td><td>Press button</td><td>Pull cord, prime, choke</td><td>Press button</td></tr>
           <tr><td>Range limit</td><td>Battery runtime</td><td>Tank size</td><td>Cable length (usually 25 m)</td></tr>
-          <tr><td>Weight</td><td>9–22 kg</td><td>22–35 kg</td><td>10–14 kg</td></tr>
-          <tr><td>Long-term cost</td><td>Battery replacement at 5–8 years</td><td>Annual service plus fuel</td><td>Cable replacement</td></tr>
+          <tr><td>Weight</td><td>9-22 kg</td><td>22-35 kg</td><td>10-14 kg</td></tr>
+          <tr><td>Long-term cost</td><td>Battery replacement at 5-8 years</td><td>Annual service plus fuel</td><td>Cable replacement</td></tr>
         </tbody>
       </table>
       <p>
         Honest answer for most UK gardens under 600 m²? <strong>Cordless.</strong> Bigger lawn, country pile, mowing every other day all summer? <strong>Petrol.</strong> Tiny garden right next to a power socket and you're tight on budget? <strong>Corded electric still works perfectly fine and saves you £150.</strong> No shame in that.
       </p>
 
-      <h2 id="how-we-test">How we actually test these things</h2>
-      <p>
-        Every mower on this page gets bought, borrowed or kept on long-term loan, then put to work on three real gardens — a 90 m² London terrace, a 280 m² suburban semi, and a 620 m² mixed lawn with a proper slope. We measure cut height with a ruler at four points across the deck (manufacturers fudge this constantly). We time runtime to flat on dry grass, then again on damp. We weigh each mower ourselves on a luggage scale, because spec sheets often quietly leave the battery out.
-      </p>
-      <p>
-        We also do the boring stuff most reviews skip. We fold the handles. We try clicking the battery in one-handed (you'd be amazed how many fail). We lift each mower over a 20 cm kerb to see what carrying it actually feels like. A mower stays on our list after 30 mowing sessions. Three failed charges or a bent shaft and it's gone.
-      </p>
+      <HowWeResearch heading="How we choose these mowers" />
 
       <h2 id="best-cordless">Best cordless lawn mowers for 2026</h2>
-      <p>Five mowers we recommend without hesitation, ranked by who we would buy them for. Click any pick to read the full long-form review with photos, runtime data and the alternatives we tested against it.</p>
+      <p>Five mowers we recommend without hesitation, ranked by who we would buy them for. Click any pick to read the full review, with the specs, runtime claims and the alternatives we weighed each one against.</p>
 
       <div class="space-y-6 mt-6">
         {picks.map((p) => <PickCard {...p} />)}
@@ -198,10 +196,10 @@ const schema = [
         Deck width is how wide a strip the blade cuts in one pass. A wider deck finishes the lawn faster but is heavier and harder to steer in tight spots. As a rough guide:
       </p>
       <ul>
-        <li><strong>30–34 cm</strong> — courtyards, front lawns, gardens under 150 m²</li>
-        <li><strong>36–40 cm</strong> — typical UK semi-detached lawn, 150–400 m²</li>
-        <li><strong>41–46 cm</strong> — large garden, 400–800 m², expect a heavier mower</li>
-        <li><strong>48 cm+</strong> — corner of the cordless market — usually self-propelled twin-battery</li>
+        <li><strong>30-34 cm</strong> - courtyards, front lawns, gardens under 150 m²</li>
+        <li><strong>36-40 cm</strong> - typical UK semi-detached lawn, 150-400 m²</li>
+        <li><strong>41-46 cm</strong> - large garden, 400-800 m², expect a heavier mower</li>
+        <li><strong>48 cm+</strong> - corner of the cordless market - usually self-propelled twin-battery</li>
       </ul>
 
       <h3>Voltage drives torque</h3>
@@ -211,22 +209,22 @@ const schema = [
 
       <h3>Single battery or twin?</h3>
       <p>
-        Twin-battery mowers run two packs in series (or one as a backup). The benefit is range — twice the runtime, no swap. The cost is roughly £100 extra and the bay is heavier. For lawns over 500 m², twin is worth it. For lawns under 300 m², single is fine and cheaper.
+        Twin-battery mowers run two packs in series (or one as a backup). The benefit is range - twice the runtime, no swap. The cost is roughly £100 extra and the bay is heavier. For lawns over 500 m², twin is worth it. For lawns under 300 m², single is fine and cheaper.
       </p>
 
       <h3>Self-propelled or push?</h3>
       <p>
-        Self-propelled mowers drive themselves forward via the front or rear wheels — you steer rather than push. Worth the £80–£150 premium if your lawn slopes, if you mow more than 400 m², or if pushing a 20 kg mower is genuinely uncomfortable. Push mowers are simpler, cheaper, lighter and better for tight, flat lawns under 200 m².
+        Self-propelled mowers drive themselves forward via the front or rear wheels - you steer rather than push. Worth the £80-£150 premium if your lawn slopes, if you mow more than 400 m², or if pushing a 20 kg mower is genuinely uncomfortable. Push mowers are simpler, cheaper, lighter and better for tight, flat lawns under 200 m².
       </p>
 
       <h3>Mulching, grass box, side discharge</h3>
       <p>
-        Three ways to deal with the cuttings. <strong>Grass box</strong> collects them — best for tidy lawns and the most common option. <strong>Mulching</strong> chops the cuttings repeatedly inside the deck and drops them back onto the lawn as fertiliser — best for keen lawn-care, requires a mulching plug. <strong>Side discharge</strong> spits the cuttings sideways onto the lawn — best for very long grass and rougher gardens. The good news: most decent cordless mowers under £400 do all three.
+        Three ways to deal with the cuttings. <strong>Grass box</strong> collects them - best for tidy lawns and the most common option. <strong>Mulching</strong> chops the cuttings repeatedly inside the deck and drops them back onto the lawn as fertiliser - best for keen lawn-care, requires a mulching plug. <strong>Side discharge</strong> spits the cuttings sideways onto the lawn - best for very long grass and rougher gardens. The good news: most decent cordless mowers under £400 do all three.
       </p>
 
       <h3>Weight matters more than the spec sheet suggests</h3>
       <p>
-        A 22 kg mower lifted over a 20 cm garden step every Sunday gets old fast. If the user is older, smaller or has back trouble, knock 5 kg off your maximum. A 12 kg mower is genuinely carryable; a 22 kg mower is a kerb-bumper. We weigh every mower on this site precisely because manufacturer figures sometimes leave out the battery.
+        A 22 kg mower lifted over a 20 cm garden step every Sunday gets old fast. If the user is older, smaller or has back trouble, knock 5 kg off your maximum. A 12 kg mower is genuinely carryable; a 22 kg mower is a kerb-bumper. Always check the quoted weight includes the battery, as manufacturer figures sometimes leave it out.
       </p>
 
       <h2 id="brands">The cordless brands worth shortlisting</h2>
@@ -234,14 +232,14 @@ const schema = [
         Cordless is a battery platform decision as much as a mower decision. If you already own one of these systems, your shortlist gets short fast.
       </p>
       <ul>
-        <li><strong><a href="/brands/bosch/">Bosch</a></strong> — 18 V and 36 V Power for All. The most cross-compatible mainstream UK platform.</li>
-        <li><strong><a href="/brands/ryobi/">Ryobi</a></strong> — 18 V ONE+ and 36 V MAX. Over 200 compatible tools.</li>
-        <li><strong><a href="/brands/makita/">Makita</a></strong> — LXT 18 V and XGT 40 V. Pricier but built like trade tools.</li>
-        <li><strong><a href="/brands/dewalt/">DeWalt</a></strong> — XR 18 V and FlexVolt 18/54 V. Strong on power, light on garden range.</li>
-        <li><strong><a href="/brands/gtech/">Gtech</a></strong> — single platform across mower, hedge trimmer, blower. Light, easy, expensive batteries.</li>
-        <li><strong><a href="/brands/ego/">EGO</a></strong> — 56 V Arc Lithium, the closest cordless gets to a petrol feel.</li>
-        <li><strong><a href="/brands/stihl/">Stihl</a></strong> — AK and AP systems. Built for trade-grade longevity.</li>
-        <li><strong><a href="/brands/husqvarna/">Husqvarna</a></strong> — strong on robot mowers, decent on cordless rotaries.</li>
+        <li><strong><a href="/brands/bosch/">Bosch</a></strong> - 18 V and 36 V Power for All. The most cross-compatible mainstream UK platform.</li>
+        <li><strong><a href="/brands/ryobi/">Ryobi</a></strong> - 18 V ONE+ and 36 V MAX. Over 200 compatible tools.</li>
+        <li><strong><a href="/brands/makita/">Makita</a></strong> - LXT 18 V and XGT 40 V. Pricier but built like trade tools.</li>
+        <li><strong><a href="/brands/dewalt/">DeWalt</a></strong> - XR 18 V and FlexVolt 18/54 V. Strong on power, light on garden range.</li>
+        <li><strong><a href="/brands/gtech/">Gtech</a></strong> - single platform across mower, hedge trimmer, blower. Light, easy, expensive batteries.</li>
+        <li><strong><a href="/brands/ego/">EGO</a></strong> - 56 V Arc Lithium, the closest cordless gets to a petrol feel.</li>
+        <li><strong><a href="/brands/stihl/">Stihl</a></strong> - AK and AP systems. Built for trade-grade longevity.</li>
+        <li><strong><a href="/brands/husqvarna/">Husqvarna</a></strong> - strong on robot mowers, decent on cordless rotaries.</li>
       </ul>
 
       <h2 id="where-to-buy">Where to buy a cordless lawn mower in the UK</h2>
@@ -249,11 +247,11 @@ const schema = [
         Five retailers cover the vast majority of cordless mower sales:
       </p>
       <ul>
-        <li><strong>B&amp;Q</strong> — best for Bosch, Mac Allister and Erbauer. Often the cheapest in spring.</li>
-        <li><strong>Argos</strong> — best for Flymo, Bosch and budget. Click-and-collect to over a thousand stores.</li>
-        <li><strong>Screwfix</strong> — best for trade brands like DeWalt, Makita, Milwaukee and Ryobi. Often has bare-tool deals.</li>
-        <li><strong>Amazon UK</strong> — widest range, best price tracking, trickier returns on heavy items.</li>
-        <li><strong>Mowers Online / Mowdirect</strong> — specialists worth a look for Mountfield, Stihl, Cobra, Hayter and the more serious end of the market.</li>
+        <li><strong>B&amp;Q</strong> - best for Bosch, Mac Allister and Erbauer. Often the cheapest in spring.</li>
+        <li><strong>Argos</strong> - best for Flymo, Bosch and budget. Click-and-collect to over a thousand stores.</li>
+        <li><strong>Screwfix</strong> - best for trade brands like DeWalt, Makita, Milwaukee and Ryobi. Often has bare-tool deals.</li>
+        <li><strong>Amazon UK</strong> - widest range, best price tracking, trickier returns on heavy items.</li>
+        <li><strong>Mowers Online / Mowdirect</strong> - specialists worth a look for Mountfield, Stihl, Cobra, Hayter and the more serious end of the market.</li>
       </ul>
       <p>
         We monitor pricing across all five and link to whichever is cheapest at the time on the individual review pages. If you spot a price difference, it is almost always because Amazon or B&amp;Q is running a flash deal.
@@ -265,7 +263,7 @@ const schema = [
         <li><a href="/cordless-lawn-mowers/under-200/">Best cordless lawn mowers under £200</a></li>
         <li><a href="/cordless-lawn-mowers/large-gardens/">Best cordless mowers for large gardens</a></li>
         <li><a href="/cordless-lawn-mowers/with-roller/">Cordless lawn mowers with a rear roller (for stripes)</a></li>
-        <li><a href="/compare/cordless-vs-petrol/">Cordless vs petrol — which is right for your garden?</a></li>
+        <li><a href="/compare/cordless-vs-petrol/">Cordless vs petrol - which is right for your garden?</a></li>
         <li><a href="/advice/maintenance/sharpen-blade/">How to sharpen a lawn mower blade</a></li>
       </ul>
     </div>

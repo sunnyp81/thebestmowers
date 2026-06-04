@@ -1,0 +1,21 @@
+---
+// Honest E-E-A-T methodology block. We are research-led, not a test lab.
+interface Props { heading?: string }
+const { heading = 'How we choose' } = Astro.props as Props;
+---
+<section class="my-10 rounded-xl border border-slate-200 bg-slate-50 p-5 md:p-6">
+  <h2 class="text-xl md:text-2xl font-bold text-soil-900 mb-3">{heading}</h2>
+  <p class="text-slate-700 leading-relaxed mb-3">
+    We don't run a test lab and we don't pretend to. Our recommendations are built from
+    published manufacturer specifications, verified owner reviews on Amazon UK and retailer
+    sites, and UK pricing data, cross-checked so the numbers on this page match the numbers
+    you'll find on the box. Where a figure is the maker's claim rather than an independent
+    measurement, we say so.
+  </p>
+  <p class="text-slate-700 leading-relaxed">
+    Rankings are based on cut quality, battery and runtime for the garden size in question,
+    weight, build, and value at UK prices. We update picks when models are discontinued or
+    superseded. We earn affiliate commission on some links, but it never decides the order of
+    a list. <a href="/about/" class="text-grass-700 underline underline-offset-2">More on our method</a>.
+  </p>
+</section>

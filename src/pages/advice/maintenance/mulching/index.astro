@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
+import FAQ from '../../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../../lib/schema';
+
+const title = 'Mulching vs Collecting: Lawn Mower Mulching Explained (UK)';
+const description = 'What lawn mower mulching is, how the mulching plug works, the benefits over collecting, when not to mulch, and which cordless mowers do it well, a UK guide.';
+const path = '/advice/maintenance/mulching/';
+const datePublished = '2024-06-01';
+const dateModified = '2026-06-04';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Advice', url: '/advice/' },
+  { name: 'Maintenance', url: '/advice/maintenance/' },
+  { name: 'Mulching', url: path },
+];
+
+const faqs = [
+  {
+    q: 'Is mulching better than collecting grass?',
+    a: 'For lawn health, usually yes, mulched clippings return nitrogen, moisture and organic matter to the soil, acting as a free, gentle fertiliser. Collecting gives a tidier finish and is better for very long, wet or diseased grass, or when you want a pristine look. Many keen gardeners mulch through the growing season and collect for the first and last cuts.',
+  },
+  {
+    q: 'Does mulching cause thatch?',
+    a: 'No, this is a common myth. Grass clippings are about 80% water and break down quickly, so mulching little and often does not build thatch. Thatch is mainly dead roots, stems and runners. The key is to mulch small amounts of dry grass frequently rather than dumping thick clumps.',
+  },
+  {
+    q: 'What is a mulching plug?',
+    a: 'A mulching plug (sometimes a mulching kit or insert) is a part that blocks the mower’s rear discharge or grass-box opening. With the exit sealed, clippings are held under the deck and cut repeatedly into a fine mince before dropping back onto the lawn. Without the plug, the clippings simply pass through to the box or chute.',
+  },
+  {
+    q: 'Can all cordless mowers mulch?',
+    a: 'Most mid-range and premium cordless mowers from Bosch, EGO, Ryobi, Makita, Stihl and Mountfield support mulching, either with a plug in the box or as a 2-in-1/3-in-1 feature. Cheaper budget models often cannot mulch or do not include the plug. Check the spec for "mulching" or a 3-in-1 deck before buying if it matters to you.',
+  },
+  {
+    q: 'Should I mulch wet grass?',
+    a: 'No. Wet clippings clump and clog the deck rather than breaking down into a fine mulch, and the heavy clumps smother the lawn beneath. Mulch only when the grass is dry. If you must cut wet grass, collect or side-discharge instead, see our <a href="/advice/mowing-wet-grass/">guide to mowing wet grass</a>.',
+  },
+  {
+    q: 'How often should I mow if I mulch?',
+    a: 'More often than if you collect, ideally every 4 to 7 days in peak growth. Mulching follows the "one-third rule": never remove more than a third of the blade length at once. Frequent light cuts leave small clippings that vanish into the turf; infrequent heavy cuts leave visible clumps.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Maintenance Advice · Updated June 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Mulching vs Collecting: Lawn Mower Mulching Explained</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Mulching is the quiet upgrade most UK gardeners never switch on. It skips the grass box entirely, feeds the lawn for free, and saves you a dozen trips to the compost heap a season. Here is how it works and when to use it.
+      </p>
+    </header>
+
+    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-12">
+      <h2 class="text-xl font-bold text-soil-900 mb-2">In short</h2>
+      <p class="text-slate-800">
+        <strong>Mulching</strong> cuts the clippings into a fine mince and drops them straight back onto the lawn as a free fertiliser. <strong>Collecting</strong> bags them up for a tidier finish. Mulch dry grass, little and often, with a sharp blade, and collect instead for long, wet or diseased grass and the season's first and last cuts.
+      </p>
+    </aside>
+
+    <div class="prose-mowers">
+      <h2>What is mulching?</h2>
+      <p>
+        A standard mower cuts the grass once and pushes the clippings out into a grass box or side chute. A <strong>mulching mower</strong> keeps the clippings circulating under the deck on a current of air, where a specially shaped blade chops them several times over into tiny fragments. Those fragments are so fine that they fall down between the standing grass blades, out of sight, and rot away into the soil within days.
+      </p>
+      <p>
+        The result is a lawn with no clippings to clear, no box to empty, and a steady trickle of nutrients going back into the turf. It is sometimes called "grasscycling".
+      </p>
+
+      <h2>The mulching plug</h2>
+      <p>
+        Most mowers mulch by fitting a <strong>mulching plug</strong>, a moulded insert that blocks the rear discharge opening or the grass-box channel. With the exit sealed, the clippings have nowhere to go but round and round under the deck until they are cut fine enough to fall through the grass.
+      </p>
+      <p>
+        Mowers advertised as <strong>2-in-1</strong> usually mean collect or mulch; <strong>3-in-1</strong> adds side discharge as well. On many machines the plug is a small extra part in the box, easy to lose, so check it is included. Premium mowers may use a dedicated mulching blade for an even finer cut.
+      </p>
+
+      <h2>The benefits of mulching</h2>
+      <ul>
+        <li><strong>Free fertiliser.</strong> Grass clippings are roughly 4% nitrogen plus potassium and phosphorus. Returned to the lawn, they can supply a meaningful share of its annual feed, studies put it around a quarter to a third of the nitrogen a lawn needs.</li>
+        <li><strong>Moisture retention.</strong> The fine mulch shades the soil surface and slows evaporation, helping the lawn cope better in a dry spell.</li>
+        <li><strong>Time and effort saved.</strong> No stopping to empty a full box, no bags of clippings to haul to the compost or the tip. On a bigger lawn this is the single biggest day-to-day saving.</li>
+        <li><strong>Soil health.</strong> The decaying clippings feed earthworms and soil microbes, gradually improving soil structure.</li>
+      </ul>
+
+      <h2>When NOT to mulch</h2>
+      <p>
+        Mulching is not for every cut. Collect (or side-discharge) instead when:
+      </p>
+      <ul>
+        <li><strong>The grass is long.</strong> If it has got away from you, over about a third longer than your usual cut, the clippings are too bulky to mince finely and will sit on the surface in clumps. Cut it down in stages and collect, then mulch once you are back on a regular schedule.</li>
+        <li><strong>The grass is wet.</strong> Damp clippings clump and clog rather than breaking down. Wait for it to dry, or collect for that cut.</li>
+        <li><strong>You are clearing leaves.</strong> A light scatter of autumn leaves can be mulched, but a thick layer will smother the lawn. Heavy leaf fall is better collected.</li>
+        <li><strong>The lawn has disease.</strong> Mulching can spread fungal spores around, so collect clippings off a lawn showing red thread or fusarium until it recovers.</li>
+        <li><strong>You want a show finish.</strong> For a pristine, freshly groomed look with crisp stripes, collecting gives the cleanest result.</li>
+      </ul>
+
+      <h2>How to mulch well</h2>
+      <p>
+        Done right, you should not even see the clippings afterwards. The secret is small, frequent cuts:
+      </p>
+      <ul>
+        <li><strong>Cut little and often.</strong> Follow the one-third rule, never take off more than a third of the leaf length. In peak growth that means mowing every 4 to 7 days.</li>
+        <li><strong>Keep the blade sharp.</strong> Mulching relies on chopping clippings fine, which a blunt blade simply cannot do. See <a href="/advice/maintenance/sharpen-blade/">how to sharpen a lawn mower blade</a>.</li>
+        <li><strong>Mulch dry grass only.</strong> Mid to late morning, once the dew has gone, is ideal in a UK summer.</li>
+        <li><strong>Don't rush.</strong> A slightly slower pace gives the clippings more time to be re-cut under the deck.</li>
+        <li><strong>Keep the deck clean.</strong> A clean underside keeps the air flowing that holds the clippings up to be cut again.</li>
+      </ul>
+
+      <h2>Which cordless mowers mulch?</h2>
+      <p>
+        Mulching is now standard across most of the cordless market above entry level. Brands including <strong>Bosch, EGO, Ryobi, Makita, Stihl and Mountfield</strong> offer mulching on their mid-range and premium battery mowers, usually via a plug or a 2-in-1/3-in-1 deck. The main exceptions are the cheapest budget models, which may not include a plug or cannot mulch at all.
+      </p>
+      <p>
+        If mulching matters to you, look for "mulching", "2-in-1" or "3-in-1" in the spec, and confirm the plug is supplied. The mowers in our <a href="/best-battery-powered-lawn-mower-reviews-uk/">best battery-powered mower reviews</a> note which support it, and you can compare power types in our <a href="/compare/cordless-vs-petrol/">cordless vs petrol vs electric guide</a>.
+      </p>
+
+      <h2>Mulching vs collecting at a glance</h2>
+      <table>
+        <thead>
+          <tr><th></th><th>Mulching</th><th>Collecting</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Best for</td><td>Regular, dry, healthy lawns</td><td>Long, wet or diseased grass; show finish</td></tr>
+          <tr><td>Feeds the lawn</td><td>Yes, free nitrogen</td><td>No, nutrients removed</td></tr>
+          <tr><td>Effort</td><td>No box to empty</td><td>Stop to empty, dispose of clippings</td></tr>
+          <tr><td>Mowing frequency</td><td>More often (little and often)</td><td>Can stretch between cuts</td></tr>
+          <tr><td>Finish</td><td>Tidy if done right</td><td>Cleanest, crispest look</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

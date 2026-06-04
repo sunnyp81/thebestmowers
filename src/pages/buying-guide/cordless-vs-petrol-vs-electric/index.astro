@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import Disclosure from '../../../components/Disclosure.astro';
+import HowWeResearch from '../../../components/HowWeResearch.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+
+const title = 'Cordless vs Petrol vs Electric Lawn Mowers: Which Should You Buy? (UK 2026)';
+const description = 'The UK decision guide to cordless vs petrol vs corded electric lawn mowers for 2026. Compare cost, running cost, noise, maintenance and weight, plus voltage and runtime explained.';
+const path = '/buying-guide/cordless-vs-petrol-vs-electric/';
+const datePublished = '2024-06-01';
+const dateModified = '2026-06-04';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Buying guide', url: '/buying-guide/' },
+  { name: 'Cordless vs petrol vs electric', url: path },
+];
+
+const heroImage = '/images/choosing_the_right_mower.webp';
+
+const faqs = [
+  {
+    q: 'Is cordless or petrol better for a UK garden?',
+    a: 'For the typical British garden under about 600 m², cordless is the better all-round choice. UK lawns are smaller than American ones, mowing windows between showers are short, and neighbourhood noise expectations make a petrol engine awkward early on a Sunday. Cordless starts at the press of a button, needs almost no maintenance and runs for pennies. Petrol keeps the edge on very large lawns, on consistently heavy wet grass, and where you want unlimited range from a fuel tank.',
+  },
+  {
+    q: 'What does the voltage on a cordless mower mean?',
+    a: 'Voltage is a rough proxy for how much torque the motor can deliver - the force that stops the blade stalling in long, damp grass. 18V suits small lawns mown weekly; 36V and 40V cover most medium-to-large UK gardens; 56V and 80V deliver near-petrol torque for big or rough lawns. Higher voltage does not automatically mean a better mower, but on a demanding lawn it means the blade keeps spinning where a low-voltage motor would bog down.',
+  },
+  {
+    q: 'What does "brushless" mean on a lawn mower?',
+    a: 'A brushless motor uses electronics rather than physical carbon brushes to switch the current. That makes it more efficient (more runtime from the same battery), cooler, quieter and far longer-lasting, because there are no brushes to wear out. Most quality cordless mowers above about £200 are brushless; very cheap models often still use brushed motors, which is one of the clearest signals of a budget build.',
+  },
+  {
+    q: 'How long does a cordless lawn mower run on one charge?',
+    a: 'Manufacturer figures typically quote 30-60 minutes depending on voltage, battery size and how thick the grass is. As a coverage estimate: a single 18V pack covers roughly 150-250 m², a 36-40V mower with a 4-6 Ah battery manages 300-500 m², and high-voltage twin-battery machines reach 600-800 m². Runtime is a claim, not an independent measurement - long, wet or thick grass uses charge faster than a dry weekly cut.',
+  },
+  {
+    q: 'Is corded electric still worth buying in 2026?',
+    a: 'Yes, for the right garden. If your lawn is small and sits next to a power socket, a corded electric mower costs far less upfront (£90-£200), has unlimited runtime, no battery to degrade, and is light to handle. The catch is the cable: you have to manage it around borders, trees and paths, and you are limited to roughly 25 m from the socket. For a small, simple lawn on a budget, corded is no embarrassment.',
+  },
+  {
+    q: 'When is petrol still the best choice?',
+    a: 'Petrol still wins on very large lawns (well over 800 m² to an acre or more), on consistently long and wet grass, on rough or semi-wild ground, and where you mow daily through summer and want to refuel rather than recharge. It also remains popular for the cut feel of a high-RPM blade. The trade-offs are noise, fumes, fuel and oil costs, regular servicing and the cold-start routine of choke and primer.',
+  },
+  {
+    q: 'Are cordless mowers powerful enough to replace petrol?',
+    a: 'For most UK gardens, yes. A 56V or 80V cordless with a brushless motor delivers torque close to a comparable petrol mower and will cut long, damp grass without stalling. The honest limits are total range (you are bounded by battery capacity rather than a fuel tank) and the very heaviest, roughest work. For a typical large suburban lawn, a high-voltage self-propelled cordless genuinely replaces petrol.',
+  },
+  {
+    q: 'How much does it cost to run a cordless mower vs petrol?',
+    a: 'Charging a cordless mower costs roughly 1-3p of electricity per mow at UK rates. A petrol mower burns roughly 30-80p of fuel per mow depending on size, plus oil and the cost of an annual service. Corded electric is similar to cordless at 1-2p per mow. Over a few seasons the running-cost gap is real, though petrol\'s lower upfront price can offset it on the largest lawns.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified, image: heroImage }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} {schema} ogImage={heroImage}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">UK Buying Guide · Updated June 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Cordless vs Petrol vs Electric Lawn Mowers: Which Should You Buy?</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        This is the decision that comes before every other mower choice: which power type? Get it right and the rest is easy. Three options, three different jobs - cordless (battery), petrol, and corded electric. This guide lays out the honest trade-offs for a UK garden, explains voltage, runtime and "brushless" in plain English, and gives you a clear answer based on the size and shape of your lawn.
+      </p>
+    </header>
+
+    <Disclosure />
+
+    <img
+      src={heroImage}
+      alt="Choosing between cordless, petrol and corded electric lawn mowers for a UK garden"
+      width="900" height="506"
+      class="w-full rounded-xl mb-10 object-cover"
+      loading="eager"
+    />
+
+    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-12">
+      <h2 class="text-xl font-bold text-soil-900 mb-3">The short answer</h2>
+      <ul class="space-y-2 text-slate-800">
+        <li><strong>Small lawn, next to a socket, tight budget:</strong> corded electric.</li>
+        <li><strong>Most UK gardens up to ~600 m²:</strong> cordless - the sensible default in 2026.</li>
+        <li><strong>Very large lawn, daily mowing, heavy wet grass:</strong> petrol still wins.</li>
+      </ul>
+    </aside>
+
+    <div class="prose-mowers">
+      <h2 id="comparison">Cordless vs petrol vs corded electric - the comparison</h2>
+      <p>
+        Here is the whole decision in one table. Read down the column that matches the way you mow, not just the lawn size.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Factor</th><th>Cordless (battery)</th><th>Petrol</th><th>Corded electric</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Best lawn size</td><td>Up to ~800 m²</td><td>500 m² and up</td><td>Up to ~200 m²</td></tr>
+          <tr><td>Upfront cost</td><td>£150-£700</td><td>£250-£900+</td><td>£90-£200</td></tr>
+          <tr><td>Running cost (per mow)</td><td>1-3p electricity</td><td>30-80p petrol + oil</td><td>1-2p electricity</td></tr>
+          <tr><td>Noise</td><td>78-84 dB</td><td>92-100 dB</td><td>78-82 dB</td></tr>
+          <tr><td>Maintenance</td><td>Sharpen blade, clean deck</td><td>Oil, spark plug, fuel, filter, blade, annual service</td><td>Sharpen blade, mind the cable</td></tr>
+          <tr><td>Weight</td><td>9-22 kg</td><td>22-35 kg</td><td>10-14 kg</td></tr>
+          <tr><td>Range limit</td><td>Battery runtime</td><td>Fuel tank (refuel and go)</td><td>Cable length (~25 m)</td></tr>
+          <tr><td>Starting</td><td>Press a button</td><td>Pull cord, prime, choke</td><td>Press a button</td></tr>
+          <tr><td>Long-term cost</td><td>Battery replacement at 5-8 years</td><td>Fuel, oil and annual servicing</td><td>Occasional cable replacement</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="cordless">Cordless (battery) mowers - the modern default</h2>
+      <p>
+        Cordless has quietly become the right answer for most British gardens. A lithium-ion battery clicks into the deck, you press a button, and you mow. No cable to trip over, no petrol to store, no choke or primer. Running cost is a few pence of electricity, maintenance is essentially sharpening the blade and brushing out the deck, and the noise sits low enough to mow on a Sunday morning without annoying the street.
+      </p>
+      <p>
+        The two honest limits are range and the heaviest work. You are bounded by battery capacity rather than a fuel tank, so a very large lawn needs a spare battery to swap mid-mow. And the cheapest cordless mowers - brushed motor, low voltage - will stall in long, wet grass. Spend a little for a brushless motor and the right voltage for your lawn and neither limit bites. For the typical UK garden under 600 m², cordless is the sensible buy.
+      </p>
+
+      <h2 id="petrol">Petrol mowers - still the king of the very big lawn</h2>
+      <p>
+        Petrol remains the right tool for the genuinely large or rough lawn. Refuel and keep going - there is no battery limit - and a petrol engine has the brute torque for long, wet, semi-wild grass that even a strong cordless will find demanding. If you mow most days through summer over half an acre or more, petrol still makes sense.
+      </p>
+      <p>
+        The cost of that is everything cordless removed. Petrol is loud (90 dB and up), it produces fumes, it needs fuel and oil, the cold-start routine of choke and primer never gets less annoying, and it wants an annual service to stay reliable. It is also the heaviest option to push, which is part of why so many petrol mowers are self-propelled. For most modern UK gardens, that is more machine - and more hassle - than the lawn actually needs.
+      </p>
+
+      <h2 id="corded">Corded electric mowers - cheap, light and underrated</h2>
+      <p>
+        Do not overlook corded electric for a small lawn. It is the cheapest way into a clean cut - £90 to £200 - it is light, it starts at the press of a button, and it never runs out of charge because it is plugged into the mains. There is no battery to degrade and replace down the line either.
+      </p>
+      <p>
+        The single drawback is the cable. You have to keep it out of the blade and behind you as you mow, and you are limited to roughly 25 m from the socket. On an open lawn with few obstacles, near a power point, that is a minor habit to learn. On a lawn full of trees, beds and tight corners, cable management becomes a chore - and that is exactly where cordless earns its premium. For a small, simple lawn on a budget, corded is genuinely the smart, frugal choice.
+      </p>
+
+      <h2 id="voltage">Voltage explained: 18V, 36V, 40V, 56V, 80V</h2>
+      <p>
+        Voltage is the number people fixate on, and it is a useful rough guide to torque - the force that keeps the blade spinning through thick or damp grass. It is not a direct measure of quality (a well-built 36V mower beats a poorly built 56V one), but for a given build standard, more voltage means more headroom on a demanding lawn. Here is what each tier suits:
+      </p>
+      <ul>
+        <li><strong>18V</strong> - small lawns under ~200 m², mown weekly so the grass never gets long. The lightest, cheapest cordless mowers. Twin-18V (2 × 18V = 36V) machines step the power up while keeping the same battery platform.</li>
+        <li><strong>36V</strong> - the workhorse tier for the typical UK semi-detached lawn, ~200-400 m². Enough torque for the occasional longer or damper cut. Bosch and Ryobi build large ranges here.</li>
+        <li><strong>40V</strong> - a touch more headroom than 36V; suits medium-to-large gardens and rougher grass. Common on WORX, Greenworks and Ryobi MAX machines.</li>
+        <li><strong>56V</strong> - near-petrol torque. EGO\'s platform sits here, made for large lawns (500-800 m²), long wet grass and self-propelled drive without bogging down.</li>
+        <li><strong>80V</strong> - the top consumer tier, used by Greenworks and Hyundai. Maximum torque for big, rough lawns; the value route to petrol-rivalling power if you do not need a broad shared tool ecosystem.</li>
+      </ul>
+      <p>
+        Rule of thumb: pick the lowest voltage that comfortably covers your lawn. Buying more voltage than you need just adds weight and cost. Buying too little means a mower that stalls on the first long, wet cut of spring.
+      </p>
+
+      <h2 id="runtime">Runtime explained</h2>
+      <p>
+        Runtime is how long the mower runs on a charge, and it depends on three things: the battery\'s amp-hour (Ah) rating, the voltage, and how hard the grass makes the motor work. A bigger Ah number stores more energy and runs longer. Manufacturers quote runtime as a best-case figure on dry grass, so treat it as a coverage estimate rather than a measured fact: long, wet, thick grass and self-propelled drive all pull the charge down faster.
+      </p>
+      <p>
+        As a working guide for UK lawns: a single 18V pack covers roughly 150-250 m², a 36-40V mower with a 4-6 Ah battery handles 300-500 m², and high-voltage twin-battery machines reach 600-800 m² before a swap. If your lawn is near the top of a mower\'s range, buy a second battery and you effectively double the runtime - keep one charging while the other is in the deck.
+      </p>
+
+      <h2 id="brushless">What "brushless" means</h2>
+      <p>
+        A brushless motor switches the current electronically instead of through physical carbon brushes that rub against a spinning part. That one change brings four benefits: more efficiency (longer runtime from the same battery), less heat, less noise, and a far longer lifespan because there are no brushes to wear out. Almost every quality cordless mower above ~£200 is brushless. If a cheap mower does not mention a brushless motor, assume it is brushed - that is one of the clearest signals of a budget build, and brushed motors lose power and life faster.
+      </p>
+
+      <h2 id="when-petrol-wins">When petrol still wins</h2>
+      <p>
+        It is worth being honest about where battery has not caught up. Petrol is still the better buy if:
+      </p>
+      <ul>
+        <li>Your lawn is very large - well over 800 m², up towards an acre or more - and you do not want to manage multiple batteries.</li>
+        <li>The grass is consistently long, wet or rough, like a paddock edge or a semi-wild orchard lawn, where you want maximum sustained torque.</li>
+        <li>You mow daily or near-daily through summer and prefer to refuel in seconds rather than wait on a charger.</li>
+        <li>You simply prefer the cut feel and high-RPM finish of a petrol blade, and the noise and servicing do not bother you.</li>
+      </ul>
+      <p>
+        For everyone else - which in the UK is most people - the noise, fumes, fuel cost and servicing of petrol are a price the lawn does not need you to pay.
+      </p>
+
+      <h2 id="decision-tree">Decision tree: which should you buy?</h2>
+      <p>
+        Find your lawn below and follow it through.
+      </p>
+      <ul>
+        <li><strong>Under 200 m², next to a socket, budget-conscious:</strong> corded electric. Cheapest, lightest, unlimited runtime; just manage the cable.</li>
+        <li><strong>Under 200 m², cable would be a nuisance, or you want one battery across your tools:</strong> 18V cordless. Light, folds away small - see our <a href="/cordless-lawn-mowers/small-gardens/">small-garden cordless picks</a>.</li>
+        <li><strong>200-400 m², typical UK semi:</strong> 36V cordless push mower. The sweet spot for most British gardens - see our <a href="/best-battery-powered-lawn-mower-reviews-uk/">battery-powered mower reviews</a>.</li>
+        <li><strong>400-800 m², or any slope, or a heavy mower:</strong> 56V/80V self-propelled cordless. Drive instead of push - see our <a href="/cordless-lawn-mowers/self-propelled/">self-propelled cordless picks</a>.</li>
+        <li><strong>Over 800 m², daily mowing, heavy wet grass:</strong> petrol - or a high-voltage cordless plus a spare battery if you want to ditch fuel.</li>
+      </ul>
+
+      <h2 id="related">Related guides on this site</h2>
+      <ul>
+        <li><a href="/best-battery-powered-lawn-mower-reviews-uk/">Best battery-powered lawn mowers - full UK reviews</a></li>
+        <li><a href="/cordless-lawn-mowers/small-gardens/">Best cordless mowers for small gardens</a></li>
+        <li><a href="/cordless-lawn-mowers/self-propelled/">Best self-propelled cordless mowers</a></li>
+        <li><a href="/brands/ego/">EGO 56V cordless mowers</a></li>
+        <li><a href="/brands/greenworks/">Greenworks cordless mowers</a></li>
+      </ul>
+    </div>
+
+    <HowWeResearch heading="How we put this guide together" />
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

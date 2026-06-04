@@ -1,0 +1,202 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import PickCard from '../../../components/PickCard.astro';
+import Disclosure from '../../../components/Disclosure.astro';
+import HowWeResearch from '../../../components/HowWeResearch.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../../lib/schema';
+import { amazonSearch } from '../../../lib/affiliate';
+
+const title = 'Best Self-Propelled Cordless Lawn Mowers UK 2026';
+const description = 'The best self-propelled cordless lawn mowers in the UK for 2026. Drive instead of push on slopes and large lawns over 400 m² - EGO, Ryobi, Makita and Hyundai compared.';
+const path = '/cordless-lawn-mowers/self-propelled/';
+const datePublished = '2024-06-01';
+const dateModified = '2026-06-04';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cordless lawn mowers', url: '/cordless-lawn-mowers/' },
+  { name: 'Self-propelled', url: path },
+];
+
+const heroImage = '/images/powerful_cordless_lawn_mower-2.webp';
+
+const picks = [
+  {
+    rank: 1, name: 'EGO LM2122E-SP',
+    brand: 'EGO', bestFor: 'best overall self-propelled cordless',
+    rating: 4.7, rrp: '£499-£599',
+    reviewUrl: '/reviews/ego-lm2122e-sp/',
+    affiliateUrl: amazonSearch('EGO LM2122E-SP self propelled lawn mower'),
+    image: '/images/powerful_cordless_lawn_mower-2.webp',
+    pros: ['56V Arc Lithium - the closest cordless gets to petrol torque', 'Variable-speed self-propelled drive that handles slopes', '52 cm deck and IPX4 rain rating'],
+    cons: ['Expensive, especially in a kit with battery', 'Heavy to lift if you need to carry it'],
+    verdict: 'For a large UK lawn - anything from 500 m² up to around 800 m² - the EGO LM2122E-SP is the self-propelled cordless we recommend first. The 56V motor delivers genuinely petrol-rivalling torque, so long, damp grass that stalls smaller cordless mowers does not faze it, and the variable-speed drive turns a sloping 600 m² lawn from a chore into a walk. Manufacturer runtime on the 5.0 Ah pack covers a typical large garden on one charge. It is not cheap, but it is the cordless that finally makes ditching petrol feel like an upgrade rather than a compromise.',
+  },
+  {
+    rank: 2, name: 'Ryobi RY18LMX40A-150',
+    brand: 'Ryobi', bestFor: 'Ryobi ONE+ owners and best value',
+    rating: 4.4, rrp: '£269-£329 (with battery)',
+    reviewUrl: '/reviews/ryobi-cordless/',
+    affiliateUrl: amazonSearch('Ryobi RY18LMX40A-150 self propelled lawn mower'),
+    image: '/images/battery_powered_ryobi_lawnmower_review.webp',
+    pros: ['Self-propelled drive at a genuinely affordable price', 'Brushless motor and 40 cm deck', 'Runs on 18V ONE+ - 200+ compatible tools'],
+    cons: ['Twin 18V packs work harder on long, wet grass than 56V', 'Drive speed not as smooth as the EGO'],
+    verdict: 'For the huge number of UK households already invested in the Ryobi ONE+ system, the RY18LMX40A is the cheapest sensible way into a self-propelled cordless mower. Buy it bare-tool and you are using batteries you already own. The brushless motor and 40 cm deck suit a medium-to-large lawn well, and the drive takes the strain out of a longer mow. It is not as muscular as a 56V EGO on rough grass, but for a regularly mown 400-500 m² lawn it is excellent value.',
+  },
+  {
+    rank: 3, name: 'Makita DLM480 (twin 18V LXT)',
+    brand: 'Makita', bestFor: 'trade-grade build and LXT owners',
+    rating: 4.5, rrp: '£399-£499',
+    reviewUrl: '/brands/makita/',
+    affiliateUrl: amazonSearch('Makita DLM480 self propelled lawn mower'),
+    image: '/images/highly_efficient_cordless_tool.webp',
+    pros: ['Built like a trade tool - metal where it matters', 'Runs on two 18V LXT packs, the biggest tool platform around', 'Self-propelled with a wide 48 cm deck'],
+    cons: ['Premium price for the body-only kit', 'Heavier than single-platform rivals'],
+    verdict: 'If you already own Makita LXT batteries - and a lot of UK tradespeople and serious DIYers do - the DLM480 turns that platform into a properly capable self-propelled mower. It feels built to last, the 48 cm deck clears a large lawn quickly, and twin 18V packs give it real cutting power. The catch is price and weight: it is a trade-grade machine at a trade-grade cost. For LXT households mowing 400 m² and up, it makes a lot of sense.',
+  },
+  {
+    rank: 4, name: 'Hyundai HYM80Li460SP (80V)',
+    brand: 'Hyundai', bestFor: 'big-deck power on a budget',
+    rating: 4.1, rrp: '£399-£549',
+    reviewUrl: '/brands/hyundai/',
+    affiliateUrl: amazonSearch('Hyundai HYM80Li460SP self propelled lawn mower'),
+    image: '/images/high_performance_hyundai_electric_lawnmower.webp',
+    pros: ['80V platform for strong torque on long grass', 'Large 46 cm deck and self-propelled drive', 'Often undercuts EGO on price for the power on offer'],
+    cons: ['Smaller battery ecosystem than EGO or Ryobi', 'Build feels a step below the trade brands'],
+    verdict: 'Hyundai\'s 80V system is the value route to high-voltage cordless power. The HYM80Li460SP pairs a strong 80V motor with a 46 cm deck and a self-propelled drive, and it typically costs less than an EGO of similar capability. The trade-off is a smaller battery ecosystem - you are not buying into a big shared tool platform - and build that sits a notch below Makita or EGO. But for a large lawn where you want torque without the EGO price tag, it is worth a look.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'When is a self-propelled cordless mower worth it?',
+    a: 'Self-propelled drive earns its money in three situations: when your lawn slopes, when it is larger than about 400 m² so you are walking a long way behind the mower, or when the mower itself is heavy and pushing it is hard work. On a flat lawn under 300 m², a push mower is lighter, cheaper and simpler, so the drive is an unnecessary extra. The bigger and hillier the garden, the more a self-propelled model pays you back every mow.',
+  },
+  {
+    q: 'How does self-propelled drive work on a cordless mower?',
+    a: 'A small drive belt or motor turns the wheels, so the mower pulls itself forward and you steer rather than push. Better models have variable speed, letting you match the pace to the lawn and to your walking speed. The drive draws from the same battery as the blade, so a self-propelled mower uses charge a little faster than a push mower of the same deck size.',
+  },
+  {
+    q: 'Does self-propelled drain the battery faster?',
+    a: 'Yes, a little. Driving the wheels takes power, so a self-propelled mower will get slightly less coverage from the same battery than the equivalent push model. Manufacturers quote runtime as a claim and a coverage estimate; on slopes and long grass the drive and the blade both work harder, so plan for a second battery if your lawn is large.',
+  },
+  {
+    q: 'What voltage should a self-propelled cordless mower be?',
+    a: 'For a large lawn, aim for 36V or higher. The EGO\'s 56V and Hyundai\'s 80V deliver the most torque for long, wet or sloped grass; twin-18V systems like Ryobi ONE+ and Makita LXT combine two packs to reach 36V of cutting power, which is plenty for a regularly mown lawn. Lower voltages struggle to drive the wheels and the blade at once on a demanding lawn.',
+  },
+  {
+    q: 'Can a self-propelled cordless mower handle slopes?',
+    a: 'Yes, that is one of its best uses. The drive takes the effort of pushing uphill out of the job entirely. A higher-voltage model like the EGO or Hyundai has the torque to keep cutting cleanly on an incline where a low-power push mower would stall. For a sloped UK lawn, a self-propelled cordless is one of the strongest arguments for going battery over petrol.',
+  },
+  {
+    q: 'Self-propelled cordless vs petrol - which is better for a big lawn?',
+    a: 'For a large UK lawn up to around 800 m², a high-voltage self-propelled cordless like the EGO LM2122E-SP gets you most of the petrol experience without the noise, fuel, oil changes or cold-start faff. Petrol still wins on the very biggest lawns, on consistently heavy wet grass, and where you mow daily through summer and want unlimited range from a tank. See our cordless vs petrol vs electric guide for the full breakdown.',
+  },
+  {
+    q: 'How big a lawn can a self-propelled cordless mower cut?',
+    a: 'On a single charge, a high-voltage model with a 5.0 Ah battery covers roughly 500-800 m² of typical lawn, per manufacturer figures. Twin-18V machines on a regularly mown lawn manage a similar area when fitted with larger packs. For lawns beyond 800 m², carry a spare battery so you can swap mid-mow rather than stopping to recharge.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified, image: heroImage }),
+  faqSchema(faqs),
+  itemListSchema({
+    name: 'Best self-propelled cordless lawn mowers UK 2026',
+    url: path,
+    items: picks.map((p, i) => ({ position: i + 1, name: p.name, url: p.reviewUrl })),
+  }),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} {schema} ogImage={heroImage}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">UK Buyer's Guide · Updated June 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Best Self-Propelled Cordless Lawn Mowers UK 2026</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Once your lawn slopes, or pushes past 400 m², or the mower itself starts to feel heavy, a self-propelled cordless mower changes the job completely. The mower drives its own wheels and you simply steer - no shoving 20-odd kilos uphill in the heat. These four are the self-propelled cordless mowers we would put on a UK shortlist for a large garden in 2026.
+      </p>
+    </header>
+
+    <Disclosure />
+
+    <img
+      src={heroImage}
+      alt="Powerful self-propelled cordless lawn mower cutting a large UK garden lawn"
+      width="900" height="506"
+      class="w-full rounded-xl mb-10 object-cover"
+      loading="eager"
+    />
+
+    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-12">
+      <h2 class="text-xl font-bold text-soil-900 mb-3">Our top picks at a glance</h2>
+      <ul class="space-y-2 text-slate-800">
+        <li><strong>Best overall:</strong> <a href="/reviews/ego-lm2122e-sp/" class="text-grass-700 underline">EGO LM2122E-SP</a> - 56V power, variable-speed drive, made for slopes</li>
+        <li><strong>Best value:</strong> <a href="/reviews/ryobi-cordless/" class="text-grass-700 underline">Ryobi RY18LMX40A-150</a> - self-propelled on the 18V ONE+ platform</li>
+        <li><strong>Best built:</strong> <a href="/brands/makita/" class="text-grass-700 underline">Makita DLM480</a> - trade-grade twin-18V LXT</li>
+      </ul>
+    </aside>
+
+    <div class="prose-mowers">
+      <h2 id="worth-it">Is self-propelled actually worth it?</h2>
+      <p>
+        Self-propelled drive is not free - it adds cost, weight and complexity - so it only makes sense when the lawn asks for it. Three things make it worth the money:
+      </p>
+      <ul>
+        <li><strong>Slopes.</strong> Pushing a heavy mower uphill is the single most tiring part of mowing. A driven mower removes it entirely. If any part of your lawn is on an incline, this alone can justify the upgrade.</li>
+        <li><strong>Size.</strong> Past roughly 400 m² you are walking a long way behind the mower every week. The drive sets the pace and saves your legs over a big lawn.</li>
+        <li><strong>Mower weight.</strong> The larger-deck, higher-voltage mowers that suit big lawns are heavy - 22 kg and up. At that weight, a push mower is hard work; the drive makes a heavy machine feel light.</li>
+      </ul>
+      <p>
+        On a flat lawn under about 300 m², skip it. A push mower is lighter, cheaper and simpler, and you will not miss the drive. For everyone with a hill, a big lawn or a heavy mower, read on.
+      </p>
+
+      <h2 id="picks">The best self-propelled cordless mowers</h2>
+      <p>Four self-propelled cordless mowers we are happy to recommend, ordered by who each one suits best. Tap any pick to read the full review.</p>
+
+      <div class="space-y-6 mt-6">
+        {picks.map((p) => <PickCard {...p} />)}
+      </div>
+
+      <h2 id="how-to-choose">How to choose a self-propelled cordless mower</h2>
+
+      <h3>Voltage first - torque drives everything</h3>
+      <p>
+        On a big lawn the motor has to turn the blade and the wheels at the same time, so torque matters more than it does on a small mower. The EGO\'s 56V and Hyundai\'s 80V give the most cutting power for long or wet grass. Twin-18V systems - Ryobi ONE+ and Makita LXT - pair two packs to reach 36V of cutting power, which is ample for a lawn you keep on top of. Below that, a self-propelled mower will labour on a demanding lawn.
+      </p>
+
+      <h3>Match the deck to the lawn</h3>
+      <p>
+        For a large garden, a 40-52 cm deck clears the ground in fewer passes. Wider is faster but heavier and harder to manoeuvre around obstacles. The EGO\'s 52 cm and Makita\'s 48 cm decks are built for open lawns; the Ryobi\'s 40 cm suits a medium-to-large garden with more borders and corners.
+      </p>
+
+      <h3>Variable-speed drive is worth having</h3>
+      <p>
+        The best self-propelled mowers let you set the drive speed, so you can slow it down around flower beds and speed it up on open stretches. The EGO\'s variable-speed drive is the smoothest here. A single-speed drive still beats pushing, but it can feel either too fast or too slow depending on the ground.
+      </p>
+
+      <h3>Battery platform and a spare pack</h3>
+      <p>
+        A self-propelled mower uses charge faster than a push mower, so on a large lawn a second battery is a sensible buy - swap mid-mow rather than stopping to recharge. If you already own batteries in a system, lean towards a mower that uses them: Ryobi ONE+ and Makita LXT both have huge tool ranges, while EGO and Hyundai are mower-led platforms with fewer companion tools.
+      </p>
+
+      <h2 id="related">Related guides on this site</h2>
+      <ul>
+        <li><a href="/best-battery-powered-lawn-mower-reviews-uk/">Best battery-powered lawn mowers - the full UK reviews</a></li>
+        <li><a href="/cordless-lawn-mowers/small-gardens/">Best cordless mowers for small gardens</a></li>
+        <li><a href="/buying-guide/cordless-vs-petrol-vs-electric/">Cordless vs petrol vs electric - which should you buy?</a></li>
+        <li><a href="/brands/ego/">EGO cordless mowers - range and review</a></li>
+        <li><a href="/brands/ryobi/">Ryobi cordless mowers - range and review</a></li>
+      </ul>
+    </div>
+
+    <HowWeResearch />
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

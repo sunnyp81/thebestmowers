@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
+import FAQ from '../../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, howToSchema } from '../../../../lib/schema';
+
+const title = 'Cordless Mower Battery Care & Runtime: Get More From Your Battery';
+const description = 'How to care for a cordless lawn mower lithium-ion battery, maximise runtime per charge, store it over winter, and know when it needs replacing, a UK guide.';
+const path = '/advice/maintenance/battery-care/';
+const datePublished = '2024-06-01';
+const dateModified = '2026-06-04';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Advice', url: '/advice/' },
+  { name: 'Maintenance', url: '/advice/maintenance/' },
+  { name: 'Battery care', url: path },
+];
+
+const runtimeSteps = [
+  { name: 'Sharpen the blade', text: 'A blunt blade forces the motor to work far harder, draining the battery fast. A sharp blade is the single biggest runtime win, it cuts with less effort and less current draw.' },
+  { name: 'Mow dry grass', text: 'Wet grass is heavier and stickier, loading the motor and cutting runtime noticeably. Wait for the lawn to dry whenever you can.' },
+  { name: 'Raise the cut height', text: 'Taking less off in each pass means less resistance and less power used. Drop the height for a final tidy-up pass only if needed.' },
+  { name: 'Mow little and often', text: 'Short, regular cuts move through grass quickly. Letting the lawn grow long means slow, power-hungry passes and far less area per charge.' },
+  { name: 'Keep the deck clean', text: 'Caked clippings under the deck add drag and disrupt airflow, making the motor work harder. Scrape it clean after each mow.' },
+];
+
+const faqs = [
+  {
+    q: 'How should I store a cordless mower battery over winter?',
+    a: 'Store it at roughly <strong>40-60% charge</strong>, not full and not flat, somewhere <strong>cool and dry</strong> indoors (a shed that stays above freezing, or a cupboard). Do not leave it on the charger all winter, and do not store it fully drained, a flat lithium-ion cell left for months can be damaged beyond recovery. Top it up to around 50% if it has been sitting for a few months.',
+  },
+  {
+    q: 'Should I leave my mower battery on the charger?',
+    a: 'No, not long-term. Most chargers stop at full and are safe to leave for a short while, but keeping a battery sat at 100% for weeks accelerates ageing. Charge it shortly before you need it, then unplug it. For storage, aim for a partial charge rather than full.',
+  },
+  {
+    q: 'How long do cordless mower batteries last before they need replacing?',
+    a: 'A quality lithium-ion pack is rated for around <strong>500-1000 charge cycles</strong>, which is roughly <strong>5-8 years</strong> for a typical UK gardener mowing 25-30 times a season. Cheap own-brand cells from budget mowers often fade after 2-3 seasons. When runtime drops to about half of new, it is time to think about a replacement.',
+  },
+  {
+    q: 'What does Ah mean on a mower battery?',
+    a: 'Ah stands for <strong>amp-hours</strong>, the battery’s capacity, or how much energy it stores. A higher Ah figure (at the same voltage) means a longer runtime per charge. So a 5.0 Ah pack runs longer than a 2.0 Ah pack on the same mower. Voltage (V) governs power and torque; Ah governs how long that power lasts.',
+  },
+  {
+    q: 'Is it bad to fully drain a lithium-ion mower battery?',
+    a: 'Yes. Lithium-ion cells dislike deep discharge, repeatedly running them to completely flat shortens their life. Most mowers cut out before the cell is dangerously low to protect it, but the kindest habit is to recharge when the battery is low rather than squeezing out every last second.',
+  },
+  {
+    q: 'Can I leave the battery in the mower between mows?',
+    a: 'For a week or two it is fine. For longer breaks, and especially over winter, remove it and store it separately at a partial charge in a cool, dry place. Leaving it in a cold, damp shed all winter is the quickest way to shorten its life.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified }),
+  howToSchema({ name: 'How to maximise cordless mower battery runtime', description: 'Five practical steps to get more area from a single charge.', steps: runtimeSteps }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Maintenance Advice · Updated June 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Cordless Mower Battery Care &amp; Runtime</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        The battery is the most expensive part of a cordless mower, often a third to a half of the price. Look after it and it will outlast the warranty. Neglect it and you will be buying a replacement long before you should. Here is how to get the most from it.
+      </p>
+    </header>
+
+    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-12">
+      <h2 class="text-xl font-bold text-soil-900 mb-2">The five-second version</h2>
+      <p class="text-slate-800">
+        Store the battery at <strong>40-60% charge</strong> somewhere <strong>cool and dry</strong>, never fully flat and never left on the charger for weeks. For longer runtime, keep the <strong>blade sharp</strong>, mow <strong>dry</strong> grass, <strong>raise the cut height</strong> and mow <strong>little and often</strong>. A good pack lasts <strong>500-1000 cycles (5-8 years)</strong>.
+      </p>
+    </aside>
+
+    <div class="prose-mowers">
+      <h2>Looking after a lithium-ion battery</h2>
+      <p>
+        Every modern cordless mower runs on lithium-ion cells, the same chemistry as a phone or a cordless drill. They are reliable and need no real maintenance, but a few habits make a big difference to how long they last.
+      </p>
+      <ul>
+        <li><strong>Store partly charged.</strong> The ideal storage charge is around 40-60%. A lithium-ion cell ages fastest when sat at a full 100% or left at empty for long periods.</li>
+        <li><strong>Avoid deep discharge.</strong> Don't run the battery completely flat as a habit. Recharge when it gets low rather than squeezing out the last second of every mow.</li>
+        <li><strong>Keep it cool and dry.</strong> Heat is the enemy of battery life. Don't leave a pack baking in a sunny car or store it in a damp, freezing shed. A cool indoor cupboard is ideal.</li>
+        <li><strong>Don't leave it on the charger long-term.</strong> Charge it shortly before you need it, then unplug. Sitting at 100% for weeks shortens its life.</li>
+        <li><strong>Let a hot battery cool before charging.</strong> After a long mow on a warm day, give the pack 20-30 minutes before putting it on charge.</li>
+      </ul>
+
+      <h3>Winter storage</h3>
+      <p>
+        Over the off-season, take the battery out of the mower and store it indoors at about 50% charge, somewhere that stays above freezing, a hallway cupboard or heated garage, not an unheated shed. Check it every couple of months and top it up to around 50% if it has drifted low. Come spring, a fully charged pack will be ready to go and none the worse for the break.
+      </p>
+
+      <h2>How to get more runtime from a charge</h2>
+      <p>
+        Runtime complaints are nearly always about how the lawn is mown, not a faulty battery. These five steps stretch a single charge much further.
+      </p>
+      <ol>
+        {runtimeSteps.map((s) => (
+          <li>
+            <strong>{s.name}.</strong> {s.text}
+          </li>
+        ))}
+      </ol>
+      <p>
+        Of these, a <a href="/advice/maintenance/sharpen-blade/">sharp blade</a> makes the biggest single difference, a blunt blade can cut effective runtime by a third or more because the motor is fighting the grass rather than slicing it.
+      </p>
+
+      <h2>Understanding Ah (and how it sets runtime)</h2>
+      <p>
+        Two numbers on a mower battery decide everything: voltage and amp-hours.
+      </p>
+      <ul>
+        <li><strong>Voltage (V)</strong>, how much power and torque the motor can deliver. Higher voltage cuts long, wet grass without stalling.</li>
+        <li><strong>Amp-hours (Ah)</strong>, how much energy the pack stores, and therefore how long it runs. A 5.0 Ah battery lasts roughly twice as long as a 2.5 Ah one on the same mower.</li>
+      </ul>
+      <p>
+        As a rough guide, a typical 36-40 V mower covers around <strong>100-150 m² per Ah</strong> on dry grass, so a 4.0 Ah pack might cover 400-600 m² on a charge. Wet or long grass, a blunt blade or a low cut height will all pull that figure down. If you regularly run out before finishing, a higher-Ah battery (or a spare to swap in) is usually the answer rather than a whole new mower.
+      </p>
+
+      <h2>Battery lifespan and when to replace</h2>
+      <p>
+        A quality lithium-ion pack from a reputable brand is rated for roughly <strong>500 to 1000 charge cycles</strong>. For someone mowing 25-30 times a season that works out to about <strong>5 to 8 years</strong> of normal use. Cheaper cells in budget mowers often manage only 2 to 3 seasons before noticeably fading.
+      </p>
+      <p>
+        Capacity falls gradually rather than all at once. The signs it is on the way out:
+      </p>
+      <ul>
+        <li><strong>Runtime has roughly halved</strong> from when it was new, despite a sharp blade and dry grass.</li>
+        <li><strong>It charges much faster than it used to</strong>, a sign it is holding far less energy.</li>
+        <li><strong>It struggles or cuts out under load</strong> in grass it used to handle easily.</li>
+        <li><strong>The pack gets unusually hot</strong> in normal use.</li>
+      </ul>
+      <p>
+        When you do replace it, buy a genuine pack from the same battery platform. A big advantage of the mainstream systems, Bosch Power for All, Ryobi ONE+, EGO, Makita and so on, is that the replacement battery also fits your other garden and power tools, so it is rarely money wasted.
+      </p>
+      <p>
+        Choosing your first cordless mower, or weighing a battery one against petrol? See the <a href="/best-battery-powered-lawn-mower-reviews-uk/">best battery-powered mower reviews</a> and our <a href="/compare/cordless-vs-petrol/">cordless vs petrol vs electric guide</a>.
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

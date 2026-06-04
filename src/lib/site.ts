@@ -2,12 +2,14 @@ export const SITE = {
   name: 'The Best Mowers',
   url: 'https://thebestmowers.co.uk',
   shortName: 'TheBestMowers',
-  description: 'Independent UK lawn mower reviews, buying guides and maintenance advice. Tested in real gardens by real gardeners.',
+  description: 'Independent UK lawn mower buying guides and reviews. Research-led recommendations built from manufacturer specs, verified owner reviews and UK retail data.',
   locale: 'en_GB',
   twitter: '',
-  publisher: 'The Best Mowers UK',
+  publisher: 'The Best Mowers',
+  editor: 'The Best Mowers editorial team',
+  email: 'hello@thebestmowers.co.uk',
   logo: '/logo.svg',
-  founded: '2015',
+  founded: '2024',
 } as const;
 
 export const POWER_TYPE_HUBS = [
@@ -21,5 +23,6 @@ export const POWER_TYPE_HUBS = [
 
 export const BRAND_HUBS = [
   'ryobi','bosch','gtech','husqvarna','flymo','stihl','makita','dewalt',
-  'worx','einhell','mountfield','stiga','cobra','hyundai','mac-allister','qualcast'
+  'worx','einhell','mountfield','stiga','cobra','hyundai','mac-allister','qualcast',
+  'greenworks','ego'
 ] as const;

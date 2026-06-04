@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import PickCard from '../../../components/PickCard.astro';
+import Disclosure from '../../../components/Disclosure.astro';
+import HowWeResearch from '../../../components/HowWeResearch.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../../lib/schema';
+import { amazonSearch } from '../../../lib/affiliate';
+
+const title = 'Best Cordless Lawn Mowers for Small Gardens UK 2026';
+const description = 'The best cordless lawn mowers for small UK gardens under 200 m². Light, compact, easy to store, with 30-34 cm decks where an 18V battery is genuinely enough.';
+const path = '/cordless-lawn-mowers/small-gardens/';
+const datePublished = '2024-06-01';
+const dateModified = '2026-06-04';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cordless lawn mowers', url: '/cordless-lawn-mowers/' },
+  { name: 'Small gardens', url: path },
+];
+
+const heroImage = '/images/compact_cordless_easy_storage.webp';
+
+const picks = [
+  {
+    rank: 1, name: 'Bosch CityMower 18V-32',
+    brand: 'Bosch', bestFor: 'best overall for a small UK garden',
+    rating: 4.6, rrp: '£150-£190',
+    reviewUrl: '/reviews/bosch-rotak-32-review/',
+    affiliateUrl: amazonSearch('Bosch CityMower 18V-32 lawn mower'),
+    image: '/images/bosch_lawnmower_review_details.webp',
+    pros: ['Just 8-9 kg - genuinely carry it one-handed', '32 cm deck folds flat for shed or cupboard storage', 'Runs on Bosch 18V Power for All - shares with strimmer and blower'],
+    cons: ['31 L grass box fills quickly on longer grass', 'Single 18V battery, so not for lawns much past 200 m²'],
+    verdict: 'For a courtyard, front lawn or a back garden under about 200 m², the CityMower is the one we point most people to. It weighs next to nothing, folds flat against a wall, and the 32 cm deck is the right size for a small space without being slow. Manufacturer runtime on a 4.0 Ah pack covers a typical 150-200 m² lawn on a single charge, and because it sits on Bosch Power for All the battery doubles up across the rest of your garden kit.',
+  },
+  {
+    rank: 2, name: 'Gtech CLM 2.0',
+    brand: 'Gtech', bestFor: 'stripes on a small lawn',
+    rating: 4.5, rrp: '£249-£299',
+    reviewUrl: '/reviews/gtech-clm50/',
+    affiliateUrl: amazonSearch('Gtech CLM 2.0 cordless lawn mower'),
+    image: '/images/compact_cordless_easy_storage.webp',
+    pros: ['Rear roller leaves proper stripes on a small lawn', 'Light and well balanced, easy to lift over a step', 'Click-out battery, simple single-platform system'],
+    cons: ['No mulching plug in the box', 'Pricey next to supermarket own-brands'],
+    verdict: 'If you want the lawn to look striped without buying a petrol roller mower, the Gtech CLM is the easiest way to get there in a small garden. The rear roller flattens the grass behind the blade for that light-and-dark finish, the battery clicks out for charging indoors, and at this weight it is a pleasure to live with. The trade-offs are the price and the missing mulching plug, but on a tidy lawn under 200 m² neither is a deal-breaker.',
+  },
+  {
+    rank: 3, name: 'Flymo EasiStore 300R Li',
+    brand: 'Flymo', bestFor: 'tightest storage and lowest price',
+    rating: 4.3, rrp: '£170-£220',
+    reviewUrl: '/brands/flymo/',
+    affiliateUrl: amazonSearch('Flymo EasiStore 300R Li cordless lawn mower'),
+    image: '/images/efficient_cutting_with_flymo.webp',
+    pros: ['Designed to store flat against a wall - smallest footprint here', 'Rear roller for stripes on a budget', 'Light and simple, good first cordless mower'],
+    cons: ['30 cm deck is slow on anything near 250 m²', 'Build feels plasticky next to Bosch and Gtech'],
+    verdict: 'Flymo built the EasiStore range specifically around the problem of where to put a mower in a small home, and it shows: it folds and hangs flat in a way most rivals cannot. The 30 cm deck and compact wheels make it nimble in tight corners, and there is a rear roller for stripes. It is the budget pick rather than the refined one, but for a genuinely small lawn it does the job for less.',
+  },
+  {
+    rank: 4, name: 'WORX WG779E 40V (2x20V)',
+    brand: 'WORX', bestFor: 'a little more power on a small-to-mid lawn',
+    rating: 4.2, rrp: '£180-£230',
+    reviewUrl: '/brands/worx/',
+    affiliateUrl: amazonSearch('WORX WG779E 40V cordless lawn mower'),
+    image: '/images/powerful_cordless_lawn_mower-2.webp',
+    pros: ['Twin 20V batteries give more headroom on damp grass', '34 cm deck - top of the small-garden range', 'PowerShare batteries fit other WORX 20V tools'],
+    cons: ['Heavier than the single-battery picks here', 'Two batteries to keep charged'],
+    verdict: 'If your small garden has the odd patch of rougher or damper grass that stalls an 18V mower, the WORX WG779E gives you more to work with. It runs two 20V PowerShare packs in series for 40V of cutting torque, the 34 cm deck is the widest in this small-garden group, and the batteries share with the wider WORX 20V range. It is a touch heavier and there are two packs to charge, but it handles a borderline 250 m² lawn that the lighter picks would find a slog.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What size cordless mower do I need for a small garden?',
+    a: 'For a garden under about 200 m², a 30-34 cm deck is ideal. A narrower deck is lighter, easier to steer around borders and paths, and quicker to store. Going wider than 34 cm on a small lawn just adds weight and makes tight turns harder for no real time saving.',
+  },
+  {
+    q: 'Is 18V enough for a small lawn?',
+    a: 'Yes. On a regularly mown lawn under 200 m², an 18V cordless mower with a 4.0 Ah battery has plenty of torque and enough runtime to finish in one charge. You only need 36V or higher when the lawn is larger, or when the grass is routinely long and damp. For most small UK gardens, 18V is the sensible, cheaper choice.',
+  },
+  {
+    q: 'How long will the battery last on a small garden?',
+    a: 'Manufacturer figures for these mowers quote roughly 30-45 minutes of runtime from a single charge, which is comfortably enough to cover 150-200 m² of typical British lawn. Runtime is a claim and a coverage estimate rather than an independent measurement: long, wet or thick grass will use the charge faster than a dry weekly cut.',
+  },
+  {
+    q: 'Which small cordless mower is easiest to store?',
+    a: 'The Flymo EasiStore range is built specifically to fold and hang flat against a wall, so it has the smallest footprint here. The Bosch CityMower 18V-32 also folds compactly and is light enough to lift onto a shelf. If shed or cupboard space is your main constraint, start with those two.',
+  },
+  {
+    q: 'Do small cordless mowers leave stripes?',
+    a: 'Only the ones with a rear roller. The Gtech CLM 2.0 and the Flymo EasiStore 300R Li both have a roller that flattens the grass behind the blade to create stripes. The Bosch CityMower and the WORX run on rear wheels, so they cut cleanly but will not stripe. If a striped finish matters to you on a small lawn, pick a roller model.',
+  },
+  {
+    q: 'Should I buy cordless or corded electric for a tiny garden?',
+    a: 'If the lawn is right beside a power socket and you are on a tight budget, a corded electric mower works perfectly well and saves you money. Cordless wins when trailing a cable around borders, trees or a path is a nuisance, or when you want one battery to power your other garden tools too. For most small gardens the freedom of cordless is worth the extra outlay, but corded is no embarrassment on a courtyard lawn.',
+  },
+  {
+    q: 'Can I mulch with a small cordless mower?',
+    a: 'Some of these support mulching and some do not. The Bosch CityMower and WORX accept a mulching plug; the Gtech CLM does not include one as standard. On a small lawn that you mow weekly, mulching returns fine clippings to the grass as fertiliser, which suits a tidy lawn well. Check the box or the spec for a supplied mulching plug before you buy.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified, image: heroImage }),
+  faqSchema(faqs),
+  itemListSchema({
+    name: 'Best cordless lawn mowers for small gardens UK 2026',
+    url: path,
+    items: picks.map((p, i) => ({ position: i + 1, name: p.name, url: p.reviewUrl })),
+  }),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} {schema} ogImage={heroImage}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">UK Buyer's Guide · Updated June 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Best Cordless Lawn Mowers for Small Gardens UK 2026</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        For a small British garden - a courtyard, a front lawn, a back patch under about 200 m² - you do not need a big, heavy mower, and you certainly do not need petrol. What you want is light, compact, easy to store, and an 18V battery that cuts cleanly and tucks the mower away flat when you are done. These four cordless mowers fit a small space without taking it over.
+      </p>
+    </header>
+
+    <Disclosure />
+
+    <img
+      src={heroImage}
+      alt="Compact cordless lawn mower folded flat for easy storage in a small UK home"
+      width="900" height="506"
+      class="w-full rounded-xl mb-10 object-cover"
+      loading="eager"
+    />
+
+    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-12">
+      <h2 class="text-xl font-bold text-soil-900 mb-3">Our top picks at a glance</h2>
+      <ul class="space-y-2 text-slate-800">
+        <li><strong>Best overall:</strong> <a href="/reviews/bosch-rotak-32-review/" class="text-grass-700 underline">Bosch CityMower 18V-32</a> - light, folds flat, 18V is genuinely enough</li>
+        <li><strong>Best for stripes:</strong> <a href="/reviews/gtech-clm50/" class="text-grass-700 underline">Gtech CLM 2.0</a> - rear roller finish on a small lawn</li>
+        <li><strong>Smallest footprint:</strong> <a href="/brands/flymo/" class="text-grass-700 underline">Flymo EasiStore 300R Li</a> - built to hang flat against a wall</li>
+      </ul>
+    </aside>
+
+    <div class="prose-mowers">
+      <h2 id="why-compact">Why a compact mower is the right call for a small garden</h2>
+      <p>
+        The mistake people make with a small lawn is buying too much mower. A 40 cm deck and a twin-battery system are wasted on 150 m²: you carry the extra weight every week, you fight to turn it around a flower bed, and you give up half your shed to store it. The whole point of a small-garden mower is that it disappears when you are not using it. Light enough to lift over the back step one-handed, a 30-34 cm deck that turns on a sixpence around borders, and a body that folds flat against a wall or onto a shelf.
+      </p>
+      <p>
+        On a lawn this size, an 18V battery is not a compromise - it is the right amount of power. Higher voltages exist to deliver torque for long, wet grass on bigger lawns. A small lawn that you cut weekly stays short, and 18V cuts it cleanly with charge to spare. Spending up for 36V or 40V on a tiny garden mostly buys you weight you do not want.
+      </p>
+
+      <h2 id="picks">The best cordless mowers for small gardens</h2>
+      <p>Four mowers we are happy to recommend for a small UK lawn, ordered by who each one suits best. Tap any pick to read the full review.</p>
+
+      <div class="space-y-6 mt-6">
+        {picks.map((p) => <PickCard {...p} />)}
+      </div>
+
+      <h2 id="how-to-choose">How to choose for a small garden</h2>
+
+      <h3>Keep the deck to 30-34 cm</h3>
+      <p>
+        Deck width is the strip the blade cuts in one pass. On a small lawn, a 30-34 cm deck is the sweet spot: wide enough to finish quickly, narrow enough to steer around paths, trees and borders without scalping the edges. Anything wider just adds weight and turning radius you do not need.
+      </p>
+
+      <h3>Weight is the thing you will notice most</h3>
+      <p>
+        Every mower on this page sits in the 8-13 kg range, and the difference is felt every time you lift it over a step or onto a shelf. The Bosch CityMower and the lighter Flymo are the easiest to carry; the twin-battery WORX is the heaviest of the four. If the user is older, smaller or has back trouble, lean towards the lightest option.
+      </p>
+
+      <h3>Storage: fold-flat is a real feature</h3>
+      <p>
+        In a flat, a terrace or a small home, where the mower lives matters as much as how it cuts. Flymo's EasiStore design and the Bosch CityMower both fold compact and store flat against a wall. If your only space is a cupboard under the stairs or a slim gap down the side of the house, make fold-flat storage a hard requirement.
+      </p>
+
+      <h3>Battery platform: borrow it across your other tools</h3>
+      <p>
+        The Bosch CityMower (18V Power for All) and the WORX (20V PowerShare) both run on battery systems shared across strimmers, blowers and hedge trimmers. If you already own - or plan to own - other tools in those ranges, one battery does the lot, and that is real money saved. The Gtech and Flymo run their own packs, which is simpler but less cross-compatible.
+      </p>
+
+      <h3>Stripes or no stripes</h3>
+      <p>
+        A rear roller is the only way to stripe a lawn. The Gtech CLM 2.0 and Flymo EasiStore 300R Li both have one; the Bosch and WORX use rear wheels and cut cleanly without striping. Decide whether the striped finish matters before you choose, because it narrows the field straight away.
+      </p>
+
+      <h2 id="bigger">What if my garden grows past 200 m²?</h2>
+      <p>
+        If your lawn is closer to 300-400 m², step up to a 36-40 cm deck and 36V or more - see our main <a href="/best-battery-powered-lawn-mower-reviews-uk/">battery-powered lawn mower reviews</a> for the medium-garden picks. For a large lawn with slopes, a <a href="/cordless-lawn-mowers/self-propelled/">self-propelled cordless mower</a> earns its keep. And if you are still weighing up the power types altogether, our <a href="/buying-guide/cordless-vs-petrol-vs-electric/">cordless vs petrol vs electric guide</a> walks through the decision by garden size.
+      </p>
+
+      <h2 id="brands">Brands worth shortlisting for a small garden</h2>
+      <ul>
+        <li><strong><a href="/brands/bosch/">Bosch</a></strong> - the CityMower is purpose-built for small lawns; 18V Power for All shares across tools.</li>
+        <li><strong><a href="/brands/gtech/">Gtech</a></strong> - light, single-platform system with a rear roller for stripes.</li>
+        <li><strong><a href="/brands/flymo/">Flymo</a></strong> - the EasiStore range is the storage champion for tight spaces.</li>
+        <li><strong><a href="/brands/worx/">WORX</a></strong> - 20V PowerShare twin-battery for a bit more headroom on a borderline lawn.</li>
+      </ul>
+    </div>
+
+    <HowWeResearch />
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

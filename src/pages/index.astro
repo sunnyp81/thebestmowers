@@ -1,34 +1,35 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HowWeResearch from '../components/HowWeResearch.astro';
 import { POWER_TYPE_HUBS, BRAND_HUBS } from '../lib/site';
 import { articleSchema } from '../lib/schema';
 
-const title = 'The Best Mowers UK — Independent Lawn Mower Reviews & Buying Guides';
-const description = 'Independent UK lawn mower reviews tested in real gardens. Compare cordless, petrol, robot and ride-on mowers from every major brand. Updated weekly.';
+const title = 'The Best Mowers UK - Independent Lawn Mower Reviews & Buying Guides';
+const description = 'Independent, research-led UK lawn mower buying guides. Compare the best cordless, battery, petrol, robot and ride-on mowers from every major brand.';
 const datePublished = '2026-05-10';
 
 const schema = [articleSchema({ headline: title, description, url: '/', datePublished })];
 
 const featured = [
-  { slug: 'cordless-lawn-mowers', label: 'Cordless lawn mowers', tag: 'Most popular', tagline: 'Quiet, light, no fuel — the default choice for UK gardens under 600 m².' },
+  { slug: 'cordless-lawn-mowers', label: 'Cordless lawn mowers', tag: 'Most popular', tagline: 'Quiet, light, no fuel - the default choice for UK gardens under 600 m².' },
   { slug: 'robot-lawn-mowers', label: 'Robot lawn mowers', tag: 'Trending 2026', tagline: 'Set them and forget them. Best for medium lawns and time-poor owners.' },
   { slug: 'petrol-lawn-mowers', label: 'Petrol lawn mowers', tag: 'Big lawns', tagline: 'Still the king for anything over 800 m² or rough wet grass.' },
   { slug: 'electric-lawn-mowers', label: 'Electric lawn mowers', tag: 'Budget pick', tagline: 'Corded mains-powered. Cheapest path to a cleanly cut small lawn.' },
-  { slug: 'ride-on-lawn-mowers', label: 'Ride-on lawn mowers', tag: 'Acreage', tagline: 'For lawns over 1000 m². We have ridden every model worth buying.' },
-  { slug: 'hover-lawn-mowers', label: 'Hover lawn mowers', tag: 'Slopes & banks', tagline: 'Float-on-air mowers — best for steep banks and rough lawns.' },
+  { slug: 'ride-on-lawn-mowers', label: 'Ride-on lawn mowers', tag: 'Acreage', tagline: 'For lawns over 1000 m². The models worth shortlisting, compared.' },
+  { slug: 'hover-lawn-mowers', label: 'Hover lawn mowers', tag: 'Slopes & banks', tagline: 'Float-on-air mowers - best for steep banks and rough lawns.' },
 ];
 ---
 <BaseLayout {title} {description} {schema}>
   <section class="bg-gradient-to-b from-grass-50 to-white border-b border-slate-200">
     <div class="max-w-5xl mx-auto px-4 py-16 md:py-24 text-center">
-      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-3">Independent · UK · Tested in real gardens</p>
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-3">Independent · UK · Research-led</p>
       <h1 class="text-4xl md:text-6xl font-bold text-soil-900 leading-tight">The right lawn mower for your garden</h1>
       <p class="mt-5 text-lg md:text-xl text-slate-700 max-w-2xl mx-auto leading-relaxed">
-        Eleven years. Hundreds of mowers bought, borrowed and tested on real British lawns. No sponsored top-tens. No copy-pasted retailer review feeds. Just honest advice on the mower that will actually suit your garden — from someone who has spent more weekends pushing them than they care to admit.
+        Clear, honest UK buying guides built from manufacturer specifications, verified owner reviews and real retail pricing, cross-checked so the figures match the box. No sponsored top-tens, no copy-pasted retailer feeds. We specialise in cordless and battery mowers, the default choice for most British gardens.
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <a href="/cordless-lawn-mowers/" class="bg-grass-700 hover:bg-grass-800 text-white font-semibold px-5 py-3 rounded-md">Browse cordless</a>
-        <a href="/best-lawn-mowers/" class="bg-white border border-slate-300 hover:border-grass-700 text-soil-900 font-semibold px-5 py-3 rounded-md">Best of 2026</a>
+        <a href="/best-battery-powered-lawn-mower-reviews-uk/" class="bg-grass-700 hover:bg-grass-800 text-white font-semibold px-5 py-3 rounded-md min-h-[44px]">Best cordless mowers 2026</a>
+        <a href="/buying-guide/cordless-vs-petrol-vs-electric/" class="bg-white border border-slate-300 hover:border-grass-700 text-soil-900 font-semibold px-5 py-3 rounded-md min-h-[44px]">Cordless vs petrol vs electric</a>
       </div>
     </div>
   </section>
@@ -58,53 +59,18 @@ const featured = [
     </div>
   </section>
 
-  <section class="max-w-4xl mx-auto px-4 py-16">
-    <h2 class="text-2xl md:text-3xl font-bold text-soil-900 mb-4">UK gardens by the numbers</h2>
-    <p class="text-lg text-slate-700 leading-relaxed mb-4">
-      The average UK garden is 250 m² — smaller than most assume, larger than many realise. About 64% of households with gardens have a lawn under 400 m², which is exactly where cordless mowers dominate. The shift from petrol to battery has been dramatic: five years ago, cordless accounted for 12% of sales; today it's 35% and climbing. In cities like London, Bristol and Edinburgh, where noise and storage matter, cordless is now first choice for seven in ten first-time mower buyers.
-    </p>
-    <p class="text-lg text-slate-700 leading-relaxed mb-4">
-      British lawn care is also seasonal in ways many buyers ignore. From April through September (the mowing window), grass grows fast in spring, slows in the heat of July, then surges again in cool September rain. Many buyers choose a mower that suits June performance, then struggle when the grass is long and damp in May. The best mowers work across all three seasons — which is why we test wet grass as well as dry.
-    </p>
-    <p class="text-lg text-slate-700 leading-relaxed">
-      Another quirk: British lawns are narrower than people think. The average suburban semi has a back garden around 30 m × 10 m — awkward for wide mowers, perfect for anything under 36 cm. This is why manoeuvrability often matters more than raw power, and why a lightweight 10 kg mower handles three-quarters of UK gardens better than a hefty 20 kg beast.
-    </p>
+  <section class="max-w-5xl mx-auto px-4 py-16">
+    <div class="rounded-2xl bg-grass-700 text-white p-8 md:p-12 text-center">
+      <p class="text-sm font-semibold uppercase tracking-wide text-grass-100 mb-2">Start here</p>
+      <h2 class="text-2xl md:text-4xl font-bold mb-3">Best Cordless &amp; Battery Lawn Mowers UK 2026</h2>
+      <p class="text-grass-50 max-w-2xl mx-auto leading-relaxed mb-6">
+        Nine cordless mowers compared on voltage, cutting width, battery, runtime, weight and price, ranked by who each one suits. Our most complete guide.
+      </p>
+      <a href="/best-battery-powered-lawn-mower-reviews-uk/" class="inline-block bg-white text-grass-800 font-semibold px-6 py-3 rounded-md hover:bg-grass-50 min-h-[44px]">Read the guide →</a>
+    </div>
   </section>
 
-  <section class="max-w-4xl mx-auto px-4 py-16">
-    <h2 class="text-2xl md:text-3xl font-bold text-soil-900 mb-4">The UK lawn mower market shift (2020–2026)</h2>
-    <p class="text-lg text-slate-700 leading-relaxed mb-4">
-      The last six years have fundamentally changed what UK gardeners buy. Cordless was a curiosity in 2020 (12% market share); it's now 35% of unit sales and 42% in London. Petrol is down from 52% to 38% nationwide, and in urban areas it's barely 20%. The driver is simple: battery technology finally got good enough, charge times dropped from 8 hours to 45 minutes, and prices fell enough that a decent cordless costs the same as a decent petrol. For the 64% of UK households with gardens under 400 m², cordless is no longer an alternative — it's the default first choice.
-    </p>
-    <p class="text-lg text-slate-700 leading-relaxed mb-4">
-      Robot mowers are the fastest-growing segment — in 2020 they were under 5% of the market; today they're 11% and climbing fastest in the South East and Midlands where lawns are well-established and flat. Ride-ons have stabilised at 8% (the "over-one-acre" segment), while corded electric is slowly declining as cordless batteries get cheaper. This shift has created a new problem: too many options. Five years ago, the choice was simple — petrol for large lawns, electric for small ones. Today, a 400 m² garden might have cordless, robot, or a self-propelled petrol as equally valid choices, and picking wrong wastes money.
-    </p>
-    <p class="text-lg text-slate-700 leading-relaxed">
-      Regional differences matter more than people realise. In cities, cordless dominates because of noise and storage. In rural areas, petrol is still 55%+ because there's no neighbour noise limit and fuel availability beats charging infrastructure. Scottish lawns tend to favour collection mowers (wet clippings stick), while southern clay soils favour mulch and side discharge. We test in all three scenarios — that's why a single ranked top-ten list doesn't work. What's best for a Cornish garden is wrong for a Cumbrian hill farm.
-    </p>
-  </section>
-
-  <section class="max-w-4xl mx-auto px-4 py-16">
-    <h2 class="text-2xl md:text-3xl font-bold text-soil-900 mb-4">UK mower buying patterns: when and what people actually choose</h2>
-    <p class="text-lg text-slate-700 leading-relaxed mb-4">
-      The timing of your purchase matters as much as the choice itself. Lawn mower sales peak in March–April (spring rush) and August–September (back-to-school gardens), with stock and selection reaching maximum depth in these windows. January and November see minimal inventory — many retailers don't restock until late February. If you're shopping in July or December, you'll find three models; if you shop in late February, you'll find twenty. This seasonality also affects availability of specific models. The Gtech CLM 2.0, for instance, is impossible to find in January but routinely available in March. Bosch and Makita stock year-round (owned by large retailers), but smaller brands like EGO and Ryobi concentrate distribution into peak selling windows.
-    </p>
-    <p class="text-lg text-slate-700 leading-relaxed mb-4">
-      Price sensitivity also varies by season and region. In March, buyers are willing to pay 5–10% premium for rapid delivery. By June, stock is deep and prices have fallen 3–8%. September sees a second price dip as retailers clear summer stock ahead of autumn. The best time to buy a lawn mower for value is September (post-summer clearance) or late January (pre-spring stocktake, offering deals on current-year models). The worst time is March when demand is peak and supply is still catching up.
-    </p>
-    <p class="text-lg text-slate-700 leading-relaxed mb-4">
-      Online retailers (Amazon, Currys, John Lewis, specialist garden sites) now account for 58% of UK cordless mower sales, up from 34% five years ago. Garden centres claim 22%, and big-box retailers (B&Q, Homebase) handle 20%. This split matters: online has wider range but no demo; garden centres have staff knowledge but limited stock; big-box has instant availability but limited brands. Argos, uniquely, bridges all three — 800+ stores let you see-and-buy same-day (no delivery wait), online ordering, and click-and-collect within 2 hours. That physical presence is why budget brands like Qualcast and Mac Allister overperform in market share relative to enthusiast reviews — convenience beats optimal choice for many buyers.
-    </p>
-  </section>
-
-  <section class="max-w-4xl mx-auto px-4 py-16">
-    <h2 class="text-2xl md:text-3xl font-bold text-soil-900 mb-4">How we test these things</h2>
-    <p class="text-lg text-slate-700 leading-relaxed mb-3">
-      Every mower on this site gets tested on three real gardens — a tiny London terrace lawn, a medium suburban one, and a big lumpy mixed lawn with a slope. We measure deck accuracy with a ruler, time runtime to flat (twice — once dry, once wet), weigh every mower ourselves on a luggage scale, and then keep using them. To make our recommended list, a mower has to survive 30+ mowing sessions and at least one British winter in the shed. Plenty don't.
-    </p>
-    <p class="text-lg text-slate-700 leading-relaxed">
-      One thing worth saying: we're independent. Manufacturers don't pay us for placement. We do earn affiliate commission when you buy through our links — that's how this site keeps the lights on — but it never, ever decides who tops a list. If a £99 Bosch beats a £600 premium mower on test, the Bosch wins.
-    </p>
-    <p class="mt-6"><a href="/about/" class="text-grass-700 font-semibold underline">Read our full testing methodology →</a></p>
+  <section class="max-w-4xl mx-auto px-4 pb-16">
+    <HowWeResearch heading="How we choose" />
   </section>
 </BaseLayout>
