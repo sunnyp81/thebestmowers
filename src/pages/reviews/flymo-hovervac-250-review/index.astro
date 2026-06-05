@@ -6,7 +6,7 @@ import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
 
 const title = 'Flymo HoverVac 250 Review - Lightweight Hover With Better Collection (2026)';
-const description = "Flymo HoverVac 250 hover mower review. 1400W motor, improved grass collection, lightweight - tested on small sloped UK gardens over 10 months.";
+const description = "Flymo HoverVac 250 hover mower review. 1400W motor, improved grass collection, lightweight - research-led verdict from specs and verified owner reviews.";
 const path = '/reviews/flymo-hovervac-250-review/';
 const datePublished = '2026-05-10';
 
@@ -26,9 +26,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Flymo HoverVac 250', brand: 'Flymo', description, rating: 3.9, url: path, datePublished, reviewBody: 'The hover mower sweet spot - more power than the Easimo, better collection, still lightweight enough for anyone to use on small sloped UK gardens.' }),
+  productReviewSchema({ name: 'Flymo HoverVac 250', brand: 'Flymo', description, rating: 3.9, url: path, datePublished, dateModified: '2026-06-05', image: '/images/electric_hover_lawn_mower-1.webp', priceLow: 70, priceHigh: 110, reviewBody: 'The hover mower sweet spot - more power than the Easimo, better collection, still lightweight enough for anyone to use on small sloped UK gardens.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -58,6 +58,8 @@ const schema = [
           <BuyCta name="Flymo HoverVac 250" rrp="£89" />
     </aside>
 
+    <img src="/images/electric_hover_lawn_mower-1.webp" alt="Lightweight electric hover lawn mower on a UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
+
     <div class="prose-mowers">
       <h2>Specs</h2>
       <table>
@@ -75,7 +77,7 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
         <li><strong>Genuinely good collection for a hover mower</strong> - the 1400W motor creates enough suction that 80%+ of clippings end up in the box. Much better than budget hovers.</li>
         <li><strong>Featherweight</strong> - 6.3 kg. Lighter than most handbags. Store it anywhere, carry it with one hand, use it on slopes without strain.</li>
@@ -83,7 +85,7 @@ const schema = [
         <li><strong>Same price as the Easimo</strong> - at £89 you're getting a stronger motor and better collection for identical money. No reason not to pick this over the Easimo unless weight is your only priority.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>25 cm cutting width is narrow</strong> - you'll make more passes than a 30-33 cm mower. On anything over 200 m² this gets tedious.</li>
         <li><strong>20L box is small</strong> - fills every few minutes on longer grass. Empty often or you lose suction.</li>

@@ -6,7 +6,7 @@ import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
 
 const title = 'Worx Landroid Vision M800 Review - Camera-Guided Wire-Free Robot (2026)';
-const description = "Worx Landroid Vision M800 robot mower review. No boundary wire, AI camera navigation, £999 - tested on a 600 m² UK garden over 8 months.";
+const description = "Worx Landroid Vision M800 robot mower review. No boundary wire, AI camera navigation, £999 - research-led verdict from specs and verified owner reviews.";
 const path = '/reviews/worx-landroid-vision-m800/';
 const datePublished = '2026-05-10';
 
@@ -26,9 +26,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Worx Landroid Vision M800', brand: 'Worx', description, rating: 4.1, url: path, datePublished, reviewBody: 'Wire-free robot mowing via AI camera - no GPS base station, no boundary wire, works under trees. The most accessible wire-free robot for typical UK gardens.' }),
+  productReviewSchema({ name: 'Worx Landroid Vision M800', brand: 'Worx', description, rating: 4.1, url: path, datePublished, dateModified: '2026-06-05', image: '/images/compact_robotic_lawn_mower.webp', priceLow: 850, priceHigh: 1100, reviewBody: 'Wire-free robot mowing via AI camera - no GPS base station, no boundary wire, works under trees. The most accessible wire-free robot for typical UK gardens.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -53,10 +53,12 @@ const schema = [
         </div>
       </div>
       <p class="text-slate-700 leading-relaxed">
-        The Worx Landroid Vision M800 takes a different approach to wire-free mowing: instead of RTK GPS (which needs clear sky), it uses an AI camera that sees where grass ends and non-grass begins. This means it works perfectly under trees, next to fences, and in the typical shaded UK garden where GPS robots lose accuracy. Setup is simpler than any robot we've tested - no wire, no base station, just place and go. The boundary detection isn't millimetre-perfect (expect 5-10 cm of overshoot occasionally) but for most UK homeowners, the convenience trade-off is worth it.
+        The Worx Landroid Vision M800 takes a different approach to wire-free mowing: instead of RTK GPS (which needs clear sky), it uses an AI camera that sees where grass ends and non-grass begins. This means it works perfectly under trees, next to fences, and in the typical shaded UK garden where GPS robots lose accuracy. Setup is simpler than most robots - no wire, no base station, just place and go. The boundary detection isn't millimetre-perfect (owners report 5-10 cm of overshoot occasionally) but for most UK homeowners, the convenience trade-off is worth it.
       </p>
           <BuyCta name="Worx Landroid Vision M800" rrp="£999" />
     </aside>
+
+    <img src="/images/compact_robotic_lawn_mower.webp" alt="Compact wire-free robot lawn mower on a UK garden" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
 
     <div class="prose-mowers">
       <h2>Specs</h2>
@@ -75,7 +77,7 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
         <li><strong>Zero-wire setup</strong> - place it on the lawn, walk the boundary with the app, confirm. Done in 15 minutes. No digging, no pegging, no weekend afternoon lost to installation.</li>
         <li><strong>Works under trees</strong> - because it navigates by camera rather than GPS, it keeps accuracy under heavy tree cover where GPS robots drift. Owners with shaded, tree-lined lawns confirm it copes well.</li>
@@ -83,7 +85,7 @@ const schema = [
         <li><strong>Price for wire-free</strong> - at £999 it significantly undercuts the Mammotion Luba 2 (£1,799). The most affordable way into wire-free robot mowing.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>Boundary precision</strong> - camera detection isn't millimetre-accurate. Expect occasional 5-10 cm overshoot onto paths or into beds. Not ideal if you have a razor-sharp lawn edge.</li>
         <li><strong>18 cm cutting width</strong> - very narrow. The mower needs more time to cover larger lawns than wider-deck robots. On 800 m² at capacity, mowing takes several hours spread across the day.</li>

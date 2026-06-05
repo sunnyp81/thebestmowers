@@ -13,7 +13,7 @@ const datePublished = '2026-05-10';
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Brands', url: '/brands/' }, { name: 'Gtech', url: path }];
 
 const picks = [
-  { rank: 1, name: 'Gtech CLM 2.0', brand: 'Gtech', bestFor: 'small UK gardens, first-time cordless buyers', rating: 4.6, rrp: '£249', reviewUrl: '/reviews/gtech-clm50/', pros: ['Light enough to carry one-handed (15.4 kg)', 'Genuinely good stripes from a roller-less design', 'Click-out battery covers 200 m² easily'], cons: ['Replacement battery is £80+', 'No mulching plug as standard', '33 cm deck is small for over-350 m² lawns'], verdict: 'The CLM 2.0 is the friendliest cordless mower we\'ve tested. It just works. Lighter than the rivals, easier to put away, the British design feel runs through the whole product. Two niggles: the battery isn\'t cross-compatible with anything else in your shed, and at 33 cm it\'s small.' },
+  { rank: 1, name: 'Gtech CLM 2.0', brand: 'Gtech', bestFor: 'small UK gardens, first-time cordless buyers', rating: 4.6, rrp: '£249', reviewUrl: '/reviews/gtech-clm50/', pros: ['Light enough to carry one-handed (15.4 kg)', 'Genuinely good stripes from a roller-less design', 'Click-out battery covers 200 m² easily'], cons: ['Replacement battery is £80+', 'No mulching plug as standard', '33 cm deck is small for over-350 m² lawns'], verdict: 'The CLM 2.0 is the friendliest cordless mower we recommend. It just works. Lighter than the rivals, easier to put away, the British design feel runs through the whole product. Two niggles: the battery isn\'t cross-compatible with anything else in your shed, and at 33 cm it\'s small.' },
   { rank: 2, name: 'Gtech CLM 50', brand: 'Gtech', bestFor: 'medium gardens up to 350 m²', rating: 4.5, rrp: '£299', reviewUrl: '/brands/gtech/', pros: ['Wider 38 cm deck', '50 L grass box', 'Single-lever cut height adjustment'], cons: ['Heavier at 17.8 kg', 'Battery still proprietary'], verdict: 'The bigger CLM. Same friendly Gtech design language, wider deck, larger grass box. Fills the gap between the CLM 2.0 (small) and the rivals at this price (Bosch UniversalRotak 36-550). The cleaner Gtech experience comes at a slight premium.' },
 ];
 
@@ -28,7 +28,7 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
   itemListSchema({ name: 'Best Gtech lawn mowers 2026', url: path, items: picks.map((p, i) => ({ position: i+1, name: p.name, url: p.reviewUrl })) }),
 ];

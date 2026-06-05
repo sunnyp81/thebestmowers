@@ -74,8 +74,9 @@ export const OWNER_VOICES: Record<string, OwnerVoice> = {
       { text: 'Quiet, lightweight and cuts even high grass with ease, then drops low for a clean finish.', kind: 'praise', source: 'Amazon UK owner reviews' },
       { text: 'Twin 18 V LXT batteries mean it cuts for ages, and the build is sturdy as you expect from Makita.', kind: 'praise', source: 'eBay owner reviews' },
       { text: 'The 40 L box has a fill-level indicator and pops off easily to empty.', kind: 'praise', source: 'Which?' },
-      { text: 'It can struggle on long grass, especially when wet, and is not the one for very large or steep lawns.', kind: 'gripe', source: 'PistonHeads' },
+      { text: 'It can struggle on long grass, especially when wet, and is not the one for very large or steep lawns.', kind: 'gripe', source: 'Which? owner reviews' },
+      { text: 'No self-propelled option, and buying the kit with batteries rather than body-only pushes the price up.', kind: 'gripe', source: 'Amazon UK owner reviews' },
     ],
-    sources: ['Amazon UK owner reviews', 'Which?', 'PistonHeads'],
+    sources: ['Amazon UK owner reviews', 'Which?'],
   },
 };

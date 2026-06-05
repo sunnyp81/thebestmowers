@@ -7,7 +7,7 @@ import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
 
 const title = 'EGO LM2122E-SP Review - The Cordless That Replaces Petrol (2026)';
-const description = "EGO LM2122E-SP cordless self-propelled mower review. 56V Arc Lithium, 52cm deck, petrol-rivalling power - tested on large UK lawns over 16 months.";
+const description = "EGO LM2122E-SP cordless self-propelled mower review. 56V Arc Lithium, 52cm deck, petrol-rivalling power - research-led verdict from specs and verified owner reviews.";
 const path = '/reviews/ego-lm2122e-sp/';
 const datePublished = '2026-05-10';
 
@@ -27,9 +27,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'EGO LM2122E-SP', brand: 'EGO', description, rating: 4.7, url: path, datePublished, reviewBody: 'The cordless mower that genuinely replaces petrol. 56V power, 52cm self-propelled deck, and 60-minute runtime on the 7.5Ah battery. Best cordless for large UK lawns.' }),
+  productReviewSchema({ name: 'EGO LM2122E-SP', brand: 'EGO', description, rating: 4.7, url: path, datePublished, dateModified: '2026-06-05', image: '/images/powerful_cordless_lawn_mower-2.webp', priceLow: 500, priceHigh: 650, reviewBody: 'The cordless mower that genuinely replaces petrol. 56V power, 52cm self-propelled deck, and 60-minute runtime on the 7.5Ah battery. Best cordless for large UK lawns.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -54,10 +54,12 @@ const schema = [
         </div>
       </div>
       <p class="text-slate-700 leading-relaxed">
-        This is the cordless mower that finally, genuinely replaces petrol for large UK lawns. The 56V Arc Lithium battery delivers power that matches a 140 cc engine on domestic grass. The 52 cm self-propelled deck covers ground quickly. Runtime of 50-65 minutes on the 7.5 Ah battery handles 700+ m² without a recharge. It's the mower we'd buy with our own money if we had a big lawn and were done with petrol.
+        This is the cordless mower that finally, genuinely replaces petrol for large UK lawns. The 56V Arc Lithium battery delivers power that matches a 140 cc engine on domestic grass. The 52 cm self-propelled deck covers ground quickly. Runtime of 50-65 minutes on the 7.5 Ah battery handles 700+ m² without a recharge. It's the cordless to pick for a big lawn if you're done with petrol.
       </p>
           <BuyCta name="EGO LM2122E-SP" rrp="£549" />
     </aside>
+
+    <img src="/images/powerful_cordless_lawn_mower-2.webp" alt="Powerful cordless self-propelled lawn mower on a large UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
 
     <div class="prose-mowers">
       <h2>Specs</h2>
@@ -76,7 +78,7 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
         <li><strong>Genuine petrol-equivalent power</strong> - owner reviews repeatedly describe it chewing through 3-week-overgrown damp grass that stalls budget cordless mowers, without hesitation.</li>
         <li><strong>60-minute runtime</strong> - enough for 700+ m² on a single charge. And the rapid charger gives you a full battery in 60 minutes if you do need a top-up.</li>
@@ -84,7 +86,7 @@ const schema = [
         <li><strong>70L grass box</strong> - enormous for a cordless mower. On a 700 m² lawn, expect a single empty per mow.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>Price</strong> - £549 is steep for a cordless mower. You're paying for the 7.5 Ah battery and self-propelled system. Worth it if you have the lawn to justify it.</li>
         <li><strong>Heavy</strong> - 25.5 kg with battery. The self-propelled drive compensates, but lifting it into a shed or over steps requires effort.</li>

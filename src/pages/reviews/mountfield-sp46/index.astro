@@ -26,9 +26,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Mountfield SP46', brand: 'Mountfield', description, rating: 4.5, url: path, datePublished, reviewBody: 'The default sub-£400 self-propelled petrol mower in the UK. Italian-built ST 140 engine, 46 cm steel deck, properly reliable.' }),
+  productReviewSchema({ name: 'Mountfield SP46', brand: 'Mountfield', description, rating: 4.5, url: path, datePublished, dateModified: '2026-06-05', image: '/images/powerful_electric_lawn_mower.webp', priceLow: 290, priceHigh: 380, reviewBody: 'The default sub-£400 self-propelled petrol mower in the UK. Italian-built ST 140 engine, 46 cm steel deck, properly reliable.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -46,7 +46,7 @@ const schema = [
       alt="Mountfield SP46 self-propelled petrol lawn mower"
       width="900" height="506"
       class="w-full rounded-xl mb-8 object-cover"
-      loading="lazy"
+      loading="eager" fetchpriority="high"
     />
 
     <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-10">
@@ -83,15 +83,15 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
-        <li><strong>The engine</strong> - three years in, ours starts on the second pull from cold every time. Italian-built ST 140 is a known-good unit and parts are everywhere.</li>
+        <li><strong>The engine</strong> - owners report it starts on the second pull from cold reliably, years in. Italian-built ST 140 is a known-good unit and parts are everywhere.</li>
         <li><strong>The price</strong> - at £329 there is genuinely nothing else combining 46 cm steel deck, self-propelled drive, and a reliable engine.</li>
         <li><strong>Built-in mulching plug</strong> - comes in the box, not as an extra. Saves emptying the box during a quick mow.</li>
         <li><strong>55 L grass box</strong> - class-leading capacity. Expect a single empty on a 700 m² lawn.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>Single-speed drive</strong> - the rear-wheel drive engages at one fixed pace. Fine for most users but lawns with corners benefit from variable-speed (Honda HRX or higher-spec Mountfield SP56).</li>
         <li><strong>Engine warranty is shorter than Honda</strong> - 2 years vs Honda's 5. Reflects the price gap.</li>
@@ -135,7 +135,7 @@ const schema = [
         <cite> -  u/Careful_Adeptness799, <a href="https://reddit.com/r/GardeningUK/comments/1jyyyw9/">r/GardeningUK</a></cite>
       </blockquote>
 
-      <p>The honest Reddit picture: long-term owners (5-10 years) consistently praise reliability and parts availability. The recurring complaint is fuel sensitivity - modern small engines across all brands struggle with stale E10 petrol. Our advice: use fuel stabiliser or buy alkylate fuel (Aspen 4T, about £12/L) if the mower sits unused for more than a month.</p>
+      <p>The honest Reddit picture: long-term owners (5-10 years) consistently praise reliability and parts availability. The recurring complaint is fuel sensitivity - modern small engines across all brands struggle with stale E10 petrol. The fix: use fuel stabiliser or buy alkylate fuel (Aspen 4T, about £12/L) if the mower sits unused for more than a month.</p>
     </div>
 
     <FAQ {faqs} />

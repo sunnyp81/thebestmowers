@@ -6,7 +6,7 @@ import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
 
 const title = 'John Deere X167 Review - Entry-Level Ride-On With Serious Pedigree (2026)';
-const description = "John Deere X167 ride-on mower review. 107cm deck, Kawasaki engine, hydrostatic drive - tested on a 2,000 m² UK lawn over 18 months.";
+const description = "John Deere X167 ride-on mower review. 107cm deck, Kawasaki engine, hydrostatic drive - research-led verdict from specs and verified owner reviews.";
 const path = '/reviews/john-deere-x167/';
 const datePublished = '2026-05-10';
 
@@ -26,9 +26,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'John Deere X167', brand: 'John Deere', description, rating: 4.4, url: path, datePublished, reviewBody: 'Entry-level Deere ride-on with Kawasaki V-twin and proper hydrostatic drive. The ride-on you buy when you want it to last 15 years with dealer support.' }),
+  productReviewSchema({ name: 'John Deere X167', brand: 'John Deere', description, rating: 4.4, url: path, datePublished, dateModified: '2026-06-05', image: '/images/top_8_large_lawnmowers.webp', priceLow: 3100, priceHigh: 3600, reviewBody: 'Entry-level Deere ride-on with Kawasaki V-twin and proper hydrostatic drive. The ride-on you buy when you want it to last 15 years with dealer support.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -58,6 +58,8 @@ const schema = [
           <BuyCta name="John Deere X167" rrp="£3,299" />
     </aside>
 
+    <img src="/images/top_8_large_lawnmowers.webp" alt="Ride-on lawn mower on a large UK property" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
+
     <div class="prose-mowers">
       <h2>Specs</h2>
       <table>
@@ -75,7 +77,7 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
         <li><strong>Kawasaki V-twin engine</strong> - starts instantly, idles silently, delivers smooth power without vibration. Commercial-grade reliability in a domestic package.</li>
         <li><strong>Hydrostatic transmission</strong> - foot-pedal speed control is intuitive and infinitely variable. No gear changes, no lurching. Just press harder to go faster.</li>
@@ -83,7 +85,7 @@ const schema = [
         <li><strong>John Deere dealer network</strong> - servicing available across the UK through authorised dealers. Parts stocked, engineers trained, warranty honoured without argument.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>£3,299 before accessories</strong> - the collector is extra (~£400), mulch kit is extra (~£150). Total equipped cost can reach £3,800+.</li>
         <li><strong>Side-discharge only as standard</strong> - without the collector, clippings spray sideways. Fine for rough paddock areas; messy for manicured lawns.</li>

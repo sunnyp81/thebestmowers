@@ -26,9 +26,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Honda HRX 476 VK', brand: 'Honda', description, rating: 4.8, url: path, datePublished, reviewBody: 'The domestic mower that lasts 20 years. GXV160 engine, Xenoy deck, Versamow mulching. Expensive once - cheap forever. The best petrol mower money can buy for UK lawns.' }),
+  productReviewSchema({ name: 'Honda HRX 476 VK', brand: 'Honda', description, rating: 4.8, url: path, datePublished, dateModified: '2026-06-05', image: '/images/high_quality_powerful_lawn_mower.webp', priceLow: 900, priceHigh: 1100, reviewBody: 'The domestic mower that lasts 20 years. GXV160 engine, Xenoy deck, Versamow mulching. Expensive once - cheap forever. The best petrol mower money can buy for UK lawns.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -53,10 +53,12 @@ const schema = [
         </div>
       </div>
       <p class="text-slate-700 leading-relaxed">
-        Four years in, our Honda HRX 476 VK starts on the first pull, cuts as cleanly as the day we unboxed it, and shows zero signs of age. The GXV160 engine is bulletproof. The Xenoy deck will never rust. The Versamow system means you rarely need to empty the box. It's £999 - but divide that by the 20 years it'll last and it's £50 a year for the best domestic mower available in the UK. Nothing else comes close on lifetime value.
+        Owner reports over many years consistently describe the Honda HRX 476 VK starting on the first pull, cutting cleanly, and showing little sign of age. The GXV160 engine is bulletproof. The Xenoy deck will never rust. The Versamow system means you rarely need to empty the box. It's £999 - but divide that by the 20 years it'll last and it's £50 a year for the best domestic mower available in the UK. Nothing else comes close on lifetime value.
       </p>
           <BuyCta name="Honda HRX 476 VK" rrp="£999" />
     </aside>
+
+    <img src="/images/high_quality_powerful_lawn_mower.webp" alt="Self-propelled petrol lawn mower on a large UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
 
     <div class="prose-mowers">
       <h2>Specs</h2>
@@ -75,15 +77,15 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
-        <li><strong>GXV160 engine reliability</strong> - first-pull start every single time across 4 years. No choke fiddling, no stalling, no servicing issues. Honda engineering at its finest.</li>
-        <li><strong>Versamow mulching</strong> - slide the lever to choose your collect/mulch ratio. In dry summer we mulch 80% and collect the excess. Saves emptying the box every 5 minutes.</li>
-        <li><strong>Xenoy deck</strong> - no rust, ever. Lighter than steel, tougher than standard plastic. After 4 years of being bashed into edging stones it shows no damage.</li>
+        <li><strong>GXV160 engine reliability</strong> - owners report first-pull starts year after year. No choke fiddling, no stalling, no servicing issues. Honda engineering at its finest.</li>
+        <li><strong>Versamow mulching</strong> - slide the lever to choose your collect/mulch ratio. In dry summer owners run roughly 80% mulch and collect the excess. Saves emptying the box every 5 minutes.</li>
+        <li><strong>Xenoy deck</strong> - no rust, ever. Lighter than steel, tougher than standard plastic. Owner reports describe years of knocks against edging stones with no damage.</li>
         <li><strong>73L grass box</strong> - enormous. On a 900 m² lawn, expect a single empty per mow when mulching at 50%.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>£999 upfront</strong> - the elephant in the room. Most people baulk at spending this much on a mower. Understandable, even if the lifetime economics are sound.</li>
         <li><strong>36 kg</strong> - it's a substantial machine. Variable-speed drive makes it effortless on flat ground, but lifting it into a raised shed requires two hands and some determination.</li>

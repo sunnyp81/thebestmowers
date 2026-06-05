@@ -26,9 +26,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Bosch Rotak 32 R', brand: 'Bosch', description, rating: 4.5, url: path, datePublished, reviewBody: 'The £99 default UK first mower for any lawn under 200 m². Genuinely well-built, easy to use, lasts a decade.' }),
+  productReviewSchema({ name: 'Bosch Rotak 32 R', brand: 'Bosch', description, rating: 4.5, url: path, datePublished, dateModified: '2026-06-05', image: '/images/electric_lawnmower_with_34r.webp', priceLow: 80, priceHigh: 130, reviewBody: 'The £99 default UK first mower for any lawn under 200 m². Genuinely well-built, easy to use, lasts a decade.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -46,7 +46,7 @@ const schema = [
       alt="Bosch Rotak corded electric lawn mower on a UK lawn"
       width="900" height="506"
       class="w-full rounded-xl mb-8 object-cover"
-      loading="lazy"
+      loading="eager" fetchpriority="high"
     />
 
     <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-10">

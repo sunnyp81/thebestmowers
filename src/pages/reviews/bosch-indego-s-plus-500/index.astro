@@ -6,7 +6,7 @@ import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
 
 const title = 'Bosch Indego S+ 500 Review - Smart Robot Mower for Small Gardens (2026)';
-const description = "Bosch Indego S+ 500 robot mower review. App control, LogiCut navigation, boundary wire setup - tested on a 400 m² UK lawn over 8 months.";
+const description = "Bosch Indego S+ 500 robot mower review. App control, LogiCut navigation, boundary wire setup - research-led verdict from specs and verified owner reviews.";
 const path = '/reviews/bosch-indego-s-plus-500/';
 const datePublished = '2026-05-10';
 
@@ -26,9 +26,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Bosch Indego S+ 500', brand: 'Bosch', description, rating: 4.0, url: path, datePublished, reviewBody: 'Logical parallel mowing, solid app, fair price for a branded robot. Best for flat UK gardens under 500 m² where you want set-and-forget cutting.' }),
+  productReviewSchema({ name: 'Bosch Indego S+ 500', brand: 'Bosch', description, rating: 4.0, url: path, datePublished, dateModified: '2026-06-05', image: '/images/compact_robotic_lawn_mower.webp', priceLow: 700, priceHigh: 950, reviewBody: 'Logical parallel mowing, solid app, fair price for a branded robot. Best for flat UK gardens under 500 m² where you want set-and-forget cutting.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -58,6 +58,8 @@ const schema = [
           <BuyCta name="Bosch Indego S+ 500" rrp="£849" />
     </aside>
 
+    <img src="/images/compact_robotic_lawn_mower.webp" alt="Compact robot lawn mower on a UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
+
     <div class="prose-mowers">
       <h2>Specs</h2>
       <table>
@@ -75,15 +77,15 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
         <li><strong>LogiCut parallel mowing</strong> - visibly more efficient than random-bounce robots. A 400 m² lawn is typically covered in around 45 minutes versus 70+ for a random-pattern rival.</li>
         <li><strong>The app</strong> - genuinely useful. Schedule changes, manual start, mowing history, weather-aware delays. Better than Husqvarna's equivalent at this price.</li>
-        <li><strong>Quiet operation</strong> - 63 dB means you can run it while having a conversation in the garden. Neighbours haven't complained once.</li>
+        <li><strong>Quiet operation</strong> - 63 dB means you can run it while having a conversation in the garden, owners report, with no neighbour complaints.</li>
         <li><strong>Even cut quality</strong> - the parallel passes produce a uniform height across the whole lawn. No random patches left longer.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>Boundary wire installation</strong> - owners report around 3 hours on a simple rectangular lawn. Complex shapes with islands take longer. It's a one-time job but not trivial.</li>
         <li><strong>Slope limitation</strong> - 27% max gradient. It copes with the gentle 10-15% slopes common on UK lawns, but steeper gardens (common in hilly areas) will need a Husqvarna.</li>

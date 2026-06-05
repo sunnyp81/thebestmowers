@@ -6,7 +6,7 @@ import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
 
 const title = 'Flymo Easimo Review - The Cheapest Hover Mower Worth Buying (2026)';
-const description = "Flymo Easimo corded hover mower review. Lightweight, £89, perfect for tiny or awkward UK gardens - honest long-term verdict after 12 months.";
+const description = "Flymo Easimo corded hover mower review. Lightweight, £89, perfect for tiny or awkward UK gardens - research-led verdict from specs and verified owner reviews.";
 const path = '/reviews/flymo-easimo-review/';
 const datePublished = '2026-05-10';
 
@@ -26,9 +26,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Flymo Easimo', brand: 'Flymo', description, rating: 3.8, url: path, datePublished, reviewBody: 'The cheapest hover mower worth buying. Absurdly light, handles awkward terrain, and costs less than a tank of petrol. Perfect for tiny UK gardens.' }),
+  productReviewSchema({ name: 'Flymo Easimo', brand: 'Flymo', description, rating: 3.8, url: path, datePublished, dateModified: '2026-06-05', image: '/images/electric_flymo_lawn_mower-5.webp', priceLow: 70, priceHigh: 110, reviewBody: 'The cheapest hover mower worth buying. Absurdly light, handles awkward terrain, and costs less than a tank of petrol. Perfect for tiny UK gardens.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -58,6 +58,8 @@ const schema = [
           <BuyCta name="Flymo Easimo" rrp="£89" />
     </aside>
 
+    <img src="/images/electric_flymo_lawn_mower-5.webp" alt="Lightweight Flymo hover lawn mower on a small UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
+
     <div class="prose-mowers">
       <h2>Specs</h2>
       <table>
@@ -75,7 +77,7 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
         <li><strong>Absurdly light</strong> - 8.4 kg. You can genuinely lift it with one hand. Storage on a wall hook takes no space at all.</li>
         <li><strong>Handles slopes and bumps</strong> - the hover cushion means it glides over uneven terrain that trips up wheeled mowers. Owners with terraced and steeply sloped gardens report it floating right over banks of 30% or more.</li>
@@ -83,7 +85,7 @@ const schema = [
         <li><strong>Compact storage</strong> - folds almost flat, hangs on a wall hook. Perfect for sheds with no floor space.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>Rough cut quality</strong> - hover mowers don't produce the neat, uniform finish of a wheeled mower with a roller. Fine for a tidy garden; not fine for lawn perfectionists.</li>
         <li><strong>26L box is tiny</strong> - fills in 5 minutes on anything but the shortest grass. You'll empty it 3-4 times on a 100 m² lawn.</li>

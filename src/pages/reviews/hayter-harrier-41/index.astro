@@ -26,9 +26,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Hayter Harrier 41', brand: 'Hayter', description, rating: 4.6, url: path, datePublished, reviewBody: 'The finest rear-roller petrol mower available in the UK. Professional-grade stripes, Briggs & Stratton engine, built to last 20 years. The gold standard for lawn aesthetics.' }),
+  productReviewSchema({ name: 'Hayter Harrier 41', brand: 'Hayter', description, rating: 4.6, url: path, datePublished, dateModified: '2026-06-05', image: '/images/innovative_electric_roller_mower-1.webp', priceLow: 800, priceHigh: 1050, reviewBody: 'The finest rear-roller petrol mower available in the UK. Professional-grade stripes, Briggs & Stratton engine, built to last 20 years. The gold standard for lawn aesthetics.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -58,6 +58,8 @@ const schema = [
           <BuyCta name="Hayter Harrier 41" rrp="£899" />
     </aside>
 
+    <img src="/images/innovative_electric_roller_mower-1.webp" alt="Rear-roller petrol lawn mower leaving stripes on a UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
+
     <div class="prose-mowers">
       <h2>Specs</h2>
       <table>
@@ -75,7 +77,7 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
         <li><strong>The stripes</strong> - nothing else produces stripes like this at domestic prices. Sharp, defined, visible from upstairs windows. Genuinely professional results.</li>
         <li><strong>Die-cast aluminium deck</strong> - not stamped steel, not plastic. Properly cast aluminium that won't rust, won't flex, won't wear. This deck will outlast you.</li>
@@ -83,7 +85,7 @@ const schema = [
         <li><strong>5-year warranty</strong> - Hayter stands behind it. And with typical lifespans of 15-20 years, you're covered for the first quarter of ownership.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>39 kg</strong> - this is a heavy mower. The self-propelled drive compensates, but maneuvering it into a shed or up steps requires effort.</li>
         <li><strong>No mulching option</strong> - collect or rear-discharge only. If you want to leave clippings on the lawn, you'll need a second mower or to live without.</li>

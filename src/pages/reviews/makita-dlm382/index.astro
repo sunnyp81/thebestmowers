@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BuyCta from '../../../components/BuyCta.astro';
+import OwnerVoices from '../../../components/OwnerVoices.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
+
+const title = 'Makita DLM382 Review: Twin-18V LXT Cordless Mower (2026)';
+const description = 'Makita DLM382 review: 36V (2x 18V LXT), 38cm brushless cordless mower. Specs, owner verdicts and who it suits, from manufacturer data and verified owner reviews.';
+const path = '/reviews/makita-dlm382/';
+const datePublished = '2026-06-05';
+const dateModified = '2026-06-05';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cordless lawn mowers', url: '/cordless-lawn-mowers/' },
+  { name: 'Makita DLM382 review', url: path },
+];
+
+const faqs = [
+  { q: 'Does the Makita DLM382 run on standard 18V LXT batteries?', a: 'Yes. It takes two 18V LXT packs in series to make 36V, so the batteries you already own from Makita LXT drills and drivers will run it. That is the main reason to buy it: the body-only (DLM382Z) is often under £200 because you supply your own batteries.' },
+  { q: 'What size lawn is the Makita DLM382 good for?', a: 'Up to about 500 to 560 m² on a charge with 5.0Ah packs, per Makita and owner reports. The 38cm deck suits small to medium UK gardens. It is not the one for very large or steep lawns: there is no self-propelled drive.' },
+  { q: 'Is the Makita DLM382 self-propelled?', a: 'No, it is push only. At around 17kg it is manageable on flat ground, but on a slope or a big lawn a self-propelled mower like the EGO LM2122E-SP is less tiring.' },
+  { q: 'Can the DLM382 handle long or wet grass?', a: 'It copes with normal growth well and is quiet doing it, but owners report it can bog down in long, wet grass. Raise the cut height for the first pass and drop it for the second, as you would with any cordless.' },
+  { q: 'Does the Makita DLM382 mulch?', a: 'Yes, it is a 2-in-1 collect or mulch mower. The 40L grass box has a fill-level indicator and lifts off easily. Fit the mulching plug to drop fine clippings back onto the lawn instead.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified, image: '/images/cordless_lawn_mower_details.webp' }),
+  faqSchema(faqs),
+  productReviewSchema({ name: 'Makita DLM382', brand: 'Makita', description, rating: 4.5, url: path, datePublished, dateModified, image: '/images/cordless_lawn_mower_details.webp', priceLow: 200, priceHigh: 330, reviewBody: 'A quiet, well-built 38cm cordless that runs on two standard 18V LXT batteries, so existing Makita owners can buy body-only and add the packs they have. Best for small to medium UK lawns; no self-propelled drive.' }),
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-3xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Research-led review · Updated June 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Makita DLM382 Review</h1>
+      <p class="mt-3 text-slate-500 text-sm">By The Best Mowers · Research-led assessment from manufacturer specs and verified owner reviews</p>
+    </header>
+
+    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-8">
+      <div class="flex items-start justify-between gap-4 mb-3">
+        <div>
+          <p class="text-xs font-bold text-grass-700 uppercase tracking-wide mb-1">Our verdict</p>
+          <p class="text-2xl font-bold text-soil-900">4.5 / 5</p>
+        </div>
+        <div class="text-right text-sm">
+          <p class="font-semibold text-soil-900">£200-£330</p>
+          <p class="text-slate-500">Best for Makita LXT owners</p>
+        </div>
+      </div>
+      <p class="text-slate-700 leading-relaxed">
+        The DLM382 is the cheapest sensible route into a serious cordless mower if you already live in the Makita 18V LXT system. Buy it body-only, add the two batteries you own, and you have a quiet, brushless, sturdily built 38cm mower for small to medium UK lawns. The limits are honest ones: no self-propelled drive, and it can work hard in long, wet grass.
+      </p>
+      <BuyCta name="Makita DLM382" rrp="£200-£330" />
+    </aside>
+
+    <img src="/images/cordless_lawn_mower_details.webp" alt="Makita cordless lawn mower on a UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
+
+    <div class="prose-mowers">
+      <h2>Specs at a glance</h2>
+      <table>
+        <tbody>
+          <tr><th>Voltage</th><td>36V (2x 18V LXT)</td></tr>
+          <tr><th>Cutting width</th><td>38 cm</td></tr>
+          <tr><th>Motor</th><td>Brushless</td></tr>
+          <tr><th>Grass box</th><td>40 L, with fill-level indicator</td></tr>
+          <tr><th>Cutting heights</th><td>6 settings, 20-75 mm</td></tr>
+          <tr><th>Coverage</th><td>~500-560 m² per charge (5.0Ah packs, claimed)</td></tr>
+          <tr><th>Weight</th><td>~17 kg</td></tr>
+          <tr><th>Drive</th><td>Push (no self-propelled option)</td></tr>
+          <tr><th>Mulching</th><td>Yes, 2-in-1 collect or mulch</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Who it is for</h2>
+      <p>The DLM382 makes most sense for the large number of UK households that already own Makita LXT power tools. The body-only DLM382Z is frequently under £200 because you supply the batteries, which makes it one of the best-value cordless mowers going if the ecosystem fits. If you do not own LXT batteries, a kit version with packs and charger pushes the price up to £300 or more, at which point a Bosch UniversalRotak or Ryobi ONE+ may suit better.</p>
+
+      <h2>How it compares</h2>
+      <p>For a 38cm deck it sits between the compact <a href="/reviews/bosch-rotak-32-review/">Bosch CityMower 18V-32</a> and the wider 40cm self-propelled <a href="/reviews/ryobi-cordless/">Ryobi RY18LMX40A</a>. For larger or sloped lawns, step up to the <a href="/reviews/ego-lm2122e-sp/">EGO LM2122E-SP</a>, which adds 56V power and a self-propelled drive. See the full ranked list on our <a href="/best-battery-powered-lawn-mower-reviews-uk/">best cordless and battery mowers</a> guide.</p>
+    </div>
+
+    <OwnerVoices modelKey="makita-dlm382" />
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

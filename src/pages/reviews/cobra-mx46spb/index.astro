@@ -26,9 +26,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Cobra MX46SPB', brand: 'Cobra', description, rating: 4.1, url: path, datePublished, reviewBody: 'Mid-range petrol mower with a proper Briggs & Stratton engine. The sweet spot between budget Mountfield and premium Honda for UK lawns 500-1,000 m².' }),
+  productReviewSchema({ name: 'Cobra MX46SPB', brand: 'Cobra', description, rating: 4.1, url: path, datePublished, dateModified: '2026-06-05', image: '/images/high_quality_powerful_lawn_mower.webp', priceLow: 400, priceHigh: 520, reviewBody: 'Mid-range petrol mower with a proper Briggs & Stratton engine. The sweet spot between budget Mountfield and premium Honda for UK lawns 500-1,000 m².' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -58,6 +58,8 @@ const schema = [
           <BuyCta name="Cobra MX46SPB" rrp="£449" />
     </aside>
 
+    <img src="/images/high_quality_powerful_lawn_mower.webp" alt="Self-propelled petrol lawn mower on a UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
+
     <div class="prose-mowers">
       <h2>Specs</h2>
       <table>
@@ -75,7 +77,7 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
         <li><strong>Briggs & Stratton engine</strong> - ReadyStart means no priming bulb, no choke fiddling. Pull and go, even after winter storage. The 500E is a proven unit with parts available everywhere.</li>
         <li><strong>Variable-speed drive</strong> - adjust your walking pace on the fly. Much better than single-speed rivals around corners and on slopes.</li>
@@ -83,7 +85,7 @@ const schema = [
         <li><strong>Build quality</strong> - steel deck, solid wheels, chunky bail lever. Feels like it'll last a decade with basic maintenance.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>Heavy at 32 kg</strong> - you won't be lifting this over garden steps easily. The self-propelled drive compensates on flat ground but steep banks require effort.</li>
         <li><strong>Cobra dealer network is thinner than Mountfield</strong> - fewer high-street service centres. Most servicing is through garden machinery specialists rather than B&Q or Homebase.</li>

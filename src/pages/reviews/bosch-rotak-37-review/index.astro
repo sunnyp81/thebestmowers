@@ -6,7 +6,7 @@ import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
 
 const title = 'Bosch Rotak 37 LI Review - Reliable Mid-Range Cordless (2026)';
-const description = "Bosch Rotak 37 LI cordless mower review. 37cm deck, 36V battery, ergonomic Ergoflex handles - tested on medium UK lawns over 14 months.";
+const description = "Bosch Rotak 37 LI cordless mower review. 37cm deck, 36V battery, ergonomic Ergoflex handles - research-led verdict from specs and verified owner reviews.";
 const path = '/reviews/bosch-rotak-37-review/';
 const datePublished = '2026-05-10';
 
@@ -26,9 +26,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Bosch Rotak 37 LI', brand: 'Bosch', description, rating: 4.2, url: path, datePublished, reviewBody: 'A proven mid-range cordless mower with Ergoflex handles and Power for All compatibility. Superseded by the UniversalRotak but still solid if found on discount.' }),
+  productReviewSchema({ name: 'Bosch Rotak 37 LI', brand: 'Bosch', description, rating: 4.2, url: path, datePublished, dateModified: '2026-06-05', image: '/images/bosch_lawnmower_review_details.webp', priceLow: 230, priceHigh: 330, reviewBody: 'A proven mid-range cordless mower with Ergoflex handles and Power for All compatibility. Superseded by the UniversalRotak but still solid if found on discount.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -58,6 +58,8 @@ const schema = [
           <BuyCta name="Bosch Rotak 37 LI" rrp="£279" />
     </aside>
 
+    <img src="/images/bosch_lawnmower_review_details.webp" alt="Bosch cordless lawn mower on a UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
+
     <div class="prose-mowers">
       <h2>Specs</h2>
       <table>
@@ -75,7 +77,7 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
         <li><strong>Ergoflex handles</strong> - not a gimmick. The angled, padded grips genuinely reduce wrist fatigue during a 30-minute mow. Noticeable difference vs standard straight handles.</li>
         <li><strong>Power for All battery</strong> - slots into your Bosch drill, hedge trimmer, blower. One charger, one battery family, done.</li>
@@ -83,7 +85,7 @@ const schema = [
         <li><strong>Solid build quality</strong> - owner reviews report no rattles, no loose parts and a deck that stays true. Bosch engineering holds up.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>No mulching option</strong> - unlike its successor (UniversalRotak), no mulching plug is available. Collect or leave clippings, no middle ground.</li>
         <li><strong>40L grass box</strong> - adequate but not generous. On a 350 m² lawn, expect two empties per mow.</li>
@@ -93,7 +95,7 @@ const schema = [
 
       <h2>How it compares</h2>
       <p>
-        The direct successor is the <a href="/reviews/bosch-easyrotak-36-550-lawnmower/">Bosch UniversalRotak 36-550</a> at £329 - bigger grass box (50L), mulching plug included, slightly refined ergonomics. The <a href="/reviews/gtech-clm50/">Gtech CLM 2.0</a> at £249 is lighter and produces better stripes, but has a proprietary battery and tiny 30L box. If you can find remaining Rotak 37 LI stock under £230, it's excellent value.
+        The direct successor is the <a href="/reviews/bosch-easyrotak-36-550-lawnmower/">Bosch UniversalRotak 36-550</a> at £329 - bigger grass box (50L), mulching plug included, slightly refined ergonomics. The <a href="/reviews/gtech-clm50/">Gtech CLM 2.0</a> at £249 is lighter with a roomy 50L box, but has a proprietary battery and no defined stripes (rear comb, not roller). If you can find remaining Rotak 37 LI stock under £230, it's excellent value.
       </p>
 
       <h2>Who should buy it</h2>

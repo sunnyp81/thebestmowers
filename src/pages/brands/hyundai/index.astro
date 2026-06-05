@@ -24,7 +24,7 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
   itemListSchema({ name: 'Best Hyundai lawn mowers 2026', url: path, items: picks.map((p, i) => ({ position: i+1, name: p.name, url: p.reviewUrl })) }),
 ];

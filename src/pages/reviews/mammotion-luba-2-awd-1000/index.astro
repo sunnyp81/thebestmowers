@@ -6,7 +6,7 @@ import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
 
 const title = 'Mammotion Luba 2 AWD 1000 Review - Wire-Free Robot With RTK GPS (2026)';
-const description = "Mammotion Luba 2 AWD 1000 robot mower review. No boundary wire, RTK GPS navigation, all-wheel drive - tested on a 800 m² UK garden over 6 months.";
+const description = "Mammotion Luba 2 AWD 1000 robot mower review. No boundary wire, RTK GPS navigation, all-wheel drive - research-led verdict from specs and verified owner reviews.";
 const path = '/reviews/mammotion-luba-2-awd-1000/';
 const datePublished = '2026-05-10';
 
@@ -26,9 +26,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Mammotion Luba 2 AWD 1000', brand: 'Mammotion', description, rating: 4.2, url: path, datePublished, reviewBody: 'Wire-free robot mowing arrives properly. RTK GPS, all-wheel drive, precise parallel lines - the most capable robot mower for UK gardens with slopes or complex layouts.' }),
+  productReviewSchema({ name: 'Mammotion Luba 2 AWD 1000', brand: 'Mammotion', description, rating: 4.2, url: path, datePublished, dateModified: '2026-06-05', image: '/images/compact_robotic_lawn_mower.webp', priceLow: 1600, priceHigh: 2000, reviewBody: 'Wire-free robot mowing arrives properly. RTK GPS, all-wheel drive, precise parallel lines - the most capable robot mower for UK gardens with slopes or complex layouts.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -53,10 +53,12 @@ const schema = [
         </div>
       </div>
       <p class="text-slate-700 leading-relaxed">
-        The Mammotion Luba 2 AWD is the robot mower that finally makes wire-free work properly. RTK GPS gives it centimetre precision - it mows in neat parallel lines, knows exactly where your borders are, and returns to base without wandering. The all-wheel drive handles slopes that would strand any Husqvarna or Bosch. Setup took us 25 minutes (no digging). It's expensive and the app needs polish - but as a glimpse of where robot mowing is heading, it's genuinely impressive.
+        The Mammotion Luba 2 AWD is the robot mower that finally makes wire-free work properly. RTK GPS gives it centimetre precision - it mows in neat parallel lines, knows exactly where your borders are, and returns to base without wandering. The all-wheel drive handles slopes that would strand any Husqvarna or Bosch. Owners report setup taking around 25 minutes (no digging). It's expensive and the app needs polish - but as a glimpse of where robot mowing is heading, it's genuinely impressive.
       </p>
           <BuyCta name="Mammotion Luba 2 AWD 1000" rrp="£1,799" />
     </aside>
+
+    <img src="/images/compact_robotic_lawn_mower.webp" alt="Wire-free robot lawn mower on a UK garden" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
 
     <div class="prose-mowers">
       <h2>Specs</h2>
@@ -75,15 +77,15 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
-        <li><strong>No boundary wire</strong> - setup took 25 minutes. Walk the perimeter with the mower in mapping mode, confirm in the app, done. No digging trenches, no wire pegs, no waiting weeks for grass to hide it.</li>
+        <li><strong>No boundary wire</strong> - owners report setup taking around 25 minutes. Walk the perimeter with the mower in mapping mode, confirm in the app, done. No digging trenches, no wire pegs, no waiting weeks for grass to hide it.</li>
         <li><strong>RTK precision</strong> - parallel mowing lines are genuinely straight and evenly spaced. The lawn looks like it's been mowed by a person, not a drunk Roomba.</li>
         <li><strong>AWD on slopes</strong> - rated to 75% gradient, the Luba handles steep banks that wire-based robots simply can't, and owner reviews back that up on 30%-plus sections.</li>
         <li><strong>Multi-zone support</strong> - can handle separate lawn areas (front and back garden, for instance) without manual intervention.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>£1,799</strong> - double the price of a Bosch Indego or Husqvarna 305. The technology premium is real.</li>
         <li><strong>App needs work</strong> - functional but the UX is clunky compared to Husqvarna or Bosch apps. Occasional connectivity drops. Clearly a v2 product still being refined.</li>

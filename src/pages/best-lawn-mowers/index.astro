@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import OwnerVoices from '../../components/OwnerVoices.astro';
 import { articleSchema, breadcrumbSchema, itemListSchema } from '../../lib/schema';
 
 const title = 'Best Lawn Mowers UK 2026 - Every Type Compared & Ranked';
@@ -24,7 +25,7 @@ const hubs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   itemListSchema({ name: 'Best lawn mowers UK 2026 by type', url: path, items: hubs }),
 ].filter(Boolean);
 ---
@@ -81,5 +82,7 @@ const schema = [
         Our <a href="/advice/garden-size/" class="text-grass-700 underline">mower-by-garden-size guide</a> has a simple table matching your lawn area to the right mower type and budget. It's the quickest way to narrow down.
       </p>
     </div>
+
+    <OwnerVoices keys={['ego-lm2122e-sp','bosch-easyrotak-36-550-lawnmower','gtech-clm50','makita-dlm382','ryobi-cordless','mountfield-princess-34']} heading="What owners say about top cordless picks" />
   </article>
 </BaseLayout>

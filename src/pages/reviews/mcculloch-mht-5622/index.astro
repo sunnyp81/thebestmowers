@@ -24,9 +24,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'McCulloch MHT 5622', brand: 'McCulloch', description, rating: 3.9, url: path, datePublished, reviewBody: 'Budget ride-on with a Briggs & Stratton engine. Does the job on medium UK lawns without the premium price tag.' }),
+  productReviewSchema({ name: 'McCulloch MHT 5622', brand: 'McCulloch', description, rating: 3.9, url: path, datePublished, dateModified: '2026-06-05', image: '/images/top_8_large_lawnmowers.webp', priceLow: 1300, priceHigh: 1700, reviewBody: 'Budget ride-on with a Briggs & Stratton engine. Does the job on medium UK lawns without the premium price tag.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -56,6 +56,8 @@ const schema = [
           <BuyCta name="McCulloch MHT 5622" rrp="£1,499" />
     </aside>
 
+    <img src="/images/top_8_large_lawnmowers.webp" alt="Budget ride-on lawn mower on a UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
+
     <div class="prose-mowers">
       <h2>Specs</h2>
       <table>
@@ -69,7 +71,7 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
         <li><strong>The engine</strong> - Briggs & Stratton is the safe choice at this price point. Starts reliably, parts are everywhere.</li>
         <li><strong>The price</strong> - one of the cheapest ride-ons worth recommending in the UK.</li>
@@ -77,7 +79,7 @@ const schema = [
         <li><strong>Simple controls</strong> - nothing to confuse you. Lever for speed, lever for blade, lever for height. Done.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>56 cm deck is narrow for a ride-on</strong> - you'll do more passes than on a 96 cm+ tractor.</li>
         <li><strong>Build quality is basic</strong> - plastic dashboard, thin seat. Functional, not premium.</li>

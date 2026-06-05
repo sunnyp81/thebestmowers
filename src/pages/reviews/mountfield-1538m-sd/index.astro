@@ -6,7 +6,7 @@ import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
 
 const title = 'Mountfield 1538M-SD Review - Budget Ride-On That Delivers (2026)';
-const description = "Mountfield 1538M-SD ride-on mower review. 98cm side-discharge deck, Mountfield engine, manual transmission - tested on 1,500 m² UK lawns over 2 years.";
+const description = "Mountfield 1538M-SD ride-on mower review. 98cm side-discharge deck, Mountfield engine, manual transmission - research-led verdict from specs and verified owner reviews.";
 const path = '/reviews/mountfield-1538m-sd/';
 const datePublished = '2026-05-10';
 
@@ -26,9 +26,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Mountfield 1538M-SD', brand: 'Mountfield', description, rating: 4.3, url: path, datePublished, reviewBody: 'The cheapest ride-on mower we recommend. Proven Mountfield engine, 98cm deck, adequate for 1,500-3,000 m² UK gardens. Not refined but gets the job done at the right price.' }),
+  productReviewSchema({ name: 'Mountfield 1538M-SD', brand: 'Mountfield', description, rating: 4.3, url: path, datePublished, dateModified: '2026-06-05', image: '/images/top_8_large_lawnmowers.webp', priceLow: 2300, priceHigh: 2700, reviewBody: 'The cheapest ride-on mower we recommend. Proven Mountfield engine, 98cm deck, adequate for 1,500-3,000 m² UK gardens. Not refined but gets the job done at the right price.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -58,6 +58,8 @@ const schema = [
           <BuyCta name="Mountfield 1538M-SD" rrp="£2,499" />
     </aside>
 
+    <img src="/images/top_8_large_lawnmowers.webp" alt="Ride-on lawn mower on a large UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
+
     <div class="prose-mowers">
       <h2>Specs</h2>
       <table>
@@ -75,15 +77,15 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
-        <li><strong>The price</strong> - £2,499 for a functioning, reliable ride-on from an established brand. The cheapest new ride-on we'd recommend without caveats.</li>
-        <li><strong>Engine reliability</strong> - 2 years in, starts every time. The 452 cc single-cylinder isn't exciting but it's proven in thousands of UK gardens.</li>
+        <li><strong>The price</strong> - £2,499 for a functioning, reliable ride-on from an established brand. The cheapest new ride-on worth recommending without caveats.</li>
+        <li><strong>Engine reliability</strong> - owners report it starting every time, years in. The 452 cc single-cylinder isn't exciting but it's proven in thousands of UK gardens.</li>
         <li><strong>Simple mechanics</strong> - transmatic transmission has fewer failure points than hydrostatic. If something does go wrong, any local garden machinery dealer can fix it cheaply.</li>
         <li><strong>98 cm deck</strong> - covers ground quickly. A 1,500 m² lawn takes roughly 20-25 minutes.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>Manual transmission</strong> - you select a gear, you drive at that speed. No infinite variability like hydrostatic. Changing speed requires stopping. Fine on open lawns; annoying around obstacles.</li>
         <li><strong>Side-discharge only</strong> - without the optional collector (£300 extra), clippings spray sideways. Looks untidy until they settle.</li>

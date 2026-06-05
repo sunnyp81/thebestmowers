@@ -5,7 +5,8 @@ import FAQ from '../../components/FAQ.astro';
 import PickCard from '../../components/PickCard.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import HowWeResearch from '../../components/HowWeResearch.astro';
-import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../lib/schema';
+import OwnerVoices from '../../components/OwnerVoices.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../lib/schema';
 import { amazonSearch } from '../../lib/affiliate';
 
 const title = 'Cordless Lawn Mowers UK: Buying Guide & How to Choose';
@@ -104,13 +105,8 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  itemListSchema({
-    name: 'Best cordless lawn mowers UK 2026',
-    url: path,
-    items: picks.map((p, i) => ({ position: i + 1, name: p.name, url: p.reviewUrl })),
-  }),
 ].filter(Boolean);
 ---
 <BaseLayout {title} {description} schema={schema}>
@@ -187,8 +183,8 @@ const schema = [
 
       <HowWeResearch heading="How we choose these mowers" />
 
-      <h2 id="best-cordless">Best cordless lawn mowers for 2026</h2>
-      <p>Five mowers we recommend without hesitation, ranked by who we would buy them for. Click any pick to read the full review, with the specs, runtime claims and the alternatives we weighed each one against.</p>
+      <h2 id="best-cordless">Popular cordless models we rate</h2>
+      <p>A representative shortlist of popular cordless mowers, grouped by who each one suits. For the full head-to-head ranking with scores, see our <a href="/best-battery-powered-lawn-mower-reviews-uk/" class="text-grass-700 underline">best battery mower rankings</a>. Click any model to read the full review, with the specs, runtime claims and the alternatives we weighed each one against.</p>
 
       <div class="space-y-6 mt-6">
         {picks.map((p) => <PickCard {...p} />)}
@@ -272,6 +268,8 @@ const schema = [
         <li><a href="/advice/maintenance/sharpen-blade/">How to sharpen a lawn mower blade</a></li>
       </ul>
     </div>
+
+    <OwnerVoices keys={['ego-lm2122e-sp','bosch-easyrotak-36-550-lawnmower','gtech-clm50','makita-dlm382','ryobi-cordless','mountfield-princess-34']} heading="What owners say about top cordless picks" />
 
     <FAQ {faqs} />
   </article>

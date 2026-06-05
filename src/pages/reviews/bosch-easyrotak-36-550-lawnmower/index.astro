@@ -22,14 +22,14 @@ const faqs = [
   { q: 'What battery system does the Bosch UniversalRotak use?', a: 'Bosch 36V Power for All Alliance. The same battery fits across 100+ Bosch garden and DIY tools - drills, hedge trimmers, blowers, pressure washers. This is the single biggest advantage over Gtech or proprietary-battery rivals.' },
   { q: 'How long does the battery last on a full charge?', a: 'With the included 4.0 Ah battery, expect 35-45 minutes on a typical UK lawn. That comfortably covers 350-400 m². Charge time is around 100 minutes with the standard charger.' },
   { q: 'Does the Bosch UniversalRotak 36-550 mulch?', a: 'Yes - a mulching plug is included in the box. It chops clippings finely and returns them to the lawn. Works best on dry grass cut at regular intervals.' },
-  { q: 'Bosch UniversalRotak vs Gtech CLM 2.0 - which is better?', a: 'Bosch wins on grass-box size (50L vs 30L), battery ecosystem (Power for All shares across 100+ tools), and cutting width (37cm vs 33cm). Gtech wins on weight and ergonomics for very small gardens. For most UK buyers with medium lawns, the Bosch is the more capable machine.' },
+  { q: 'Bosch UniversalRotak vs Gtech CLM 2.0 - which is better?', a: 'Both carry a 50L grass box. Bosch wins on battery ecosystem (Power for All shares across 100+ tools). The Gtech has a wider 42cm deck but no defined stripes (rear comb, not roller), and wins on weight and ergonomics. For battery flexibility, the Bosch is the more versatile machine.' },
 ];
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Bosch UniversalRotak 36-550', brand: 'Bosch', description, rating: 4.3, url: path, datePublished, reviewBody: 'The best cordless mower for UK buyers already invested in Bosch Power for All. Big grass box, solid deck, genuine battery sharing across 100+ tools.' }),
+  productReviewSchema({ name: 'Bosch UniversalRotak 36-550', brand: 'Bosch', description, rating: 4.3, url: path, datePublished, dateModified: '2026-06-05', image: '/images/bosch_lawnmower_review_details.webp', priceLow: 290, priceHigh: 380, reviewBody: 'The best cordless mower for UK buyers already invested in Bosch Power for All. Big grass box, solid deck, genuine battery sharing across 100+ tools.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -59,6 +59,8 @@ const schema = [
           <BuyCta name="Bosch UniversalRotak 36-550" rrp="£329" />
     </aside>
 
+    <img src="/images/bosch_lawnmower_review_details.webp" alt="Bosch cordless lawn mower on a UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
+
     <div class="prose-mowers">
       <h2>Specs</h2>
       <table>
@@ -76,17 +78,17 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
         <li><strong>Battery sharing</strong> - one battery across your entire Bosch tool collection. The same Power for All pack swaps between mower, hedge trimmer, and impact driver, so there's no need to buy extra packs.</li>
-        <li><strong>50L grass box</strong> - genuinely large for a cordless mower. On a 300 m² lawn that's roughly one empty per mow, versus twice with the Gtech CLM.</li>
+        <li><strong>50L grass box</strong> - genuinely large for a cordless mower. On a 300 m² lawn that's roughly one empty per mow.</li>
         <li><strong>7 cut heights</strong> - more range than most rivals. The 25 mm setting gives you a proper close cut for spring scarifying prep.</li>
         <li><strong>Mulching plug included</strong> - no £20 add-on like some competitors. Works well on dry grass at regular cutting intervals.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
-        <li><strong>Heavier than Gtech</strong> - 16.1 kg with battery vs 15.4 kg. Not dramatic, but noticeable if you're lifting it over steps.</li>
+        <li><strong>On the heavier side</strong> - 16.1 kg with battery. Not dramatic, but noticeable if you're lifting it over steps.</li>
         <li><strong>No rear roller</strong> - you won't get cricket-pitch stripes. Adequate directional lines on most lawns, but stripe purists should look elsewhere.</li>
         <li><strong>Plastic deck</strong> - functional and lighter than steel, but doesn't feel as robust as the Mountfield SP46's steel deck.</li>
         <li><strong>Charger is slow</strong> - 100 minutes for a full charge. If you run out mid-mow on a larger lawn, you're waiting.</li>
@@ -94,7 +96,7 @@ const schema = [
 
       <h2>How it compares</h2>
       <p>
-        The obvious rival is the <a href="/reviews/gtech-clm50/">Gtech CLM 2.0</a> at £249 - lighter, better stripes, friendlier ergonomics, but locked into a proprietary battery with a tiny 30L box. The <a href="/reviews/ryobi-cordless/">Ryobi RY18LMX40A</a> at £269 offers a wider 40 cm deck and the massive ONE+ tool ecosystem, but uses 18V rather than 36V. For pure cutting power and battery flexibility, the Bosch sits between the two.
+        The obvious rival is the <a href="/reviews/gtech-clm50/">Gtech CLM 2.0</a> at £249 - lighter, friendlier ergonomics and a roomy 50L box, but locked into a proprietary battery and no defined stripes (rear comb, not roller). The <a href="/reviews/ryobi-cordless/">Ryobi RY18LMX40A</a> at £269 offers a wider 40 cm deck and the massive ONE+ tool ecosystem, but uses 18V rather than 36V. For pure cutting power and battery flexibility, the Bosch sits between the two.
       </p>
 
       <h2>Who should buy it</h2>

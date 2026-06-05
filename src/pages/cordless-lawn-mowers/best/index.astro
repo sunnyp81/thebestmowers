@@ -16,10 +16,10 @@ const crumbs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
 ].filter(Boolean);
 ---
-<BaseLayout {title} {description} schema={schema}>
+<BaseLayout {title} {description} schema={schema} noindex={true} canonical="https://thebestmowers.co.uk/best-battery-powered-lawn-mower-reviews-uk/">
   <article class="max-w-4xl mx-auto px-4 py-10">
     <Breadcrumbs items={crumbs} />
 
@@ -27,7 +27,10 @@ const schema = [
       <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Ranked List · Updated May 2026</p>
       <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Best Cordless Lawn Mowers 2026</h1>
       <p class="mt-4 text-lg text-slate-700 leading-relaxed">
-        Looking for the best cordless mower? We've compared dozens against UK specs and verified owner reviews and ranked the top five by cut quality, battery life and value. Here's the short version: our full hub page has the deep detail.
+        Looking for the best cordless mower? Our fully ranked guide lives on the main reviews page, where we rank every model by cut quality, battery life and value with the full specs and owner feedback behind each pick.
+      </p>
+      <p class="mt-4">
+        <a href="/best-battery-powered-lawn-mower-reviews-uk/" class="inline-flex items-center min-h-[44px] bg-grass-700 text-white font-semibold px-5 py-2 rounded-md hover:bg-grass-800">See the full ranked list &rarr;</a>
       </p>
     </header>
 

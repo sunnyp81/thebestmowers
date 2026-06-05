@@ -6,7 +6,7 @@ import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
 
 const title = 'Flymo UltraGlide Review - Hover Meets Wheels for a Better Cut (2026)';
-const description = "Flymo UltraGlide hover mower review. Hybrid hover/wheeled design, 1800W motor, rear roller - tested on sloped UK gardens over 12 months.";
+const description = "Flymo UltraGlide hover mower review. Hybrid hover/wheeled design, 1800W motor, rear roller - research-led verdict from specs and verified owner reviews.";
 const path = '/reviews/flymo-ultraglide-review/';
 const datePublished = '2026-05-10';
 
@@ -26,9 +26,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Flymo UltraGlide', brand: 'Flymo', description, rating: 4.0, url: path, datePublished, reviewBody: 'The best of both worlds - hover versatility with wheeled precision and a rear roller for stripes. The most capable corded Flymo for small-to-medium UK gardens.' }),
+  productReviewSchema({ name: 'Flymo UltraGlide', brand: 'Flymo', description, rating: 4.0, url: path, datePublished, dateModified: '2026-06-05', image: '/images/electric_flymo_lawn_mower-4.webp', priceLow: 120, priceHigh: 180, reviewBody: 'The best of both worlds - hover versatility with wheeled precision and a rear roller for stripes. The most capable corded Flymo for small-to-medium UK gardens.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -58,6 +58,8 @@ const schema = [
           <BuyCta name="Flymo UltraGlide" rrp="£149" />
     </aside>
 
+    <img src="/images/electric_flymo_lawn_mower-4.webp" alt="Flymo hover lawn mower on a UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
+
     <div class="prose-mowers">
       <h2>Specs</h2>
       <table>
@@ -75,7 +77,7 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
         <li><strong>Stripes from a hover mower</strong> - the rear roller actually works. Owner reviews and photos show visible directional stripes after every mow. No other hover mower manages this.</li>
         <li><strong>1800W power</strong> - handles thick spring growth, damp patches, and overgrown edges without slowing down. Noticeably more capable than 900-1400W hovers.</li>
@@ -83,7 +85,7 @@ const schema = [
         <li><strong>Good value at £149</strong> - cheaper than most cordless mowers, with mains power that never runs out mid-mow.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>Heavier than pure hovers</strong> - 15 kg vs 6-9 kg for the Easimo/HoverVac range. You lose the featherweight advantage that makes pure hovers so easy.</li>
         <li><strong>Still corded</strong> - extension lead management on a 250 m² lawn is annoying. No avoiding it at this price.</li>

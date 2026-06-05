@@ -7,7 +7,7 @@ import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
 
 const title = 'Ryobi RY18LMX40A Review - ONE+ Ecosystem Value King (2026)';
-const description = "Ryobi RY18LMX40A cordless mower review. 40cm deck, 18V ONE+ battery sharing across 250+ tools - tested on UK gardens over 12 months. The ecosystem play.";
+const description = "Ryobi RY18LMX40A cordless mower review. 40cm deck, 18V ONE+ battery sharing across 250+ tools - research-led verdict from specs and verified owner reviews.";
 const path = '/reviews/ryobi-cordless/';
 const datePublished = '2026-05-10';
 
@@ -27,9 +27,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Ryobi RY18LMX40A', brand: 'Ryobi', description, rating: 4.3, url: path, datePublished, reviewBody: 'The cordless mower that makes most sense if you own ANY Ryobi ONE+ tool. Widest battery ecosystem in the world, 40cm deck, sensible price. The value king.' }),
+  productReviewSchema({ name: 'Ryobi RY18LMX40A', brand: 'Ryobi', description, rating: 4.3, url: path, datePublished, dateModified: '2026-06-05', image: '/images/battery_powered_ryobi_lawnmower_review.webp', priceLow: 230, priceHigh: 330, reviewBody: 'The cordless mower that makes most sense if you own ANY Ryobi ONE+ tool. Widest battery ecosystem in the world, 40cm deck, sensible price. The value king.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -59,6 +59,8 @@ const schema = [
           <BuyCta name="Ryobi RY18LMX40A" rrp="£269" />
     </aside>
 
+    <img src="/images/battery_powered_ryobi_lawnmower_review.webp" alt="Ryobi cordless battery lawn mower on a UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
+
     <div class="prose-mowers">
       <h2>Specs</h2>
       <table>
@@ -76,7 +78,7 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
         <li><strong>ONE+ battery ecosystem</strong> - 250+ tools, one battery. The mower becomes essentially free if you already own Ryobi garden tools and have spare batteries.</li>
         <li><strong>40 cm deck</strong> - wider than most cordless rivals at this price. Fewer passes, quicker mowing, better suited to medium lawns.</li>
@@ -84,17 +86,17 @@ const schema = [
         <li><strong>£269 with battery and charger</strong> - body-only (if you have batteries) is even cheaper. Genuine value at any price point.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>18V struggles on thick grass</strong> - the single biggest drawback. On damp, overgrown grass the motor audibly labours compared to 36V Bosch or 56V EGO. Fine on maintained lawns; frustrating on neglected ones.</li>
-        <li><strong>Heavier than it looks</strong> - 16.8 kg for an 18V mower is chunky. The Gtech CLM at 15.4 kg feels more agile despite being 36V.</li>
+        <li><strong>Heavier than it looks</strong> - 16.8 kg for an 18V mower is chunky. Lighter cordless rivals feel more agile.</li>
         <li><strong>No rear roller</strong> - flat-wheel arrangement gives mild directional marks, not stripes. If you want lines, look at the Mountfield Princess range.</li>
         <li><strong>Build quality is adequate, not premium</strong> - handles flex slightly, plastics are thinner than Bosch. Functional but you can feel the cost engineering.</li>
       </ul>
 
       <h2>How it compares</h2>
       <p>
-        The <a href="/reviews/bosch-easyrotak-36-550-lawnmower/">Bosch UniversalRotak 36-550</a> at £329 has more cutting power (36V) and a bigger grass box (50L) - choose it for thicker grass or larger lawns. The <a href="/reviews/gtech-clm50/">Gtech CLM 2.0</a> at £249 is lighter with better stripes but has a proprietary battery and tiny 30L box. For pure ecosystem value, Ryobi wins.
+        The <a href="/reviews/bosch-easyrotak-36-550-lawnmower/">Bosch UniversalRotak 36-550</a> at £329 has more cutting power (36V) and a bigger grass box (50L) - choose it for thicker grass or larger lawns. The <a href="/reviews/gtech-clm50/">Gtech CLM 2.0</a> at £249 is lighter with a roomy 50L box but has a proprietary battery and no defined stripes (rear comb, not roller). For pure ecosystem value, Ryobi wins.
       </p>
 
       <h2>Who should buy it</h2>

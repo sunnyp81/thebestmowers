@@ -93,6 +93,12 @@ export const productReviewSchema = (args: {
   url: string;
   reviewBody?: string;
   datePublished: string;
+  dateModified?: string;
+  priceLow?: number;
+  priceHigh?: number;
+  // Only pass when a real, sourced owner-rating count exists.
+  aggRating?: number;
+  aggCount?: number;
 }) => ({
   '@context': 'https://schema.org',
   '@type': 'Product',
@@ -100,11 +106,29 @@ export const productReviewSchema = (args: {
   brand: { '@type': 'Brand', name: args.brand },
   ...(args.image ? { image: abs(args.image) } : {}),
   description: args.description,
+  ...(args.priceLow && args.priceHigh ? {
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'GBP',
+      lowPrice: args.priceLow,
+      highPrice: args.priceHigh,
+      availability: 'https://schema.org/InStock',
+    },
+  } : {}),
+  ...(args.aggRating && args.aggCount ? {
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: args.aggRating,
+      reviewCount: args.aggCount,
+      bestRating: 5,
+    },
+  } : {}),
   review: {
     '@type': 'Review',
     reviewRating: { '@type': 'Rating', ratingValue: args.rating, bestRating: 5 },
     author: { '@type': 'Organization', name: SITE.publisher },
     datePublished: args.datePublished,
+    ...(args.dateModified ? { dateModified: args.dateModified } : {}),
     ...(args.reviewBody ? { reviewBody: args.reviewBody } : {}),
   },
 });

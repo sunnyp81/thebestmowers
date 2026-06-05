@@ -6,7 +6,7 @@ import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
 
 const title = 'Stiga Estate 384M Review - Mid-Range Ride-On With Italian Engineering (2026)';
-const description = "Stiga Estate 384M ride-on mower review. Stiga ST 500 engine, 84cm deck, hydrostatic option - tested on 2,000 m² UK lawns over 18 months.";
+const description = "Stiga Estate 384M ride-on mower review. Stiga ST 500 engine, 84cm deck, hydrostatic option - research-led verdict from specs and verified owner reviews.";
 const path = '/reviews/stiga-estate-384m/';
 const datePublished = '2026-05-10';
 
@@ -26,9 +26,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Stiga Estate 384M', brand: 'Stiga', description, rating: 4.1, url: path, datePublished, reviewBody: 'Mid-range Italian ride-on that bridges budget Mountfield and premium Deere. Solid engine, good build, fair price for UK gardens 1,500-2,500 m².' }),
+  productReviewSchema({ name: 'Stiga Estate 384M', brand: 'Stiga', description, rating: 4.1, url: path, datePublished, dateModified: '2026-06-05', image: '/images/top_8_large_lawnmowers.webp', priceLow: 2700, priceHigh: 3100, reviewBody: 'Mid-range Italian ride-on that bridges budget Mountfield and premium Deere. Solid engine, good build, fair price for UK gardens 1,500-2,500 m².' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -58,6 +58,8 @@ const schema = [
           <BuyCta name="Stiga Estate 384M" rrp="£2,899" />
     </aside>
 
+    <img src="/images/top_8_large_lawnmowers.webp" alt="Ride-on lawn mower on a large UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
+
     <div class="prose-mowers">
       <h2>Specs</h2>
       <table>
@@ -75,7 +77,7 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
         <li><strong>Italian build quality</strong> - fit and finish are noticeably better than the Mountfield 1538M. Panel gaps are tighter, paint is thicker, everything feels more considered.</li>
         <li><strong>Engine refinement</strong> - the ST 500 runs smoother and quieter than comparable single-cylinder rivals. Less vibration through the seat, easier on the ears during a 30-minute mow.</li>
@@ -83,7 +85,7 @@ const schema = [
         <li><strong>Growing dealer network</strong> - Stiga have been expanding their UK dealer presence. Service availability is better than it was 5 years ago.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>84 cm deck is narrow for the price</strong> - the Mountfield 1538M offers 98 cm for £400 less. On very large lawns you'll make more passes with the Stiga.</li>
         <li><strong>Manual transmission</strong> - same friction-disc system as the Mountfield. Functional but jerky compared to hydrostatic. The 384E (hydrostatic) solves this for £300 more.</li>

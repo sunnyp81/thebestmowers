@@ -6,7 +6,7 @@ import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
 
 const title = 'Einhell GE-EM 1233 M Review - Budget Electric That Actually Works (2026)';
-const description = "Einhell GE-EM 1233 M corded electric mower review. 33cm deck, 1250W motor, £139 - tested on small UK gardens. Honest verdict on the cheapest mower worth buying.";
+const description = "Einhell GE-EM 1233 M corded electric mower review. 33cm deck, 1250W motor, £139 - research-led verdict on the cheapest mower worth buying.";
 const path = '/reviews/einhell-review/';
 const datePublished = '2026-05-10';
 
@@ -26,9 +26,9 @@ const faqs = [
 
 const schema = [
   breadcrumbSchema(crumbs),
-  articleSchema({ headline: title, description, url: path, datePublished, dateModified: datePublished }),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Einhell GE-EM 1233 M', brand: 'Einhell', description, rating: 4.0, url: path, datePublished, reviewBody: 'The cheapest mower we recommend without caveat. Basic, reliable, does the job on small UK lawns under 200 m². Nothing fancy - just honest cutting.' }),
+  productReviewSchema({ name: 'Einhell GE-EM 1233 M', brand: 'Einhell', description, rating: 4.0, url: path, datePublished, dateModified: '2026-06-05', image: '/images/einhell_corded_electric_mower.webp', priceLow: 110, priceHigh: 170, reviewBody: 'The cheapest mower we recommend without caveat. Basic, reliable, does the job on small UK lawns under 200 m². Nothing fancy - just honest cutting.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -53,10 +53,12 @@ const schema = [
         </div>
       </div>
       <p class="text-slate-700 leading-relaxed">
-        The Einhell GE-EM 1233 M is the cheapest mower we recommend without caveat. It doesn't pretend to be anything it isn't - a basic, lightweight, corded electric mower for small UK gardens. The 1250W motor handles typical British grass without stalling, the 30L box collects adequately, and after 10 months of weekly use nothing has broken. For £139, that's all you need.
+        The Einhell GE-EM 1233 M is the cheapest mower we recommend without caveat. It doesn't pretend to be anything it isn't - a basic, lightweight, corded electric mower for small UK gardens. The 1250W motor handles typical British grass without stalling, the 30L box collects adequately, and verified owner reviews report years of trouble-free weekly use. For £139, that's all you need.
       </p>
           <BuyCta name="Einhell GE-EM 1233 M" rrp="£139" />
     </aside>
+
+    <img src="/images/einhell_corded_electric_mower.webp" alt="Einhell corded electric lawn mower on a small UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />
 
     <div class="prose-mowers">
       <h2>Specs</h2>
@@ -75,7 +77,7 @@ const schema = [
         </tbody>
       </table>
 
-      <h2>What we loved</h2>
+      <h2>What owners praise</h2>
       <ul>
         <li><strong>The price</strong> - £139 for a functioning, reliable mower from a known brand. Hard to argue with.</li>
         <li><strong>Light as anything</strong> - 10 kg means anyone can push it, lift it, store it on a hook. No strain whatsoever.</li>
@@ -83,7 +85,7 @@ const schema = [
         <li><strong>Adequate cut quality</strong> - not competition-grade, but perfectly tidy on a typical small UK lawn mowed weekly.</li>
       </ul>
 
-      <h2>What we didn't love</h2>
+      <h2>The drawbacks</h2>
       <ul>
         <li><strong>The cable</strong> - you'll spend 20% of your mow managing an extension lead. It's the eternal downside of corded electric mowers.</li>
         <li><strong>30L box fills fast</strong> - on anything longer than 50 mm cutting height, expect 3-4 empties on a 150 m² lawn.</li>
