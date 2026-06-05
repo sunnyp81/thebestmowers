@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BuyCta from '../../../components/BuyCta.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
@@ -52,8 +53,9 @@ const schema = [
         </div>
       </div>
       <p class="text-slate-700 leading-relaxed">
-        The Worx Landroid Vision M800 takes a different approach to wire-free mowing: instead of RTK GPS (which needs clear sky), it uses an AI camera that sees where grass ends and non-grass begins. This means it works perfectly under trees, next to fences, and in the typical shaded UK garden where GPS robots lose accuracy. Setup is simpler than any robot we\'ve tested - no wire, no base station, just place and go. The boundary detection isn\'t millimetre-perfect (expect 5-10 cm of overshoot occasionally) but for most UK homeowners, the convenience trade-off is worth it.
+        The Worx Landroid Vision M800 takes a different approach to wire-free mowing: instead of RTK GPS (which needs clear sky), it uses an AI camera that sees where grass ends and non-grass begins. This means it works perfectly under trees, next to fences, and in the typical shaded UK garden where GPS robots lose accuracy. Setup is simpler than any robot we've tested - no wire, no base station, just place and go. The boundary detection isn't millimetre-perfect (expect 5-10 cm of overshoot occasionally) but for most UK homeowners, the convenience trade-off is worth it.
       </p>
+          <BuyCta name="Worx Landroid Vision M800" rrp="£999" />
     </aside>
 
     <div class="prose-mowers">
@@ -81,17 +83,17 @@ const schema = [
         <li><strong>Price for wire-free</strong> - at £999 it significantly undercuts the Mammotion Luba 2 (£1,799). The most affordable way into wire-free robot mowing.</li>
       </ul>
 
-      <h2>What we didn\'t love</h2>
+      <h2>What we didn't love</h2>
       <ul>
-        <li><strong>Boundary precision</strong> - camera detection isn\'t millimetre-accurate. Expect occasional 5-10 cm overshoot onto paths or into beds. Not ideal if you have a razor-sharp lawn edge.</li>
+        <li><strong>Boundary precision</strong> - camera detection isn't millimetre-accurate. Expect occasional 5-10 cm overshoot onto paths or into beds. Not ideal if you have a razor-sharp lawn edge.</li>
         <li><strong>18 cm cutting width</strong> - very narrow. The mower needs more time to cover larger lawns than wider-deck robots. On 800 m² at capacity, mowing takes several hours spread across the day.</li>
-        <li><strong>30% slope limit</strong> - adequate for most UK gardens but well below the Luba 2\'s 75%. Steeper banks will be avoided by the mower.</li>
-        <li><strong>Camera needs ambient light</strong> - doesn\'t mow in darkness or very low light (dawn/dusk). Less flexible scheduling than GPS-based robots that work in any light.</li>
+        <li><strong>30% slope limit</strong> - adequate for most UK gardens but well below the Luba 2's 75%. Steeper banks will be avoided by the mower.</li>
+        <li><strong>Camera needs ambient light</strong> - doesn't mow in darkness or very low light (dawn/dusk). Less flexible scheduling than GPS-based robots that work in any light.</li>
       </ul>
 
       <h2>How it compares</h2>
       <p>
-        The <a href="/reviews/mammotion-luba-2-awd-1000/">Mammotion Luba 2 AWD</a> at £1,799 uses RTK GPS for superior precision and handles 75% slopes - but costs 80% more and needs clear sky. The <a href="/reviews/bosch-indego-s-plus-500/">Bosch Indego S+ 500</a> at £849 is cheaper but needs boundary wire and handles smaller lawns. The <a href="/reviews/husqvarna-automower-305/">Husqvarna Automower 305</a> at ~£1,000 is proven reliable with boundary wire and random navigation - the safe choice vs the Landroid\'s newer approach.
+        The <a href="/reviews/mammotion-luba-2-awd-1000/">Mammotion Luba 2 AWD</a> at £1,799 uses RTK GPS for superior precision and handles 75% slopes - but costs 80% more and needs clear sky. The <a href="/reviews/bosch-indego-s-plus-500/">Bosch Indego S+ 500</a> at £849 is cheaper but needs boundary wire and handles smaller lawns. The <a href="/reviews/husqvarna-automower-305/">Husqvarna Automower 305</a> at ~£1,000 is proven reliable with boundary wire and random navigation - the safe choice vs the Landroid's newer approach.
       </p>
 
       <h2>Who should buy it</h2>
@@ -99,7 +101,7 @@ const schema = [
         UK homeowners with shaded gardens (trees, fences, buildings) where GPS robots lose accuracy. Anyone who absolutely refuses to install boundary wire. Buyers who want the simplest possible robot setup - 15 minutes and done. Medium gardens (300-800 m²) with defined lawn edges.
       </p>
       <p>
-        Don\'t buy it if you need millimetre boundary precision (flower beds right against the lawn edge), if your garden has steep slopes above 30% (Luba 2 for that), if you want night-time mowing (camera needs light), or if you\'d rather trust a 20-year-old technology (Husqvarna with boundary wire).
+        Don't buy it if you need millimetre boundary precision (flower beds right against the lawn edge), if your garden has steep slopes above 30% (Luba 2 for that), if you want night-time mowing (camera needs light), or if you'd rather trust a 20-year-old technology (Husqvarna with boundary wire).
       </p>
     </div>
 

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BuyCta from '../../../components/BuyCta.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
@@ -52,6 +53,7 @@ const schema = [
       <p class="text-slate-700 leading-relaxed">
         A no-frills ride-on for people who need to cover 1,000-2,000 m² without spending £3,000. The Briggs & Stratton engine is the star - everything else is adequate rather than impressive, which is exactly what you'd expect at this price.
       </p>
+          <BuyCta name="McCulloch MHT 5622" rrp="£1,499" />
     </aside>
 
     <div class="prose-mowers">

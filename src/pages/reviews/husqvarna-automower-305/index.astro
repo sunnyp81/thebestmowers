@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BuyCta from '../../../components/BuyCta.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
@@ -61,8 +62,9 @@ const schema = [
         </div>
       </div>
       <p class="text-slate-700 leading-relaxed">
-        The Automower platform invented the robot mower category and the 305 is the right size for the average UK back garden. Up to 600 m² coverage, 40% slope, the most mature robot mower firmware on the market by miles. The boundary cable install eats half a Saturday, but once it\'s in, this thing just works for years.
+        The Automower platform invented the robot mower category and the 305 is the right size for the average UK back garden. Up to 600 m² coverage, 40% slope, the most mature robot mower firmware on the market by miles. The boundary cable install eats half a Saturday, but once it's in, this thing just works for years.
       </p>
+          <BuyCta name="Husqvarna Automower 305" rrp="£1,099" />
     </aside>
 
     <div class="prose-mowers">
@@ -95,17 +97,17 @@ const schema = [
         <li><strong>Quiet enough for night runs</strong> - 59 dB is genuinely "I forgot it was running" quiet.</li>
       </ul>
 
-      <h2>What we didn\'t love</h2>
+      <h2>What we didn't love</h2>
       <ul>
         <li><strong>Boundary cable install</strong> - half a Saturday minimum. The single biggest barrier to entry vs newer wire-free robots.</li>
-        <li><strong>Random mowing pattern</strong> - the 305 wanders, it doesn\'t mow in lines. Cut quality is uniform but the lawn never looks "freshly mowed" the way a Bosch Indego or a wheeled mower does.</li>
+        <li><strong>Random mowing pattern</strong> - the 305 wanders, it doesn't mow in lines. Cut quality is uniform but the lawn never looks "freshly mowed" the way a Bosch Indego or a wheeled mower does.</li>
         <li><strong>The 22 cm cut width is small</strong> - for the £1,099 price you might expect 24-28 cm. Bigger Automowers (415X, 450X) are correspondingly more.</li>
-        <li><strong>Replacement blades nag</strong> - every 10 weeks. Not expensive, but a recurring task you\'ll forget about.</li>
+        <li><strong>Replacement blades nag</strong> - every 10 weeks. Not expensive, but a recurring task you'll forget about.</li>
       </ul>
 
       <h2>How it compares</h2>
       <p>
-        For boundary-cable robots, the closest rival is the <a href="/reviews/bosch-indego-s-plus-500/">Bosch Indego S+ 500</a> at £849 - cheaper, mows in tidy parallel lines, but slope-limited to 27% and smaller lawn coverage. For wire-free, the <a href="/reviews/mammotion-luba-2-awd-1000/">Mammotion Luba 2 AWD</a> at £1,799 skips the cable install but the firmware is two years old vs Husqvarna\'s 11. The <a href="/reviews/worx-landroid-vision-m800/">Worx Landroid Vision M800</a> at £999 is the budget wire-free alternative - works in good light, struggles in heavy shade.
+        For boundary-cable robots, the closest rival is the <a href="/reviews/bosch-indego-s-plus-500/">Bosch Indego S+ 500</a> at £849 - cheaper, mows in tidy parallel lines, but slope-limited to 27% and smaller lawn coverage. For wire-free, the <a href="/reviews/mammotion-luba-2-awd-1000/">Mammotion Luba 2 AWD</a> at £1,799 skips the cable install but the firmware is two years old vs Husqvarna's 11. The <a href="/reviews/worx-landroid-vision-m800/">Worx Landroid Vision M800</a> at £999 is the budget wire-free alternative - works in good light, struggles in heavy shade.
       </p>
 
       <h2>Who should buy it</h2>
@@ -113,11 +115,11 @@ const schema = [
         UK lawn owners with 250-600 m² who want a robot mower they can install once and forget about for a decade. Anyone whose lawn has slopes that would defeat wire-free rivals. Anyone who values "this will still work in 2036" reliability over the latest features.
       </p>
       <p>
-        Don\'t buy it if your lawn is over 700 m² (look at 415X), if you can\'t face boundary cable install (look at NERA range or Mammotion Luba), or if budget is hard-capped at £1,000 (look at Worx Landroid Vision).
+        Don't buy it if your lawn is over 700 m² (look at 415X), if you can't face boundary cable install (look at NERA range or Mammotion Luba), or if budget is hard-capped at £1,000 (look at Worx Landroid Vision).
       </p>
 
       <h2>What real owners say</h2>
-      <p>r/automower is one of the most active robot mower communities on Reddit. We pulled real owner comments about the 305 and the Automower platform - here\'s what actual buyers say.</p>
+      <p>r/automower is one of the most active robot mower communities on Reddit. We pulled real owner comments about the 305 and the Automower platform - here's what actual buyers say.</p>
 
       <blockquote>
         <p>"It was the best decision ever. My allergies were so bad, if I worked the next day, I usually had to call out. Literally life changing."</p>
@@ -144,7 +146,7 @@ const schema = [
         <cite> -  u/Ok-Yengineer-7917 after troubleshooting a 305, <a href="https://reddit.com/r/automower/comments/13kvzcz/">r/automower</a></cite>
       </blockquote>
 
-      <p>The r/automower consensus: the hardware is rock-solid - frustrations centre on the app and boundary wire faults (usually animal damage). The 305\'s community is large enough that troubleshooting is straightforward, and most issues resolve with a sensor swap or wire repair rather than a costly dealer visit.</p>
+      <p>The r/automower consensus: the hardware is rock-solid - frustrations centre on the app and boundary wire faults (usually animal damage). The 305's community is large enough that troubleshooting is straightforward, and most issues resolve with a sensor swap or wire repair rather than a costly dealer visit.</p>
     </div>
 
     <FAQ {faqs} />

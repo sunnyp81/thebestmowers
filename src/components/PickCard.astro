@@ -13,8 +13,10 @@ interface Props {
   image?: string;
   verdict: string;
 }
-import { AFFILIATE_REL } from '../lib/affiliate';
+import { AFFILIATE_REL, amazonSearch } from '../lib/affiliate';
 const { rank, name, brand, bestFor, rating, pros, cons, rrp, reviewUrl, affiliateUrl, image, verdict } = Astro.props as Props;
+// Always offer a buy CTA: fall back to a tagged Amazon UK search for the model.
+const buyUrl = affiliateUrl || amazonSearch(`${name} lawn mower`);
 ---
 <article class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
   <div class="grid md:grid-cols-[200px_1fr] gap-0">
@@ -53,11 +55,9 @@ const { rank, name, brand, bestFor, rating, pros, cons, rrp, reviewUrl, affiliat
       </div>
       <div class="flex flex-wrap gap-2">
         <a href={reviewUrl} class="inline-flex items-center gap-1 text-sm font-semibold text-grass-700 hover:text-grass-900 underline underline-offset-2">Read full review →</a>
-        {affiliateUrl && (
-          <a href={affiliateUrl} rel={AFFILIATE_REL} target="_blank" class="ml-auto inline-flex items-center gap-1 text-sm font-semibold bg-grass-700 hover:bg-grass-800 text-white px-3 py-1.5 rounded min-h-[44px]">
-            Check price on Amazon
-          </a>
-        )}
+        <a href={buyUrl} rel={AFFILIATE_REL} target="_blank" class="ml-auto inline-flex items-center gap-1 text-sm font-semibold bg-grass-700 hover:bg-grass-800 text-white px-3 py-1.5 rounded min-h-[44px]">
+          Check price on Amazon →
+        </a>
       </div>
     </div>
   </div>
