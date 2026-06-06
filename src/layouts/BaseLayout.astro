@@ -13,9 +13,10 @@ interface Props {
   canonical?: string;
   noindex?: boolean;
   ogImage?: string;
+  ogType?: string;
   schema?: unknown[];
 }
-const { title, description, canonical, noindex, ogImage, schema = [] } = Astro.props as Props;
+const { title, description, canonical, noindex, ogImage, ogType = 'article', schema = [] } = Astro.props as Props;
 const url = canonical ?? new URL(Astro.url.pathname, SITE.url).toString();
 const og = ogImage ?? '/og-default.png';
 const allSchema = [orgSchema(), websiteSchema(), ...schema].filter(Boolean);
@@ -29,7 +30,7 @@ const allSchema = [orgSchema(), websiteSchema(), ...schema].filter(Boolean);
   <meta name="description" content={description} />
   <link rel="canonical" href={url} />
   {noindex && <meta name="robots" content="noindex,follow" />}
-  <meta property="og:type" content="article" />
+  <meta property="og:type" content={ogType} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={url} />

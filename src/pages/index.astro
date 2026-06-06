@@ -2,13 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HowWeResearch from '../components/HowWeResearch.astro';
 import { POWER_TYPE_HUBS, BRAND_HUBS } from '../lib/site';
-import { articleSchema } from '../lib/schema';
 
 const title = 'The Best Mowers UK - Independent Lawn Mower Reviews & Buying Guides';
 const description = 'Independent, research-led UK lawn mower buying guides. Compare the best cordless, battery, petrol, robot and ride-on mowers from every major brand.';
-const datePublished = '2026-05-10';
-
-const schema = [articleSchema({ headline: title, description, url: '/', datePublished })];
 
 const featured = [
   { slug: 'cordless-lawn-mowers', label: 'Cordless lawn mowers', tag: 'Most popular', tagline: 'Quiet, light, no fuel - the default choice for UK gardens under 600 m².' },
@@ -19,7 +15,7 @@ const featured = [
   { slug: 'hover-lawn-mowers', label: 'Hover lawn mowers', tag: 'Slopes & banks', tagline: 'Float-on-air mowers - best for steep banks and rough lawns.' },
 ];
 ---
-<BaseLayout {title} {description} {schema}>
+<BaseLayout {title} {description} ogType="website">
   <section class="bg-gradient-to-b from-grass-50 to-white border-b border-slate-200">
     <div class="max-w-5xl mx-auto px-4 py-16 md:py-24 text-center">
       <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-3">Independent · UK · Research-led</p>
