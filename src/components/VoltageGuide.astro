@@ -1,0 +1,27 @@
+---
+// Inline SVG: battery voltage -> garden size. Accessible, responsive, zero JS.
+interface Props { heading?: string }
+const { heading = 'What battery voltage do you need?' } = Astro.props as Props;
+const rows = [
+  { v: '18V', label: 'Small lawns, up to 200 m²', w: 150, fill: '#9fd485' },
+  { v: '36V', label: 'Medium lawns, 200 to 400 m²', w: 280, fill: '#74bb56' },
+  { v: '40-48V', label: 'Large lawns, 400 to 600 m²', w: 380, fill: '#3d8126' },
+  { v: '56V+', label: 'Extra large or rough, 600 m² plus', w: 460, fill: '#24441b' },
+];
+---
+<figure class="my-10">
+  <figcaption class="text-xl md:text-2xl font-bold text-soil-900 mb-1">{heading}</figcaption>
+  <p class="text-sm text-slate-500 mb-4">Higher voltage means more torque, so the blade keeps cutting in long, damp grass.</p>
+  <svg viewBox="0 0 640 300" class="w-full h-auto rounded-xl border border-slate-200 bg-white" role="img" aria-label="Chart of battery voltage matched to garden size: 18V for up to 200 square metres, 36V for 200 to 400, 40 to 48V for 400 to 600, 56V and above for 600 square metres or more.">
+    {rows.map((r, i) => {
+      const y = 30 + i * 66;
+      return (
+        <g>
+          <text x="12" y={y + 26} font-size="20" font-weight="700" fill="#24441b" font-family="system-ui, sans-serif">{r.v}</text>
+          <rect x="96" y={y} width={r.w} height="40" rx="6" fill={r.fill} />
+          <text x={r.w > 240 ? 108 : r.w + 108} y={y + 26} font-size="14" font-weight="600" fill={r.w > 240 ? '#ffffff' : '#334155'} font-family="system-ui, sans-serif">{r.label}</text>
+        </g>
+      );
+    })}
+  </svg>
+</figure>

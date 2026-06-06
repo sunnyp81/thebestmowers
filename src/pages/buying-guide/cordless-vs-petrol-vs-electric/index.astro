@@ -4,6 +4,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import Disclosure from '../../../components/Disclosure.astro';
 import HowWeResearch from '../../../components/HowWeResearch.astro';
+import VoltageGuide from '../../../components/VoltageGuide.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
 
 const title = 'Cordless vs Petrol vs Electric Lawn Mowers: Which Should You Buy? (UK 2026)';
@@ -18,7 +19,7 @@ const crumbs = [
   { name: 'Cordless vs petrol vs electric', url: path },
 ];
 
-const heroImage = '/images/choosing_the_right_mower.webp';
+const heroImage = '/images/ai-buying-guide.webp';
 
 const faqs = [
   {
@@ -152,6 +153,8 @@ const schema = [
       <p>
         Rule of thumb: pick the lowest voltage that comfortably covers your lawn. Buying more voltage than you need just adds weight and cost. Buying too little means a mower that stalls on the first long, wet cut of spring.
       </p>
+
+      <VoltageGuide heading="Voltage at a glance" />
 
       <h2 id="runtime">Runtime explained</h2>
       <p>

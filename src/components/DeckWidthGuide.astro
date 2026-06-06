@@ -1,0 +1,30 @@
+---
+// Inline SVG: cutting (deck) width -> lawn size. Accessible, responsive, zero JS.
+interface Props { heading?: string }
+const { heading = 'Match cutting width to your lawn' } = Astro.props as Props;
+const seg = [
+  { range: '30-34 cm', use: 'Under 150 m²', fill: '#e2f3da' },
+  { range: '36-40 cm', use: '150-400 m²', fill: '#9fd485' },
+  { range: '41-46 cm', use: '400-800 m²', fill: '#51a134' },
+  { range: '48 cm+', use: '800 m² plus', fill: '#2a521e' },
+];
+---
+<figure class="my-10">
+  <figcaption class="text-xl md:text-2xl font-bold text-soil-900 mb-1">{heading}</figcaption>
+  <p class="text-sm text-slate-500 mb-4">A wider deck clears more grass per pass but is heavier to steer in tight spots.</p>
+  <svg viewBox="0 0 640 170" class="w-full h-auto rounded-xl border border-slate-200 bg-white" role="img" aria-label="Chart matching mower cutting width to lawn size: 30 to 34 cm for under 150 square metres, 36 to 40 cm for 150 to 400, 41 to 46 cm for 400 to 800, 48 cm and above for 800 square metres or more.">
+    {seg.map((s, i) => {
+      const x = 20 + i * 152;
+      const dark = i >= 2;
+      return (
+        <g>
+          <rect x={x} y="30" width="140" height="84" rx="8" fill={s.fill} />
+          <text x={x + 70} y="68" text-anchor="middle" font-size="18" font-weight="700" fill={dark ? '#ffffff' : '#24441b'} font-family="system-ui, sans-serif">{s.range}</text>
+          <text x={x + 70} y="94" text-anchor="middle" font-size="13" font-weight="600" fill={dark ? '#f3faf0' : '#316621'} font-family="system-ui, sans-serif">{s.use}</text>
+        </g>
+      );
+    })}
+    <text x="20" y="142" font-size="12" fill="#94a3b8" font-family="system-ui, sans-serif">Narrow, lighter, nimble</text>
+    <text x="620" y="142" text-anchor="end" font-size="12" fill="#94a3b8" font-family="system-ui, sans-serif">Wide, faster, heavier</text>
+  </svg>
+</figure>

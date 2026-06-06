@@ -6,6 +6,8 @@ import PickCard from '../../components/PickCard.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import HowWeResearch from '../../components/HowWeResearch.astro';
 import OwnerVoices from '../../components/OwnerVoices.astro';
+import VoltageGuide from '../../components/VoltageGuide.astro';
+import DeckWidthGuide from '../../components/DeckWidthGuide.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../lib/schema';
 import { amazonSearch } from '../../lib/affiliate';
 
@@ -215,8 +217,12 @@ const schema = [
       <h3>1. Match cutting width to your lawn</h3>
       <p>The cutting width is how wide a strip the blade clears per pass - wider finishes faster but is heavier to steer. Rough guide: <strong>30-34&nbsp;cm</strong> for gardens under 150&nbsp;m², <strong>36-40&nbsp;cm</strong> for a typical 150-400&nbsp;m² semi, <strong>41-46&nbsp;cm</strong> for 400-800&nbsp;m², and <strong>48&nbsp;cm+</strong> (usually twin-battery, self-propelled) for the largest lawns.</p>
 
+      <DeckWidthGuide />
+
       <h3>2. Voltage drives torque</h3>
       <p>The bigger the battery number - 18&nbsp;V, 36&nbsp;V, 40&nbsp;V, 56&nbsp;V - the more torque the motor delivers, and torque is what stops a mower stalling in long, damp grass. A weekly-mown front lawn is happy on 18&nbsp;V; a back lawn that goes feral over a holiday wants 36&nbsp;V or more. Our <a href="/buying-guide/cordless-vs-petrol-vs-electric/">buying guide</a> explains voltage, runtime and brushless motors in full.</p>
+
+      <VoltageGuide />
 
       <h3>3. Battery: single, twin, and brushless</h3>
       <p>Single-battery mowers are lighter and cheaper; twin-battery models double the runtime for roughly £100 more and suit lawns over 500&nbsp;m². Almost every mower here uses a <strong>brushless motor</strong> - quieter, more efficient and longer-lived than the brushed motors in cheap supermarket mowers. Crucially, the battery is a platform decision: a Bosch, Ryobi or Makita pack also runs that brand's hedge trimmer, blower and strimmer.</p>
