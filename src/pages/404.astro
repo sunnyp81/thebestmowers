@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { POWER_TYPE_HUBS } from '../lib/site';
+
+const title = 'Page not found (404) - The Best Mowers';
+const description = 'Sorry, we could not find that page. Browse our UK lawn mower buying guides by power type, or head back to the homepage.';
+---
+<BaseLayout {title} {description} noindex ogType="website">
+  <section class="max-w-3xl mx-auto px-4 py-20 md:py-28 text-center">
+    <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-3">Error 404</p>
+    <h1 class="text-4xl md:text-6xl font-bold text-soil-900 leading-tight">We couldn't find that page</h1>
+    <p class="mt-5 text-lg text-slate-700 max-w-xl mx-auto leading-relaxed">
+      The page may have moved, or the link might be out of date. Let's get you back to mowing - try one of the guides below or head to the homepage.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href="/" class="bg-grass-700 hover:bg-grass-800 text-white font-semibold px-5 py-3 rounded-md min-h-[44px] inline-flex items-center">Back to homepage</a>
+      <a href="/best-battery-powered-lawn-mower-reviews-uk/" class="bg-white border border-slate-300 hover:border-grass-700 text-soil-900 font-semibold px-5 py-3 rounded-md min-h-[44px] inline-flex items-center">Best cordless mowers 2026</a>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 pb-20">
+    <h2 class="text-xl font-bold text-soil-900 mb-5 text-center">Browse by power type</h2>
+    <div class="flex flex-wrap justify-center gap-3">
+      {POWER_TYPE_HUBS.map((h) => (
+        <a href={`/${h.slug}/`} class="bg-white border border-slate-200 hover:border-grass-700 px-4 py-2 rounded-full text-sm font-medium">{h.label} lawn mowers</a>
+      ))}
+      <a href="/brands/" class="bg-white border border-slate-200 hover:border-grass-700 px-4 py-2 rounded-full text-sm font-medium">All brands</a>
+      <a href="/advice/" class="bg-white border border-slate-200 hover:border-grass-700 px-4 py-2 rounded-full text-sm font-medium">Advice &amp; guides</a>
+    </div>
+  </section>
+</BaseLayout>
