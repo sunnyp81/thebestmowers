@@ -1,0 +1,10 @@
+iteration	page	score	threshold	pass	notes
+1	/best-battery-powered-lawn-mower-reviews-uk/	92	85	PASS	flagship: answer-first, comparison table, 11 FAQs, ItemList+FAQ+Article+Breadcrumb schema, owner-voices UGC, Gtech/Greenworks specs corrected, 0 fabricated-testing, 0 fluff
+2	/cordless-lawn-mowers/	88	85	PASS	hub reframed 'how to choose'; ItemList removed to end cannibalisation with flagship; owner-voices added; honest research-led
+3	/buying-guide/cordless-vs-petrol-vs-electric/	89	85	PASS	decision guide, 3-way comparison table, voltage explainer, FAQ, answer-first; one near-fluff line noted, non-blocking
+4	/reviews/ego-lm2122e-sp/	90	85	PASS	fabricated 'tested 16 months' meta stripped; BuyCta + offers schema + dateModified + hero image; owner-voices block
+5	/reviews/gtech-clm50/	88	85	PASS	spec corrected to 48V/42cm/50L/no-roller; honesty scrub; schema offers+image; hero eager
+6	/reviews/husqvarna-automower-305/	87	85	PASS	fake first-person test narrative rewritten research-led; title de-fabricated; schema offers+image+dateModified
+7	/reviews/makita-dlm382/	90	85	PASS	new page; specs table, FAQ, owner-voices, Product+offers schema, hero, BuyCta; fills UGC gap
+8	/brands/greenworks/	86	85	PASS	discontinued GD40LM45 replaced with current G40LM41 (40V/41cm/50L); dateModified
+SUMMARY	8 key money pages audited	min=86 mean=88.75	85	PASS	all pages >=85 post-remediation; sitewide: 0 fabricated-testing, 0 em/en dashes, 0 broken internal links, 139 affiliate links all tagged thebestmowers-21, build clean 84 pages
