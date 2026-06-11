@@ -2,7 +2,9 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
+import EmailCapture from '../../../components/EmailCapture.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+import { amazonSearch, AFFILIATE_REL } from '../../../lib/affiliate';
 
 const title = 'Best Cordless Lawn Mowers for Large Gardens UK 2026';
 const description = 'Cordless mowers for gardens over 500 m². We cover battery life, deck width and self-propelled options for big UK lawns.';
@@ -55,6 +57,48 @@ const schema = [
 
       <h2>Three cordless mowers built for big lawns</h2>
 
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-sm border-collapse">
+          <thead class="bg-grass-50">
+            <tr>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Model</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Voltage</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Cut width</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Weight</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Price band</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Buy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/reviews/ego-lm2122e-sp/" class="text-grass-700 underline">EGO LM2122E-SP</a></td>
+              <td class="p-3 border border-slate-200">56 V</td>
+              <td class="p-3 border border-slate-200">52 cm</td>
+              <td class="p-3 border border-slate-200">25.5 kg</td>
+              <td class="p-3 border border-slate-200">~£599</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('EGO LM2122E-SP self propelled lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/brands/makita/" class="text-grass-700 underline">Makita DLM462 Twin 18V</a></td>
+              <td class="p-3 border border-slate-200">36 V (2x18V)</td>
+              <td class="p-3 border border-slate-200">46 cm</td>
+              <td class="p-3 border border-slate-200">~19 kg</td>
+              <td class="p-3 border border-slate-200">£499 bare</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('Makita DLM462 twin 18V cordless lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/reviews/cobra-mx46spb/" class="text-grass-700 underline">Cobra MX46S 40V</a></td>
+              <td class="p-3 border border-slate-200">40 V</td>
+              <td class="p-3 border border-slate-200">46 cm</td>
+              <td class="p-3 border border-slate-200">~20 kg</td>
+              <td class="p-3 border border-slate-200">~£379</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('Cobra MX46S 40V cordless self propelled lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="text-xs text-slate-500 mt-2">Specs from manufacturer data and verified owner reviews. Prices are typical UK bands, not live prices.</p>
+      </div>
+
       <h3>1. EGO LM2122E-SP (£599)</h3>
       <p>
         The benchmark. EGO's 56 V motor delivers petrol-equivalent torque, the self-propelled drive handles slopes effortlessly, and the 52 cm deck covers ground fast. EGO rates the 7.5 Ah battery for up to around 700 m² per charge, and owner reviews back that up. Nothing else cordless comes close at this size. <a href="/reviews/ego-lm2122e-sp/" class="text-grass-700 underline">Read our full EGO review</a> <a href="https://www.amazon.co.uk/s?k=ego+lm2122e+sp+lawn+mower&amp;tag=thebestmowers-21" rel="nofollow sponsored noopener noreferrer" target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price &rarr;</a>.
@@ -75,6 +119,8 @@ const schema = [
         If your lawn is over 1,000 m², slopes heavily, or you're mowing rough meadow grass, petrol still wins on sheer runtime and power. The crossover point where cordless genuinely matches petrol is around 800 m² for most users.
       </p>
     </div>
+
+    <EmailCapture />
 
     <FAQ {faqs} />
   </article>

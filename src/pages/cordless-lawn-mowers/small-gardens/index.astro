@@ -5,8 +5,9 @@ import FAQ from '../../../components/FAQ.astro';
 import PickCard from '../../../components/PickCard.astro';
 import Disclosure from '../../../components/Disclosure.astro';
 import HowWeResearch from '../../../components/HowWeResearch.astro';
+import EmailCapture from '../../../components/EmailCapture.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../../lib/schema';
-import { amazonSearch } from '../../../lib/affiliate';
+import { amazonSearch, AFFILIATE_REL } from '../../../lib/affiliate';
 
 const title = 'Best Cordless Lawn Mowers for Small Gardens UK 2026';
 const description = 'The best cordless lawn mowers for small UK gardens under 200 m². Light, compact, easy to store, with 30-34 cm decks where an 18V battery is genuinely enough.';
@@ -154,6 +155,56 @@ const schema = [
       <h2 id="picks">The best cordless mowers for small gardens</h2>
       <p>Four mowers we are happy to recommend for a small UK lawn, ordered by who each one suits best. Tap any pick to read the full review.</p>
 
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-sm border-collapse">
+          <thead class="bg-grass-50">
+            <tr>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Model</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Voltage</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Cut width</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Weight</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Price band</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Buy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/reviews/bosch-rotak-32-review/" class="text-grass-700 underline">Bosch CityMower 18V-32</a></td>
+              <td class="p-3 border border-slate-200">18 V</td>
+              <td class="p-3 border border-slate-200">32 cm</td>
+              <td class="p-3 border border-slate-200">~9 kg</td>
+              <td class="p-3 border border-slate-200">£150-£190</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('Bosch CityMower 18V-32 lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/reviews/gtech-clm50/" class="text-grass-700 underline">Gtech CLM 2.0</a></td>
+              <td class="p-3 border border-slate-200">48 V</td>
+              <td class="p-3 border border-slate-200">42 cm</td>
+              <td class="p-3 border border-slate-200">~12 kg</td>
+              <td class="p-3 border border-slate-200">£249-£299</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('Gtech CLM 2.0 cordless lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/brands/flymo/" class="text-grass-700 underline">Flymo EasiStore 300R Li</a></td>
+              <td class="p-3 border border-slate-200">18 V</td>
+              <td class="p-3 border border-slate-200">30 cm</td>
+              <td class="p-3 border border-slate-200">~10 kg</td>
+              <td class="p-3 border border-slate-200">£170-£220</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('Flymo EasiStore 300R Li cordless lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/brands/worx/" class="text-grass-700 underline">WORX WG779E 40V</a></td>
+              <td class="p-3 border border-slate-200">40 V (2x20V)</td>
+              <td class="p-3 border border-slate-200">34 cm</td>
+              <td class="p-3 border border-slate-200">~13 kg</td>
+              <td class="p-3 border border-slate-200">£180-£230</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('WORX WG779E 40V cordless lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="text-xs text-slate-500 mt-2">Specs from manufacturer data and verified owner reviews. Weights include battery where stated by the manufacturer. Prices are typical UK bands, not live prices.</p>
+      </div>
+
       <div class="space-y-6 mt-6">
         {picks.map((p) => <PickCard {...p} />)}
       </div>
@@ -198,6 +249,8 @@ const schema = [
         <li><strong><a href="/brands/worx/">WORX</a></strong> - 20V PowerShare twin-battery for a bit more headroom on a borderline lawn.</li>
       </ul>
     </div>
+
+    <EmailCapture />
 
     <HowWeResearch />
 

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
 import { articleSchema, breadcrumbSchema } from '../../lib/schema';
 
 const title = 'Lawn Mower Advice & How-To Guides - The Best Mowers UK';
@@ -22,6 +23,7 @@ const sections = [
 ];
 
 const guides = [
+  { url: '/advice/lawn-care-calendar/', label: 'UK lawn care calendar: month-by-month guide' },
   { url: '/buying-guide/cordless-vs-petrol-vs-electric/', label: 'Cordless vs petrol vs electric: which to buy' },
   { url: '/advice/maintenance/sharpen-blade/', label: 'How to sharpen a lawn mower blade' },
   { url: '/advice/maintenance/battery-care/', label: 'Cordless mower battery care & runtime' },
@@ -60,5 +62,7 @@ const schema = [
         <li><a href={g.url} class="text-grass-700 underline underline-offset-2 hover:text-grass-900">{g.label}</a></li>
       ))}
     </ul>
+
+    <EmailCapture />
   </article>
 </BaseLayout>

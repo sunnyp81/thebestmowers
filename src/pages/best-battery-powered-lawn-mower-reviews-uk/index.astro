@@ -8,6 +8,7 @@ import HowWeResearch from '../../components/HowWeResearch.astro';
 import OwnerVoices from '../../components/OwnerVoices.astro';
 import VoltageGuide from '../../components/VoltageGuide.astro';
 import DeckWidthGuide from '../../components/DeckWidthGuide.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../lib/schema';
 import { amazonSearch } from '../../lib/affiliate';
 
@@ -265,6 +266,8 @@ const schema = [
     </section>
 
     <OwnerVoices keys={['ego-lm2122e-sp','bosch-easyrotak-36-550-lawnmower','gtech-clm50','makita-dlm382','ryobi-cordless','mountfield-princess-34']} heading="What owners actually say about our top picks" />
+
+    <EmailCapture />
 
     <FAQ {faqs} />
   </article>

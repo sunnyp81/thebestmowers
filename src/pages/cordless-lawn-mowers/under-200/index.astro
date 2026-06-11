@@ -2,7 +2,9 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
+import EmailCapture from '../../../components/EmailCapture.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+import { amazonSearch, AFFILIATE_REL } from '../../../lib/affiliate';
 
 const title = 'Best Cordless Lawn Mowers Under £200 UK 2026';
 const description = 'Top cordless lawn mowers under £200 for UK gardens. Budget picks that actually cut well, chosen from specs and verified owner reviews.';
@@ -55,6 +57,48 @@ const schema = [
 
       <h2>Three budget cordless mowers worth buying</h2>
 
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-sm border-collapse">
+          <thead class="bg-grass-50">
+            <tr>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Model</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Voltage</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Cut width</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Weight</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Price band</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Buy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/reviews/ryobi-cordless/" class="text-grass-700 underline">Ryobi RY18LMX40A</a></td>
+              <td class="p-3 border border-slate-200">18 V</td>
+              <td class="p-3 border border-slate-200">40 cm</td>
+              <td class="p-3 border border-slate-200">16.8 kg</td>
+              <td class="p-3 border border-slate-200">~£160 bare tool</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('Ryobi RY18LMX40A cordless lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/reviews/bosch-rotak-32-review/" class="text-grass-700 underline">Bosch CityMower 18V-32</a></td>
+              <td class="p-3 border border-slate-200">18 V</td>
+              <td class="p-3 border border-slate-200">32 cm</td>
+              <td class="p-3 border border-slate-200">~9 kg</td>
+              <td class="p-3 border border-slate-200">~£180</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('Bosch CityMower 18V-32 cordless lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/reviews/einhell-review/" class="text-grass-700 underline">Einhell GE-CM 18/33 Li</a></td>
+              <td class="p-3 border border-slate-200">18 V</td>
+              <td class="p-3 border border-slate-200">33 cm</td>
+              <td class="p-3 border border-slate-200">~10 kg</td>
+              <td class="p-3 border border-slate-200">~£130 with battery</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('Einhell GE-CM 18/33 Li cordless lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="text-xs text-slate-500 mt-2">Specs from manufacturer data and verified owner reviews. Prices are typical UK bands, not live prices. Einhell GE-EM 1233 M specs used for the cordless variant; the corded version is reviewed separately.</p>
+      </div>
+
       <h3>1. Ryobi RY18LMX40A (bare tool ~£160)</h3>
       <p>
         If you already own anything in the Ryobi ONE+ range, this is a no-brainer. The 40 cm brushless deck is genuinely good for the money, and buying bare-tool drops the price well under £200. The 18 V battery struggles on long wet grass, but on a regularly mown lawn it's more than enough. <a href="/reviews/ryobi-cordless/" class="text-grass-700 underline">Read our full Ryobi cordless review</a> <a href="https://www.amazon.co.uk/s?k=ryobi+cordless+lawn+mower&amp;tag=thebestmowers-21" rel="nofollow sponsored noopener noreferrer" target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price &rarr;</a>.
@@ -75,6 +119,8 @@ const schema = [
         Supermarket own-brand mowers under £100 (McGregor, Sovereign, Challenge). The batteries die after two seasons, replacement cells cost more than the mower, and the cutting quality is genuinely poor. Spend the extra £50-£80 and get something from a brand that sells replacement parts.
       </p>
     </div>
+
+    <EmailCapture />
 
     <FAQ {faqs} />
   </article>

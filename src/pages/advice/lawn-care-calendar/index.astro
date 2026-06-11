@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import HowWeResearch from '../../../components/HowWeResearch.astro';
+import EmailCapture from '../../../components/EmailCapture.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
+
+const title = 'UK Lawn Care Calendar 2026: Month-by-Month Mowing Guide';
+const description = 'A month-by-month UK lawn care and mowing calendar. Know exactly what to do each month, from first spring cut to autumn feed, with kit tips for every season.';
+const path = '/advice/lawn-care-calendar/';
+const datePublished = '2026-06-11';
+const dateModified = '2026-06-11';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Advice', url: '/advice/' },
+  { name: 'Lawn care calendar', url: path },
+];
+
+const faqs = [
+  {
+    q: 'When should I make the first cut of the year in the UK?',
+    a: 'Typically late March to early April when daytime temperatures consistently reach 6-8 degrees C and grass is actively growing. Set the blade high (40-50 mm) for the first cut - scalping dormant grass stresses the roots.',
+  },
+  {
+    q: 'How often should I mow in summer?',
+    a: 'Weekly mowing is standard for most UK lawns from May through August. Never remove more than a third of the blade height in one pass - this is the one-third rule, and breaking it stresses the grass and creates yellow patches.',
+  },
+  {
+    q: 'Should I scarify in spring or autumn?',
+    a: 'Autumn (September to October) is the better time for most UK lawns. The grass recovers well before winter dormancy, and you can overseed bare patches immediately after. Spring scarifying is possible but risks stressing the lawn at its weakest point.',
+  },
+  {
+    q: 'Can I mow in winter?',
+    a: 'Only on dry, frost-free days when grass shows visible growth. Never mow frozen grass - the blades shatter rather than cut, leaving brown tips. Most UK lawns are dormant December through February and need no mowing at all.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, dateModified }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Lawn Care Advice · Updated June 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">UK Lawn Care Calendar 2026: Month-by-Month Mowing Guide</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        British lawns follow a reliable annual rhythm, but the climate varies enough between the south-west and Scotland that following a rigid schedule by date alone leads to mistakes. This calendar sets out what to do each month, tied to grass behaviour rather than just the date, so the approach holds whether you garden in Cornwall or Aberdeenshire.
+      </p>
+    </header>
+
+    <HowWeResearch heading="How this calendar was compiled" />
+
+    <div class="prose-mowers">
+
+      <h2>January and February: rest and preparation</h2>
+      <p>
+        Grass growth is negligible in most of the UK during these months. Soil temperatures are typically below the 5-6 degrees C threshold at which growth resumes, so mowing is not needed and should be avoided on frozen or waterlogged ground.
+      </p>
+      <p>
+        What to do instead: clear fallen leaves, twigs, and debris from the lawn surface. Lying debris blocks light and encourages moss and disease. Keep foot traffic to a minimum on frozen grass, as the ice crystals inside the blades shatter under pressure, leaving visible brown tracks that persist for weeks.
+      </p>
+      <p>
+        For cordless mower owners, January is the best time to check battery health. Manufacturer guidance consistently recommends storing lithium-ion batteries at 40-60 percent charge in a frost-free location. Read the full guidance in the <a href="/advice/maintenance/battery-care/" class="text-grass-700 underline underline-offset-2">battery care guide</a>.
+      </p>
+
+      <h2>March: the first cut of the year</h2>
+      <p>
+        As daytime temperatures climb above 6-8 degrees C, grass begins growing again. Owner reviews and horticultural sources consistently report that the safest first cut of the season is a light trim only: set the blade to its highest setting (typically 40-50 mm) and remove no more than a third of the blade height.
+      </p>
+      <p>
+        Before you start, inspect the mower. Check the blade for chips or blunting over winter. A dull blade tears grass tips rather than slicing cleanly, which leaves brown, frayed ends. If in doubt, follow the steps in the <a href="/advice/maintenance/sharpen-blade/" class="text-grass-700 underline underline-offset-2">blade sharpening guide</a> before the season begins.
+      </p>
+      <p>
+        Also check the wheels, drive belt (on self-propelled models), and grass box for any winter deterioration. For battery mowers, do a full charge cycle before the first use to condition the cells.
+      </p>
+
+      <h2>April: lowering the blade and increasing frequency</h2>
+      <p>
+        Growth accelerates through April. The lawn can typically handle cuts every ten to fourteen days early in the month, moving to weekly towards the end as growth picks up. Lower the blade by one setting each fortnight rather than dropping straight to summer height in one go.
+      </p>
+      <p>
+        April is also when mulching becomes worthwhile. Short spring clippings break down quickly on the surface, returning nitrogen to the soil without smothering the lawn. If your mower has a mulching plug, this is a good month to start using it. See the <a href="/advice/maintenance/mulching/" class="text-grass-700 underline underline-offset-2">mulching guide</a> for how to get clean results rather than clumps.
+      </p>
+      <p>
+        Lawn treatments: April is the standard window for a pre-season lawn feed, typically a high-nitrogen spring formula. Apply after the second cut of the season, once the grass is actively growing and can take up nutrients.
+      </p>
+
+      <h2>May: weekly mowing and the first feed</h2>
+      <p>
+        By May, most UK lawns need cutting every seven days. Growth is vigorous and the one-third rule becomes critical: never remove more than a third of the blade height in a single pass, or the grass diverts energy from the roots to recover leaf area, weakening the sward over time.
+      </p>
+      <p>
+        Rainfall is variable in May. Avoid cutting wet grass where possible. Wet blades flatten rather than stand up to the cutter, which leads to tearing, clumping, and an uneven finish. If the grass is very long after rain and you cannot wait for it to dry, raise the blade height and use side discharge rather than the grass box. Full details in the <a href="/advice/mowing-wet-grass/" class="text-grass-700 underline underline-offset-2">mowing wet grass guide</a>.
+      </p>
+      <p>
+        If you applied a spring feed in April, hold off on a second application until June. Over-feeding in spring encourages soft, disease-prone growth.
+      </p>
+
+      <h2>June: peak growing season</h2>
+      <p>
+        June is the most demanding month for lawn maintenance. Growth peaks, and a weekly cut at the correct height keeps the lawn dense and weed-resistant. Most UK lawns perform best at a cut height of 25-40 mm in summer: low enough to look tidy, high enough to retain moisture and shade out weed seeds.
+      </p>
+      <p>
+        Stick to the one-third rule strictly in June. If you have missed a cut and the lawn has grown long, do not drop back to the correct height in one pass. Drop one setting per cut over two or three sessions.
+      </p>
+      <p>
+        Mulching clippings in June reduces watering needs by helping the soil retain moisture, and feeds the lawn with each cut. The clippings are short enough to disappear quickly. Avoid mulching if the lawn is showing signs of fungal disease, as infected material can spread spores across the surface.
+      </p>
+
+      <h2>July: managing drought stress</h2>
+      <p>
+        Hot, dry spells in July put lawns under heat and moisture stress. Manufacturer and horticultural guidance is consistent on this: raise the blade height during dry periods. A longer leaf blade shades the soil, reduces evaporation, and keeps the root zone cooler. Cutting too short in drought causes the grass to brown quickly and recover slowly.
+      </p>
+      <p>
+        Reduce mowing frequency during dry spells. If growth has slowed noticeably, cutting weekly removes a large proportion of the limited leaf area and stresses the plant further. Cut every ten to fourteen days in dry periods, or when the grass genuinely needs it rather than by the calendar.
+      </p>
+      <p>
+        Owner reviews of cordless mowers consistently note that battery runtime is less affected in summer than expected, because dry, shorter grass cuts more easily than long, wet spring growth.
+      </p>
+
+      <h2>August: bare patches and the return of rain</h2>
+      <p>
+        August can bring rain after a dry July, at which point growth resumes quickly. Continue the raised blade approach until you are confident a wet period has broken the drought rather than just providing a day of relief.
+      </p>
+      <p>
+        Late August is a good window for overseeding bare or thin patches, particularly if there has been rain. Grass seed needs consistent moisture to germinate, and the soil is still warm enough to support rapid establishment before autumn. Scatter seed onto scarified or raked bare patches, press it in gently, and keep off the area for three to four weeks.
+      </p>
+      <p>
+        Avoid feeding in August. Late summer nitrogen encourages soft growth that is vulnerable to the fungal diseases that arrive with autumn damp.
+      </p>
+
+      <h2>September: autumn recovery</h2>
+      <p>
+        September is one of the most productive maintenance months of the year. Temperatures drop, rain returns, and the grass enters a recovery phase before dormancy. This is the time to lower the blade back to summer height gradually, aerate compacted areas, and apply an autumn lawn feed.
+      </p>
+      <p>
+        Aeration: if the lawn suffers from compaction (water lying on the surface rather than draining, or a hard, bouncy feel underfoot) September is the best time to address it. Solid-tine or hollow-tine aeration opens channels in the soil for air and water. Apply a top-dressing of sharp sand after hollow-tining to keep the channels open.
+      </p>
+      <p>
+        Autumn feed: use a low-nitrogen, high-potassium formula in September. This hardens the grass for winter rather than pushing soft leafy growth. Do not apply a spring formula now, it will produce lush growth that disease and frost will damage.
+      </p>
+      <p>
+        Scarifying: if you have a heavy thatch layer (the matted layer of dead material between the grass and the soil surface), September is the best time to remove it. Scarify, then overseed bare patches immediately afterwards so they establish before the cold sets in.
+      </p>
+
+      <h2>October: final cut and mower service</h2>
+      <p>
+        Growth slows significantly in October as soil temperatures drop. The last meaningful cut of the season typically falls between mid-October and early November, depending on location. Set the blade slightly higher than summer height for this final cut: going into winter at around 35-40 mm leaves the grass better placed to handle frost.
+      </p>
+      <p>
+        After the last cut, clean the mower thoroughly. Scrape clippings from the underside of the deck, clean the grass box, wipe down the housing, and check the blade for any damage before storage. A blade left caked with clippings over winter will be harder to clean in spring and more likely to rust.
+      </p>
+      <p>
+        Battery storage: remove the battery from the mower, charge it to 40-60 percent, and store it in a frost-free location. Do not leave it on charge all winter. Most major battery brands, including EGO, Greenworks, and Ryobi, publish the same guidance in their user manuals.
+      </p>
+
+      <h2>November and December: lawn resting</h2>
+      <p>
+        The lawn is dormant or near-dormant through November and December in most of the UK. No mowing is needed, and any mowing on frozen or waterlogged ground causes more harm than the grass length justifies.
+      </p>
+      <p>
+        The main task for these months is keeping foot traffic off the lawn, particularly on frosty mornings. Frozen grass blades snap underfoot, leaving brown tracks that are visible for weeks after the frost clears. Set out stepping stones or a temporary path if you need to cross the lawn regularly.
+      </p>
+      <p>
+        Keep the lawn clear of leaves. A dense covering of wet leaves through winter blocks light and air, encourages moss, and creates the damp conditions that fungal disease needs to establish. One clear per fortnight through November and December is typically enough to prevent problems.
+      </p>
+      <p>
+        The mower should be stored clean, dry, and with the battery removed. If you have a petrol mower, drain the fuel or add a fuel stabiliser before winter storage to prevent gumming in the carburettor.
+      </p>
+
+      <h2>Choosing the right mower for the season</h2>
+      <p>
+        The calendar above assumes a standard domestic cordless mower. The right machine for your garden size makes every month of this schedule easier to follow.
+      </p>
+      <ul>
+        <li><strong>Small gardens:</strong> a lightweight cordless mower with a 32-36 cm cut width handles most small plots comfortably. See the <a href="/cordless-lawn-mowers/small-gardens/" class="text-grass-700 underline underline-offset-2">small garden mowers guide</a>.</li>
+        <li><strong>Self-propelled models:</strong> useful from April through September when growth is heavy and slopes are involved. Reviewed in the <a href="/cordless-lawn-mowers/self-propelled/" class="text-grass-700 underline underline-offset-2">self-propelled mowers guide</a>.</li>
+        <li><strong>Budget options:</strong> capable cordless mowers are available under £200. See the <a href="/cordless-lawn-mowers/under-200/" class="text-grass-700 underline underline-offset-2">under-£200 roundup</a>.</li>
+        <li><strong>Large gardens:</strong> plots over 500 square metres need wider cut widths and larger battery capacity. Covered in the <a href="/cordless-lawn-mowers/large-gardens/" class="text-grass-700 underline underline-offset-2">large garden mowers guide</a>.</li>
+        <li><strong>Full reviews:</strong> the <a href="/best-battery-powered-lawn-mower-reviews-uk/" class="text-grass-700 underline underline-offset-2">best battery-powered mowers</a> page covers the top-rated models across all garden sizes.</li>
+      </ul>
+
+    </div>
+
+    <EmailCapture />
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

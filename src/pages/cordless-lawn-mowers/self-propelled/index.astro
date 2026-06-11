@@ -5,8 +5,9 @@ import FAQ from '../../../components/FAQ.astro';
 import PickCard from '../../../components/PickCard.astro';
 import Disclosure from '../../../components/Disclosure.astro';
 import HowWeResearch from '../../../components/HowWeResearch.astro';
+import EmailCapture from '../../../components/EmailCapture.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../../lib/schema';
-import { amazonSearch } from '../../../lib/affiliate';
+import { amazonSearch, AFFILIATE_REL } from '../../../lib/affiliate';
 
 const title = 'Best Self-Propelled Cordless Lawn Mowers UK 2026';
 const description = 'The best self-propelled cordless lawn mowers in the UK for 2026. Drive instead of push on slopes and large lawns over 400 m² - EGO, Ryobi, Makita and Hyundai compared.';
@@ -159,6 +160,56 @@ const schema = [
       <h2 id="picks">The best self-propelled cordless mowers</h2>
       <p>Four self-propelled cordless mowers we are happy to recommend, ordered by who each one suits best. Tap any pick to read the full review.</p>
 
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-sm border-collapse">
+          <thead class="bg-grass-50">
+            <tr>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Model</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Voltage</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Cut width</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Weight</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Price band</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Buy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/reviews/ego-lm2122e-sp/" class="text-grass-700 underline">EGO LM2122E-SP</a></td>
+              <td class="p-3 border border-slate-200">56 V</td>
+              <td class="p-3 border border-slate-200">52 cm</td>
+              <td class="p-3 border border-slate-200">25.5 kg</td>
+              <td class="p-3 border border-slate-200">£499-£599</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('EGO LM2122E-SP self propelled lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/reviews/ryobi-cordless/" class="text-grass-700 underline">Ryobi RY18LMX40A</a></td>
+              <td class="p-3 border border-slate-200">18 V</td>
+              <td class="p-3 border border-slate-200">40 cm</td>
+              <td class="p-3 border border-slate-200">16.8 kg</td>
+              <td class="p-3 border border-slate-200">£269-£329</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('Ryobi RY18LMX40A-150 self propelled lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/brands/makita/" class="text-grass-700 underline">Makita DLM480</a></td>
+              <td class="p-3 border border-slate-200">36 V (2x18V)</td>
+              <td class="p-3 border border-slate-200">48 cm</td>
+              <td class="p-3 border border-slate-200">~22 kg</td>
+              <td class="p-3 border border-slate-200">£399-£499</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('Makita DLM480 self propelled lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/brands/hyundai/" class="text-grass-700 underline">Hyundai HYM80Li460SP</a></td>
+              <td class="p-3 border border-slate-200">80 V</td>
+              <td class="p-3 border border-slate-200">46 cm</td>
+              <td class="p-3 border border-slate-200">~24 kg</td>
+              <td class="p-3 border border-slate-200">£399-£549</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('Hyundai HYM80Li460SP self propelled lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="text-xs text-slate-500 mt-2">Specs from manufacturer data and verified owner reviews. Weights include battery where stated by the manufacturer. Prices are typical UK bands, not live prices.</p>
+      </div>
+
       <div class="space-y-6 mt-6">
         {picks.map((p) => <PickCard {...p} />)}
       </div>
@@ -194,6 +245,8 @@ const schema = [
         <li><a href="/brands/ryobi/">Ryobi cordless mowers - range and review</a></li>
       </ul>
     </div>
+
+    <EmailCapture />
 
     <HowWeResearch />
 
