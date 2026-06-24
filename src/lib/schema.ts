@@ -10,6 +10,20 @@ export const orgSchema = () => ({
   url: SITE.url,
   logo: { '@type': 'ImageObject', url: abs(SITE.logo) },
   foundingDate: SITE.founded,
+  // Entity corroboration for AI engines: only emitted once real profiles exist.
+  ...(SITE.sameAs.length ? { sameAs: [...SITE.sameAs] } : {}),
+});
+
+// Marks the H1 and FAQ answers as speakable so AI/voice engines extract them cleanly.
+export const speakableSchema = (url: string) => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${url}#webpage`,
+  url,
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['h1', '.faq-answer'],
+  },
 });
 
 export const websiteSchema = () => ({

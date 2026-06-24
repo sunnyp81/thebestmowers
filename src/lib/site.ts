@@ -10,6 +10,8 @@ export const SITE = {
   email: 'hello@thebestmowers.co.uk',
   logo: '/logo.svg',
   founded: '2024',
+  // Real, verified entity profiles only (Trustpilot / Companies House / socials). Never fabricate.
+  sameAs: [] as string[],
 } as const;
 
 export const POWER_TYPE_HUBS = [
