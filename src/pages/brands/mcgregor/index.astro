@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import PickCard from '../../../components/PickCard.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../../lib/schema';
+import { amazonSearch } from '../../../lib/affiliate';
+
+const title = 'McGregor Lawn Mowers UK: Argos Own-Brand Reviewed (2026)';
+const description = 'Independent look at McGregor lawn mowers, the Argos own-brand garden range. Honest budget corded and cordless mowers: what they do well, what breaks, what to buy instead.';
+const path = '/brands/mcgregor/';
+const datePublished = '2026-07-07';
+
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Brands', url: '/brands/' }, { name: 'McGregor', url: path }];
+
+const picks = [
+  {
+    rank: 1, name: 'McGregor 34cm Corded Rotary Mower',
+    brand: 'McGregor', bestFor: 'the cheapest way to mow a small lawn',
+    rating: 3.8, rrp: 'around £60-£90',
+    reviewUrl: '/electric-lawn-mowers/',
+    affiliateUrl: amazonSearch('McGregor corded lawn mower 34cm'),
+    pros: ['Among the cheapest mowers in any UK shop', 'Light and easy to store', 'Argos availability, buy it the same day'],
+    cons: ['Budget build throughout', 'Small grass box means frequent emptying', 'No dealer network, support runs through Argos'],
+    verdict: 'The definition of entry-level: a light corded rotary for a small, regularly cut lawn at the lowest price in the shop. Owner reviews on the Argos site are broadly positive at the price, with the usual budget caveats about the grass box and build. As a first mower for a small garden, or a spare for an allotment, it is hard to argue with the money.',
+  },
+  {
+    rank: 2, name: 'McGregor 37cm Cordless Mower',
+    brand: 'McGregor', bestFor: 'entry-level cordless from a walk-in shop',
+    rating: 3.7, rrp: 'around £130-£200',
+    reviewUrl: '/cordless-lawn-mowers/',
+    affiliateUrl: amazonSearch('McGregor cordless lawn mower'),
+    pros: ['Cheap route into cordless mowing', 'Batteries shared across the McGregor tool range', 'Simple controls, nothing to learn'],
+    cons: ['Closed battery platform with no third-party options', 'Runtime drops fast on long or damp grass'],
+    verdict: 'Fine for a small lawn cut little and often. The McGregor battery fits other McGregor garden tools, which helps, but the platform lives and dies with Argos stocking it, unlike Bosch 18V or WORX PowerShare, which will still sell you a battery in a decade. Budget accordingly: this is a five-year purchase, not a fifteen-year one.',
+  },
+];
+
+const faqs = [
+  { q: 'Who makes McGregor lawn mowers?', a: 'McGregor is the own-brand garden power range of Argos (part of Sainsbury\'s). The machines are sourced from overseas factories and sold exclusively through Argos, which also handles support, spares and returns. There is no separate McGregor company or dealer network behind the badge.' },
+  { q: 'Are McGregor lawn mowers any good?', a: 'For the price, yes, with clear limits. They are entry-level machines for small lawns: light, simple and cheap, with build quality to match. Owner reviews on the Argos site are generally positive at the low price points. For larger lawns, long grass or long-term ownership, a step up to Flymo or Bosch is money well spent.' },
+  { q: 'McGregor vs Qualcast: what is the difference?', a: 'Less than you would think. Both are Argos names: McGregor is the current own-brand garden range, while Qualcast is a heritage brand name Argos owns and applies to a similar tier of budget kit. Compare the specific models on deck width, grass box and price rather than the badges.' },
+  { q: 'Where do I get McGregor spare parts?', a: 'Through Argos, which lists common spares such as blades and grass boxes, and through generic listings on Amazon and eBay. Because support runs through a retailer rather than a dealer network, anything beyond simple parts usually means weighing repair cost against a replacement mower.' },
+  { q: 'Do McGregor batteries fit other tools?', a: 'They fit other tools in the McGregor cordless range, trimmers, hedge cutters and so on, but nothing outside it. If battery flexibility matters to you, the open platforms are the reason to spend more: Bosch 18V Power for All and WORX PowerShare packs work across large tool families and remain purchasable years later.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+  itemListSchema({ name: 'Best McGregor lawn mowers 2026', url: path, items: picks.map((p, i) => ({ position: i + 1, name: p.name, url: p.reviewUrl })) }),
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Brand guide · Updated July 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">McGregor Lawn Mowers</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        McGregor is the Argos own-brand garden range: budget corded and cordless mowers, trimmers and hedge cutters sold exclusively through Argos. It is honest entry-level kit, among the cheapest routes to a working mower in the UK, with support that runs through the retailer rather than a dealer network. Here is what that means in practice.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>What McGregor actually is</h2>
+      <p>
+        There is no McGregor factory or independent mower company: the name is owned and used by Argos (Sainsbury's) for its garden power range, the same way B&amp;Q uses Mac Allister. Machines are sourced from overseas factories to hit shelf prices that start well under £100 for a corded mower. That model has genuine advantages, walk-in availability at hundreds of Argos stores, easy returns, cheap spares for common parts, and one obvious limit: the brand is only as deep as the retailer's current catalogue.
+      </p>
+
+      <h2>The range</h2>
+      <p>
+        The line-up shifts season to season but typically covers small corded rotary mowers (30-37 cm decks, roughly £60-£100), entry-level cordless mowers (around £130-£250) on McGregor's shared battery system, plus trimmers, hedge cutters and blowers on the same packs. Everything is aimed at small and medium lawns cut little and often. There is no petrol, no self-propelled drive and nothing for rough ground, that is not the market this range serves.
+      </p>
+
+      <h2 id="best">Best McGregor mowers</h2>
+      <div class="space-y-6 mt-6">{picks.map((p) => <PickCard {...p} />)}</div>
+
+      <h2>The honest buying advice</h2>
+      <p>
+        McGregor makes sense when the budget is the budget: a first mower for a small garden, a rental property, an allotment machine, or a stop-gap. Owner feedback on the Argos site is broadly content at these prices, and the recurring complaints are predictable, small grass boxes, plasticky height adjusters, cordless runtime that fades on long grass.
+      </p>
+      <p>
+        Two situations justify spending more. If you will keep the mower beyond a handful of seasons, a <a href="/brands/flymo/">Flymo</a> or <a href="/brands/bosch/">Bosch</a> is better built and far easier to keep in blades and batteries. And if you are buying cordless, the battery platform is the real purchase: see our <a href="/best-battery-powered-lawn-mower-reviews-uk/">best battery lawn mower guide</a> for why the open platforms win over a mower's lifetime. For a lighter machine specifically, our <a href="/cordless-lawn-mowers/lightweight/">lightweight mower guide</a> ranks the easiest mowers to push, lift and store.
+      </p>
+
+      <h2 id="related">Related guides</h2>
+      <ul>
+        <li><a href="/brands/qualcast/">Qualcast lawn mowers (the other Argos name)</a></li>
+        <li><a href="/brands/spear-jackson/">Spear &amp; Jackson lawn mowers</a></li>
+        <li><a href="/brands/mac-allister/">Mac Allister lawn mowers (B&amp;Q equivalent)</a></li>
+        <li><a href="/electric-lawn-mowers/">Best corded electric lawn mowers</a></li>
+      </ul>
+    </div>
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

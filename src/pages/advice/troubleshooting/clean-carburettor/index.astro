@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
+import FAQ from '../../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, howToSchema } from '../../../../lib/schema';
+
+const title = 'How to Clean a Clogged Lawn Mower Carburettor (2026 Guide)';
+const description = 'Step-by-step guide to cleaning a clogged lawn mower carburettor: symptoms, carb cleaner spray, removing the bowl, clearing the jet and preventing stale fuel problems.';
+const path = '/advice/troubleshooting/clean-carburettor/';
+const datePublished = '2026-07-07';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Advice', url: '/advice/' },
+  { name: 'Troubleshooting', url: '/advice/troubleshooting/' },
+  { name: 'Clean a carburettor', url: path },
+];
+
+const faqs = [
+  {
+    q: 'Can I clean a lawn mower carburettor without removing it?',
+    a: 'Often, yes. Remove the air filter, spray carburettor cleaner into the intake while the engine runs (or just before starting), and let the solvent work through the fuel circuit. This clears light varnish deposits. If the mower still starts and dies, the main jet is likely blocked and the carb bowl needs to come off.',
+  },
+  {
+    q: 'What are the symptoms of a clogged carburettor?',
+    a: 'The classic signs are an engine that will not start despite fresh fuel and a good spark plug, an engine that starts then dies after a few seconds, rough or surging running, and black smoke from running too rich. If the mower sat over winter with fuel in the tank, the carburettor is the first suspect.',
+  },
+  {
+    q: 'How does petrol go stale in a mower?',
+    a: 'Petrol starts to degrade within about 30 days as the lighter compounds evaporate, leaving a sticky varnish that coats jets and passages. UK E10 petrol also absorbs moisture over time, which can corrode the carb bowl and separate in the fuel. Fuel left in the tank over winter is the most common cause of a clogged carburettor.',
+  },
+  {
+    q: 'What can I use instead of carburettor cleaner?',
+    a: 'Purpose-made carburettor cleaner is the right tool because it dissolves fuel varnish quickly and evaporates without residue. In a pinch, fresh petrol can flush loose debris, but it will not shift baked-on varnish. Avoid wire brushes or drill bits on jets - the brass is soft and an enlarged jet ruins the fuel mixture.',
+  },
+  {
+    q: 'When should I replace the carburettor instead of cleaning it?',
+    a: 'If cleaning does not cure the problem, if the bowl or jets are corroded from water in the fuel, or if the diaphragm and gaskets have hardened, fit a service kit or a complete replacement carburettor. Pattern carbs for common Briggs & Stratton, Honda and Mountfield engines are inexpensive, and a new carb is often quicker than a second strip-down.',
+  },
+  {
+    q: 'How do I stop the carburettor clogging again?',
+    a: 'Add a fuel stabiliser to every can of petrol, buy fuel in small quantities so it stays fresh, and before winter storage either drain the tank and run the carb dry or fill up with stabilised fuel. Stale fuel causes the vast majority of carb problems, so fresh fuel is the whole prevention plan.',
+  },
+];
+
+const howToSteps = [
+  { name: 'Make the mower safe', text: 'Turn the fuel tap off, pull the spark plug lead off and let the engine cool completely before touching the carburettor.' },
+  { name: 'Try carb cleaner through the intake', text: 'Remove the air filter and spray carburettor cleaner into the intake, then attempt to start the engine so the solvent is drawn through the fuel circuit.' },
+  { name: 'Remove the air filter housing and carb bowl', text: 'Unscrew the air filter housing for access, place a container under the carburettor and undo the bowl nut to drop the float bowl.' },
+  { name: 'Clean the jet and bowl', text: 'Clear the main jet with carburettor cleaner and a strand of soft wire, wipe varnish out of the bowl and spray cleaner through every visible passage.' },
+  { name: 'Reassemble and test', text: 'Refit the bowl with its gasket seated, refit the air filter and spark plug lead, add fresh fuel and test start the mower.' },
+  { name: 'Prevent it recurring', text: 'Use fuel stabiliser, keep petrol fresh and drain the tank or run the carburettor dry before winter storage.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  howToSchema({ name: 'How to clean a clogged lawn mower carburettor', description: 'Safely clean a clogged lawn mower carburettor, from a quick carb cleaner flush to a full bowl and jet clean.', steps: howToSteps }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Troubleshooting · Updated July 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">How to Clean a Clogged Lawn Mower Carburettor</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        To clean a clogged mower carburettor: make the engine safe, try carb cleaner spray through the intake first, and if that fails, drop the float bowl and clear the main jet with cleaner and soft wire. Here is the full job, step by step.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>Safety first</h2>
+      <p>
+        Before you touch anything, do three things. Turn the fuel tap off (or clamp the fuel line if there is no tap). Pull the spark plug lead off so the engine cannot fire while your fingers are near it. Let the engine cool completely - carb cleaner is flammable and a hot exhaust will ignite it. Work outdoors or in a well-ventilated shed, and keep a rag under the carburettor because some petrol will escape when the bowl comes off.
+      </p>
+
+      <h2>Symptoms of a clogged carburettor</h2>
+      <ul>
+        <li><strong>Won't start at all</strong> - fresh fuel and a good spark plug, but no life. Blocked main jet means no fuel reaches the cylinder</li>
+        <li><strong>Starts then dies</strong> - the priming charge burns off, then the partially blocked jet cannot keep up. This is the single most common carb symptom</li>
+        <li><strong>Rough, surging or hunting running</strong> - the engine revs up and down as it alternates between too lean and just enough fuel</li>
+        <li><strong>Black smoke and a smell of petrol</strong> - a stuck float or blocked air passage is making the mixture too rich</li>
+      </ul>
+      <p>
+        If your problem is different - the mower cuts unevenly, vibrates or the battery drains fast - start with our general <a href="/advice/troubleshooting/" class="text-grass-700 underline">mower troubleshooting guide</a> instead.
+      </p>
+
+      <h2>The usual cause: stale fuel</h2>
+      <p>
+        Nine times out of ten, a clogged carburettor is a fuel problem, not a mechanical one. Petrol starts to degrade within about 30 days of leaving the pump. The lighter, most combustible compounds evaporate first, and what remains slowly turns into a sticky varnish that coats the jet and the tiny passages inside the carb. UK E10 petrol makes this worse because the 10% ethanol content absorbs moisture from the air, which can separate in the tank and corrode the brass parts of the carburettor.
+      </p>
+      <p>
+        The classic scenario: the mower goes into the shed in October with half a tank of fuel, and in March it refuses to start. If that sounds familiar, the fix below will almost certainly work.
+      </p>
+
+      <h2>Method 1: cleaning without removal</h2>
+      <p>
+        Worth trying first because it takes five minutes and often clears light varnish deposits.
+      </p>
+      <ol>
+        <li>Drain the old fuel from the tank and refill with fresh petrol</li>
+        <li>Remove the air filter cover and take the filter out (check it while you are there - a clogged filter causes similar symptoms)</li>
+        <li>Spray carburettor cleaner directly into the intake throat behind the filter</li>
+        <li>Try to start the engine. If it fires, keep it running and give the intake another short burst of cleaner so the solvent works through the fuel circuit</li>
+        <li>Let it run for a few minutes, then refit the air filter</li>
+      </ol>
+      <p>
+        If the engine now runs cleanly, you are done. If it still starts and dies or will not fire at all, the main jet is properly blocked and the bowl needs to come off.
+      </p>
+
+      <h2>Method 2: the full clean</h2>
+      <ol>
+        <li><strong>Remove the air filter housing.</strong> Usually two or three screws. This gives you clear access to the carburettor</li>
+        <li><strong>Drop the float bowl.</strong> Place a container underneath, then undo the single nut or bolt at the bottom of the bowl. Petrol will run out - that is normal. On many engines the bowl nut itself contains the main jet, so inspect it closely</li>
+        <li><strong>Clean the jet.</strong> Spray carburettor cleaner through the jet and push a single strand of soft copper wire (a strand from an old electrical flex works) through the hole. Never use steel wire or a drill bit - the brass is soft and an enlarged jet will make the engine run rich forever</li>
+        <li><strong>Clean the bowl.</strong> Wipe out any varnish, water droplets or debris. If you see white or green corrosion, water has been sitting in there</li>
+        <li><strong>Spray every passage.</strong> Work carb cleaner through each visible hole in the carb body, including the small pilot jet passages near the throttle</li>
+        <li><strong>Reassemble.</strong> Refit the bowl with its rubber gasket seated properly (a pinched gasket leaks fuel), refit the air filter, reconnect the spark plug lead, add fresh fuel and test</li>
+      </ol>
+
+      <h2>When to fit a service kit or a new carburettor</h2>
+      <p>
+        Standard workshop practice is to stop cleaning and start replacing when the bowl or jets show corrosion from water contamination, when the gaskets and diaphragm have gone hard, or when a second clean still does not cure the symptoms. A carb service kit (gaskets, needle, seat) covers worn soft parts. For common engines fitted to UK mowers - Briggs &amp; Stratton, Honda GCV, and the Loncin units on many Mountfields - a complete pattern carburettor is inexpensive and often quicker than a second strip-down. This is routine ownership territory for <a href="/petrol-lawn-mowers/" class="text-grass-700 underline">petrol lawn mowers</a>; if annual carb attention does not appeal, an <a href="/electric-lawn-mowers/" class="text-grass-700 underline">electric mower</a> has no carburettor to clog.
+      </p>
+
+      <h2>Prevention: never do this job again</h2>
+      <ul>
+        <li><strong>Use fuel stabiliser</strong> - a capful in every fuel can keeps petrol usable for many months instead of weeks</li>
+        <li><strong>Buy fuel little and often</strong> - a 5 litre can you refill monthly beats a 20 litre can that goes stale</li>
+        <li><strong>Prepare for winter properly</strong> - either drain the tank and run the engine until the carb is dry, or store it with a full tank of stabilised fuel. Our <a href="/advice/lawn-care-calendar/" class="text-grass-700 underline">lawn care calendar</a> covers when to shut the mower down for the season</li>
+        <li><strong>Consider super unleaded</strong> - E5 fuel contains less ethanol than E10 and stores slightly better, though stabiliser matters more than the grade</li>
+      </ul>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

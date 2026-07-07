@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
+import FAQ from '../../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../../lib/schema';
+
+const title = 'What Time Can You Legally Mow Your Lawn in the UK? (2026)';
+const description = 'There is no UK law setting mowing hours, but noise rules still apply. We explain the Environmental Protection Act, council guidance and weekend etiquette.';
+const path = '/advice/safety-legal/what-time-legally-mow-lawn/';
+const datePublished = '2026-07-07';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Advice', url: '/advice/' },
+  { name: 'Safety & legal', url: '/advice/safety-legal/' },
+  { name: 'Mowing times', url: path },
+];
+
+const faqs = [
+  {
+    q: 'Is there a law against mowing early in the morning?',
+    a: 'No specific law sets mowing hours in the UK. However, the Environmental Protection Act 1990 lets councils act against noise that amounts to a statutory nuisance - noise that is persistent, unreasonable and substantially interferes with a neighbour\'s enjoyment of their home. A one-off early mow is very unlikely to qualify, but mowing at 6 AM every day could.',
+  },
+  {
+    q: 'Can I mow my lawn on a Sunday in the UK?',
+    a: 'Yes. There is no law banning Sunday mowing. Many councils suggest waiting until mid-morning on Sundays and bank holidays as a courtesy, commonly 9 or 10 AM, though the exact suggestion varies by council. Check your local council\'s website for its noise guidance.',
+  },
+  {
+    q: 'What time do council workers start cutting grass?',
+    a: 'It varies by council and contractor, but grounds maintenance teams typically work standard daytime hours, often starting around 7:30-8 AM on weekdays. Commercial operators are subject to the same statutory nuisance rules as everyone else, but daytime weekday work is almost never treated as a nuisance. If council mowing is genuinely disruptive, contact the council\'s grounds maintenance or environmental health department.',
+  },
+  {
+    q: 'What can I do about a neighbour who mows very early or late?',
+    a: 'Start with a friendly conversation - most people simply haven\'t thought about it. If it continues and is genuinely persistent and unreasonable, keep a diary of dates and times, then report it to your council\'s environmental health team, who can investigate it as a potential statutory nuisance under the Environmental Protection Act 1990.',
+  },
+  {
+    q: 'Are cordless mowers quiet enough to mow early without bothering anyone?',
+    a: 'They are much quieter than petrol - typically around 75-85 dB at the operator versus 90-100 dB for petrol - and the sound is a hum rather than an engine roar. That said, quieter does not mean silent, so the same courtesy hours still apply. A cordless mower at 8 AM is far less likely to annoy anyone than a petrol mower at the same time.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Legal Guide · Updated July 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">What Time Can You Legally Mow Your Lawn in the UK?</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Short answer: there is no UK law that sets specific mowing hours. You can legally mow at any time - but persistent, unreasonable noise can become a statutory nuisance, and most councils suggest sticking to daytime hours as a courtesy.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>The short answer</h2>
+      <p>
+        No law says "you may not mow before 8 AM" or "no mowing on Sundays". Mowing your own lawn is legal at any hour. What the law does regulate is noise nuisance: if your mowing is loud, persistent and unreasonable enough to substantially interfere with a neighbour's enjoyment of their home, the council can step in. In practice, mowing during normal daytime hours will never get you into trouble. The grey area is very early mornings, late evenings, and repeated antisocial timing.
+      </p>
+
+      <h2>What the law actually says</h2>
+      <p>
+        The relevant legislation is the <strong>Environmental Protection Act 1990</strong>. Under it, local councils have a duty to investigate complaints about noise that may amount to a statutory nuisance. For noise to qualify, it generally needs to be more than a one-off - councils look at how loud it is, how long it goes on, how often it happens, and the time of day.
+      </p>
+      <p>
+        A single Saturday morning mow, even an early one, is extremely unlikely to be treated as a statutory nuisance. Someone running a petrol mower at 6 AM every morning, or strimming at 10 PM several nights a week, is a different matter. If a council decides noise is a statutory nuisance, it can serve an abatement notice, and ignoring that notice is an offence that can lead to a fine.
+      </p>
+      <p>
+        One common misconception: the Noise Act 1996 night-time rules (11 PM to 7 AM) apply to noise from dwellings such as loud music and parties, and councils use them mainly for that. Garden machinery complaints are normally handled under the Environmental Protection Act route instead.
+      </p>
+
+      <h2>What councils recommend</h2>
+      <p>
+        Many UK councils publish courtesy guidance on garden noise. This guidance is advice, not law - but it is a good indication of what environmental health teams consider reasonable. Commonly suggested windows look like this:
+      </p>
+      <ul>
+        <li><strong>Weekdays:</strong> not before 8 AM, finished by around 8 PM</li>
+        <li><strong>Saturdays:</strong> not before 9 AM</li>
+        <li><strong>Sundays and bank holidays:</strong> not before 9 or 10 AM, and finishing earlier in the evening</li>
+      </ul>
+      <p>
+        The exact suggestions genuinely vary from council to council - some are more relaxed, some suggest later Sunday starts - so check your own council's website for its noise or "being a good neighbour" guidance. Search your council name plus "garden noise" and you will usually find it.
+      </p>
+      <p>
+        Two other things can set stricter rules than the council does. <strong>Tenancy agreements</strong> often include quiet hours or reasonable-behaviour clauses, and breaching them repeatedly can put your tenancy at risk. <strong>Private estates and leasehold developments</strong> sometimes set their own quiet hours in the deeds or management rules. If you rent or live on a managed estate, those documents are worth a look.
+      </p>
+
+      <h2>Weekends, Sundays and bank holidays</h2>
+      <p>
+        Sunday mowing is legal everywhere in the UK. There is a persistent myth that Sunday mowing is banned - it is not, and never has been. What is true is that expectations are different: neighbours who tolerate a 8 AM weekday mow may be far less forgiving at 8 AM on a Sunday. Councils reflect this in their guidance, typically suggesting a later start on Sundays and bank holidays.
+      </p>
+      <p>
+        A sensible rule of thumb for staying on good terms: weekdays from 8 AM, Saturdays from 9 AM, Sundays and bank holidays from 10 AM, and stop by early evening every day. If your neighbours have a baby, work nights, or have mentioned noise before, adjust accordingly - the law is the floor, not the target.
+      </p>
+
+      <h2>What about council workers and commercial contractors?</h2>
+      <p>
+        A common question is what time council grounds teams are allowed to start cutting grass. There is no special exemption - commercial operators are covered by the same statutory nuisance framework - but daytime weekday work is almost never unreasonable in law. In practice, grounds maintenance crews tend to work standard daytime hours, and contract terms often specify working windows. If council mowing outside your home is genuinely disruptive at unsociable hours, contact the council's grounds maintenance department directly; persistent problems can also go to environmental health.
+      </p>
+
+      <h2>Dealing with a noisy mowing neighbour</h2>
+      <p>
+        If a neighbour's mowing habits are driving you up the wall, escalate gently:
+      </p>
+      <ul>
+        <li><strong>Talk to them first.</strong> Most early mowers have simply never thought about it, and a friendly word solves the majority of cases.</li>
+        <li><strong>Keep a record.</strong> If it continues, note dates, times and durations. Councils want evidence of a pattern, not a single incident.</li>
+        <li><strong>Report to environmental health.</strong> Your council can investigate a potential statutory nuisance and, in serious cases, serve an abatement notice.</li>
+        <li><strong>Mediation.</strong> Some councils offer neighbour mediation services, which resolve disputes without formal action.</li>
+      </ul>
+
+      <h2>Want to mow earlier? Go quieter</h2>
+      <p>
+        The easiest way to widen your acceptable mowing window is to reduce the noise you make. Petrol mowers are the loudest option by a wide margin, typically producing 90-100 dB at the operator. <a href="/electric-lawn-mowers/">Cordless and electric mowers</a> usually sit around 75-85 dB - the difference between an engine roar that carries several gardens away and a hum that mostly stays in yours. If you regularly need to mow at the edges of the courtesy windows, a cordless model is the neighbourly choice; if you are set on petrol, our <a href="/petrol-lawn-mowers/">petrol mower guide</a> notes which models run quieter than average.
+      </p>
+      <p>
+        A sharp blade helps too - a dull blade makes the motor or engine work harder and louder. See our guide to <a href="/advice/maintenance/sharpen-blade/">sharpening mower blades</a>.
+      </p>
+
+      <h2>Related guides</h2>
+      <ul>
+        <li><a href="/advice/safety-legal/">Mower safety and UK legal guide</a></li>
+        <li><a href="/advice/safety-legal/can-drive-riding-road/">Can you drive a ride-on mower on UK roads?</a></li>
+      </ul>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

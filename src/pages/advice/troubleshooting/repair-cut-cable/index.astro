@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
+import FAQ from '../../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, howToSchema } from '../../../../lib/schema';
+
+const title = 'Mowed Through the Cable? How to Repair a Cut Lawn Mower Cable Safely (2026)';
+const description = 'Cut through your lawn mower cable? Unplug it first, then repair it properly with an outdoor-rated inline connector or a full flex replacement. Never just tape it.';
+const path = '/advice/troubleshooting/repair-cut-cable/';
+const datePublished = '2026-07-07';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Advice', url: '/advice/' },
+  { name: 'Troubleshooting', url: '/advice/troubleshooting/' },
+  { name: 'Repair a cut cable', url: path },
+];
+
+const faqs = [
+  {
+    q: 'Can I just tape up a cut lawn mower cable?',
+    a: 'No. Insulating tape does not restore the mechanical strength or moisture protection of the cable, and outdoors that matters: rain, dew and flexing will find the joint. A taped repair can work loose, let water in and leave exposed conductors at mower height. Use a proper weatherproof inline cable connector rated for outdoor flex, or replace the whole cable.',
+  },
+  {
+    q: 'Is it safe to keep using a mower after cutting the cable?',
+    a: 'Not until the cable is properly repaired or replaced. Even if the mower still runs on the undamaged length, a partially cut or nicked cable can have damaged insulation you cannot see. Unplug it, inspect the full length, and fix or replace before the next mow.',
+  },
+  {
+    q: 'What is an RCD and do I really need one for mowing?',
+    a: 'An RCD (residual current device) cuts the power in milliseconds when it detects current leaking to earth, which is exactly what happens when a blade meets a live cable. Modern UK consumer units protect socket circuits with RCDs, but if yours is older, a plug-in RCD adapter costs little and is the single most important safety item for any corded garden tool.',
+  },
+  {
+    q: 'Should I repair the cable or replace the whole flex?',
+    a: 'If the cut is near either end, shortening the cable and refitting it to the plug or the mower terminal (or having an electrician do it) gives you a joint-free cable, which is the best outcome. If the cut is mid-length and you need the reach, a weatherproof inline connector is acceptable. If the cable has more than one repair in it already, replace the flex: joints multiply weak points.',
+  },
+  {
+    q: 'Can an electric mower cable be replaced at home?',
+    a: 'On many corded mowers the flex is connected inside a terminal housing with screw terminals, and a like-for-like replacement flex of the correct rating is a job a confident DIYer can do with the mower unplugged. If the cable is moulded in, or you are unsure of the wiring, use a service agent or electrician. Our guide to finding one is linked below.',
+  },
+  {
+    q: 'Would a cordless mower solve this for good?',
+    a: 'Yes, and cut cables are one of the most common reasons UK gardeners switch. No cable means no cable strikes, no extension leads and no RCD worries. Battery mowers now handle most garden sizes; see our best battery lawn mower guide for current picks.',
+  },
+];
+
+const steps = [
+  { name: 'Switch off and unplug', text: 'Switch off at the socket and unplug the mower before touching anything. If the RCD tripped, leave it off until the cable is repaired.' },
+  { name: 'Inspect the damage', text: 'Check the full cable length, not just the obvious cut. Look for nicks, exposed cores and crush damage near the wheels.' },
+  { name: 'Choose the repair', text: 'Cut near an end: shorten the cable and rewire the plug or terminal. Cut mid-length: fit a weatherproof inline cable connector rated for outdoor flex. Never tape the cores together.' },
+  { name: 'Make the joint properly', text: 'Strip the cores cleanly, secure them in the connector terminals, clamp both cable sheaths so no strain reaches the cores, and close the housing fully.' },
+  { name: 'Test with an RCD in circuit', text: 'Plug in through an RCD, switch on briefly and check the mower runs normally. If the RCD trips again, stop and replace the cable or consult a professional.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  howToSchema({ name: 'How to repair a cut lawn mower cable', description: 'Safe repair of a mower flex cut during mowing, using an outdoor-rated inline connector or full replacement.', steps }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Troubleshooting · Updated July 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Mowed Through the Cable? Here's How to Repair It Safely</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        First things first: switch off at the wall and unplug before you touch anything. Then repair the cable properly, with a weatherproof inline connector or a full flex replacement. Tape is not a repair.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>The immediate steps</h2>
+      <p>
+        Running the blade over the cable is the classic corded mower accident, and the first minute matters more than the repair. Switch off at the socket and pull the plug before going anywhere near the cut. If your circuit or adapter has an RCD, it should already have tripped, that is the device doing its job. Do not reset it and carry on: a cut cable is out of service until it is fixed.
+      </p>
+      <p>
+        Then look at the whole cable, not just the cut. A blade strike often nicks the insulation either side of the obvious damage, and a cable that has been dragged taut against a blade can be crushed internally. Any section with exposed cores or damaged outer sheath needs to be inside the repair, or the cable needs replacing.
+      </p>
+
+      <h2>The right way to repair it</h2>
+      <p>
+        There is a clear hierarchy here, and it is worth getting right because this joint will live outdoors in wet grass.
+      </p>
+      <ul>
+        <li><strong>Best: a joint-free cable.</strong> If the cut is near the plug end or the mower end, shorten the flex and rewire it into the plug or the mower's terminal housing. No joint, no weak point. If the flex is moulded in or you are not confident, a service agent or electrician can fit a replacement flex.</li>
+        <li><strong>Acceptable: a weatherproof inline connector.</strong> If you need the full length, use a purpose-made inline cable connector rated for outdoor flexible cable. These clamp both sheaths, keep strain off the cores and seal against moisture. DIY stores and Screwfix-type outlets stock them for a few pounds.</li>
+        <li><strong>Never: insulating tape.</strong> A taped twist joint has no mechanical strength, no strain relief and no moisture seal. Outdoors, at ankle height, behind a spinning blade, that is a shock and fire risk, not a repair.</li>
+      </ul>
+
+      <h2>Always mow through an RCD</h2>
+      <p>
+        The reason most cable strikes end with a tripped switch rather than an injury is the RCD. It detects current leaking out of the circuit, through a blade, or a person, and disconnects in milliseconds. Newer UK consumer units protect socket circuits by default; if your house is older or you are not sure, a plug-in RCD adapter is cheap insurance and takes two seconds to fit. Treat it as part of the mower.
+      </p>
+
+      <h2>Stopping it happening again</h2>
+      <ul>
+        <li><strong>Work away from the socket</strong>, mowing in rows that move the cable behind you rather than across your path.</li>
+        <li><strong>Keep the cable over your shoulder</strong> on the side away from the deck, the old groundsman's habit that works.</li>
+        <li><strong>Use a high-visibility cable.</strong> Replacement flex in bright orange or yellow is far easier to track in long grass than black.</li>
+        <li><strong>Check the cable before each mow</strong>, a ten-second look for nicks saves the repair kit coming out again.</li>
+      </ul>
+
+      <h2>Or retire the cable altogether</h2>
+      <p>
+        If this is your second or third strike, it may be the mower telling you something. Cordless mowers have closed the gap on corded power and removed the cable problem entirely, which is why they now dominate UK sales for small and medium gardens. Start with our <a href="/best-battery-powered-lawn-mower-reviews-uk/">best battery lawn mower guide</a> or browse <a href="/cordless-lawn-mowers/">cordless mowers by need</a>. If the repair has you weighing up a service instead, here is <a href="/advice/maintenance/lawn-mower-repairs-near-me/">how to find a lawn mower repair shop near you</a>.
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

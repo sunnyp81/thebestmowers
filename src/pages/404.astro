@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Page Not Found - The Best Mowers UK';
+const description = 'That page has moved or no longer exists. Start from our mower categories, brand guides or advice hub.';
+---
+<BaseLayout {title} {description} noindex={true}>
+  <article class="max-w-4xl mx-auto px-4 py-16 text-center">
+    <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">404</p>
+    <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">This page has moved or no longer exists</h1>
+    <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+      We rebuilt the site in 2026 and some older addresses were retired. The guides below cover everything we publish.
+    </p>
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 text-left">
+      <a href="/best-battery-powered-lawn-mower-reviews-uk/" class="block rounded-xl border border-slate-200 p-5 hover:border-grass-700 transition-colors"><strong class="text-soil-900">Best battery lawn mowers</strong><span class="block mt-1 text-sm text-slate-600">Our flagship cordless guide for UK gardens</span></a>
+      <a href="/cordless-lawn-mowers/" class="block rounded-xl border border-slate-200 p-5 hover:border-grass-700 transition-colors"><strong class="text-soil-900">Cordless lawn mowers</strong><span class="block mt-1 text-sm text-slate-600">Rollers, small gardens, self-propelled and more</span></a>
+      <a href="/petrol-lawn-mowers/" class="block rounded-xl border border-slate-200 p-5 hover:border-grass-700 transition-colors"><strong class="text-soil-900">Petrol lawn mowers</strong><span class="block mt-1 text-sm text-slate-600">Self-propelled and rear-roller petrol picks</span></a>
+      <a href="/ride-on-lawn-mowers/" class="block rounded-xl border border-slate-200 p-5 hover:border-grass-700 transition-colors"><strong class="text-soil-900">Ride-on mowers</strong><span class="block mt-1 text-sm text-slate-600">Lawn tractors and ride-ons compared</span></a>
+      <a href="/brands/" class="block rounded-xl border border-slate-200 p-5 hover:border-grass-700 transition-colors"><strong class="text-soil-900">Brand guides</strong><span class="block mt-1 text-sm text-slate-600">Bosch, Gtech, Flymo, Hyundai and more</span></a>
+      <a href="/advice/" class="block rounded-xl border border-slate-200 p-5 hover:border-grass-700 transition-colors"><strong class="text-soil-900">Advice hub</strong><span class="block mt-1 text-sm text-slate-600">Maintenance, troubleshooting and legal guides</span></a>
+    </div>
+    <p class="mt-10 text-slate-600">Or head back to the <a href="/" class="text-grass-700 font-semibold underline">homepage</a>.</p>
+  </article>
+</BaseLayout>

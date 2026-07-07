@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
+import FAQ from '../../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../../lib/schema';
+
+const title = 'UK Grass Cutting Height Chart: The Right Mowing Height (2026)';
+const description = 'How short should you cut your grass? UK height chart for utility, ornamental and shaded lawns, plus the one-third rule and month-by-month adjustments.';
+const path = '/advice/maintenance/grass-cutting-height-chart/';
+const datePublished = '2026-07-07';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Advice', url: '/advice/' },
+  { name: 'Maintenance', url: '/advice/maintenance/' },
+  { name: 'Cutting height chart', url: path },
+];
+
+const faqs = [
+  {
+    q: 'What is the best height to cut grass in the UK?',
+    a: 'For a general family lawn, 25-40 mm through the main growing season is the standard recommendation. Fine ornamental lawns can go shorter at 12-25 mm, while shaded areas do better at 40-50 mm. Whatever the target, never remove more than a third of the blade length in a single cut.',
+  },
+  {
+    q: 'What is the one-third rule for mowing?',
+    a: 'Never cut off more than one third of the grass blade in one pass. Removing more than that stresses the plant, weakens the roots and leaves the lawn prone to yellowing, weeds and moss. If the grass has grown long, bring it down over two or three cuts a few days apart rather than scalping it in one go.',
+  },
+  {
+    q: 'Should I cut grass shorter in summer or longer?',
+    a: 'Longer, especially in dry spells. Raising the cutting height in hot, dry weather shades the soil, reduces moisture loss and keeps the roots cooler. Cutting short in a drought is one of the fastest ways to turn a lawn brown. Drop back to your normal height once regular rain returns.',
+  },
+  {
+    q: 'What height should the first cut of spring be?',
+    a: 'Set the mower to its highest setting for the first cut of the year, usually in March once growth restarts. The grass is recovering from winter and a light topping is all it needs. Lower the height gradually over the following few weeks as growth speeds up.',
+  },
+  {
+    q: 'How short should the last cut before winter be?',
+    a: 'Slightly higher than your summer height - around 40 mm for a utility lawn is a common recommendation. Leaving it a touch longer going into winter protects the crown of the plant from frost and wear, while cutting it very short leaves it vulnerable. The final cut usually falls in late October or November depending on how mild the autumn is.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Maintenance Guide · Updated July 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">UK Grass Cutting Height Chart: The Right Mowing Height</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        For most UK lawns the answer is 25-40 mm in summer, longer in shade and drought, and never removing more than a third of the blade in one cut. Here is the full chart and how to adjust it through the year.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>The height chart</h2>
+      <p>
+        These figures reflect standard UK horticultural guidance (the kind the RHS and professional groundskeepers work to). Match the row to your lawn type, not to your neighbour's:
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Lawn type / situation</th>
+            <th>Recommended cutting height</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>General utility lawn (family lawn)</td>
+            <td>25-40 mm in summer</td>
+            <td>The right range for most UK gardens - hard-wearing and healthy</td>
+          </tr>
+          <tr>
+            <td>Fine ornamental lawn</td>
+            <td>12-25 mm</td>
+            <td>Only for fine fescue/bent lawns cut frequently - scalps ordinary rye lawns</td>
+          </tr>
+          <tr>
+            <td>Shaded areas</td>
+            <td>40-50 mm</td>
+            <td>Longer blades capture more light where sun is limited</td>
+          </tr>
+          <tr>
+            <td>Drought / hot dry spells</td>
+            <td>Raise height (add roughly 10-20 mm)</td>
+            <td>Longer grass shades the soil and holds moisture</td>
+          </tr>
+          <tr>
+            <td>First cut of spring</td>
+            <td>Highest setting</td>
+            <td>A light topping only, then lower gradually over following weeks</td>
+          </tr>
+          <tr>
+            <td>Final cut of autumn</td>
+            <td>Slightly higher than summer (around 40 mm)</td>
+            <td>Extra length protects the grass through winter</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>The golden rule: never cut more than a third</h2>
+      <p>
+        Whatever height you are aiming for, never remove more than one third of the grass blade in a single cut. Grass stores energy in its leaves; take too much at once and the plant diverts everything into regrowing leaf at the expense of its roots. The result is a shallow-rooted, stressed lawn that yellows in dry weather and lets weeds and moss move in.
+      </p>
+      <p>
+        So if your lawn has got away from you and stands at 90 mm, do not drop the mower to 30 mm and hack it down in one pass. Cut to 60 mm, wait three or four days, then cut again to 40 mm, and again if needed. It takes a week longer and the lawn will thank you for it.
+      </p>
+
+      <h2>Why height matters</h2>
+      <p>
+        Cutting height is the single biggest lever you have over lawn health, and it works in both directions:
+      </p>
+      <ul>
+        <li><strong>Too short:</strong> weak roots, moss, weeds, brown patches in summer, and a lawn that wears badly. Scalping is the most common lawn mistake in the UK.</li>
+        <li><strong>Too long:</strong> a soft, thatchy lawn that stays damp, invites fungal problems and looks untidy - though "too long" is far less damaging than "too short".</li>
+        <li><strong>Just right:</strong> dense growth that crowds out weeds, deeper roots, and better drought resistance.</li>
+      </ul>
+      <p>
+        Height only does its job if the blade is actually cutting rather than tearing. A dull blade shreds the grass tips, which then brown and let disease in. See our guide to <a href="/advice/maintenance/sharpen-blade/">sharpening your mower blade</a> - once a year is the minimum.
+      </p>
+
+      <h2>Adjusting through the year</h2>
+      <p>
+        UK grass growth follows the temperature, so your cutting height and frequency should track the seasons rather than the calendar page:
+      </p>
+      <ul>
+        <li><strong>March:</strong> first cut on the highest setting once growth restarts. Light topping only.</li>
+        <li><strong>April:</strong> growth accelerates. Lower the height step by step towards your summer target, mowing weekly.</li>
+        <li><strong>May to June:</strong> peak growth. Hold your summer height (25-40 mm for a utility lawn) and mow weekly, or twice weekly on a fine lawn.</li>
+        <li><strong>July to August:</strong> watch the weather. In a dry spell, raise the height and mow less often; the lawn needs its length. Return to normal once rain resumes.</li>
+        <li><strong>September:</strong> growth picks up again after summer. Back to regular weekly mowing at summer height.</li>
+        <li><strong>October to November:</strong> raise the height slightly and stretch the interval as growth slows. The final cut, slightly higher than summer, usually lands in late October or November.</li>
+        <li><strong>December to February:</strong> mostly no mowing. In a mild winter a very light, high topping on a dry day is fine if the grass keeps growing - never mow frosted or waterlogged grass.</li>
+      </ul>
+      <p>
+        For the full month-by-month routine including feeding, scarifying and aeration, see our <a href="/advice/lawn-care-calendar/">UK lawn care calendar</a>.
+      </p>
+
+      <h2>Setting the height on your mower</h2>
+      <p>
+        Most rotary mowers adjust in steps rather than exact millimetres, usually via a single lever that moves all four wheels. Manufacturers label the settings differently, so check your manual for what each notch means in millimetres - the middle settings on most UK mowers correspond roughly to the 25-40 mm utility range. Cylinder mowers, common on fine lawns, adjust lower and more precisely. If your mower's lowest setting is 25 mm or more, that is deliberate: most rotary machines are not designed to cut ornamental-lawn short, and forcing it just scalps the high spots.
+      </p>
+      <p>
+        If you are choosing a new machine, height range is worth checking before you buy - our guides to <a href="/electric-lawn-mowers/">cordless and electric mowers</a> and <a href="/petrol-lawn-mowers/">petrol mowers</a> list the cutting height ranges for each model.
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import PickCard from '../../../components/PickCard.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../../lib/schema';
+import { amazonSearch } from '../../../lib/affiliate';
+
+const title = 'Spear & Jackson Lawn Mowers UK: Range Reviewed (2026)';
+const description = 'Independent look at Spear & Jackson lawn mowers: Sheffield heritage tool name, budget corded and cordless mowers sold under licence. What they are good for and what to buy instead.';
+const path = '/brands/spear-jackson/';
+const datePublished = '2026-07-07';
+
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Brands', url: '/brands/' }, { name: 'Spear & Jackson', url: path }];
+
+const picks = [
+  {
+    rank: 1, name: 'Spear & Jackson 34cm Corded Rotary Mower',
+    brand: 'Spear & Jackson', bestFor: 'small lawns on a tight budget',
+    rating: 3.9, rrp: 'around £70-£100',
+    reviewUrl: '/electric-lawn-mowers/',
+    affiliateUrl: amazonSearch('Spear and Jackson corded lawn mower'),
+    pros: ['Cheap and widely available at Argos', 'Light and simple for small lawns', 'Trusted heritage name on the box'],
+    cons: ['Budget build comparable to other own-brand mowers', 'Small grass box and basic height adjustment', 'Spares and support via the retailer, not a dealer network'],
+    verdict: 'A typical budget corded rotary: fine for a small, regularly cut lawn where price is the deciding factor. Owner reviews on retailer sites rate them much like Qualcast and McGregor equivalents, decent value, no frills. If you can stretch £30-£50 more, a Flymo or Bosch gives you a noticeably nicer machine.',
+  },
+  {
+    rank: 2, name: 'Spear & Jackson 37cm Cordless Mower',
+    brand: 'Spear & Jackson', bestFor: 'cable-free mowing at entry-level money',
+    rating: 3.8, rrp: 'around £150-£200',
+    reviewUrl: '/cordless-lawn-mowers/',
+    affiliateUrl: amazonSearch('Spear and Jackson cordless lawn mower'),
+    pros: ['Entry-level cordless price', 'Adequate for small lawns cut little and often', 'Battery kit shared across some S&J garden tools'],
+    cons: ['Battery platform is closed compared with Bosch 18V or WORX PowerShare', 'Runtime claims are optimistic on longer grass'],
+    verdict: 'Gets you off the cable for less than the big cordless names. The compromise is the battery ecosystem: Bosch, WORX and Einhell packs work across a whole family of tools and are easy to replace years later, which is worth a lot over a mower\'s life. As a first cordless mower for a small lawn it does the job.',
+  },
+];
+
+const faqs = [
+  { q: 'Are Spear & Jackson lawn mowers any good?', a: 'They are honest budget mowers. The Spear & Jackson name is one of Sheffield\'s oldest tool brands, best known for spades, forks, saws and cutting tools. The lawn mowers are licensed budget corded electric and cordless machines sold mainly through Argos and similar UK retailers, built to a price and comparable to Qualcast and McGregor tier own-brand mowers rather than to Bosch or Honda.' },
+  { q: 'Who makes Spear & Jackson lawn mowers?', a: 'The mowers are made under licence for the UK retail market rather than in the historic Sheffield works, which today is associated with the hand tool ranges. Treat the mowers as retail budget kit carrying a heritage badge: the name signals the brand\'s tool history, not that the mower shares a factory with a Sheffield spade.' },
+  { q: 'Spear & Jackson vs Qualcast: which budget mower?', a: 'They sit in the same tier and are often sold by the same retailer. Build quality is comparable, so decide on the specific model: deck width, grass box size, weight and price on the day. Neither is a long-term buy in the way a Bosch or Flymo can be; both are fine for a small lawn on a budget.' },
+  { q: 'Where can I get spares for a Spear & Jackson mower?', a: 'Through the retailer you bought it from in the first instance, and blades or common parts are often listed on Amazon and eBay. There is no dealer service network like Honda or Stihl have, which is part of how the price stays low. For anything beyond a blade swap, weigh the repair cost against replacement carefully.' },
+  { q: 'Is the Spear & Jackson hand tool heritage relevant to the mowers?', a: 'Only as branding. The company\'s reputation was built on Sheffield-made spades, saws and cutting tools dating back to the 1760s. The garden machinery carrying the name today is standard budget fare, decent for the money, but buy it on the spec sheet, not the history.' },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+  itemListSchema({ name: 'Best Spear & Jackson lawn mowers 2026', url: path, items: picks.map((p, i) => ({ position: i + 1, name: p.name, url: p.reviewUrl })) }),
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Brand guide · Updated July 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Spear &amp; Jackson Lawn Mowers</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Spear &amp; Jackson is one of Sheffield's great tool names, with a history in spades, saws and cutting tools reaching back to the 1760s. The lawn mowers sold under the name today are a different proposition: licensed budget corded and cordless machines, sold mainly through Argos and similar UK retailers, competing with Qualcast and McGregor rather than with Bosch. Bought with that understanding, they are perfectly reasonable value.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>The name vs the machine</h2>
+      <p>
+        The heritage is real, it just belongs to the hand tools. Spear &amp; Jackson's reputation was forged, literally, in Sheffield steel: spades, forks, saws and pruning tools that are still respected today. Garden machinery carrying the name is made under licence for the UK retail market, built to hit entry-level price points. That is not a criticism, it is how most budget garden machinery works, Qualcast (Argos) and Mac Allister (B&amp;Q) follow the same playbook. It just means you should buy the mower on its spec sheet and price, not its badge.
+      </p>
+
+      <h2>What the range looks like</h2>
+      <p>
+        The line-up changes season to season, but it typically spans small corded rotary mowers around the £70-£100 mark, entry-level cordless models in the £150-£250 band, and hand cylinder mowers alongside trimmers and other garden tools on the same battery family. Deck widths sit in the 32-40 cm range, aimed squarely at small and medium UK lawns. Availability is strongest at Argos, with Amazon listings coming and going.
+      </p>
+
+      <h2 id="best">Best Spear &amp; Jackson mowers</h2>
+      <div class="space-y-6 mt-6">{picks.map((p) => <PickCard {...p} />)}</div>
+
+      <h2>Who should buy one, honestly</h2>
+      <p>
+        A Spear &amp; Jackson mower makes sense in the same situations as any retailer budget mower: a small lawn, a tight budget, and a preference for picking the machine up today rather than researching battery platforms. Owner feedback on retailer sites reflects that reality, most buyers are satisfied at the price, and the recurring complaints are the budget-mower usuals: small grass boxes, plasticky build, optimistic cordless runtime.
+      </p>
+      <p>
+        Where we would steer you elsewhere: if you plan to keep the mower five years or more, the step up to a <a href="/brands/bosch/">Bosch</a> or <a href="/brands/flymo/">Flymo</a> buys better build and an easier spares situation. And if you are going cordless, an open battery platform matters more than the mower itself, see our <a href="/best-battery-powered-lawn-mower-reviews-uk/">best battery mower guide</a> for the platforms we rate.
+      </p>
+
+      <h2 id="related">Related guides</h2>
+      <ul>
+        <li><a href="/brands/qualcast/">Qualcast lawn mowers (same budget tier)</a></li>
+        <li><a href="/brands/mcgregor/">McGregor lawn mowers (Argos own-brand)</a></li>
+        <li><a href="/electric-lawn-mowers/">Best corded electric lawn mowers</a></li>
+      </ul>
+    </div>
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

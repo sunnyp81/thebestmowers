@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
+import FAQ from '../../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../../lib/schema';
+
+const title = 'Flymo Warranty and Guarantee Registration UK: How It Works (2026)';
+const description = 'Register your Flymo guarantee at flymo.com with the model number, serial number and proof of purchase. What the warranty covers, what it excludes, and your rights.';
+const path = '/advice/safety-legal/flymo-warranty-registration/';
+const datePublished = '2026-07-07';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Advice', url: '/advice/' },
+  { name: 'Safety & legal', url: '/advice/safety-legal/' },
+  { name: 'Flymo warranty', url: path },
+];
+
+const faqs = [
+  {
+    q: 'Where do I register my Flymo guarantee?',
+    a: 'On the official Flymo website, flymo.com, under the guarantee or product registration section. Registration is free. You will need your model number, serial number, purchase date and retailer. Keep your receipt: registration supports a claim but proof of purchase is what validates it.',
+  },
+  {
+    q: 'How long is the Flymo warranty?',
+    a: 'It varies by product and by promotion, and Flymo has offered extended guarantees on registration for some ranges. Rather than rely on a number you read elsewhere, check the guarantee stated on your product page or manual at flymo.com, that figure is the one that applies to your mower.',
+  },
+  {
+    q: 'Do blades and batteries have the same cover?',
+    a: 'Usually not in full. Wear items such as blades, and consumable parts, are commonly excluded from the main guarantee or covered for a shorter period, and batteries often carry their own separate cover term. The exact split is stated in the guarantee conditions for your model.',
+  },
+  {
+    q: 'What will void a Flymo warranty claim?',
+    a: 'The usual exclusions apply: damage from misuse or neglect, unauthorised repairs or non-genuine parts, commercial use of a domestic machine, and normal wear. Blade strikes on stones or kerbs are typically classed as accidental damage rather than a fault.',
+  },
+  {
+    q: 'What if the retailer refuses to help and points me to Flymo?',
+    a: 'Your statutory rights under the Consumer Rights Act 2015 are against the retailer who sold you the mower, not the manufacturer, and they exist regardless of any guarantee. If a mower develops a fault within six months of purchase, the law presumes the fault was present at sale unless the retailer proves otherwise. The manufacturer guarantee is an extra route, not a replacement for those rights.',
+  },
+  {
+    q: 'I have lost my receipt. Can I still claim?',
+    a: 'It is harder but not always hopeless. A bank or card statement showing the purchase, or an online order confirmation, is often accepted as proof of purchase. If you registered the guarantee at flymo.com when you bought the mower, that record helps establish the purchase date too.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Consumer Guide · Updated July 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Flymo Warranty and Guarantee Registration</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Short answer: register at the official Flymo website, <a href="https://www.flymo.com/" rel="noopener" target="_blank">flymo.com</a>, with your model number, serial number and proof of purchase. Here is what the guarantee gives you, what it excludes, and the consumer rights that apply on top.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>How to register your Flymo guarantee</h2>
+      <p>
+        Flymo handles guarantee registration through its own website rather than through retailers, so wherever you bought the mower, the process is the same. Go to <a href="https://www.flymo.com/" rel="noopener" target="_blank">flymo.com</a> and find the product or guarantee registration section. Have these to hand:
+      </p>
+      <ul>
+        <li><strong>Model number</strong>, on the box, the manual and the rating label on the machine.</li>
+        <li><strong>Serial number</strong>, on the rating label, usually on the deck or body of the mower.</li>
+        <li><strong>Purchase date and retailer</strong>, from your receipt or order confirmation.</li>
+        <li><strong>Proof of purchase</strong>, keep the receipt itself, registration alone does not replace it.</li>
+      </ul>
+      <p>
+        Register soon after buying. Where Flymo runs extended-guarantee offers, they are typically conditional on registering within a set window of the purchase date, and the exact terms are stated on the product page for your model.
+      </p>
+
+      <h2>What the guarantee typically covers</h2>
+      <p>
+        A manufacturer guarantee covers faults in materials and workmanship in normal domestic use. In practice that means a motor that fails, a switch that stops working or a structural part that breaks in ordinary mowing. It does not mean everything that can go wrong with a mower:
+      </p>
+      <ul>
+        <li><strong>Wear parts</strong> such as blades are usually excluded or covered only briefly.</li>
+        <li><strong>Batteries</strong> on cordless models often carry their own separate term.</li>
+        <li><strong>Accidental damage</strong>, stone strikes, kerb strikes, running over the cable, is not a warranty matter.</li>
+        <li><strong>Misuse and neglect</strong>, including unauthorised repairs and non-genuine parts, void cover.</li>
+        <li><strong>Commercial use</strong> of a domestic machine is excluded.</li>
+      </ul>
+      <p>
+        Warranty lengths differ across the Flymo range and change with promotions, so treat any fixed number you read on a forum with caution and check the guarantee conditions for your specific model at flymo.com.
+      </p>
+
+      <h2>Your legal rights sit on top</h2>
+      <p>
+        Whatever the guarantee says, the Consumer Rights Act 2015 gives you statutory rights against the retailer who sold you the mower. Goods must be of satisfactory quality, fit for purpose and as described. Within 30 days of purchase you can reject a faulty mower for a full refund; within six months, a fault is presumed to have been present at sale unless the retailer shows otherwise. These rights do not expire when a guarantee does, and a retailer cannot wave you off to the manufacturer to avoid them.
+      </p>
+
+      <h2>Making a claim that succeeds</h2>
+      <ul>
+        <li>Contact whichever route applies: the retailer for statutory rights, Flymo or an authorised service agent for guarantee claims.</li>
+        <li>Have the model number, serial number and proof of purchase ready before you call.</li>
+        <li>Describe the fault plainly and when it started, and say if it appeared in normal use.</li>
+        <li>Do not open up or attempt repairs on the mower first, unauthorised work is the easiest way to lose cover.</li>
+      </ul>
+
+      <h2>While you are here: is the Flymo still the right mower?</h2>
+      <p>
+        If the guarantee claim is the last straw rather than the first hiccup, it may be worth weighing a repair against an upgrade. Our <a href="/brands/flymo/">Flymo brand guide</a> covers the current range honestly, hover mowers remain the brand's real strength, and our <a href="/hover-lawn-mowers/">hover mower guide</a> compares them with wheeled alternatives. For out-of-warranty repairs, here is <a href="/advice/maintenance/lawn-mower-repairs-near-me/">how to find a repair shop near you</a>.
+      </p>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

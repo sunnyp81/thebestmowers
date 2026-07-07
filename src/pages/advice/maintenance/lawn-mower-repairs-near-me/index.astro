@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
+import FAQ from '../../../../components/FAQ.astro';
+import { articleSchema, breadcrumbSchema, faqSchema } from '../../../../lib/schema';
+
+const title = 'Lawn Mower Repairs Near Me: How to Find a UK Repair Shop (2026)';
+const description = 'Where to get a lawn mower repaired in the UK: independent dealers, brand-authorised agents, mobile services, and when to repair versus replace.';
+const path = '/advice/maintenance/lawn-mower-repairs-near-me/';
+const datePublished = '2026-07-07';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Advice', url: '/advice/' },
+  { name: 'Maintenance', url: '/advice/maintenance/' },
+  { name: 'Repairs near me', url: path },
+];
+
+const faqs = [
+  {
+    q: 'Who repairs lawn mowers in my area?',
+    a: 'The best starting points are independent garden machinery dealers (search "garden machinery" plus your town), your mower brand\'s official dealer locator for authorised service agents, and mobile mower repair services that come to you. Some hardware and tool hire shops also take in mowers or can recommend a local engineer.',
+  },
+  {
+    q: 'Is it worth repairing an old lawn mower?',
+    a: 'Usually yes for petrol mowers, which are mechanically simple and long-lived - a service or a common part like a carburettor clean, pull cord or blade is typically much cheaper than a new machine. It is less often worth it for budget electric mowers, where a motor or major electrical fault can cost a large share of the replacement price. Get a quote before deciding, and ask the shop for an honest repair-versus-replace opinion.',
+  },
+  {
+    q: 'Can I repair a lawn mower myself if it is under warranty?',
+    a: 'Opening up or modifying a mower yourself can void the warranty, and warranty repairs normally must be carried out by a brand-authorised service agent. If your mower is still under warranty, check the terms first and go through the manufacturer\'s official repair network rather than an independent shop or DIY.',
+  },
+  {
+    q: 'Do mobile lawn mower repair services exist in the UK?',
+    a: 'Yes. Many areas have mobile mower engineers who service and repair machines at your home, which saves lugging a heavy petrol mower into a car. They are often listed on Google Maps, Facebook local groups and directories like Checkatrade. Expect a call-out element in the price, and check reviews as you would with any trade.',
+  },
+  {
+    q: 'What should I try before paying for a repair?',
+    a: 'Run through the basics first: fresh fuel (petrol older than about 30 days causes many "won\'t start" problems), a clean or new spark plug, a clean air filter, a charged battery and clean contacts on cordless models, and a deck cleared of compacted grass. A large share of mower faults are one of these. Our troubleshooting guide walks through the common failures step by step.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished }),
+  faqSchema(faqs),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} schema={schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Maintenance Guide · Updated July 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Lawn Mower Repairs Near Me: How to Find a UK Repair Shop</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        The quickest route to a local mower repair is an independent garden machinery dealer or your brand's authorised service agent - found via the manufacturer's dealer locator. Here is where to look, how to choose, and when a repair is worth it.
+      </p>
+    </header>
+
+    <div class="prose-mowers">
+      <h2>Where to look</h2>
+      <p>
+        There is no single national chain for mower repairs in the UK, so the trade is local by nature. Four places cover almost every option:
+      </p>
+      <ul>
+        <li><strong>Independent garden machinery dealers.</strong> Every sizeable town has at least one - the workshops that sell and service mowers, strimmers and chainsaws. Search "garden machinery" or "mower repairs" plus your town, or check Google Maps. These shops handle most brands, stock common parts, and are usually the best value for out-of-warranty work.</li>
+        <li><strong>Brand-authorised service agents.</strong> Every major manufacturer (Honda, Hayter, Mountfield, Stihl, Husqvarna, Bosch, Flymo and the rest) runs a network of approved repairers, findable through the dealer or service locator on the brand's website. This is the required route for warranty repairs and the safest one for newer or premium machines.</li>
+        <li><strong>Mobile mower repair services.</strong> Engineers who come to you - genuinely useful for ride-ons and heavy petrol mowers that will not fit in the car. Look on Google Maps, local Facebook groups and trade directories, and check recent reviews.</li>
+        <li><strong>Hardware and tool hire shops.</strong> Some take mowers in for repair or sharpen blades, and even those that do not can usually point you at the local engineer everyone uses. Worth asking in rural areas with no dedicated dealer.</li>
+      </ul>
+
+      <h2>Check your warranty first</h2>
+      <p>
+        Before booking anything, check whether the mower is still under warranty. Most new mowers carry two to five years' cover depending on the brand and whether you registered the machine after purchase. Two things matter here:
+      </p>
+      <ul>
+        <li>Warranty repairs normally <strong>must go through an authorised service agent</strong> - taking a mower under warranty to an independent shop, or opening it up yourself, can void the cover.</li>
+        <li>Warranties typically cover manufacturing faults, not wear items (blades, cables, pull cords) or damage from neglect such as stale fuel. The service agent will assess which side of the line your fault falls on.</li>
+      </ul>
+      <p>
+        Dig out the receipt and check the brand's website for its warranty process; most ask you to contact the retailer or an authorised agent rather than the manufacturer directly.
+      </p>
+
+      <h2>How to choose a repair shop</h2>
+      <ul>
+        <li><strong>Ask for an estimate before work starts</strong>, and whether there is a diagnosis or inspection fee if you decide not to proceed.</li>
+        <li><strong>Check they handle your type of mower.</strong> Petrol specialists are common; not all of them work on cordless mowers, robot mowers or mains-electric machines, where faults are electrical rather than mechanical.</li>
+        <li><strong>Ask about turnaround.</strong> In April and May every workshop in the country is buried in pre-season services - a repair that takes days in winter can take weeks in spring. If you can, book servicing in autumn or winter.</li>
+        <li><strong>Look for parts access.</strong> Dealers tied to your brand can get genuine parts quickly; a shop that has to order pattern parts from a third party may take longer.</li>
+        <li><strong>Read recent reviews</strong> on Google Maps rather than relying on the website. A pattern of comments about communication and pricing tells you more than a star rating.</li>
+      </ul>
+
+      <h2>Repair or replace?</h2>
+      <p>
+        The honest answer depends on what the mower is worth and what has failed, but the broad logic is consistent:
+      </p>
+      <ul>
+        <li><strong>Petrol mowers usually justify repair.</strong> The engines are simple and parts are plentiful. A basic annual service is often far cheaper than replacing a mid-range mower, and common faults - stale fuel, a gummed carburettor, a worn spark plug, a snapped pull cord - are all routine, inexpensive fixes.</li>
+        <li><strong>Budget electric and cordless mowers are more marginal.</strong> If the motor or the electronics fail on a cheap machine, the repair can approach the cost of a new one. Batteries are the exception: a replacement battery is a normal purchase, not a repair, though on budget brands it can still be a significant fraction of a whole new mower.</li>
+        <li><strong>Structural damage tips the balance towards replacing.</strong> A cracked deck or a bent crankshaft (usually from striking something solid) is rarely economic to fix on a domestic machine.</li>
+      </ul>
+      <p>
+        A decent repair shop will tell you straight when a machine is not worth fixing - it is a fair question to ask up front. If you do end up replacing, our guides to <a href="/petrol-lawn-mowers/">petrol mowers</a> and <a href="/ride-on-lawn-mowers/">ride-on mowers</a> cover the current options.
+      </p>
+
+      <h2>Try the DIY basics first</h2>
+      <p>
+        A large share of "broken" mowers brought into workshops have nothing seriously wrong with them. Before paying for a repair, work through the basics:
+      </p>
+      <ul>
+        <li><strong>Fresh fuel.</strong> Petrol degrades within weeks; last season's fuel is the single most common cause of a mower that will not start or runs rough.</li>
+        <li><strong>Spark plug.</strong> Remove it, check for fouling, clean or replace - it is a cheap part and a five-minute job.</li>
+        <li><strong>Air filter.</strong> A clogged filter starves the engine. Clean foam filters, replace paper ones.</li>
+        <li><strong>Battery and contacts</strong> on cordless models - fully charge the battery and check the contacts are clean and the battery seats properly.</li>
+        <li><strong>Deck and blade.</strong> Compacted grass under the deck causes stalling and poor cutting, and a blunt blade mimics several "faults". See our guide to <a href="/advice/maintenance/sharpen-blade/">sharpening the blade</a>.</li>
+      </ul>
+      <p>
+        Our <a href="/advice/troubleshooting/">troubleshooting guide</a> works through the common failure patterns - won't start, cuts out, poor cut, excessive vibration - in order, so you know whether you are looking at a DIY fix or a workshop job before you pick up the phone.
+      </p>
+
+      <h2>Related guides</h2>
+      <ul>
+        <li><a href="/advice/maintenance/">Lawn mower maintenance guide</a></li>
+        <li><a href="/advice/troubleshooting/">Common mower problems and fixes</a></li>
+      </ul>
+    </div>
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>

@@ -7,7 +7,7 @@
 /how-remove-moss-tarmac/ /advice/maintenance/ 301
 /cobra-petrol-review/ /brands/cobra/ 301
 /john-deere-riding/ /ride-on-lawn-mowers/ 301
-/spear-jackson-review/ /electric-lawn-mowers/ 301
+/spear-jackson-review/ /brands/spear-jackson/ 301
 /flymo-hovervac-250-review/ /reviews/flymo-hovervac-250-review/ 301
 /garden-shredders/ / 301
 /ryobi-cordless-review/ /brands/ryobi/ 301
@@ -47,7 +47,7 @@
 /al-ko-review/ /petrol-lawn-mowers/ 301
 /rear-roller-petrol-reviews/ /cordless-lawn-mowers/with-roller/ 301
 /corded-electric/ /electric-lawn-mowers/ 301
-/mcgregor-review/ /brands/ego/ 301
+/mcgregor-review/ /brands/mcgregor/ 301
 /sharpen-blades-without-removing/ /advice/maintenance/sharpen-blade/ 301
 /fix-flooded/ /advice/troubleshooting/ 301
 /makita-dlm431z-review/ /brands/makita/ 301
@@ -57,11 +57,11 @@
 /whats-auto-choke/ / 301
 /increase-rpm/ / 301
 /storage-ideas-riding/ /ride-on-lawn-mowers/ 301
-/gtech-clm50-review/ /brands/gtech/ 301
+/gtech-clm50-review/ /reviews/gtech-clm50/ 301
 /female/ / 301
 /mcculloch-gbv-325-vs-345/ /petrol-lawn-mowers/ 301
 /electric-left-in-rain/ /electric-lawn-mowers/ 301
-/lightweight-for-elderly/ / 301
+/lightweight-for-elderly/ /cordless-lawn-mowers/lightweight/ 301
 /how-much-fuel-per-hour/ /petrol-lawn-mowers/ 301
 /category/types/ /brands/ego/ 301
 /wolf/ / 301
@@ -79,7 +79,7 @@
 /gas/ / 301
 /flymo-ultraglide-review/ /reviews/flymo-ultraglide-review/ 301
 /category/maintenance/ /brands/ego/ 301
-/how-repair-cut-cable/ / 301
+/how-repair-cut-cable/ /advice/troubleshooting/repair-cut-cable/ 301
 /electric/ /electric-lawn-mowers/ 301
 /webb-lawn-mower-review/ /best-battery-powered-lawn-mower-reviews-uk/ 301
 /blades-universal/ / 301
@@ -158,7 +158,7 @@
 /mcculloch-gbv-325-vs-345/page/8/?expand_article=1 /petrol-lawn-mowers/ 301
 /robot-lawn-reviews/ /robot-lawn-mowers/ 301
 /engines-4-cycle/ / 301
-/what-time-legally-mow-lawn/ / 301
+/what-time-legally-mow-lawn/ /advice/safety-legal/what-time-legally-mow-lawn/ 301
 /automatic/ / 301
 /do-need-license-drive/ / 301
 /ride-on/page/14/ /ride-on-lawn-mowers/ 301
@@ -170,7 +170,7 @@
 /can-explode/ / 301
 /poulan-pro/page/14/ / 301
 /bad-backs/ / 301
-/how-clean-clogged-carburetor/ / 301
+/how-clean-clogged-carburetor/ /advice/troubleshooting/clean-carburettor/ 301
 /best-electric-lawn-mower-large-garden/ /electric-lawn-mowers/ 301
 /battery-under-200/ /best-battery-powered-lawn-mower-reviews-uk/ 301
 /get-flooded/ /advice/troubleshooting/ 301
@@ -191,7 +191,7 @@
 /manual-cylinder/page/2/ / 301
 /have-alternators/ / 301
 /leaf-blower-vacuum/ / 301
-/spear-jackson-review/page/14/ /electric-lawn-mowers/ 301
+/spear-jackson-review/page/14/ /brands/spear-jackson/ 301
 /do-need-circuit-breaker-lawn/ / 301
 /what-recycler-lawn/ / 301
 /ryobi-cordless-review/page/14/ /brands/ryobi/ 301
@@ -272,7 +272,7 @@
 /how-when-blades-need-replacing/ / 301
 /al-ko-review/page/12/ /petrol-lawn-mowers/ 301
 /leaf-blower-vacuum/page/13/ / 301
-/spear-jackson-review/page/12/ /electric-lawn-mowers/ 301
+/spear-jackson-review/page/12/ /brands/spear-jackson/ 301
 /ego-lawn-review/page/7/ /brands/ego/ 301
 /which-way-tilt-lawn/ / 301
 /ryobi-cordless-review/page/8/ /brands/ryobi/ 301
@@ -328,3 +328,13 @@
 /buying-guide/ /buying-guide/cordless-vs-petrol-vs-electric/ 301
 /compare/ /compare/cordless-vs-petrol/ 301
 /battery-for-small-yard/ /cordless-lawn-mowers/small-gardens/ 301
+
+# New pages for legacy Bing earners (2026-07-07)
+/grass-cutting-height-chart-uk-find-it-here/ /advice/maintenance/grass-cutting-height-chart/ 301
+/flymo-warranty/ /advice/safety-legal/flymo-warranty-registration/ 301
+/who-repairs-lawn-mowers-in-my-area/ /advice/maintenance/lawn-mower-repairs-near-me/ 301
+/index.php / 301
+
+# Generic legacy WordPress cleanup (keep LAST - dynamic rules, first static match wins)
+/tag/* / 301
+/:slug/page/* /:slug/ 301

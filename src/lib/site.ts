@@ -26,5 +26,5 @@ export const POWER_TYPE_HUBS = [
 export const BRAND_HUBS = [
   'ryobi','bosch','gtech','husqvarna','flymo','stihl','makita','dewalt',
   'worx','einhell','mountfield','stiga','cobra','hyundai','mac-allister','qualcast',
-  'greenworks','ego'
+  'greenworks','ego','mcgregor','spear-jackson'
 ] as const;

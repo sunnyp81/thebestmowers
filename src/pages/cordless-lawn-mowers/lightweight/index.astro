@@ -1,0 +1,274 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import PickCard from '../../../components/PickCard.astro';
+import Disclosure from '../../../components/Disclosure.astro';
+import HowWeResearch from '../../../components/HowWeResearch.astro';
+import EmailCapture from '../../../components/EmailCapture.astro';
+import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../../lib/schema';
+import { amazonSearch, AFFILIATE_REL } from '../../../lib/affiliate';
+
+const title = 'Best Lightweight Lawn Mowers UK 2026: Easy to Push, Lift and Store';
+const description = 'The lightest lawn mowers you can buy in the UK, from around 6.6 kg. Easy to push, lift and store, with picks for older gardeners and anyone with reduced strength.';
+const path = '/cordless-lawn-mowers/lightweight/';
+const datePublished = '2026-07-07';
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Cordless lawn mowers', url: '/cordless-lawn-mowers/' },
+  { name: 'Lightweight', url: path },
+];
+
+const heroImage = '/images/cordless_lawn_mower_convenience-1.webp';
+
+const picks = [
+  {
+    rank: 1, name: 'Bosch CityMower 18V-32',
+    brand: 'Bosch', bestFor: 'best lightweight mower overall',
+    rating: 4.6, rrp: '£150-£190',
+    reviewUrl: '/reviews/bosch-rotak-32-review/',
+    affiliateUrl: amazonSearch('Bosch CityMower 18V-32 lawn mower'),
+    image: '/images/bosch_lawnmower_review_details.webp',
+    pros: ['Around 8-9 kg (manufacturer spec) - genuinely carry it one-handed', 'Push-button start, no pull cord, no cable to drag', '32 cm deck folds flat for shed or cupboard storage'],
+    cons: ['31 L grass box needs emptying more often', 'Single 18V battery, so not for lawns much past 200 m²'],
+    verdict: 'The best all-round lightweight mower on this page. At around 8-9 kg it is light enough to lift over a step one-handed, it starts with a button rather than a pull cord, and there is no cable to trip over. The 32 cm deck is the right size for a small lawn, it folds flat against a wall, and the 18V Power for All battery shares with Bosch strimmers and hedge trimmers. If you want the least physical effort per mow from a cordless machine, start here.',
+  },
+  {
+    rank: 2, name: 'Flymo Hovervac 250',
+    brand: 'Flymo', bestFor: 'lightest to push - it floats',
+    rating: 4.5, rrp: '£90-£110',
+    reviewUrl: '/reviews/flymo-hovervac-250-review/',
+    affiliateUrl: amazonSearch('Flymo Hovervac 250 hover mower'),
+    image: '/images/electric_hover_lawn_mower-1.webp',
+    pros: ['Around 6.6 kg (manufacturer spec) - the lightest mower here', 'Floats on a cushion of air, so pushing takes almost no effort', 'Includes a 20 L grass collection bag, unusual for a hover'],
+    cons: ['Corded, so you manage a cable', 'No stripes and a rougher finish than a wheeled mower'],
+    verdict: 'Nothing is easier to move across a lawn than a hover mower, because you are not really pushing it at all: the blade and fan create a cushion of air and the mower glides side to side. At around 6.6 kg the Hovervac 250 is also the lightest machine on this page to lift and hang on a shed wall. The trade-offs are the cable and a less tidy finish, but for anyone who finds a wheeled mower heavy going, a light hover is often the revelation.',
+  },
+  {
+    rank: 3, name: 'Flymo EasiStore 300R Li',
+    brand: 'Flymo', bestFor: 'light cordless with stripes and flat storage',
+    rating: 4.3, rrp: '£170-£220',
+    reviewUrl: '/brands/flymo/',
+    affiliateUrl: amazonSearch('Flymo EasiStore 300R Li cordless lawn mower'),
+    image: '/images/efficient_cutting_with_flymo.webp',
+    pros: ['Around 10 kg (manufacturer spec) with a 30 cm deck', 'Stores flat against a wall - the smallest footprint of any wheeled mower here', 'Rear roller for stripes without extra weight'],
+    cons: ['30 cm deck is slow on anything near 250 m²', 'Build feels plasticky next to Bosch and Gtech'],
+    verdict: 'The EasiStore is built around exactly the problems a lightweight buyer cares about: it is light, it folds and hangs flat against a wall, and the compact 30 cm deck steers easily in tight corners. It is also the cheapest way on this page to get a rear roller, so you keep stripes without stepping up to a heavier machine. Budget rather than premium in feel, but for a small lawn it does the job for less.',
+  },
+  {
+    rank: 4, name: 'Bosch Rotak 32 R (corded)',
+    brand: 'Bosch', bestFor: 'lightest budget option if a cable is fine',
+    rating: 4.4, rrp: '£90-£120',
+    reviewUrl: '/reviews/bosch-rotak-32-review/',
+    affiliateUrl: amazonSearch('Bosch Rotak 32 R electric lawn mower'),
+    pros: ['Around 7 kg (manufacturer spec) - properly light for a wheeled mower', 'No battery to charge or replace, just plug in and press', 'Typically the cheapest mower on this page'],
+    cons: ['The cable limits range and needs managing around borders', 'Small grass box fills quickly'],
+    verdict: 'If your lawn is near a power socket and you do not mind a cable, the Rotak 32 class is the lightest conventional wheeled mower you can buy for the money. At around 7 kg it is easy to lift onto a shelf or hook, there is no battery to keep charged, and it costs roughly half the price of the cordless picks here. The cable is the whole compromise: on a simple rectangular lawn it barely matters, on a garden full of beds and trees it gets annoying.',
+  },
+  {
+    rank: 5, name: 'Gtech CLM 2.0',
+    brand: 'Gtech', bestFor: 'lightest way to get a full-size 42 cm cut',
+    rating: 4.5, rrp: '£249-£299',
+    reviewUrl: '/reviews/gtech-clm50/',
+    affiliateUrl: amazonSearch('Gtech CLM 2.0 cordless lawn mower'),
+    image: '/images/compact_cordless_easy_storage.webp',
+    pros: ['Around 12 kg (manufacturer spec) - light for a 42 cm deck', 'Wide 42 cm cut means fewer passes, so less total pushing', '48V battery clicks out to charge indoors, 50 L grass box'],
+    cons: ['No rear roller on the CLM 2.0, so no stripes', 'Pricey next to supermarket own-brands'],
+    verdict: 'The Gtech is the pick if your lawn is a bit bigger and the smaller decks above would mean too many passes. At around 12 kg it is the heaviest mower on this page, but for a 42 cm deck that is genuinely light, and the wide cut cuts the number of laps you walk. The 48V battery clicks out to charge indoors and the 50 L box empties less often. Note the CLM 2.0 has no rear roller, so if stripes matter look at the Flymo EasiStore 300R instead.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What is the lightest lawn mower you can buy in the UK?',
+    a: 'Hover mowers are the lightest category: the Flymo Hovervac 250 is around 6.6 kg by manufacturer spec, and because it floats on a cushion of air it takes almost no effort to move. Among conventional wheeled mowers, small corded electrics like the Bosch Rotak 32 class come in around 7 kg, and the lightest cordless machines such as the Bosch CityMower 18V-32 are around 8-9 kg including the battery.',
+  },
+  {
+    q: 'What is the best lightweight lawn mower for elderly gardeners?',
+    a: 'For most older gardeners we would point to the Bosch CityMower 18V-32: around 8-9 kg, push-button start with no pull cord, no cable to manage, and it folds flat for storage. If pushing effort is the main concern rather than lifting, a light hover such as the Flymo Hovervac 250 glides with very little force. Avoid petrol altogether: petrol mowers typically weigh 22 kg or more and need a pull-cord start.',
+  },
+  {
+    q: 'Are lightweight lawn mowers powerful enough?',
+    a: 'For a regularly mown lawn under about 200-250 m², yes. Light mowers use smaller decks (30-34 cm) and modest motors, which is exactly right for a small lawn that is cut weekly. Where they struggle is long, wet or neglected grass, and lawns much over 300 m², where a wider, heavier machine finishes faster. Match the mower to the lawn: light mowers suit small, maintained lawns.',
+  },
+  {
+    q: 'Is a hover mower easier to push than a wheeled mower?',
+    a: 'Yes, noticeably. A hover mower rides on a cushion of air rather than wheels, so you swing it side to side with very little resistance, and it does not catch on lumps or dips. The trade-offs are that most hovers are corded, none of them leave stripes, and the cut is less precise on uneven ground. For steep banks and awkward lawns, a hover is often the only sensible lightweight option.',
+  },
+  {
+    q: 'How heavy is too heavy for a lawn mower?',
+    a: 'It depends on what you have to do with it. If the mower lives at lawn level and rolls out of a shed, weight matters less. If you have to carry it up steps, over a threshold or lift it onto a wall hook, aim for under 10 kg. As a rough guide from manufacturer specs: hovers and small corded mowers run 6-8 kg, light cordless 8-12 kg, mid-size cordless 13-18 kg, and petrol 22 kg and up.',
+  },
+  {
+    q: 'Do lightweight mowers leave stripes?',
+    a: 'Only if they have a rear roller. On this page the Flymo EasiStore 300R Li is the light option with a roller. The Bosch CityMower and Rotak run on wheels and cut cleanly without striping, hover mowers never stripe, and the Gtech CLM 2.0 has no roller either. If a striped finish matters, see our guide to <a href="/cordless-lawn-mowers/with-roller/">cordless mowers with a rear roller</a>.',
+  },
+];
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished, image: heroImage }),
+  faqSchema(faqs),
+  itemListSchema({
+    name: 'Best lightweight lawn mowers UK 2026',
+    url: path,
+    items: picks.map((p, i) => ({ position: i + 1, name: p.name, url: p.reviewUrl })),
+  }),
+].filter(Boolean);
+---
+<BaseLayout {title} {description} {schema} ogImage={heroImage}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">UK Buyer's Guide · Updated July 2026</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Best Lightweight Lawn Mowers UK 2026: Easy to Push, Lift and Store</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        The lightest lawn mowers in the UK weigh around 6.6-9 kg by manufacturer spec: light enough to carry one-handed, lift over a step and hang on a shed wall. The Bosch CityMower 18V-32 is our overall pick at around 8-9 kg with push-button cordless convenience, the Flymo Hovervac 250 is the easiest of all to push because it floats, and a corded Bosch Rotak 32 is the budget route at around 7 kg. This guide ranks the five lightest mowers worth buying and explains what actually makes a mower easy to live with beyond the number on the spec sheet.
+      </p>
+    </header>
+
+    <Disclosure />
+
+    <img
+      src={heroImage}
+      alt="Lightweight cordless lawn mower being pushed easily across a small UK lawn"
+      width="900" height="506"
+      class="w-full rounded-xl mb-10 object-cover"
+      loading="eager"
+    />
+
+    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-12">
+      <h2 class="text-xl font-bold text-soil-900 mb-3">Our top picks at a glance</h2>
+      <ul class="space-y-2 text-slate-800">
+        <li><strong>Best overall:</strong> <a href="/reviews/bosch-rotak-32-review/" class="text-grass-700 underline">Bosch CityMower 18V-32</a> - around 8-9 kg, no cord, no cable, folds flat</li>
+        <li><strong>Easiest to push:</strong> <a href="/reviews/flymo-hovervac-250-review/" class="text-grass-700 underline">Flymo Hovervac 250</a> - around 6.6 kg and it floats on air</li>
+        <li><strong>Best budget:</strong> <a href="/reviews/bosch-rotak-32-review/" class="text-grass-700 underline">Bosch Rotak 32 R</a> - around 7 kg corded, typically around £100</li>
+      </ul>
+    </aside>
+
+    <div class="prose-mowers">
+      <h2 id="why-weight">Why mower weight matters more than any other spec</h2>
+      <p>
+        Weight is the spec you feel every single week. A heavy mower is heavy when you drag it out of the shed, heavy on every turn around a flower bed, heavy over the back step, and heavy when you lift it away again. On a small lawn you might handle the mower thirty or forty times a season, and every one of those interactions is easier at 8 kg than at 20 kg.
+      </p>
+      <p>
+        It matters most in three situations. First, if you have to carry the mower anywhere: up steps, through a house, over a threshold, onto a wall hook. Second, if the person mowing is older, smaller, or has any back, shoulder, grip or joint trouble. Third, if the lawn has lots of tight turns, because turning a mower is where you feel its mass most. Manufacturer weight figures are a good guide, but check whether the quoted figure includes the battery on cordless models, as some spec sheets leave it out.
+      </p>
+
+      <h2 id="beyond-weight">What makes a mower easy to use beyond the number on the scales</h2>
+
+      <h3>Hover vs wheeled: floating changes everything</h3>
+      <p>
+        A hover mower has no wheels. The blade and a fan create a cushion of air that lifts the deck a few millimetres off the grass, so you swing it side to side with very little effort instead of pushing it forward. For sheer ease of movement nothing else comes close, which is why hovers are a strong choice for anyone who finds pushing hard work, and the default choice for banks and slopes. The costs: almost all hovers are corded, none of them stripe, and the finish is rougher than a wheeled cut.
+      </p>
+
+      <h3>Battery vs corded vs petrol</h3>
+      <p>
+        Petrol is the heavy option and it is not close: typical petrol mowers run 22-35 kg, need a pull-cord start, and want fuel, oil and an annual service. If lightness and ease matter to you, rule petrol out first. That leaves two sensible choices. Corded electric is the lightest and cheapest wheeled option (around 7-10 kg, typically £90-£200) but you manage a cable every mow. Cordless adds roughly 1-3 kg of battery and £80-£150 of price, and in exchange removes the cable entirely: press a button and walk. For most people buying on ease of use, cordless is worth the extra, but corded remains a perfectly good answer on a small lawn near a socket.
+      </p>
+
+      <h3>Starting: buttons beat pull cords</h3>
+      <p>
+        Every mower on this page starts with a button or a lever and switch. That sounds minor until you have watched someone struggle with a petrol recoil starter on a cold morning. If reduced strength or shoulder trouble is part of the picture, a push-button start is not a nice-to-have, it is the requirement that rules out petrol on its own.
+      </p>
+
+      <h3>Foldability and storage</h3>
+      <p>
+        A light mower you cannot store is still a nuisance. Look for handles that fold flat without tools and a body designed to stand on end or hang on a wall. The Flymo EasiStore range and the Bosch CityMower are both designed around this: they fold to a slim package and store vertically. If your only storage is a cupboard, a slim gap down the side of the house or a crowded shed, make fold-flat storage a hard requirement alongside weight.
+      </p>
+
+      <h2 id="picks">The best lightweight lawn mowers</h2>
+      <p>Five mowers ranked by lightness and ease of use, drawn from manufacturer specs, owner reviews and UK retail availability. Tap any pick for the full review.</p>
+
+      <div class="space-y-6 mt-6">
+        {picks.map((p) => <PickCard {...p} />)}
+      </div>
+
+      <h2 id="elderly">Lightweight mowers for older gardeners and anyone with reduced strength or mobility</h2>
+      <p>
+        A lot of people searching for a lightweight mower are really asking a more specific question: which mower will let me, or a parent, keep mowing comfortably and safely? The good news is that the answer is not a compromise product. The best lightweight mowers are simply well-designed machines that happen to demand very little strength.
+      </p>
+      <p>
+        Four things matter most. <strong>Easy starting:</strong> choose battery or corded electric so the mower starts with a button or a squeeze lever, never a pull cord. <strong>No cable if grip or balance is a concern:</strong> a trailing cable is a trip hazard as well as a chore, which is a real argument for cordless even on a tiny lawn. <strong>Light steering:</strong> a 30-32 cm deck turns with far less effort than a wide one, and a hover glides with almost none. <strong>One-handed lift:</strong> if the mower has to go over a step or onto a hook, keep it under about 10 kg so it can be lifted with one hand while the other holds a rail or door frame.
+      </p>
+      <p>
+        Our specific suggestions: the Bosch CityMower 18V-32 as the all-rounder (around 8-9 kg, button start, no cable, folds flat), and the Flymo Hovervac 250 where pushing effort is the main limitation, because floating a 6.6 kg hover across a lawn takes less strength than any wheeled mower. If budget is tight and the lawn is beside a socket, the corded Bosch Rotak 32 R keeps the weight at around 7 kg for around £100. It is also worth raising the cut height a notch: a slightly longer cut means the mower needs less pushing force and the grass box fills more slowly, so there is less lifting and emptying too.
+      </p>
+
+      <h2 id="weights">Lightweight mower weight comparison</h2>
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-sm border-collapse">
+          <thead class="bg-grass-50">
+            <tr>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Model</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Weight (manufacturer spec)</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Power</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Cut width</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Price band</th>
+              <th class="text-left p-3 border border-slate-200 font-semibold text-soil-900">Buy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/reviews/flymo-hovervac-250-review/" class="text-grass-700 underline">Flymo Hovervac 250</a></td>
+              <td class="p-3 border border-slate-200">Around 6.6 kg</td>
+              <td class="p-3 border border-slate-200">Corded hover</td>
+              <td class="p-3 border border-slate-200">25 cm</td>
+              <td class="p-3 border border-slate-200">£90-£110</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('Flymo Hovervac 250 hover mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/reviews/bosch-rotak-32-review/" class="text-grass-700 underline">Bosch Rotak 32 R</a></td>
+              <td class="p-3 border border-slate-200">Around 7 kg</td>
+              <td class="p-3 border border-slate-200">Corded</td>
+              <td class="p-3 border border-slate-200">32 cm</td>
+              <td class="p-3 border border-slate-200">£90-£120</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('Bosch Rotak 32 R electric lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/reviews/bosch-rotak-32-review/" class="text-grass-700 underline">Bosch CityMower 18V-32</a></td>
+              <td class="p-3 border border-slate-200">Around 8-9 kg</td>
+              <td class="p-3 border border-slate-200">18V cordless</td>
+              <td class="p-3 border border-slate-200">32 cm</td>
+              <td class="p-3 border border-slate-200">£150-£190</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('Bosch CityMower 18V-32 lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/brands/flymo/" class="text-grass-700 underline">Flymo EasiStore 300R Li</a></td>
+              <td class="p-3 border border-slate-200">Around 10 kg</td>
+              <td class="p-3 border border-slate-200">Cordless</td>
+              <td class="p-3 border border-slate-200">30 cm</td>
+              <td class="p-3 border border-slate-200">£170-£220</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('Flymo EasiStore 300R Li cordless lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+            <tr class="even:bg-slate-50">
+              <td class="p-3 border border-slate-200"><a href="/reviews/gtech-clm50/" class="text-grass-700 underline">Gtech CLM 2.0</a></td>
+              <td class="p-3 border border-slate-200">Around 12 kg</td>
+              <td class="p-3 border border-slate-200">48V cordless</td>
+              <td class="p-3 border border-slate-200">42 cm</td>
+              <td class="p-3 border border-slate-200">£249-£299</td>
+              <td class="p-3 border border-slate-200"><a href={amazonSearch('Gtech CLM 2.0 cordless lawn mower')} rel={AFFILIATE_REL} target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="text-xs text-slate-500 mt-2">Weights are manufacturer specs, not independent measurements; cordless figures may vary depending on battery fitted. Prices are typical UK bands, not live prices. For context, typical petrol mowers weigh around 22-35 kg.</p>
+      </div>
+
+      <h2 id="related">Related guides</h2>
+      <ul>
+        <li><a href="/cordless-lawn-mowers/small-gardens/">Best cordless mowers for small gardens</a></li>
+        <li><a href="/hover-lawn-mowers/">Best hover lawn mowers (banks and slopes)</a></li>
+        <li><a href="/electric-lawn-mowers/">Best corded electric lawn mowers</a></li>
+        <li><a href="/cordless-lawn-mowers/with-roller/">Cordless mowers with a rear roller (for stripes)</a></li>
+      </ul>
+    </div>
+
+    <EmailCapture />
+
+    <HowWeResearch />
+
+    <FAQ {faqs} />
+  </article>
+</BaseLayout>
