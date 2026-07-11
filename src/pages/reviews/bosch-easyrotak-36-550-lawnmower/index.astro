@@ -29,7 +29,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Bosch UniversalRotak 36-550', brand: 'Bosch', description, rating: 4.3, url: path, datePublished, dateModified: '2026-06-05', image: '/images/bosch_lawnmower_review_details.webp', priceLow: 290, priceHigh: 380, reviewBody: 'The best cordless mower for UK buyers already invested in Bosch Power for All. Big grass box, solid deck, genuine battery sharing across 100+ tools.' }),
+  productReviewSchema({ asin: 'B0BTZWQD49', name: 'Bosch UniversalRotak 36-550', brand: 'Bosch', description, rating: 4.3, url: path, datePublished, dateModified: '2026-06-05', image: '/images/bosch_lawnmower_review_details.webp', priceLow: 290, priceHigh: 380, reviewBody: 'The best cordless mower for UK buyers already invested in Bosch Power for All. Big grass box, solid deck, genuine battery sharing across 100+ tools.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -56,7 +56,7 @@ const schema = [
       <p class="text-slate-700 leading-relaxed">
         The Bosch UniversalRotak 36-550 is the cordless mower that makes most sense if you're already in the Bosch ecosystem. The 50L grass box is class-leading, the 37 cm deck handles medium lawns without fuss, and that Power for All battery slots straight into your drill, hedge trimmer, and pressure washer. It's not the lightest or the most refined - but it's the most versatile.
       </p>
-          <BuyCta name="Bosch UniversalRotak 36-550" rrp="£329" />
+          <BuyCta name="Bosch UniversalRotak 36-550" asin="B0BTZWQD49" rrp="£329" />
     </aside>
 
     <img src="/images/bosch_lawnmower_review_details.webp" alt="Bosch cordless lawn mower on a UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />

@@ -29,7 +29,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Mountfield Princess 34', brand: 'Mountfield', description, rating: 4.2, url: path, datePublished, dateModified: '2026-06-05', image: '/images/innovative_electric_roller_mower-1.webp', priceLow: 200, priceHigh: 300, reviewBody: 'The cheapest way to get proper lawn stripes. Rear roller, 34cm deck, corded electric - honest and effective for small UK gardens that want that bowling-green look.' }),
+  productReviewSchema({ asin: 'B08GKZXFMB', name: 'Mountfield Princess 34', brand: 'Mountfield', description, rating: 4.2, url: path, datePublished, dateModified: '2026-06-05', image: '/images/innovative_electric_roller_mower-1.webp', priceLow: 200, priceHigh: 300, reviewBody: 'The cheapest way to get proper lawn stripes. Rear roller, 34cm deck, corded electric - honest and effective for small UK gardens that want that bowling-green look.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -58,7 +58,7 @@ const schema = [
       <p class="text-slate-700 leading-relaxed">
         The Mountfield Princess 34 does one thing brilliantly: it produces proper lawn stripes at a price anyone can afford. The full-width rear roller creates the light/dark directional effect that makes a lawn look intentional. For £249, no other mower delivers this. You're compromising on cable management (corded), deck width (34 cm), and versatility (no mulching). But if stripes are what you care about on a small UK lawn, this is where you start.
       </p>
-          <BuyCta name="Mountfield Princess 34" rrp="£249" />
+          <BuyCta name="Mountfield Princess 34" asin="B08GKZXFMB" rrp="£249" />
     </aside>
 
     <div class="prose-mowers">

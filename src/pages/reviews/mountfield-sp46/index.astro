@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Mountfield SP46', brand: 'Mountfield', description, rating: 4.5, url: path, datePublished, dateModified: '2026-06-05', image: '/images/powerful_electric_lawn_mower.webp', priceLow: 290, priceHigh: 380, reviewBody: 'The default sub-£400 self-propelled petrol mower in the UK. Italian-built ST 140 engine, 46 cm steel deck, properly reliable.' }),
+  productReviewSchema({ asin: 'B08J86J92W', name: 'Mountfield SP46', brand: 'Mountfield', description, rating: 4.5, url: path, datePublished, dateModified: '2026-06-05', image: '/images/powerful_electric_lawn_mower.webp', priceLow: 290, priceHigh: 380, reviewBody: 'The default sub-£400 self-propelled petrol mower in the UK. Italian-built ST 140 engine, 46 cm steel deck, properly reliable.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -63,7 +63,7 @@ const schema = [
       <p class="text-slate-700 leading-relaxed">
         The default sub-£400 self-propelled petrol mower in the UK. The Mountfield ST 140 OHV engine is Italian-built and properly reliable; the 46 cm steel deck shrugs off the kind of damp Norfolk grass that smaller cordless mowers stall on. Single-speed drive is the only real cost-cutting compromise. For 600-800 m² of typical British lawn, this is the cheapest mower we recommend without a caveat.
       </p>
-          <BuyCta name="Mountfield SP46" rrp="£329" />
+          <BuyCta name="Mountfield SP46" asin="B08J86J92W" rrp="£329" />
     </aside>
 
     <div class="prose-mowers">

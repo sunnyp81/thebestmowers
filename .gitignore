@@ -1,3 +1,6 @@
+# build-time Amazon image cache (hotlink URLs stale after 24h, TOS)
+src/data/amazon-images.json
+
 # build output
 dist/
 # generated types

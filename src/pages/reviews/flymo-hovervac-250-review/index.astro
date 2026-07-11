@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Flymo HoverVac 250', brand: 'Flymo', description, rating: 3.9, url: path, datePublished, dateModified: '2026-06-05', image: '/images/electric_hover_lawn_mower-1.webp', priceLow: 70, priceHigh: 110, reviewBody: 'The hover mower sweet spot - more power than the Easimo, better collection, still lightweight enough for anyone to use on small sloped UK gardens.' }),
+  productReviewSchema({ asin: 'B07KGXMFYP', name: 'Flymo HoverVac 250', brand: 'Flymo', description, rating: 3.9, url: path, datePublished, dateModified: '2026-06-05', image: '/images/electric_hover_lawn_mower-1.webp', priceLow: 70, priceHigh: 110, reviewBody: 'The hover mower sweet spot - more power than the Easimo, better collection, still lightweight enough for anyone to use on small sloped UK gardens.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -55,7 +55,7 @@ const schema = [
       <p class="text-slate-700 leading-relaxed">
         The Flymo HoverVac 250 is the hover mower we recommend when grass collection matters. The 1400W motor provides enough suction to actually pull clippings into the box - something weaker hover mowers fail at. It floats over slopes and bumps like all Flymo hovers, but the stronger motor means it handles slightly thicker grass without stalling. For small, sloped UK gardens where you want a tidy finish, this is the sweet spot.
       </p>
-          <BuyCta name="Flymo HoverVac 250" rrp="£89" />
+          <BuyCta name="Flymo HoverVac 250" asin="B07KGXMFYP" rrp="£89" />
     </aside>
 
     <img src="/images/electric_hover_lawn_mower-1.webp" alt="Lightweight electric hover lawn mower on a UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />

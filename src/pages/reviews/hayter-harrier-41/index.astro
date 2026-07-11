@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Hayter Harrier 41', brand: 'Hayter', description, rating: 4.6, url: path, datePublished, dateModified: '2026-06-05', image: '/images/innovative_electric_roller_mower-1.webp', priceLow: 800, priceHigh: 1050, reviewBody: 'The finest rear-roller petrol mower available in the UK. Professional-grade stripes, Briggs & Stratton engine, built to last 20 years. The gold standard for lawn aesthetics.' }),
+  productReviewSchema({ asin: 'B08D9J5H1X', name: 'Hayter Harrier 41', brand: 'Hayter', description, rating: 4.6, url: path, datePublished, dateModified: '2026-06-05', image: '/images/innovative_electric_roller_mower-1.webp', priceLow: 800, priceHigh: 1050, reviewBody: 'The finest rear-roller petrol mower available in the UK. Professional-grade stripes, Briggs & Stratton engine, built to last 20 years. The gold standard for lawn aesthetics.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -55,7 +55,7 @@ const schema = [
       <p class="text-slate-700 leading-relaxed">
         The Hayter Harrier 41 is the mower you buy when you're serious about your lawn. The full-width rear roller produces stripes that look professional - the kind your neighbours ask about. The Briggs & Stratton engine starts without fuss, the build quality is unmistakably premium, and with annual servicing it'll outlast your mortgage. It's not cheap, it's not light, and it's not the most versatile. But for pure lawn aesthetics on a UK garden, nothing under £1,500 touches it.
       </p>
-          <BuyCta name="Hayter Harrier 41" rrp="£899" />
+          <BuyCta name="Hayter Harrier 41" asin="B08D9J5H1X" rrp="£899" />
     </aside>
 
     <img src="/images/innovative_electric_roller_mower-1.webp" alt="Rear-roller petrol lawn mower leaving stripes on a UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />

@@ -7,6 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/amazon-image-sync.mjs thebestmowers-21 src/pages/best-battery-powered-lawn-mower-reviews-uk/index.astro src/pages/brands/bosch/index.astro src/pages/brands/einhell/index.astro src/pages/brands/flymo/index.astro src/pages/brands/gtech/index.astro src/pages/brands/husqvarna/index.astro src/pages/brands/hyundai/index.astro src/pages/brands/makita/index.astro src/pages/brands/mountfield/index.astro src/pages/brands/stiga/index.astro src/pages/brands/stihl/index.astro src/pages/brands/worx/index.astro src/pages/cordless-lawn-mowers/index.astro src/pages/cordless-lawn-mowers/lightweight/index.astro src/pages/electric-lawn-mowers/index.astro src/pages/hover-lawn-mowers/index.astro src/pages/petrol-lawn-mowers/index.astro src/pages/reviews/bosch-easyrotak-36-550-lawnmower/index.astro src/pages/reviews/bosch-indego-s-plus-500/index.astro src/pages/reviews/bosch-rotak-32-review/index.astro src/pages/reviews/flymo-hovervac-250-review/index.astro src/pages/reviews/hayter-harrier-41/index.astro src/pages/reviews/makita-dlm382/index.astro src/pages/reviews/mountfield-princess-34/index.astro src/pages/reviews/mountfield-sp46/index.astro src/pages/reviews/stiga-estate-384m/index.astro src/pages/reviews/worx-landroid-vision-m800/index.astro src/pages/ride-on-lawn-mowers/index.astro src/pages/robot-lawn-mowers/index.astro",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"

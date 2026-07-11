@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Bosch Indego S+ 500', brand: 'Bosch', description, rating: 4.0, url: path, datePublished, dateModified: '2026-06-05', image: '/images/compact_robotic_lawn_mower.webp', priceLow: 700, priceHigh: 950, reviewBody: 'Logical parallel mowing, solid app, fair price for a branded robot. Best for flat UK gardens under 500 m² where you want set-and-forget cutting.' }),
+  productReviewSchema({ asin: 'B08XR1JDNB', name: 'Bosch Indego S+ 500', brand: 'Bosch', description, rating: 4.0, url: path, datePublished, dateModified: '2026-06-05', image: '/images/compact_robotic_lawn_mower.webp', priceLow: 700, priceHigh: 950, reviewBody: 'Logical parallel mowing, solid app, fair price for a branded robot. Best for flat UK gardens under 500 m² where you want set-and-forget cutting.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -55,7 +55,7 @@ const schema = [
       <p class="text-slate-700 leading-relaxed">
         The Bosch Indego S+ 500 brings logical parallel mowing to a price point that undercuts Husqvarna by £150+. Setup takes a weekend afternoon (boundary wire), but once running it's genuinely set-and-forget. The app works well, the cut is even, and the parallel stripes look intentional. It struggles on slopes above 20% and the 19 cm cutting width means it's slow on larger lawns - but for flat UK gardens under 500 m², it's the robot we'd recommend first.
       </p>
-          <BuyCta name="Bosch Indego S+ 500" rrp="£849" />
+          <BuyCta name="Bosch Indego S+ 500" asin="B08XR1JDNB" rrp="£849" />
     </aside>
 
     <img src="/images/compact_robotic_lawn_mower.webp" alt="Compact robot lawn mower on a UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />

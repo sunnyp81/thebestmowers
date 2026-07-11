@@ -10,20 +10,29 @@ interface Props {
   rrp?: string;
   reviewUrl: string;
   affiliateUrl?: string;
+  asin?: string;
   image?: string;
   verdict: string;
 }
-import { AFFILIATE_REL, amazonSearch } from '../lib/affiliate';
-const { rank, name, brand, bestFor, rating, pros, cons, rrp, reviewUrl, affiliateUrl, image, verdict } = Astro.props as Props;
-// Always offer a buy CTA: fall back to a tagged Amazon UK search for the model.
-const buyUrl = affiliateUrl || amazonSearch(`${name} lawn mower`);
+import { AFFILIATE_REL, amazonLink, amazonSearch } from '../lib/affiliate';
+import amazonImages from '../data/amazon-images.json';
+const { rank, name, brand, bestFor, rating, pros, cons, rrp, reviewUrl, affiliateUrl, asin, image, verdict } = Astro.props as Props;
+// Buy CTA precedence: exact tagged /dp/ ASIN link, then any explicit affiliateUrl, then a tagged Amazon UK search.
+const buyUrl = (asin && amazonLink(asin)) || affiliateUrl || amazonSearch(`${name} lawn mower`);
+// Resolve a live product image: prefer an explicit prop, else the build-time Amazon hotlink for this ASIN.
+const imgMeta = asin ? ((amazonImages as any)?.items?.[asin]?.image ?? null) : null;
+const resolvedImage: string | null = image ?? imgMeta?.url ?? null;
+const imgW = imgMeta?.width ?? 300;
+const imgH = imgMeta?.height ?? 300;
 ---
 <article class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
   <div class="grid md:grid-cols-[200px_1fr] gap-0">
-    <div class="bg-grass-50 flex items-center justify-center p-6 md:p-4 relative">
+    <div class={resolvedImage ? "bg-white flex items-center justify-center p-4 relative" : "bg-grass-50 flex items-center justify-center p-6 md:p-4 relative"}>
       <span class="absolute top-3 left-3 bg-grass-700 text-white text-xs font-bold px-2 py-1 rounded">#{rank}</span>
-      {image ? (
-        <img src={image} alt={name} loading="lazy" width="180" height="180" class="object-contain max-h-44" />
+      {resolvedImage ? (
+        <div class="w-full min-h-[180px] max-h-[260px] flex items-center justify-center rounded-lg border border-slate-200 shadow-sm bg-white p-4">
+          <img src={resolvedImage} alt={name} loading="lazy" decoding="async" width={imgW} height={imgH} class="object-contain max-h-[228px] w-auto" />
+        </div>
       ) : (
         <div class="w-32 h-32 rounded-lg bg-grass-200 flex items-center justify-center text-grass-700 text-3xl font-bold">{brand.slice(0,1)}</div>
       )}

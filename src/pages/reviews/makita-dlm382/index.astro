@@ -30,7 +30,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified, image: '/images/cordless_lawn_mower_details.webp' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Makita DLM382', brand: 'Makita', description, rating: 4.5, url: path, datePublished, dateModified, image: '/images/cordless_lawn_mower_details.webp', priceLow: 200, priceHigh: 330, reviewBody: 'A quiet, well-built 38cm cordless that runs on two standard 18V LXT batteries, so existing Makita owners can buy body-only and add the packs they have. Best for small to medium UK lawns; no self-propelled drive.' }),
+  productReviewSchema({ asin: 'B08VWPGBTB', name: 'Makita DLM382', brand: 'Makita', description, rating: 4.5, url: path, datePublished, dateModified, image: '/images/cordless_lawn_mower_details.webp', priceLow: 200, priceHigh: 330, reviewBody: 'A quiet, well-built 38cm cordless that runs on two standard 18V LXT batteries, so existing Makita owners can buy body-only and add the packs they have. Best for small to medium UK lawns; no self-propelled drive.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -57,7 +57,7 @@ const schema = [
       <p class="text-slate-700 leading-relaxed">
         The DLM382 is the cheapest sensible route into a serious cordless mower if you already live in the Makita 18V LXT system. Buy it body-only, add the two batteries you own, and you have a quiet, brushless, sturdily built 38cm mower for small to medium UK lawns. The limits are honest ones: no self-propelled drive, and it can work hard in long, wet grass.
       </p>
-      <BuyCta name="Makita DLM382" rrp="£200-£330" />
+      <BuyCta name="Makita DLM382" asin="B08VWPGBTB" rrp="£200-£330" />
     </aside>
 
     <img src="/images/cordless_lawn_mower_details.webp" alt="Makita cordless lawn mower on a UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />

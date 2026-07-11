@@ -1,4 +1,5 @@
 import { SITE } from './site';
+import { amazonLink } from './affiliate';
 
 const abs = (path: string) => new URL(path, SITE.url).toString();
 
@@ -110,6 +111,8 @@ export const productReviewSchema = (args: {
   dateModified?: string;
   priceLow?: number;
   priceHigh?: number;
+  // Verified Amazon UK ASIN, when a single canonical product exists.
+  asin?: string;
   // Only pass when a real, sourced owner-rating count exists.
   aggRating?: number;
   aggCount?: number;
@@ -118,6 +121,7 @@ export const productReviewSchema = (args: {
   '@type': 'Product',
   name: args.name,
   brand: { '@type': 'Brand', name: args.brand },
+  ...(args.asin ? { sku: args.asin } : {}),
   ...(args.image ? { image: abs(args.image) } : {}),
   description: args.description,
   ...(args.priceLow && args.priceHigh ? {
@@ -127,6 +131,7 @@ export const productReviewSchema = (args: {
       lowPrice: args.priceLow,
       highPrice: args.priceHigh,
       availability: 'https://schema.org/InStock',
+      ...(args.asin ? { url: amazonLink(args.asin) } : {}),
     },
   } : {}),
   ...(args.aggRating && args.aggCount ? {

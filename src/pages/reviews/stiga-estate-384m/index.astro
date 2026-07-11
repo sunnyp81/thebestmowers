@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Stiga Estate 384M', brand: 'Stiga', description, rating: 4.1, url: path, datePublished, dateModified: '2026-06-05', image: '/images/top_8_large_lawnmowers.webp', priceLow: 2700, priceHigh: 3100, reviewBody: 'Mid-range Italian ride-on that bridges budget Mountfield and premium Deere. Solid engine, good build, fair price for UK gardens 1,500-2,500 m².' }),
+  productReviewSchema({ asin: 'B0GKHCMMSF', name: 'Stiga Estate 384M', brand: 'Stiga', description, rating: 4.1, url: path, datePublished, dateModified: '2026-06-05', image: '/images/top_8_large_lawnmowers.webp', priceLow: 2700, priceHigh: 3100, reviewBody: 'Mid-range Italian ride-on that bridges budget Mountfield and premium Deere. Solid engine, good build, fair price for UK gardens 1,500-2,500 m².' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -55,7 +55,7 @@ const schema = [
       <p class="text-slate-700 leading-relaxed">
         The Stiga Estate 384M occupies the sensible middle ground of the ride-on market. It's built by the same Italian factory group that makes Mountfield and Castelgarden, but with better finishing and a more refined engine. You're not paying Deere money, but you're getting noticeably more than Mountfield budget engineering. For UK gardens of 1,500-2,500 m² where you want a reliable ride-on without breaking £3,000, it's a rational choice.
       </p>
-          <BuyCta name="Stiga Estate 384M" rrp="£2,899" />
+          <BuyCta name="Stiga Estate 384M" asin="B0GKHCMMSF" rrp="£2,899" />
     </aside>
 
     <img src="/images/top_8_large_lawnmowers.webp" alt="Ride-on lawn mower on a large UK lawn" width="900" height="506" class="w-full rounded-xl my-6 object-cover" loading="eager" fetchpriority="high" />

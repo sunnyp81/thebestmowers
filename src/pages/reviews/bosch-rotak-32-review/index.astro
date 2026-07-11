@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Bosch Rotak 32 R', brand: 'Bosch', description, rating: 4.5, url: path, datePublished, dateModified: '2026-06-05', image: '/images/electric_lawnmower_with_34r.webp', priceLow: 80, priceHigh: 130, reviewBody: 'The £99 default UK first mower for any lawn under 200 m². Genuinely well-built, easy to use, lasts a decade.' }),
+  productReviewSchema({ asin: 'B0G4DWK2J8', name: 'Bosch Rotak 32 R', brand: 'Bosch', description, rating: 4.5, url: path, datePublished, dateModified: '2026-06-05', image: '/images/electric_lawnmower_with_34r.webp', priceLow: 80, priceHigh: 130, reviewBody: 'The £99 default UK first mower for any lawn under 200 m². Genuinely well-built, easy to use, lasts a decade.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -63,7 +63,7 @@ const schema = [
       <p class="text-slate-700 leading-relaxed">
         The Rotak 32 R has been on Bosch shelves since 2017, and verified owner reviews point to the kind of unglamorous reliability you only notice when something else breaks. At £99 it's the default UK first mower for any small garden, and there's a reason it's lasted on the range for the best part of a decade.
       </p>
-          <BuyCta name="Bosch Rotak 32 R" rrp="£99" />
+          <BuyCta name="Bosch Rotak 32 R" asin="B0G4DWK2J8" rrp="£99" />
     </aside>
 
     <div class="prose-mowers">
