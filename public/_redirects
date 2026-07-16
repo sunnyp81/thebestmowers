@@ -335,6 +335,11 @@
 /who-repairs-lawn-mowers-in-my-area/ /advice/maintenance/lawn-mower-repairs-near-me/ 301
 /index.php / 301
 
+# Bing crawl-issue cleanup (2026-07-16) - remaining stray legacy 404s
+/category/lawn-mower-reviews-2015/ /best-lawn-mowers/ 301
+/category/best-petrol-lawnmower/ /petrol-lawn-mowers/ 301
+/ryobi-petrol-review/ /brands/ryobi/ 301
+
 # Generic legacy WordPress cleanup (keep LAST - dynamic rules, first static match wins)
 /tag/* / 301
 /:slug/page/* /:slug/ 301
