@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Einhell GE-EM 1233 M', brand: 'Einhell', description, rating: 4.0, url: path, datePublished, dateModified: '2026-06-05', image: '/images/einhell_corded_electric_mower.webp', priceLow: 110, priceHigh: 170, reviewBody: 'The cheapest mower we recommend without caveat. Basic, reliable, does the job on small UK lawns under 200 m². Nothing fancy - just honest cutting.' }),
+  productReviewSchema({ name: 'Einhell GE-EM 1233 M', brand: 'Einhell', description, rating: 4.0, url: path, datePublished, dateModified: '2026-06-05', priceLow: 110, priceHigh: 170, reviewBody: 'The cheapest mower we recommend without caveat. Basic, reliable, does the job on small UK lawns under 200 m². Nothing fancy - just honest cutting.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>

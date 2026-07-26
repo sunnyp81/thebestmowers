@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ asin: 'B07KGXMFYP', name: 'Flymo HoverVac 250', brand: 'Flymo', description, rating: 3.9, url: path, datePublished, dateModified: '2026-06-05', image: '/images/electric_hover_lawn_mower-1.webp', priceLow: 70, priceHigh: 110, reviewBody: 'The hover mower sweet spot - more power than the Easimo, better collection, still lightweight enough for anyone to use on small sloped UK gardens.' }),
+  productReviewSchema({ asin: 'B07KGXMFYP', name: 'Flymo HoverVac 250', brand: 'Flymo', description, rating: 3.9, url: path, datePublished, dateModified: '2026-06-05', priceLow: 70, priceHigh: 110, reviewBody: 'The hover mower sweet spot - more power than the Easimo, better collection, still lightweight enough for anyone to use on small sloped UK gardens.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>

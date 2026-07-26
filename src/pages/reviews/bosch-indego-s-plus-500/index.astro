@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ asin: 'B08XR1JDNB', name: 'Bosch Indego S+ 500', brand: 'Bosch', description, rating: 4.0, url: path, datePublished, dateModified: '2026-06-05', image: '/images/compact_robotic_lawn_mower.webp', priceLow: 700, priceHigh: 950, reviewBody: 'Logical parallel mowing, solid app, fair price for a branded robot. Best for flat UK gardens under 500 m² where you want set-and-forget cutting.' }),
+  productReviewSchema({ asin: 'B08XR1JDNB', name: 'Bosch Indego S+ 500', brand: 'Bosch', description, rating: 4.0, url: path, datePublished, dateModified: '2026-06-05', priceLow: 700, priceHigh: 950, reviewBody: 'Logical parallel mowing, solid app, fair price for a branded robot. Best for flat UK gardens under 500 m² where you want set-and-forget cutting.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>

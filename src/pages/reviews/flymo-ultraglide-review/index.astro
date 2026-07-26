@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Flymo UltraGlide', brand: 'Flymo', description, rating: 4.0, url: path, datePublished, dateModified: '2026-06-05', image: '/images/electric_flymo_lawn_mower-4.webp', priceLow: 120, priceHigh: 180, reviewBody: 'The best of both worlds - hover versatility with wheeled precision and a rear roller for stripes. The most capable corded Flymo for small-to-medium UK gardens.' }),
+  productReviewSchema({ name: 'Flymo UltraGlide', brand: 'Flymo', description, rating: 4.0, url: path, datePublished, dateModified: '2026-06-05', priceLow: 120, priceHigh: 180, reviewBody: 'The best of both worlds - hover versatility with wheeled precision and a rear roller for stripes. The most capable corded Flymo for small-to-medium UK gardens.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>

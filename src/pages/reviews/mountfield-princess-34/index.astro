@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BuyCta from '../../../components/BuyCta.astro';
-import OwnerVoices from '../../../components/OwnerVoices.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
@@ -29,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ asin: 'B08GKZXFMB', name: 'Mountfield Princess 34', brand: 'Mountfield', description, rating: 4.2, url: path, datePublished, dateModified: '2026-06-05', image: '/images/innovative_electric_roller_mower-1.webp', priceLow: 200, priceHigh: 300, reviewBody: 'The cheapest way to get proper lawn stripes. Rear roller, 34cm deck, corded electric - honest and effective for small UK gardens that want that bowling-green look.' }),
+  productReviewSchema({ asin: 'B08GKZXFMB', name: 'Mountfield Princess 34', brand: 'Mountfield', description, rating: 4.2, url: path, datePublished, dateModified: '2026-06-05', priceLow: 200, priceHigh: 300, reviewBody: 'The cheapest way to get proper lawn stripes. Rear roller, 34cm deck, corded electric - honest and effective for small UK gardens that want that bowling-green look.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -107,8 +106,6 @@ const schema = [
         Don't buy it if your lawn is over 300 m² (too slow and the cable is a nightmare), if you need mulching (not available), if your garden has slopes (rear roller drag + push-only = hard work), or if you just want a basic mow without caring about stripes (Einhell at £139).
       </p>
     </div>
-
-    <OwnerVoices modelKey="mountfield-princess-34" />
 
     <FAQ {faqs} />
   </article>

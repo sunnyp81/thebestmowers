@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BuyCta from '../../../components/BuyCta.astro';
-import OwnerVoices from '../../../components/OwnerVoices.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
@@ -30,7 +29,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified, image: '/images/cordless_lawn_mower_details.webp' }),
   faqSchema(faqs),
-  productReviewSchema({ asin: 'B08VWPGBTB', name: 'Makita DLM382', brand: 'Makita', description, rating: 4.5, url: path, datePublished, dateModified, image: '/images/cordless_lawn_mower_details.webp', priceLow: 200, priceHigh: 330, reviewBody: 'A quiet, well-built 38cm cordless that runs on two standard 18V LXT batteries, so existing Makita owners can buy body-only and add the packs they have. Best for small to medium UK lawns; no self-propelled drive.' }),
+  productReviewSchema({ asin: 'B08VWPGBTB', name: 'Makita DLM382', brand: 'Makita', description, rating: 4.5, url: path, datePublished, dateModified, priceLow: 200, priceHigh: 330, reviewBody: 'A quiet, well-built 38cm cordless that runs on two standard 18V LXT batteries, so existing Makita owners can buy body-only and add the packs they have. Best for small to medium UK lawns; no self-propelled drive.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -84,8 +83,6 @@ const schema = [
       <h2>How it compares</h2>
       <p>For a 38cm deck it sits between the compact <a href="/reviews/bosch-rotak-32-review/">Bosch CityMower 18V-32</a> and the wider 40cm self-propelled <a href="/reviews/ryobi-cordless/">Ryobi RY18LMX40A</a>. For larger or sloped lawns, step up to the <a href="/reviews/ego-lm2122e-sp/">EGO LM2122E-SP</a>, which adds 56V power and a self-propelled drive. See the full ranked list on our <a href="/best-battery-powered-lawn-mower-reviews-uk/">best cordless and battery mowers</a> guide.</p>
     </div>
-
-    <OwnerVoices modelKey="makita-dlm382" />
 
     <FAQ {faqs} />
   </article>

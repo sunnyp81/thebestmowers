@@ -26,7 +26,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'McCulloch MHT 5622', brand: 'McCulloch', description, rating: 3.9, url: path, datePublished, dateModified: '2026-06-05', image: '/images/top_8_large_lawnmowers.webp', priceLow: 1300, priceHigh: 1700, reviewBody: 'Budget ride-on with a Briggs & Stratton engine. Does the job on medium UK lawns without the premium price tag.' }),
+  productReviewSchema({ name: 'McCulloch MHT 5622', brand: 'McCulloch', description, rating: 3.9, url: path, datePublished, dateModified: '2026-06-05', priceLow: 1300, priceHigh: 1700, reviewBody: 'Budget ride-on with a Briggs & Stratton engine. Does the job on medium UK lawns without the premium price tag.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>

@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ asin: 'B08J86J92W', name: 'Mountfield SP46', brand: 'Mountfield', description, rating: 4.5, url: path, datePublished, dateModified: '2026-06-05', image: '/images/powerful_electric_lawn_mower.webp', priceLow: 290, priceHigh: 380, reviewBody: 'The default sub-£400 self-propelled petrol mower in the UK. Italian-built ST 140 engine, 46 cm steel deck, properly reliable.' }),
+  productReviewSchema({ asin: 'B08J86J92W', name: 'Mountfield SP46', brand: 'Mountfield', description, rating: 4.5, url: path, datePublished, dateModified: '2026-06-05', priceLow: 290, priceHigh: 380, reviewBody: 'The default sub-£400 self-propelled petrol mower in the UK. Italian-built ST 140 engine, 46 cm steel deck, properly reliable.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>

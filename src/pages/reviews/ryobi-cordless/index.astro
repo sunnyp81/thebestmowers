@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BuyCta from '../../../components/BuyCta.astro';
-import OwnerVoices from '../../../components/OwnerVoices.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
@@ -29,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Ryobi RY18LMX40A', brand: 'Ryobi', description, rating: 4.3, url: path, datePublished, dateModified: '2026-06-05', image: '/images/battery_powered_ryobi_lawnmower_review.webp', priceLow: 230, priceHigh: 330, reviewBody: 'The cordless mower that makes most sense if you own ANY Ryobi ONE+ tool. Widest battery ecosystem in the world, 40cm deck, sensible price. The value king.' }),
+  productReviewSchema({ name: 'Ryobi RY18LMX40A', brand: 'Ryobi', description, rating: 4.3, url: path, datePublished, dateModified: '2026-06-05', priceLow: 230, priceHigh: 330, reviewBody: 'The cordless mower that makes most sense if you own ANY Ryobi ONE+ tool. Widest battery ecosystem in the world, 40cm deck, sensible price. The value king.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -107,8 +106,6 @@ const schema = [
         Don't buy it if your grass is regularly thick or damp (18V won't cope - go 36V or 56V), if your lawn is over 400 m² (runtime isn't enough), or if you're already invested in Bosch Power for All batteries (stick with Bosch).
       </p>
     </div>
-
-    <OwnerVoices modelKey="ryobi-cordless" />
 
     <FAQ {faqs} />
   </article>

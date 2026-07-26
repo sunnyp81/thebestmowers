@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ asin: 'B0GKHCMMSF', name: 'Stiga Estate 384M', brand: 'Stiga', description, rating: 4.1, url: path, datePublished, dateModified: '2026-06-05', image: '/images/top_8_large_lawnmowers.webp', priceLow: 2700, priceHigh: 3100, reviewBody: 'Mid-range Italian ride-on that bridges budget Mountfield and premium Deere. Solid engine, good build, fair price for UK gardens 1,500-2,500 m².' }),
+  productReviewSchema({ asin: 'B0GKHCMMSF', name: 'Stiga Estate 384M', brand: 'Stiga', description, rating: 4.1, url: path, datePublished, dateModified: '2026-06-05', priceLow: 2700, priceHigh: 3100, reviewBody: 'Mid-range Italian ride-on that bridges budget Mountfield and premium Deere. Solid engine, good build, fair price for UK gardens 1,500-2,500 m².' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>

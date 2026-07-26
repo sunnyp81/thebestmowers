@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BuyCta from '../../../components/BuyCta.astro';
-import OwnerVoices from '../../../components/OwnerVoices.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
@@ -29,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Gtech CLM 2.0', brand: 'Gtech', description, rating: 4.6, url: path, datePublished, dateModified: '2026-06-05', image: '/images/compact_cordless_easy_storage.webp', priceLow: 200, priceHigh: 300, reviewBody: 'Light, friendly cordless mower with a 42 cm deck and 50 L box. No defined stripes (rear comb, not roller). A pleasant pick for first-time UK buyers with small-to-medium lawns.' }),
+  productReviewSchema({ name: 'Gtech CLM 2.0', brand: 'Gtech', description, rating: 4.6, url: path, datePublished, dateModified: '2026-06-05', priceLow: 200, priceHigh: 300, reviewBody: 'Light, friendly cordless mower with a 42 cm deck and 50 L box. No defined stripes (rear comb, not roller). A pleasant pick for first-time UK buyers with small-to-medium lawns.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -119,7 +118,7 @@ const schema = [
       </p>
 
       <h2>What real owners say</h2>
-      <p>Owner opinions on the Gtech CLM and cordless mowers in this price bracket from r/GardeningUK and r/lawncare. Here's what keeps coming up.</p>
+      <p>Owner opinions on the Gtech CLM and cordless mowers in this price bracket from r/GardeningUK. Here's what keeps coming up.</p>
 
       <blockquote>
         <p>"My parents have (I think) a GTech which has been going the last couple of years (at least) and manages their lawn really well on one charge (~15m x 20m)."</p>
@@ -128,7 +127,7 @@ const schema = [
 
       <blockquote>
         <p>"They are much better than you'd think. I bought the smallest Husqvarna last year and it's a monster for cutting through stuff. Only downside is the grass box is a bit small. Battery can also be used in strimmers, hedgecutters, blowers etc."</p>
-        <cite> -  u/UsefulAd8513on cordless mowers generally, <a href="https://reddit.com/r/GardeningUK/comments/1jye93e/">r/GardeningUK</a></cite>
+        <cite> -  u/UsefulAd8513 on cordless mowers generally, <a href="https://reddit.com/r/GardeningUK/comments/1jye93e/">r/GardeningUK</a></cite>
       </blockquote>
 
       <blockquote>
@@ -143,8 +142,6 @@ const schema = [
 
       <p>The pattern across UK Reddit threads: people switching from petrol to cordless almost universally don't go back. The Gtech specifically gets praised for being light and easy - the battery ecosystem lock-in is the consistent caveat, which matches this assessment.</p>
     </div>
-
-    <OwnerVoices modelKey="gtech-clm50" />
 
     <FAQ {faqs} />
   </article>

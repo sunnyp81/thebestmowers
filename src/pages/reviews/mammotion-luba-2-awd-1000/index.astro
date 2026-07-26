@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Mammotion Luba 2 AWD 1000', brand: 'Mammotion', description, rating: 4.2, url: path, datePublished, dateModified: '2026-06-05', image: '/images/compact_robotic_lawn_mower.webp', priceLow: 1600, priceHigh: 2000, reviewBody: 'Wire-free robot mowing arrives properly. RTK GPS, all-wheel drive, precise parallel lines - the most capable robot mower for UK gardens with slopes or complex layouts.' }),
+  productReviewSchema({ name: 'Mammotion Luba 2 AWD 1000', brand: 'Mammotion', description, rating: 4.2, url: path, datePublished, dateModified: '2026-06-05', priceLow: 1600, priceHigh: 2000, reviewBody: 'Wire-free robot mowing arrives properly. RTK GPS, all-wheel drive, precise parallel lines - the most capable robot mower for UK gardens with slopes or complex layouts.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>

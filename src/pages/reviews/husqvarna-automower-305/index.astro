@@ -29,7 +29,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Husqvarna Automower 305', brand: 'Husqvarna', description, rating: 4.7, url: path, datePublished, dateModified: '2026-06-05', image: '/images/compact_robotic_lawn_mower.webp', priceLow: 950, priceHigh: 1200, reviewBody: 'Verified owner reviews rate this among the most reliable robot mowers. 11 years of mature firmware, 40% slope, GPS theft alarm, 600 m² coverage. The category benchmark.' }),
+  productReviewSchema({ name: 'Husqvarna Automower 305', brand: 'Husqvarna', description, rating: 4.7, url: path, datePublished, dateModified: '2026-06-05', priceLow: 950, priceHigh: 1200, reviewBody: 'Verified owner reviews rate this among the most reliable robot mowers. 11 years of mature firmware, 40% slope, GPS theft alarm, 600 m² coverage. The category benchmark.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>

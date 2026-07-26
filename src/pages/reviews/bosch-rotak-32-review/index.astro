@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ asin: 'B0G4DWK2J8', name: 'Bosch Rotak 32 R', brand: 'Bosch', description, rating: 4.5, url: path, datePublished, dateModified: '2026-06-05', image: '/images/electric_lawnmower_with_34r.webp', priceLow: 80, priceHigh: 130, reviewBody: 'The £99 default UK first mower for any lawn under 200 m². Genuinely well-built, easy to use, lasts a decade.' }),
+  productReviewSchema({ asin: 'B0G4DWK2J8', name: 'Bosch Rotak 32 R', brand: 'Bosch', description, rating: 4.5, url: path, datePublished, dateModified: '2026-06-05', priceLow: 80, priceHigh: 130, reviewBody: 'The £99 default UK first mower for any lawn under 200 m². Genuinely well-built, easy to use, lasts a decade.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>

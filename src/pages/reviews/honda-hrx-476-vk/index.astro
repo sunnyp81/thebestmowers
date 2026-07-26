@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Honda HRX 476 VK', brand: 'Honda', description, rating: 4.8, url: path, datePublished, dateModified: '2026-06-05', image: '/images/high_quality_powerful_lawn_mower.webp', priceLow: 900, priceHigh: 1100, reviewBody: 'The domestic mower that lasts 20 years. GXV160 engine, Xenoy deck, Versamow mulching. Expensive once - cheap forever. The best petrol mower money can buy for UK lawns.' }),
+  productReviewSchema({ name: 'Honda HRX 476 VK', brand: 'Honda', description, rating: 4.8, url: path, datePublished, dateModified: '2026-06-05', priceLow: 900, priceHigh: 1100, reviewBody: 'The domestic mower that lasts 20 years. GXV160 engine, Xenoy deck, Versamow mulching. Expensive once - cheap forever. The best petrol mower money can buy for UK lawns.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>

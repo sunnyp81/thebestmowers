@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BuyCta from '../../../components/BuyCta.astro';
-import OwnerVoices from '../../../components/OwnerVoices.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
@@ -29,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ asin: 'B0BTZWQD49', name: 'Bosch UniversalRotak 36-550', brand: 'Bosch', description, rating: 4.3, url: path, datePublished, dateModified: '2026-06-05', image: '/images/bosch_lawnmower_review_details.webp', priceLow: 290, priceHigh: 380, reviewBody: 'The best cordless mower for UK buyers already invested in Bosch Power for All. Big grass box, solid deck, genuine battery sharing across 100+ tools.' }),
+  productReviewSchema({ asin: 'B0BTZWQD49', name: 'Bosch UniversalRotak 36-550', brand: 'Bosch', description, rating: 4.3, url: path, datePublished, dateModified: '2026-06-05', priceLow: 290, priceHigh: 380, reviewBody: 'The best cordless mower for UK buyers already invested in Bosch Power for All. Big grass box, solid deck, genuine battery sharing across 100+ tools.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -107,8 +106,6 @@ const schema = [
         Don't buy it if your lawn is tiny (under 200 m² - the Gtech is lighter and friendlier), if you need stripes (look at a rear-roller model like the Mountfield Princess 34), or if you're already deep in the Ryobi ONE+ ecosystem.
       </p>
     </div>
-
-    <OwnerVoices modelKey="bosch-easyrotak-36-550-lawnmower" />
 
     <FAQ {faqs} />
   </article>

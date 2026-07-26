@@ -5,7 +5,6 @@ import FAQ from '../../components/FAQ.astro';
 import PickCard from '../../components/PickCard.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import HowWeResearch from '../../components/HowWeResearch.astro';
-import OwnerVoices from '../../components/OwnerVoices.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../lib/schema';
 import { amazonSearch } from '../../lib/affiliate';
 
@@ -269,8 +268,6 @@ const schema = [
         <li><a href="/advice/maintenance/sharpen-blade/">How to sharpen a lawn mower blade</a></li>
       </ul>
     </div>
-
-    <OwnerVoices keys={['ego-lm2122e-sp','bosch-easyrotak-36-550-lawnmower','gtech-clm50','makita-dlm382','ryobi-cordless','mountfield-princess-34']} heading="What owners say about top cordless picks" />
 
     <FAQ {faqs} />
   </article>

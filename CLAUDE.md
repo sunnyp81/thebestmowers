@@ -19,7 +19,7 @@ Verified live Jun 6: flagship 200 + correct `.co.uk` canonical + 9 tagged affili
 - 🔴 **Legacy WordPress credentials (old site, now dead/replaced):** WP user `William` app password is in central memory `thebestmowers-uk.md` — LOCATION pointer only, not copied here. The live site is Astro/CF Pages, not WP.
 - No em/en dashes in content (global rule).
 - Verified product facts (corrected Jun 5): Gtech CLM 2.0 = 48V/42cm/50L/no roller; Greenworks GD40LM45 discontinued → use G40LM41; Mountfield flagship pick is the Li cordless.
-- UGC pattern: `OwnerVoices.astro` + `src/data/ownerVoices.ts` = real attributed owner sentiment (Which?, Trusted Reviews, DIY Garden, PistonHeads, Amazon/eBay), framed "reflects authors, not us". Reusable across portfolio.
+- 🔴 **OwnerVoices REMOVED 2026-07-26 (UX audit):** it was authored paraphrase presented as verbatim quotes from named publishers (fabricated UGC). Deleted component + data + all 9 usages. Do not reintroduce. Real UGC must carry source + username + link + date (use the inline Reddit blockquote pattern on the 4 review pages as the template).
 - AI images via nano-banana/Gemini (`scripts/gen-ai-images.py`) are generic unbranded illustrative UK scenes (honest, not the actual tested products). OG via `scripts/make-og.mjs`.
 - URL migration: `public/_redirects` maps 328 legacy WP URLs (301). Flagship + /chainsaw-oil/ + /can-drive-riding-road/ preserved.
 

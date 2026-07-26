@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Flymo Easimo', brand: 'Flymo', description, rating: 3.8, url: path, datePublished, dateModified: '2026-06-05', image: '/images/electric_flymo_lawn_mower-5.webp', priceLow: 70, priceHigh: 110, reviewBody: 'The cheapest hover mower worth buying. Absurdly light, handles awkward terrain, and costs less than a tank of petrol. Perfect for tiny UK gardens.' }),
+  productReviewSchema({ name: 'Flymo Easimo', brand: 'Flymo', description, rating: 3.8, url: path, datePublished, dateModified: '2026-06-05', priceLow: 70, priceHigh: 110, reviewBody: 'The cheapest hover mower worth buying. Absurdly light, handles awkward terrain, and costs less than a tank of petrol. Perfect for tiny UK gardens.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>

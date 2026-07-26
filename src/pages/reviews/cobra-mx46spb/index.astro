@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Cobra MX46SPB', brand: 'Cobra', description, rating: 4.1, url: path, datePublished, dateModified: '2026-06-05', image: '/images/high_quality_powerful_lawn_mower.webp', priceLow: 400, priceHigh: 520, reviewBody: 'Mid-range petrol mower with a proper Briggs & Stratton engine. The sweet spot between budget Mountfield and premium Honda for UK lawns 500-1,000 m².' }),
+  productReviewSchema({ name: 'Cobra MX46SPB', brand: 'Cobra', description, rating: 4.1, url: path, datePublished, dateModified: '2026-06-05', priceLow: 400, priceHigh: 520, reviewBody: 'Mid-range petrol mower with a proper Briggs & Stratton engine. The sweet spot between budget Mountfield and premium Honda for UK lawns 500-1,000 m².' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>

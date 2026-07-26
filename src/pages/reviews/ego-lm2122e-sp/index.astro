@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BuyCta from '../../../components/BuyCta.astro';
-import OwnerVoices from '../../../components/OwnerVoices.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
@@ -29,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'EGO LM2122E-SP', brand: 'EGO', description, rating: 4.7, url: path, datePublished, dateModified: '2026-06-05', image: '/images/powerful_cordless_lawn_mower-2.webp', priceLow: 500, priceHigh: 650, reviewBody: 'The cordless mower that genuinely replaces petrol. 56V power, 52cm self-propelled deck, and 60-minute runtime on the 7.5Ah battery. Best cordless for large UK lawns.' }),
+  productReviewSchema({ name: 'EGO LM2122E-SP', brand: 'EGO', description, rating: 4.7, url: path, datePublished, dateModified: '2026-06-05', priceLow: 500, priceHigh: 650, reviewBody: 'The cordless mower that genuinely replaces petrol. 56V power, 52cm self-propelled deck, and 60-minute runtime on the 7.5Ah battery. Best cordless for large UK lawns.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -107,8 +106,6 @@ const schema = [
         Don't buy it if your lawn is under 400 m² (you're overpaying - Bosch or Gtech at half the price will do), if you need defined stripes (look at a rear-roller model), or if budget is tight (Ryobi ONE+ at £269 covers smaller lawns).
       </p>
     </div>
-
-    <OwnerVoices modelKey="ego-lm2122e-sp" />
 
     <FAQ {faqs} />
   </article>

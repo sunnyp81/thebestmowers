@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'John Deere X167', brand: 'John Deere', description, rating: 4.4, url: path, datePublished, dateModified: '2026-06-05', image: '/images/top_8_large_lawnmowers.webp', priceLow: 3100, priceHigh: 3600, reviewBody: 'Entry-level Deere ride-on with Kawasaki V-twin and proper hydrostatic drive. The ride-on you buy when you want it to last 15 years with dealer support.' }),
+  productReviewSchema({ name: 'John Deere X167', brand: 'John Deere', description, rating: 4.4, url: path, datePublished, dateModified: '2026-06-05', priceLow: 3100, priceHigh: 3600, reviewBody: 'Entry-level Deere ride-on with Kawasaki V-twin and proper hydrostatic drive. The ride-on you buy when you want it to last 15 years with dealer support.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>

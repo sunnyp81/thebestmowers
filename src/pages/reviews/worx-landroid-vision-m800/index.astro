@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ asin: 'B0C4YPV9R7', name: 'Worx Landroid Vision M800', brand: 'Worx', description, rating: 4.1, url: path, datePublished, dateModified: '2026-06-05', image: '/images/compact_robotic_lawn_mower.webp', priceLow: 850, priceHigh: 1100, reviewBody: 'Wire-free robot mowing via AI camera - no GPS base station, no boundary wire, works under trees. The most accessible wire-free robot for typical UK gardens.' }),
+  productReviewSchema({ asin: 'B0C4YPV9R7', name: 'Worx Landroid Vision M800', brand: 'Worx', description, rating: 4.1, url: path, datePublished, dateModified: '2026-06-05', priceLow: 850, priceHigh: 1100, reviewBody: 'Wire-free robot mowing via AI camera - no GPS base station, no boundary wire, works under trees. The most accessible wire-free robot for typical UK gardens.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>

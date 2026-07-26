@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ asin: 'B08D9J5H1X', name: 'Hayter Harrier 41', brand: 'Hayter', description, rating: 4.6, url: path, datePublished, dateModified: '2026-06-05', image: '/images/innovative_electric_roller_mower-1.webp', priceLow: 800, priceHigh: 1050, reviewBody: 'The finest rear-roller petrol mower available in the UK. Professional-grade stripes, Briggs & Stratton engine, built to last 20 years. The gold standard for lawn aesthetics.' }),
+  productReviewSchema({ asin: 'B08D9J5H1X', name: 'Hayter Harrier 41', brand: 'Hayter', description, rating: 4.6, url: path, datePublished, dateModified: '2026-06-05', priceLow: 800, priceHigh: 1050, reviewBody: 'The finest rear-roller petrol mower available in the UK. Professional-grade stripes, Briggs & Stratton engine, built to last 20 years. The gold standard for lawn aesthetics.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>

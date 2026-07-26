@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Mountfield 1538M-SD', brand: 'Mountfield', description, rating: 4.3, url: path, datePublished, dateModified: '2026-06-05', image: '/images/top_8_large_lawnmowers.webp', priceLow: 2300, priceHigh: 2700, reviewBody: 'The cheapest ride-on mower we recommend. Proven Mountfield engine, 98cm deck, adequate for 1,500-3,000 m² UK gardens. Not refined but gets the job done at the right price.' }),
+  productReviewSchema({ name: 'Mountfield 1538M-SD', brand: 'Mountfield', description, rating: 4.3, url: path, datePublished, dateModified: '2026-06-05', priceLow: 2300, priceHigh: 2700, reviewBody: 'The cheapest ride-on mower we recommend. Proven Mountfield engine, 98cm deck, adequate for 1,500-3,000 m² UK gardens. Not refined but gets the job done at the right price.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>

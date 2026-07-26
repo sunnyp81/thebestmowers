@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'Bosch Rotak 37 LI', brand: 'Bosch', description, rating: 4.2, url: path, datePublished, dateModified: '2026-06-05', image: '/images/bosch_lawnmower_review_details.webp', priceLow: 230, priceHigh: 330, reviewBody: 'A proven mid-range cordless mower with Ergoflex handles and Power for All compatibility. Superseded by the UniversalRotak but still solid if found on discount.' }),
+  productReviewSchema({ name: 'Bosch Rotak 37 LI', brand: 'Bosch', description, rating: 4.2, url: path, datePublished, dateModified: '2026-06-05', priceLow: 230, priceHigh: 330, reviewBody: 'A proven mid-range cordless mower with Ergoflex handles and Power for All compatibility. Superseded by the UniversalRotak but still solid if found on discount.' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
