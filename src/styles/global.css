@@ -34,6 +34,9 @@ body {
 .prose-mowers ul { @apply list-disc pl-6 mb-4 text-slate-700 space-y-1; }
 .prose-mowers ol { @apply list-decimal pl-6 mb-4 text-slate-700 space-y-1; }
 .prose-mowers a  { @apply text-grass-700 underline underline-offset-2 hover:text-grass-900; }
+/* Solid-fill CTA buttons keep their own colours: .prose-mowers a (0,1,1) otherwise beats .text-white (0,1,0). */
+.prose-mowers a.btn-buy,
+.prose-mowers a.btn-buy:hover { @apply text-white no-underline; }
 .prose-mowers table { @apply w-full text-sm border-collapse my-6; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 @media (min-width: 768px) { .prose-mowers table { display: table; overflow-x: visible; } }
 .prose-mowers th { @apply text-left px-3 py-2 bg-grass-50 border border-slate-200 font-semibold; }

@@ -5,7 +5,7 @@ const { name, rrp, asin } = Astro.props as Props;
 const url = (asin && amazonLink(asin)) || amazonSearch(`${name} lawn mower`);
 ---
 <div class="mt-4 flex flex-col sm:flex-row sm:items-center gap-3 border-t border-grass-200 pt-4">
-  <a href={url} rel={AFFILIATE_REL} target="_blank" class="inline-flex items-center justify-center gap-2 bg-grass-700 hover:bg-grass-800 text-white font-semibold px-5 py-3 rounded-md min-h-[44px]">
+  <a href={url} rel={AFFILIATE_REL} target="_blank" class="btn-buy inline-flex items-center justify-center gap-2 bg-grass-700 hover:bg-grass-800 text-white font-semibold px-5 py-3 rounded-md min-h-[44px]">
     Check price on Amazon →
   </a>
   <p class="text-xs text-slate-500">
