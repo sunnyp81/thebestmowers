@@ -18,13 +18,13 @@ const checked = new Date(ROBOT_CHECKED).toLocaleDateString('en-GB', { day: 'nume
 <BarChart
   id={id}
   title="Lawn area each robot mower is rated for"
-  subtitle="Maker's maximum working area. Buy for your whole lawn, including the front, plus some headroom."
+  subtitle="Maker's rated working area. Buy for your whole lawn, including the front, plus some headroom."
   unit="m²"
   rows={rows}
   step={500}
   labelHeader="Model (boundary type)"
   valueHeader="Rated working area (m²)"
   summary={`Bar chart of maker-rated working area for ${rows.length} robot mowers, from 250 m² (Gardena Sileno minimo 250) to 3,000 m² (Mammotion Luba 2 AWD 3000). The Stiga A 1500 is rated for 2,500 m² despite its name.`}
-  note={`Husqvarna's 310E NERA figure assumes systematic mowing; Husqvarna gives 1,000 m² for irregular mowing. Checked ${checked}.`}
+  note={`Husqvarna's 310E NERA figure assumes systematic mowing; Husqvarna gives 1,000 m² for irregular mowing. Segway calls 500 m² the recommended size for the i105E and allows up to 600 m² on simple layouts. Checked ${checked}.`}
   sources={[{ text: 'manufacturer product and support pages, linked in the full dataset', href: '/research/robot-mower-slope-and-area-ratings/' }]}
 />

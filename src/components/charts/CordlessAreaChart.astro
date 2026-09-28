@@ -26,11 +26,10 @@ const checked = new Date(CORDLESS_CHECKED).toLocaleDateString('en-GB', { day: 'n
   unit="m²"
   rows={rows}
   step={100}
-  cells
   labelHeader="Model (cutting width, batteries)"
   valueHeader="Rated lawn area (m²)"
   summary={`Bar chart of maker-rated lawn area for ${rows.length} cordless mowers. Ratings run from 150 m² (Bosch ROTAK18V-32) to 800 m² (Makita DLM480). At 34 cm, ratings range from 200 to 400 m²; the 46 cm Stihl RMA 248 is rated for 220 m².`}
-  note={`Each cell is 100 m². Upper figure shown where the maker gives a range. Gtech CLM50 is left out because Gtech publishes runtime, not area. Figures checked ${checked}.`}
+  note={`Upper figure shown where the maker gives a range. Gtech CLM50 is left out because Gtech publishes runtime, not area. Figures checked ${checked}.`}
   sources={[
     { text: 'manufacturer product pages, one per model, linked in the full dataset', href: '/research/cordless-mower-lawn-area-ratings/' },
   ]}
