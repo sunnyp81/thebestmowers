@@ -1,7 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="240" height="48" viewBox="0 0 240 48" role="img" aria-label="The Best Mowers">
-  <g fill="none" stroke="#316621" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M6 34h26M10 34V20l9-7 9 7v14"/>
-    <circle cx="19" cy="25" r="3.4"/>
-  </g>
-  <text x="42" y="31" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#24441b">The Best Mowers</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="48" viewBox="0 0 240 48" role="img" aria-label="The Best Mowers"><rect x="4" y="8" width="32" height="32" rx="5" fill="#2a521e"/><path d="M8 14h4v20H8zM16 14h4v20h-4zM24 14h4v20h-4z" fill="#316621"/><path d="M12 14h4v20h-4zM20 14h4v20h-4zM28 14h4v20h-4z" fill="#51a134"/><text x="46" y="31" font-family="Archivo, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#24441b">The Best Mowers</text></svg>

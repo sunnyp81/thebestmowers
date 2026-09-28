@@ -63,6 +63,7 @@ const allSchema = [orgSchema(), websiteSchema(), speakableSchema(url), ...schema
   <meta property="og:site_name" content={SITE.name} />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preload" href="/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin />
   <SchemaJsonLd data={allSchema as Record<string, unknown>[]} />
   <slot name="head" />
 </head>

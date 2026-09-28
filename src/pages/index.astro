@@ -20,57 +20,58 @@ const featured = [
 ];
 ---
 <BaseLayout {title} {description} {schema}>
-  <section class="bg-gradient-to-b from-grass-50 to-white border-b border-slate-200">
-    <div class="max-w-5xl mx-auto px-4 py-16 md:py-24 text-center">
-      <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-3">Independent · UK · Research-led</p>
-      <h1 class="text-4xl md:text-6xl font-bold text-soil-900 leading-tight">The right lawn mower for your garden</h1>
-      <p class="mt-5 text-lg md:text-xl text-slate-700 max-w-2xl mx-auto leading-relaxed">
-        Clear, honest UK buying guides built from manufacturer specifications, verified owner reviews and real retail pricing, cross-checked so the figures match the box. No sponsored top-tens, no copy-pasted retailer feeds. We specialise in cordless and battery mowers, the default choice for most British gardens.
-      </p>
-      <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <a href="/best-battery-powered-lawn-mower-reviews-uk/" class="bg-grass-700 hover:bg-grass-800 text-white font-semibold px-5 py-3 rounded-md min-h-[44px]">Best cordless mowers 2026</a>
-        <a href="/buying-guide/cordless-vs-petrol-vs-electric/" class="bg-white border border-slate-300 hover:border-grass-700 text-soil-900 font-semibold px-5 py-3 rounded-md min-h-[44px]">Cordless vs petrol vs electric</a>
+  <section class="lawn-stripes border-b border-steel-200">
+    <div class="max-w-6xl mx-auto px-4 py-12 md:py-20 grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-10 items-center">
+      <div>
+        <p class="text-sm font-semibold text-grass-800 uppercase tracking-wide mb-3">Independent UK mower guides</p>
+        <h1 class="text-4xl md:text-6xl font-extrabold text-grass-900 leading-[1.02]">The right lawn mower for your garden</h1>
+        <p class="mt-5 text-lg text-slate-800 max-w-xl leading-relaxed bg-stripe-light/90">
+          UK buying guides built from manufacturer specifications, verified owner reviews and UK retail pricing, cross-checked so the figures match the box. We specialise in cordless and battery mowers, the default choice for most British gardens.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="/best-battery-powered-lawn-mower-reviews-uk/" class="inline-flex items-center bg-grass-700 hover:bg-grass-800 text-white font-semibold px-5 py-3 rounded-[4px] min-h-[44px]">Best cordless mowers 2026</a>
+          <a href="/research/" class="inline-flex items-center bg-white border-2 border-grass-800 hover:bg-grass-50 text-grass-900 font-semibold px-5 py-3 rounded-[4px] min-h-[44px]">Compare the spec data</a>
+        </div>
       </div>
+      <img src="/images/ai-home-hero.webp" alt="Cordless lawn mower cutting a striped lawn in a British back garden" width="1200" height="686" class="w-full rounded-[4px] object-cover border-4 border-white" loading="eager" fetchpriority="high" />
     </div>
   </section>
-
-  <div class="max-w-6xl mx-auto px-4 -mt-6">
-    <img src="/images/ai-home-hero.webp" alt="Cordless lawn mower cutting a striped lawn in a British back garden" width="1200" height="686" class="w-full rounded-2xl object-cover shadow-sm" loading="eager" fetchpriority="high" />
-  </div>
 
   <section class="max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-2xl md:text-3xl font-bold text-soil-900 mb-8 text-center">Browse by power type</h2>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <h2 class="text-2xl md:text-3xl font-bold text-soil-900 mb-2">Browse by power type</h2>
+    <p class="text-slate-600 mb-6">Start with how the mower is powered; each guide then narrows by lawn size and budget.</p>
+    <ul class="border-t-2 border-grass-800">
       {featured.map((f) => (
-        <a href={`/${f.slug}/`} class="group border border-slate-200 rounded-xl p-6 bg-white hover:border-grass-700 hover:shadow-md transition">
-          <span class="inline-block text-xs font-bold text-grass-700 bg-grass-50 px-2 py-1 rounded uppercase tracking-wide mb-3">{f.tag}</span>
-          <h3 class="text-xl font-bold text-soil-900 group-hover:text-grass-700 mb-2">{f.label}</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">{f.tagline}</p>
-          <span class="inline-block mt-4 text-grass-700 font-semibold text-sm">Read the guide →</span>
-        </a>
+        <li class="border-b border-steel-200">
+          <a href={`/${f.slug}/`} class="group grid md:grid-cols-[16rem_minmax(0,1fr)_auto] gap-x-6 gap-y-1 items-baseline py-5 px-1 hover:bg-stripe-light">
+            <span class="font-display text-xl font-bold text-soil-900 group-hover:text-grass-800 group-hover:underline underline-offset-4">{f.label}</span>
+            <span class="text-slate-700 leading-relaxed"><span class="text-xs font-bold uppercase tracking-wide text-grass-800 mr-2">{f.tag}</span>{f.tagline}</span>
+            <span class="text-grass-800 font-semibold text-sm whitespace-nowrap" aria-hidden="true">Read the guide →</span>
+          </a>
+        </li>
       ))}
-    </div>
+    </ul>
   </section>
 
-  <section class="bg-slate-50 border-y border-slate-200 py-16">
+  <section class="bg-stripe-light border-y border-steel-200 py-16">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold text-soil-900 mb-8 text-center">By brand</h2>
-      <div class="flex flex-wrap justify-center gap-3">
+      <h2 class="text-2xl md:text-3xl font-bold text-soil-900 mb-6">By brand</h2>
+      <div class="flex flex-wrap gap-2">
         {BRAND_HUBS.map((b) => (
-          <a href={`/brands/${b}/`} class="bg-white border border-slate-200 hover:border-grass-700 px-4 py-2 rounded-full text-sm font-medium capitalize">{b.replace('-', ' ')}</a>
+          <a href={`/brands/${b}/`} class="bg-white border border-steel-200 hover:border-grass-700 hover:text-grass-800 px-4 py-2.5 rounded-[4px] text-sm font-medium capitalize">{b.replace('-', ' ')}</a>
         ))}
       </div>
     </div>
   </section>
 
   <section class="max-w-5xl mx-auto px-4 py-16">
-    <div class="rounded-2xl bg-grass-700 text-white p-8 md:p-12 text-center">
+    <div class="rounded-[4px] bg-grass-800 text-white p-8 md:p-12">
       <p class="text-sm font-semibold uppercase tracking-wide text-grass-100 mb-2">Start here</p>
       <h2 class="text-2xl md:text-4xl font-bold mb-3">Best Cordless &amp; Battery Lawn Mowers UK 2026</h2>
-      <p class="text-grass-50 max-w-2xl mx-auto leading-relaxed mb-6">
+      <p class="text-grass-50 max-w-2xl leading-relaxed mb-6">
         Nine cordless mowers compared on voltage, cutting width, battery, runtime, weight and price, ranked by who each one suits. Our most complete guide.
       </p>
-      <a href="/best-battery-powered-lawn-mower-reviews-uk/" class="inline-block bg-white text-grass-800 font-semibold px-6 py-3 rounded-md hover:bg-grass-50 min-h-[44px]">Read the guide →</a>
+      <a href="/best-battery-powered-lawn-mower-reviews-uk/" class="inline-flex items-center bg-white text-grass-900 font-semibold px-6 py-3 rounded-[4px] hover:bg-grass-50 min-h-[44px]">Read the guide →</a>
     </div>
   </section>
 

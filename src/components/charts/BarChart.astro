@@ -1,0 +1,100 @@
+---
+// Horizontal bar chart: HTML labels (stay readable at 390px) + inline SVG bars on a notched ruler axis. Zero JS.
+export interface BarRow { label: string; sub?: string; value: number | null; display?: string; highlight?: boolean; href?: string }
+export interface ChartSource { text: string; href?: string }
+interface Props {
+  id: string;
+  title: string;
+  subtitle?: string;
+  unit: string;
+  rows: BarRow[];
+  sources: ChartSource[];
+  note?: string;
+  max?: number;
+  step?: number;
+  /** Draw bars as battery-style cells, one cell per `step`. */
+  cells?: boolean;
+  valueHeader?: string;
+  labelHeader?: string;
+  summary: string;
+}
+const { id, title, subtitle, unit, rows, sources, note, cells = false, valueHeader, labelHeader = 'Model', summary } = Astro.props as Props;
+const vals = rows.map((r) => r.value ?? 0);
+const rawMax = Math.max(...vals, 1);
+const niceSteps = [1, 2, 2.5, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000, 2000, 2500, 5000];
+const step = Astro.props.step ?? niceSteps.find((s) => rawMax / s <= 6) ?? 1000;
+const max = Astro.props.max ?? Math.ceil(rawMax / step) * step;
+const ticks = Array.from({ length: Math.round(max / step) + 1 }, (_, i) => i * step);
+const fmt = (n: number) => n.toLocaleString('en-GB');
+const pct = (v: number) => (v / max) * 100;
+---
+<figure class="chart-figure not-prose" id={id} aria-labelledby={`${id}-title`}>
+  <p id={`${id}-title`} class="font-display text-xl md:text-2xl font-bold text-soil-900 leading-tight">{title}</p>
+  {subtitle && <p class="mt-1 text-sm md:text-base text-slate-600">{subtitle}</p>}
+
+  <div class="mt-4 border-y-2 border-grass-800 py-3" role="img" aria-label={summary}>
+    <div class="grid grid-cols-[minmax(0,1fr)] md:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] gap-x-4" aria-hidden="true">
+      <div class="hidden md:block"></div>
+      <div class="relative h-6 mb-1">
+        <svg class="absolute inset-0 w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 24">
+          <line x1="0" y1="22" x2="100" y2="22" stroke="#56615a" stroke-width="1" vector-effect="non-scaling-stroke" />
+          {ticks.map((t) => <line x1={pct(t)} x2={pct(t)} y1="14" y2="22" stroke="#56615a" stroke-width="1" vector-effect="non-scaling-stroke" />)}
+        </svg>
+        {ticks.map((t, i) => (
+          <span class={`num absolute top-0 text-xs text-steel-600 ${i === 0 ? '' : i === ticks.length - 1 ? '-translate-x-full' : '-translate-x-1/2'} ${i % 2 === 1 && ticks.length > 5 ? 'hidden sm:inline' : ''}`} style={`left:${pct(t)}%`}>{fmt(t)}</span>
+        ))}
+      </div>
+      {rows.map((r) => {
+        const v = r.value ?? 0;
+        const w = pct(v);
+        const n = cells ? Math.round(v / step) : 0;
+        const cw = 100 / Math.round(max / step);
+        return (
+          <>
+            <div class="flex items-baseline gap-2 md:justify-end md:text-right pt-2 md:py-1.5 min-w-0">
+              <span class={`text-sm leading-snug ${r.highlight ? 'font-bold text-signal-700' : 'font-medium text-soil-900'}`}>{r.label}</span>
+              {r.sub && <span class="text-xs text-steel-600 whitespace-nowrap">{r.sub}</span>}
+            </div>
+            <div class="flex items-center gap-2 pb-1 md:py-1.5">
+              <svg class="h-5 flex-1 min-w-0" preserveAspectRatio="none" viewBox="0 0 100 20">
+                <line x1="0" y1="0" x2="0" y2="20" stroke="#8d9891" stroke-width="1" vector-effect="non-scaling-stroke" />
+                {r.value === null ? (
+                  <line x1="0" y1="10" x2="100" y2="10" stroke="#d5dbd6" stroke-dasharray="2 2" stroke-width="1" vector-effect="non-scaling-stroke" />
+                ) : cells ? (
+                  Array.from({ length: n }, (_, i) => (
+                    <rect x={i * cw + cw * 0.06} y="2" width={cw * 0.88} height="16" fill={r.highlight ? '#d9590b' : '#316621'} />
+                  ))
+                ) : (
+                  <rect x="0" y="2" width={w} height="16" fill={r.highlight ? '#d9590b' : '#316621'} />
+                )}
+              </svg>
+              <span class={`num text-sm shrink-0 w-[5.5rem] ${r.highlight ? 'font-bold text-signal-700' : 'font-semibold text-soil-900'}`}>{r.value === null ? 'not stated' : (r.display ?? `${fmt(v)} ${unit}`)}</span>
+            </div>
+          </>
+        );
+      })}
+    </div>
+  </div>
+
+  <figcaption class="mt-3 text-xs md:text-sm text-steel-600 leading-relaxed">
+    {note && <span class="block mb-1">{note}</span>}
+    <span class="font-semibold text-soil-900">Source:</span>{' '}
+    {sources.map((s, i) => (
+      <>{s.href ? <a href={s.href} class="underline underline-offset-2 hover:text-grass-800" rel="noopener" target={s.href.startsWith('http') ? '_blank' : undefined}>{s.text}</a> : s.text}{i < sources.length - 1 ? '; ' : '.'}</>
+    ))}
+  </figcaption>
+
+  <details class="mt-3 text-sm">
+    <summary class="cursor-pointer font-semibold text-grass-800 underline underline-offset-2 min-h-[44px] flex items-center">Show the data as a table</summary>
+    <div class="overflow-x-auto mt-2" tabindex="0" role="region" aria-label={`${title} data table`}>
+      <table class="w-full border-collapse text-sm">
+        <thead><tr><th scope="col" class="text-left px-3 py-2 border border-steel-200 bg-stripe-dark">{labelHeader}</th><th scope="col" class="text-left px-3 py-2 border border-steel-200 bg-stripe-dark">{valueHeader ?? `Value (${unit})`}</th></tr></thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr><th scope="row" class="text-left font-medium px-3 py-2 border border-steel-200">{r.href ? <a href={r.href} class="underline underline-offset-2 text-grass-800">{r.label}</a> : r.label}{r.sub ? ` (${r.sub})` : ''}</th><td class="num px-3 py-2 border border-steel-200">{r.value === null ? 'Not stated by maker' : (r.display ?? `${fmt(r.value)} ${unit}`)}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
+</figure>
