@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
+import RobotAreaChart from '../../../components/charts/RobotAreaChart.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
 
 const title = 'Best Robot Mowers for Large Lawns UK 2026 (1000 m²+)';
@@ -57,6 +58,11 @@ const schema = [
       <p>
         Coverage area is the headline spec, but it's not the only one. Large lawns usually mean slopes, multiple zones (front and back), narrow passages between beds, and more obstacles. You need a mower with strong navigation, good battery life, and ideally multi-zone support so it can handle the whole property without you moving it manually.
       </p>
+    </div>
+    <RobotAreaChart />
+    <div class="prose-mowers">
+      <p>Slope ratings for the same models are in our <a href="/research/robot-mower-slope-and-area-ratings/">robot mower slope and area data</a>.</p>
+
 
       <h2>Three robot mowers for big gardens</h2>
 

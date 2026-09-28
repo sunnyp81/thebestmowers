@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { breadcrumbSchema } from '../../lib/schema';
+import { CORDLESS_SPECS, CORDLESS_CHECKED } from '../../data/cordless-specs';
+import { ROBOT_SPECS, ROBOT_CHECKED } from '../../data/robot-specs';
+
+const title = 'Lawn Mower Spec Data: Maker Ratings Compared';
+const description = 'Original datasets comparing manufacturer-stated lawn mower specs: cordless lawn-area ratings and robot mower slope and area ratings, with sources.';
+const path = '/research/';
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Spec data', url: path },
+];
+const fmt = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const sets = [
+  { href: '/research/cordless-mower-lawn-area-ratings/', name: 'Cordless mower lawn-area ratings', n: CORDLESS_SPECS.length, what: 'Rated lawn area, cutting width, battery and grass box for UK cordless mowers.', checked: CORDLESS_CHECKED },
+  { href: '/research/robot-mower-slope-and-area-ratings/', name: 'Robot mower slope and area ratings', n: ROBOT_SPECS.length, what: 'Maximum slope (and where it applies) and working area for UK robot mowers.', checked: ROBOT_CHECKED },
+];
+const schema = [breadcrumbSchema(crumbs)];
+---
+<BaseLayout {title} {description} {schema}>
+  <div class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+    <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Mower spec data</h1>
+    <p class="mt-4 text-lg text-slate-700 leading-relaxed max-w-2xl">
+      Datasets we built by reading manufacturer product pages, so the claims behind our guides can be checked and compared. Every figure links to its source. Free to reuse with a link.
+    </p>
+    <ul class="mt-10 border-t-2 border-grass-800">
+      {sets.map((s) => (
+        <li class="border-b border-steel-200">
+          <a href={s.href} class="group grid md:grid-cols-[minmax(0,1fr)_auto] gap-x-6 gap-y-1 py-6 px-1 hover:bg-stripe-light">
+            <span>
+              <span class="font-display block text-xl md:text-2xl font-bold text-soil-900 group-hover:text-grass-800 group-hover:underline underline-offset-4">{s.name}</span>
+              <span class="block mt-1 text-slate-700">{s.what}</span>
+            </span>
+            <span class="text-sm text-steel-600 md:text-right"><span class="num text-2xl font-bold text-grass-900 block">{s.n} models</span>checked {fmt(s.checked)}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>

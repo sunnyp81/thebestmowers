@@ -5,6 +5,7 @@ import FAQ from '../../components/FAQ.astro';
 import PickCard from '../../components/PickCard.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import HowWeResearch from '../../components/HowWeResearch.astro';
+import RobotSlopeChart from '../../components/charts/RobotSlopeChart.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../lib/schema';
 import { amazonSearch } from '../../lib/affiliate';
 
@@ -58,12 +59,12 @@ const picks = [
   },
   {
     rank: 5, asin: 'B0GMRG616G', name: 'Stiga A 1500',
-    brand: 'Stiga', bestFor: 'large gardens (up to 1,500 m²)',
+    brand: 'Stiga', bestFor: 'large gardens (up to 2,500 m²)',
     rating: 4.5, rrp: '£1,549',
     reviewUrl: '/robot-lawn-mowers/',
-    pros: ['Up to 1,500 m² coverage', 'AGS Active Guidance System for efficient routing', 'Genuine UK after-sales via Stiga dealers'],
-    cons: ['Boundary cable required', 'Italian brand - fewer YouTube tutorials'],
-    verdict: 'For lawns between 800 and 1,500 m², Stiga undercuts the equivalent Husqvarna and Worx machines by £200-400 and the cut quality is identical. Well worth a look for big gardens.',
+    pros: ['Rated for up to 2,500 m² across ten zones', 'Wire-free RTK AGS guidance for efficient routing', 'Genuine UK after-sales via Stiga dealers'],
+    cons: ['Costs more than entry-level wire-free robots', 'Italian brand - fewer YouTube tutorials'],
+    verdict: 'Despite the name, Stiga rates the A 1500 for lawns up to 2,500 m², split across as many as ten zones, with no boundary cable to lay. Stiga also states a 45% maximum slope, the joint steepest in our spec data. Well worth a look for big or split gardens.',
   },
 ];
 
@@ -162,14 +163,19 @@ const schema = [
       <ul>
         <li><strong>Up to 250 m²</strong> - entry-level robots. Bosch Indego S, Husqvarna 105, Worx Landroid S</li>
         <li><strong>250-600 m²</strong> - bestselling middle tier. Husqvarna Automower 305, Bosch Indego S+ 500, Robomow RX</li>
-        <li><strong>600-1,500 m²</strong> - Stiga A 1500, Husqvarna 415X, Mammotion Luba 1000</li>
-        <li><strong>1,500 m²+</strong> - Husqvarna 450X NERA, Mammotion Luba AWD 5000, dedicated commercial models</li>
+        <li><strong>600-1,500 m²</strong> - Husqvarna 415X, Mammotion Luba 2 AWD 1000</li>
+        <li><strong>1,500 m²+</strong> - Stiga A 1500 (rated 2,500 m²), Husqvarna 450X NERA, Mammotion Luba 2 AWD 3000 and 5000</li>
       </ul>
 
       <h3>Maximum slope</h3>
       <p>
         The single most overlooked spec. Most domestic robots are rated 25-35%. A 35% gradient is the slope of an average UK suburban lawn corner, so 35% is fine for most. If your lawn includes a bank or a slope above 35%, you need an Automower X-Line (40%) or a 4WD robot like the Mammotion Luba 2 AWD (45%).
       </p>
+    </div>
+    <RobotSlopeChart highlight="Automower 305" />
+    <div class="prose-mowers">
+      <p>Full figures, including each boundary slope, are in our <a href="/research/robot-mower-slope-and-area-ratings/">robot mower slope and area data</a>.</p>
+
 
       <h3>Cutting width and number of blades</h3>
       <p>

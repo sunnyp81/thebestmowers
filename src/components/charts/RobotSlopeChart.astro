@@ -1,0 +1,32 @@
+---
+// Asset 2a: maker-stated maximum slope for 10 UK robot mowers.
+import BarChart from './BarChart.astro';
+import { ROBOT_SPECS, ROBOT_CHECKED, robotLabel, pctToDeg, SLOPE_BASIS_LABEL } from '../../data/robot-specs';
+interface Props { highlight?: string; id?: string }
+const { highlight, id = 'chart-robot-slope' } = Astro.props as Props;
+const rows = [...ROBOT_SPECS]
+  .sort((a, b) => a.slopePct - b.slopePct || a.areaM2 - b.areaM2)
+  .map((s) => ({
+    label: robotLabel(s),
+    sub: SLOPE_BASIS_LABEL[s.slopeBasis],
+    value: s.slopePct,
+    display: `${s.slopePct}% (${pctToDeg(s.slopePct)}°)`,
+    highlight: highlight ? robotLabel(s).includes(highlight) : false,
+    href: s.reviewUrl ?? s.source,
+  }));
+const checked = new Date(ROBOT_CHECKED).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<BarChart
+  id={id}
+  title="Steepest slope each robot mower is rated for"
+  subtitle="Maximum gradient as the maker states it, in % with the angle in degrees. Makers measure this in different places, so the label under each model says which figure it is."
+  unit="%"
+  rows={rows}
+  step={10}
+  max={50}
+  labelHeader="Model (where the slope figure applies)"
+  valueHeader="Maximum slope"
+  summary={`Bar chart of maker-stated maximum slope for ${rows.length} robot mowers, from 25% (Gardena Sileno minimo 250) to 45% (Mammotion Luba 2 AWD and Stiga A 1500). Husqvarna Automower 305 is rated 40% inside the lawn.`}
+  note={`A 100% slope is 45°. Husqvarna and Gardena give a lower figure for the boundary (for example 15% on the Automower 305). Mammotion's 45% is its lawn-edge figure. Checked ${checked}.`}
+  sources={[{ text: 'manufacturer product and support pages, linked in the full dataset', href: '/research/robot-mower-slope-and-area-ratings/' }]}
+/>

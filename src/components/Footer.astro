@@ -5,19 +5,19 @@ import { POWER_TYPE_HUBS, BRAND_HUBS, SITE } from '../lib/site';
   <div class="stripe-rule" aria-hidden="true"></div>
   <div class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
     <div>
-      <h3 class="font-bold text-soil-900 mb-3">By Power Type</h3>
+      <h2 class="text-base font-bold text-soil-900 mb-3">By Power Type</h2>
       <ul class="space-y-2 text-slate-700">
         {POWER_TYPE_HUBS.map((h) => (<li><a href={`/${h.slug}/`} class="hover:text-grass-700">{h.label} mowers</a></li>))}
       </ul>
     </div>
     <div>
-      <h3 class="font-bold text-soil-900 mb-3">Top Brands</h3>
+      <h2 class="text-base font-bold text-soil-900 mb-3">Top Brands</h2>
       <ul class="space-y-2 text-slate-700">
         {BRAND_HUBS.slice(0, 8).map((b) => (<li><a href={`/brands/${b}/`} class="hover:text-grass-700 capitalize">{b.replace('-', ' ')}</a></li>))}
       </ul>
     </div>
     <div>
-      <h3 class="font-bold text-soil-900 mb-3">Advice</h3>
+      <h2 class="text-base font-bold text-soil-900 mb-3">Advice</h2>
       <ul class="space-y-2 text-slate-700">
         <li><a href="/advice/maintenance/" class="hover:text-grass-700">Maintenance</a></li>
         <li><a href="/advice/troubleshooting/" class="hover:text-grass-700">Troubleshooting</a></li>
@@ -28,7 +28,7 @@ import { POWER_TYPE_HUBS, BRAND_HUBS, SITE } from '../lib/site';
       </ul>
     </div>
     <div>
-      <h3 class="font-bold text-soil-900 mb-3">{SITE.name}</h3>
+      <h2 class="text-base font-bold text-soil-900 mb-3">{SITE.name}</h2>
       <ul class="space-y-2 text-slate-700">
         <li><a href="/about/" class="hover:text-grass-700">About + how we research</a></li>
         <li><a href="/contact/" class="hover:text-grass-700">Contact</a></li>

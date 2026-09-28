@@ -1,0 +1,37 @@
+---
+// Asset 1: maker-rated lawn area vs cutting width, 14 UK cordless mowers.
+import BarChart from './BarChart.astro';
+import { CORDLESS_RATED, CORDLESS_CHECKED, cordlessLabel, areaDisplay } from '../../data/cordless-specs';
+interface Props { highlight?: string; id?: string }
+const { highlight, id = 'chart-cordless-area' } = Astro.props as Props;
+const rows = [...CORDLESS_RATED]
+  .sort((a, b) => a.widthCm - b.widthCm || a.areaHigh - b.areaHigh)
+  .map((s) => {
+    const twin = s.battery.startsWith('2 x');
+    return {
+      label: cordlessLabel(s),
+      sub: `${s.widthCm} cm${twin ? ', 2 batteries' : ''}`,
+      value: s.areaHigh,
+      display: areaDisplay(s),
+      highlight: highlight ? cordlessLabel(s).includes(highlight) : false,
+      href: s.reviewUrl ?? s.source,
+    };
+  });
+const checked = new Date(CORDLESS_CHECKED).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<BarChart
+  id={id}
+  title="How much lawn each cordless mower is rated for"
+  subtitle="Maker's recommended or maximum lawn area, sorted by cutting width. A wider deck does not guarantee a bigger rating: the battery supplied matters as much."
+  unit="m²"
+  rows={rows}
+  step={100}
+  cells
+  labelHeader="Model (cutting width, batteries)"
+  valueHeader="Rated lawn area (m²)"
+  summary={`Bar chart of maker-rated lawn area for ${rows.length} cordless mowers. Ratings run from 150 m² (Bosch ROTAK18V-32) to 800 m² (Makita DLM480). At 34 cm, ratings range from 200 to 400 m²; the 46 cm Stihl RMA 248 is rated for 220 m².`}
+  note={`Each cell is 100 m². Upper figure shown where the maker gives a range. Gtech CLM50 is left out because Gtech publishes runtime, not area. Figures checked ${checked}.`}
+  sources={[
+    { text: 'manufacturer product pages, one per model, linked in the full dataset', href: '/research/cordless-mower-lawn-area-ratings/' },
+  ]}
+/>

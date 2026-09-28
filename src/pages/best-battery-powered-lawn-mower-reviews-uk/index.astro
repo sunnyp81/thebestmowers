@@ -6,6 +6,7 @@ import PickCard from '../../components/PickCard.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import HowWeResearch from '../../components/HowWeResearch.astro';
 import OwnerVoices from '../../components/OwnerVoices.astro';
+import CordlessAreaChart from '../../components/charts/CordlessAreaChart.astro';
 import VoltageGuide from '../../components/VoltageGuide.astro';
 import DeckWidthGuide from '../../components/DeckWidthGuide.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
@@ -227,6 +228,11 @@ const schema = [
 
       <h3>3. Battery: single, twin, and brushless</h3>
       <p>Single-battery mowers are lighter and cheaper; twin-battery models double the runtime for roughly £100 more and suit lawns over 500&nbsp;m². Almost every mower here uses a <strong>brushless motor</strong> - quieter, more efficient and longer-lived than the brushed motors in cheap supermarket mowers. Crucially, the battery is a platform decision: a Bosch, Ryobi or Makita pack also runs that brand's hedge trimmer, blower and strimmer.</p>
+    </section>
+    <CordlessAreaChart />
+    <section class="prose-mowers">
+      <p>Full figures, with the battery each rating assumes, are in our <a href="/research/cordless-mower-lawn-area-ratings/">cordless lawn-area data</a>.</p>
+
 
       <h3>4. Self-propelled or push?</h3>
       <p>Self-propelled mowers drive their own wheels so you steer rather than shove - worth the £80-£150 premium on a slope, on lawns over 400&nbsp;m², or if a 20&nbsp;kg push is uncomfortable. For a flat lawn under 200&nbsp;m², a push mower is lighter, cheaper and simpler.</p>

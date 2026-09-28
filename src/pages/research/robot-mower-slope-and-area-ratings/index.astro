@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import RobotSlopeChart from '../../../components/charts/RobotSlopeChart.astro';
+import RobotAreaChart from '../../../components/charts/RobotAreaChart.astro';
+import { articleSchema, breadcrumbSchema } from '../../../lib/schema';
+import { SITE } from '../../../lib/site';
+import { ROBOT_SPECS, ROBOT_CHECKED, robotLabel, pctToDeg, SLOPE_BASIS_LABEL } from '../../../data/robot-specs';
+
+const title = 'Robot Mower Slope and Area Ratings: 10 UK Models Compared';
+const description = 'Maker-stated maximum slope and working area for 10 robot lawn mowers sold in the UK, with where each slope figure applies. Read from manufacturer pages.';
+const path = '/research/robot-mower-slope-and-area-ratings/';
+const checkedLong = new Date(ROBOT_CHECKED).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Spec data', url: '/research/' },
+  { name: 'Robot mower slope and area', url: path },
+];
+
+const slopeRef = [15, 20, 25, 30, 35, 40, 45];
+
+const dataset = {
+  '@context': 'https://schema.org',
+  '@type': 'Dataset',
+  name: 'Robot lawn mower slope and working-area ratings (UK)',
+  description,
+  url: new URL(path, SITE.url).toString(),
+  creator: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  dateModified: ROBOT_CHECKED,
+  isAccessibleForFree: true,
+  license: 'https://creativecommons.org/licenses/by/4.0/',
+  variableMeasured: ['Maximum slope (%)', 'Boundary slope (%)', 'Working area (m²)', 'Boundary type'],
+};
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished: ROBOT_CHECKED, dateModified: ROBOT_CHECKED }),
+  dataset,
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-800 uppercase tracking-wide mb-2">Spec data · Checked {checkedLong}</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Robot mower slope and area ratings</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Slope and lawn area are the two specs that decide whether a robot mower suits a garden. We read both from the manufacturer pages of {ROBOT_SPECS.length} robot mowers sold in the UK. Slope figures are harder to compare than they look: some makers quote the slope inside the lawn, some quote the edge, and some give one number.
+      </p>
+    </header>
+
+    <RobotSlopeChart />
+
+    <div class="prose-mowers">
+      <h2 id="findings">What the ratings show</h2>
+      <ul>
+        <li><strong>The boundary is the weak point.</strong> Husqvarna rates the Automower 305 for 40% inside the lawn but 15% at the boundary wire. Gardena gives 25% and 10% for the Sileno minimo 250. If your steepest ground runs along an edge, the boundary figure is the one to check.</li>
+        <li><strong>Most mid-range models sit at 30%.</strong> Five of the ten are rated 30%, about 17°, including both Worx Landroid Vision models and the Segway Navimow i105E.</li>
+        <li><strong>The 45% models are all-wheel drive or RTK wire-free.</strong> The Mammotion Luba 2 AWD and Stiga A 1500 are the steepest-rated here. Mammotion states its 45% for the lawn edge.</li>
+        <li><strong>Model names are not area ratings.</strong> The Stiga A 1500 is rated for 2,500 m², not 1,500 m².</li>
+      </ul>
+
+      <h2 id="convert">Slope percentage to degrees</h2>
+      <p>Makers mix percentages and degrees. A slope percentage is rise over run: 100% is 45°, not vertical.</p>
+      <table>
+        <thead><tr><th>Slope (%)</th>{slopeRef.map((p) => <th class="num">{p}%</th>)}</tr></thead>
+        <tbody><tr><th scope="row">Angle</th>{slopeRef.map((p) => <td class="num">{pctToDeg(p)}°</td>)}</tr></tbody>
+      </table>
+    </div>
+
+    <RobotAreaChart />
+
+    <div class="prose-mowers">
+      <p>For our picks, see the <a href="/robot-lawn-mowers/">robot lawn mower guide</a>, <a href="/robot-lawn-mowers/large-lawns/">robot mowers for large lawns</a> and <a href="/robot-lawn-mowers/no-perimeter-wire/">wire-free robot mowers</a>.</p>
+
+      <h2 id="dataset">Full dataset</h2>
+      <table>
+        <thead><tr><th>Model</th><th>Max slope</th><th>Where it applies</th><th>Boundary slope</th><th>Working area</th><th>Boundary</th><th>Source</th></tr></thead>
+        <tbody>
+          {ROBOT_SPECS.map((s) => (
+            <tr>
+              <td>{s.reviewUrl ? <a href={s.reviewUrl}>{robotLabel(s)}</a> : robotLabel(s)}</td>
+              <td class="num">{s.slopePct}% ({pctToDeg(s.slopePct)}°)</td>
+              <td>{SLOPE_BASIS_LABEL[s.slopeBasis]}</td>
+              <td class="num">{s.edgeSlopePct ? `${s.edgeSlopePct}%` : 'Not stated separately'}</td>
+              <td class="num">{s.areaM2.toLocaleString('en-GB')} m²{s.areaNote ? ` (${s.areaNote})` : ''}</td>
+              <td>{s.wireFree ? 'Wire-free' : 'Boundary wire'}</td>
+              <td><a href={s.source} rel="noopener" target="_blank">{new URL(s.source).hostname.replace(/^www\./, '')}</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <h2 id="method">How we collected this</h2>
+      <p>Each figure was read from the manufacturer's own UK product page or official support specification on {checkedLong}. Bosch Indego models are left out because Bosch's UK product pages for them were not reachable on that date, and we only publish figures we could read from the maker. We did not test these mowers; these are the makers' claims, gathered so they can be compared. Prices and customer ratings are left out because they change daily.</p>
+      <p>If a maker updates a figure, <a href="/contact/">tell us</a> and we will re-check it.</p>
+
+      <h2 id="cite">Using this data</h2>
+      <p>You are welcome to reuse these charts or figures with a link to this page. Suggested credit: <em>"Robot mower slope and area ratings, The Best Mowers ({new Date(ROBOT_CHECKED).getFullYear()}), thebestmowers.co.uk{path}"</em>.</p>
+    </div>
+  </article>
+</BaseLayout>

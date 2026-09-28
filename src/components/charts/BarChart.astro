@@ -29,13 +29,13 @@ const fmt = (n: number) => n.toLocaleString('en-GB');
 const pct = (v: number) => (v / max) * 100;
 ---
 <figure class="chart-figure not-prose" id={id} aria-labelledby={`${id}-title`}>
-  <p id={`${id}-title`} class="font-display text-xl md:text-2xl font-bold text-soil-900 leading-tight">{title}</p>
-  {subtitle && <p class="mt-1 text-sm md:text-base text-slate-600">{subtitle}</p>}
+  <div id={`${id}-title`} class="font-display text-xl md:text-2xl font-bold text-soil-900 leading-tight">{title}</div>
+  {subtitle && <div class="mt-1 text-sm md:text-base text-slate-600">{subtitle}</div>}
 
   <div class="mt-4 border-y-2 border-grass-800 py-3" role="img" aria-label={summary}>
-    <div class="grid grid-cols-[minmax(0,1fr)] md:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] gap-x-4" aria-hidden="true">
+    <div class="grid grid-cols-[minmax(0,1fr)] md:grid-cols-[minmax(0,17rem)_minmax(0,1fr)] gap-x-4" aria-hidden="true">
       <div class="hidden md:block"></div>
-      <div class="relative h-6 mb-1">
+      <div class="relative h-6 mb-1 mr-[6rem]">
         <svg class="absolute inset-0 w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 24">
           <line x1="0" y1="22" x2="100" y2="22" stroke="#56615a" stroke-width="1" vector-effect="non-scaling-stroke" />
           {ticks.map((t) => <line x1={pct(t)} x2={pct(t)} y1="14" y2="22" stroke="#56615a" stroke-width="1" vector-effect="non-scaling-stroke" />)}

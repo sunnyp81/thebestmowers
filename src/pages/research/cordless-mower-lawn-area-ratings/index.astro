@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import CordlessAreaChart from '../../../components/charts/CordlessAreaChart.astro';
+import BarChart from '../../../components/charts/BarChart.astro';
+import { articleSchema, breadcrumbSchema } from '../../../lib/schema';
+import { SITE } from '../../../lib/site';
+import { CORDLESS_SPECS, CORDLESS_RATED, CORDLESS_CHECKED, cordlessLabel, areaDisplay, widthBands } from '../../../data/cordless-specs';
+
+const title = 'Cordless Mower Lawn-Area Ratings: 15 UK Models Compared';
+const description = 'Maker-rated lawn area, cutting width, battery and grass box for 15 cordless mowers sold in the UK, read from each manufacturer\'s own product page.';
+const path = '/research/cordless-mower-lawn-area-ratings/';
+const checkedLong = new Date(CORDLESS_CHECKED).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Spec data', url: '/research/' },
+  { name: 'Cordless lawn-area ratings', url: path },
+];
+
+const bands = widthBands();
+const single = CORDLESS_RATED.filter((s) => s.battery.startsWith('1 x'));
+const twin = CORDLESS_RATED.filter((s) => s.battery.startsWith('2 x'));
+const range = (xs: typeof CORDLESS_RATED) => {
+  const v = xs.map((x) => x.areaHigh).sort((a, b) => a - b);
+  return `${v[0]}-${v[v.length - 1]} m²`;
+};
+const grassRows = [...CORDLESS_SPECS]
+  .sort((a, b) => a.widthCm - b.widthCm || a.grassboxL - b.grassboxL)
+  .map((s) => ({ label: cordlessLabel(s), sub: `${s.widthCm} cm`, value: s.grassboxL, display: `${s.grassboxL} L`, href: s.reviewUrl ?? s.source }));
+
+const dataset = {
+  '@context': 'https://schema.org',
+  '@type': 'Dataset',
+  name: 'Cordless lawn mower lawn-area ratings (UK)',
+  description,
+  url: new URL(path, SITE.url).toString(),
+  creator: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  dateModified: CORDLESS_CHECKED,
+  isAccessibleForFree: true,
+  license: 'https://creativecommons.org/licenses/by/4.0/',
+  variableMeasured: ['Cutting width (cm)', 'Rated lawn area (m²)', 'Battery supplied', 'Grass box (L)'],
+};
+
+const schema = [
+  breadcrumbSchema(crumbs),
+  articleSchema({ headline: title, description, url: path, datePublished: CORDLESS_CHECKED, dateModified: CORDLESS_CHECKED }),
+  dataset,
+];
+---
+<BaseLayout {title} {description} {schema}>
+  <article class="max-w-4xl mx-auto px-4 py-10">
+    <Breadcrumbs items={crumbs} />
+
+    <header class="mb-8">
+      <p class="text-sm font-semibold text-grass-800 uppercase tracking-wide mb-2">Spec data · Checked {checkedLong}</p>
+      <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Cordless mower lawn-area ratings</h1>
+      <p class="mt-4 text-lg text-slate-700 leading-relaxed">
+        Every cordless mower maker quotes a lawn size its machine can handle. We read that figure, plus cutting width, the battery the figure assumes and grass box size, from the product page of {CORDLESS_SPECS.length} mowers sold in the UK. The short version: cutting width is a weak guide to how much lawn a mower will finish. The battery matters as much.
+      </p>
+    </header>
+
+    <div class="grid sm:grid-cols-3 gap-px bg-steel-200 border-y-2 border-grass-800 mb-10">
+      <div class="bg-white p-4">
+        <p class="num text-3xl font-bold text-grass-900">{range(single)}</p>
+        <p class="text-sm text-slate-700 mt-1">rated range for the {single.length} kits supplied with one battery</p>
+      </div>
+      <div class="bg-white p-4">
+        <p class="num text-3xl font-bold text-grass-900">{range(twin)}</p>
+        <p class="text-sm text-slate-700 mt-1">rated range for the {twin.length} kits that run on two batteries</p>
+      </div>
+      <div class="bg-white p-4">
+        <p class="num text-3xl font-bold text-grass-900">2x</p>
+        <p class="text-sm text-slate-700 mt-1">gap between the lowest and highest rating at the same 34 cm width (200 vs 400 m²)</p>
+      </div>
+    </div>
+
+    <CordlessAreaChart />
+
+    <div class="prose-mowers">
+      <h2 id="findings">What the ratings show</h2>
+      <ul>
+        <li><strong>Width alone misleads.</strong> The Stihl RMA 248 has a 46 cm deck but Stihl rates it for 220 m² on the AK 20 battery. The 38 cm Makita DLM382, running two 6.0Ah batteries, is rated for 560 m².</li>
+        <li><strong>Twin-battery kits carry the higher ratings.</strong> Within Bosch's own range, the single-battery 34 cm ROTAK18V-34 is rated for 200 m² and the twin-battery 38 cm ROTAK18V2-38 for 500 m².</li>
+        <li><strong>Ratings assume a specific battery.</strong> Several makers (Bosch, Stihl) state the area for a named battery or "4.0Ah or larger". Buy a bare tool and fit a smaller pack, and the rating no longer applies.</li>
+        <li><strong>Treat the figure as a ceiling.</strong> Makers do not publish the grass length or conditions behind these numbers. Long, wet or thick grass shortens runtime, so pick a rating comfortably above your lawn size.</li>
+      </ul>
+
+      <h2 id="by-width">Rating range by cutting width</h2>
+      <table>
+        <thead><tr><th>Cutting width</th><th>Models</th><th>Lowest rating</th><th>Highest rating</th></tr></thead>
+        <tbody>
+          {bands.map((b) => (<tr><td>{b.label}</td><td class="num">{b.n}</td><td class="num">{b.min} m²</td><td class="num">{b.max} m²</td></tr>))}
+        </tbody>
+      </table>
+      <p>For a quick lawn-size-to-mower-type guide, see <a href="/advice/garden-size/">choosing a mower by garden size</a>. For the models we recommend, see the <a href="/best-battery-powered-lawn-mower-reviews-uk/">best cordless lawn mowers</a> guide.</p>
+    </div>
+
+    <BarChart
+      id="chart-grassbox"
+      title="Grass box capacity"
+      subtitle="Litres, as stated by the maker. Bigger boxes mean fewer trips to the compost bin on larger lawns."
+      unit="L"
+      rows={grassRows}
+      step={10}
+      labelHeader="Model (cutting width)"
+      valueHeader="Grass box (L)"
+      summary={`Bar chart of grass box capacity for ${grassRows.length} cordless mowers, from 30 litres to 62 litres (Makita DLM480).`}
+      sources={[{ text: 'manufacturer product pages, listed in the table below' }]}
+    />
+
+    <div class="prose-mowers">
+      <h2 id="dataset">Full dataset</h2>
+      <table>
+        <thead><tr><th>Model</th><th>Width</th><th>Rated area</th><th>Battery the rating assumes</th><th>Grass box</th><th>Source</th></tr></thead>
+        <tbody>
+          {CORDLESS_SPECS.map((s) => (
+            <tr>
+              <td>{s.reviewUrl ? <a href={s.reviewUrl}>{cordlessLabel(s)}</a> : cordlessLabel(s)}</td>
+              <td class="num">{s.widthCm} cm</td>
+              <td class="num">{s.areaHigh > 0 ? areaDisplay(s) : 'Not stated'}</td>
+              <td>{s.battery}</td>
+              <td class="num">{s.grassboxL} L</td>
+              <td><a href={s.source} rel="noopener" target="_blank">{new URL(s.source).hostname.replace(/^www\./, '')}</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <h2 id="method">How we collected this</h2>
+      <p>Each figure was read from the manufacturer's own product page for the UK model or kit on {checkedLong}. Where a maker gives a range (WORX WG779E.1, Makita DLM480) the table shows both ends and the charts use the upper figure. We did not test these mowers; these are the makers' claims, gathered in one place so they can be compared. Retailer listings, prices and customer ratings are left out on purpose, because they change daily.</p>
+      <p>If a maker updates a figure, <a href="/contact/">tell us</a> and we will re-check it.</p>
+
+      <h2 id="cite">Using this data</h2>
+      <p>You are welcome to reuse these charts or figures with a link to this page. Suggested credit: <em>"Cordless mower lawn-area ratings, The Best Mowers ({new Date(CORDLESS_CHECKED).getFullYear()}), thebestmowers.co.uk{path}"</em>.</p>
+    </div>
+  </article>
+</BaseLayout>

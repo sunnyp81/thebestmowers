@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
+import CordlessAreaChart from '../../../components/charts/CordlessAreaChart.astro';
 import EmailCapture from '../../../components/EmailCapture.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
 import { amazonSearch, AFFILIATE_REL } from '../../../lib/affiliate';
@@ -54,6 +55,11 @@ const schema = [
       <p>
         Three things: voltage (36 V minimum, 56 V ideal), deck width (41 cm or wider), and self-propelled drive. Without all three, you'll either run out of battery, take forever, or exhaust yourself pushing. A twin-battery setup extends range further but adds weight and cost.
       </p>
+    </div>
+    <CordlessAreaChart />
+    <div class="prose-mowers">
+      <p>Only a handful of cordless mowers are rated for more than 500 m², and most of those run on two batteries. The full figures are in our <a href="/research/cordless-mower-lawn-area-ratings/">cordless lawn-area data</a>.</p>
+
 
       <h2>Three cordless mowers built for big lawns</h2>
 

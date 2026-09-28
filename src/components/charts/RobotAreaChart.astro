@@ -1,0 +1,30 @@
+---
+// Asset 2b: maker-rated working area for 10 UK robot mowers.
+import BarChart from './BarChart.astro';
+import { ROBOT_SPECS, ROBOT_CHECKED, robotLabel } from '../../data/robot-specs';
+interface Props { highlight?: string; id?: string }
+const { highlight, id = 'chart-robot-area' } = Astro.props as Props;
+const rows = [...ROBOT_SPECS]
+  .sort((a, b) => a.areaM2 - b.areaM2)
+  .map((s) => ({
+    label: robotLabel(s),
+    sub: s.wireFree ? 'wire-free' : 'boundary wire',
+    value: s.areaM2,
+    highlight: highlight ? robotLabel(s).includes(highlight) : false,
+    href: s.reviewUrl ?? s.source,
+  }));
+const checked = new Date(ROBOT_CHECKED).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<BarChart
+  id={id}
+  title="Lawn area each robot mower is rated for"
+  subtitle="Maker's maximum working area. Buy for your whole lawn, including the front, plus some headroom."
+  unit="m²"
+  rows={rows}
+  step={500}
+  labelHeader="Model (boundary type)"
+  valueHeader="Rated working area (m²)"
+  summary={`Bar chart of maker-rated working area for ${rows.length} robot mowers, from 250 m² (Gardena Sileno minimo 250) to 3,000 m² (Mammotion Luba 2 AWD 3000). The Stiga A 1500 is rated for 2,500 m² despite its name.`}
+  note={`Husqvarna's 310E NERA figure assumes systematic mowing; Husqvarna gives 1,000 m² for irregular mowing. Checked ${checked}.`}
+  sources={[{ text: 'manufacturer product and support pages, linked in the full dataset', href: '/research/robot-mower-slope-and-area-ratings/' }]}
+/>
