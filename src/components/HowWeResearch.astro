@@ -1,7 +1,8 @@
 ---
 // Honest E-E-A-T methodology block. We are research-led, not a test lab.
-interface Props { heading?: string }
-const { heading = 'How we choose' } = Astro.props as Props;
+// Set disclose={false} when the page already renders <Disclosure /> elsewhere, to avoid two commission statements on one page.
+interface Props { heading?: string; disclose?: boolean }
+const { heading = 'How we choose', disclose = true } = Astro.props as Props;
 ---
 <section class="my-10 rounded-[4px] border border-steel-200 bg-stripe-light p-5 md:p-6">
   <h2 class="text-xl md:text-2xl font-bold text-soil-900 mb-3">{heading}</h2>
@@ -15,7 +16,6 @@ const { heading = 'How we choose' } = Astro.props as Props;
   <p class="text-slate-700 leading-relaxed">
     Rankings are based on cut quality, battery and runtime for the garden size in question,
     weight, build, and value at UK prices. We update picks when models are discontinued or
-    superseded. We earn affiliate commission on some links, but it never decides the order of
-    a list. <a href="/about/" class="text-grass-700 underline underline-offset-2">More on our method</a>.
+    superseded.{disclose && ' We earn affiliate commission on some links, but it never decides the order of a list.'} <a href="/about/" class="text-grass-700 underline underline-offset-2">More on our method</a>.
   </p>
 </section>

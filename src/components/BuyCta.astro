@@ -10,6 +10,7 @@ const url = (asin && amazonLink(asin)) || amazonSearch(`${name} lawn mower`);
     Check price on Amazon →
   </a>
   <p class="text-xs text-slate-500">
-    Check Amazon for the current price and stock.{disclose && ' We may earn a commission, at no cost to you.'}
+    Check Amazon for the current price and stock.
+    {disclose && <>As an Amazon Associate I earn from qualifying purchases<br />It never affects our picks, at no extra cost to you.</>}
   </p>
 </div>
