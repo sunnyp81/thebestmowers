@@ -4,6 +4,7 @@ import BuyCta from '../../../components/BuyCta.astro';
 import OwnerVoices from '../../../components/OwnerVoices.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
+import Disclosure from '../../../components/Disclosure.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
 
 const title = 'Gtech CLM 2.0 Review - UK Cordless Mower (2026)';
@@ -42,6 +43,8 @@ const schema = [
       <p class="mt-3 text-slate-500 text-sm">By The Best Mowers UK · Research-led assessment from specs and verified owner reviews</p>
     </header>
 
+    <Disclosure />
+
     <img
       src="/images/compact_cordless_easy_storage.webp"
       alt="Gtech CLM 2.0 cordless lawn mower on a UK garden"
@@ -62,10 +65,11 @@ const schema = [
         </div>
       </div>
       <p class="text-slate-700 leading-relaxed">
-        The Gtech CLM 2.0 is the cordless mower we recommend most often to first-time UK buyers. It cuts cleanly with a 42 cm deck and a generous 50 L box, and Gtech rates the single 48V 2.0Ah pack for up to 40 minutes of runtime per charge. It uses a rear comb rather than a roller, so it does not leave defined stripes. Two niggles: no mulching plug as standard (£19.99 extra), and the proprietary battery doesn't fit any other tools.
+        The Gtech CLM 2.0 is the cordless mower we recommend most often to first-time UK buyers. It cuts cleanly with a 42 cm deck and a generous 50 L box, and Gtech rates the single 48V 2.0Ah pack for up to 40 minutes of runtime per charge. It uses a rear comb rather than a roller, so it does not leave defined stripes. Two niggles: no mulching plug as standard, and the proprietary battery doesn't fit any other tools.
       </p>
-          <BuyCta name="Gtech CLM 2.0" />
     </aside>
+
+    <div class="mb-10"><BuyCta name="Gtech CLM 2.0" /></div>
 
     <div class="prose-mowers">
       <h2>Specs</h2>

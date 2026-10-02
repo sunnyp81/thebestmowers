@@ -4,10 +4,8 @@ interface Props {
   name: string;
   brand: string;
   bestFor: string;
-  rating: number;
   pros: string[];
   cons: string[];
-  rrp?: string;
   reviewUrl: string;
   affiliateUrl?: string;
   asin?: string;
@@ -16,7 +14,8 @@ interface Props {
 }
 import { AFFILIATE_REL, amazonLink, amazonSearch } from '../lib/affiliate';
 import amazonImages from '../data/amazon-images.json';
-const { rank, name, brand, bestFor, rating, pros, cons, rrp, reviewUrl, affiliateUrl, asin, image, verdict } = Astro.props as Props;
+// Note: callers may still pass `rating`/`rrp` (unused) - Amazon compliance means we don't render a static price or star rating beside the buy link.
+const { rank, name, brand, bestFor, pros, cons, reviewUrl, affiliateUrl, asin, image, verdict } = Astro.props as Props;
 // Buy CTA precedence: exact tagged /dp/ ASIN link, then any explicit affiliateUrl, then a tagged Amazon UK search.
 const buyUrl = (asin && amazonLink(asin)) || affiliateUrl || amazonSearch(`${name} lawn mower`);
 // Resolve a live product image: prefer an explicit prop, else the build-time Amazon hotlink for this ASIN.

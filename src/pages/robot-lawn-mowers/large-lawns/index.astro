@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
+import Disclosure from '../../../components/Disclosure.astro';
 import RobotAreaChart from '../../../components/charts/RobotAreaChart.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
 
@@ -44,6 +45,8 @@ const schema = [
         A large lawn is where robot mowers make the most financial sense - you're replacing hours of weekly mowing with a machine that runs itself. Here's what works for 1,000 m² and above.
       </p>
     </header>
+
+    <Disclosure />
 
     <img
       src="/images/compact_robotic_lawn_mower.webp"

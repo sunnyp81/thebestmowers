@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
+import Disclosure from '../../../components/Disclosure.astro';
 import CordlessAreaChart from '../../../components/charts/CordlessAreaChart.astro';
 import EmailCapture from '../../../components/EmailCapture.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
@@ -46,6 +47,8 @@ const schema = [
         Big garden, no petrol? It's genuinely possible now. On manufacturer figures and owner reviews, the latest 56 V cordless mowers match petrol on power and runtime, with several rated for 600+ m² lawns on a single charge.
       </p>
     </header>
+
+    <Disclosure />
 
     <img src="/images/ai-large-garden.webp" alt="Self-propelled cordless lawn mower on a large UK country garden lawn" width="1200" height="686" class="w-full rounded-xl mb-10 object-cover" loading="eager" fetchpriority="high" />
 

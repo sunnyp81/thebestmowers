@@ -1,7 +1,7 @@
 ---
 import { AFFILIATE_REL, amazonLink, amazonSearch } from '../lib/affiliate';
-interface Props { name: string; rrp?: string; asin?: string }
-const { name, rrp, asin } = Astro.props as Props;
+interface Props { name: string; asin?: string }
+const { name, asin } = Astro.props as Props;
 const url = (asin && amazonLink(asin)) || amazonSearch(`${name} lawn mower`);
 ---
 <div class="mt-4 flex flex-col sm:flex-row sm:items-center gap-3 border-t border-grass-200 pt-4">

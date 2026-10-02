@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import PickCard from '../../../components/PickCard.astro';
+import Disclosure from '../../../components/Disclosure.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../../lib/schema';
 
 const title = 'Stiga Lawn Mowers UK - Petrol, Ride-On & Robot Reviewed';
@@ -41,6 +42,8 @@ const schema = [
         Stiga is the slightly-more-premium sister to Mountfield - same Italian parent, same factories, often the same machines with a different colour scheme and a specialist-dealer route to market. The Estate ride-ons and the A-series robot mowers are the two product lines worth knowing. Stiga consistently undercuts Husqvarna on price and matches it on cut quality. The trade-off is fewer dealers and less mature firmware on robots. Worth shortlisting for value-conscious large-garden buyers.
       </p>
     </header>
+
+    <Disclosure />
 
     <div class="prose-mowers">
       <h2 id="best">Best Stiga lawn mowers</h2>
