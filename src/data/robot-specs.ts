@@ -1,5 +1,5 @@
 // Manufacturer-stated robot mower specs. Every figure read from the maker's own product or support page on the checked date.
-export const ROBOT_CHECKED = '2026-09-28';
+export const ROBOT_CHECKED = '2026-10-02';
 
 export type SlopeBasis = 'inside' | 'edge' | 'stated';
 
@@ -29,6 +29,7 @@ export const ROBOT_SPECS: RobotSpec[] = [
   { brand: 'Husqvarna', model: 'Automower 310E NERA', areaM2: 1500, areaNote: 'systematic pattern; Husqvarna gives 1,000 m² for irregular mowing', slopePct: 30, slopeBasis: 'inside', edgeSlopePct: 20, wireFree: true, source: 'https://www.husqvarna.com/uk/robotic-lawn-mowers/automower-310e-nera/' },
   { brand: 'Stiga', model: 'A 1500', areaM2: 2500, slopePct: 45, slopeBasis: 'stated', wireFree: true, source: 'https://www.stiga.com/uk/2r7102028-uks-stiga-a-1500.html' },
   { brand: 'Mammotion', model: 'Luba 2 AWD 3000', areaM2: 3000, slopePct: 80, slopeBasis: 'inside', edgeSlopePct: 45, wireFree: true, source: 'https://support.mammotion.com/portal/en/kb/articles/luba-2-awd-series-specifications' },
+  { brand: 'Husqvarna', model: 'Automower 450X', areaM2: 5000, slopePct: 45, slopeBasis: 'inside', edgeSlopePct: 15, wireFree: false, source: 'https://www.husqvarna.com/uk/robotic-lawn-mowers/automower-450x/' },
 ];
 
 export const robotLabel = (s: RobotSpec) => `${s.brand} ${s.model}`;
