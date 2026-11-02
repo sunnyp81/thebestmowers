@@ -104,13 +104,9 @@ export const productReviewSchema = (args: {
   brand: string;
   image?: string;
   description: string;
-  rating: number;
   url: string;
-  reviewBody?: string;
-  datePublished: string;
+  datePublished?: string;
   dateModified?: string;
-  priceLow?: number;
-  priceHigh?: number;
   // Verified Amazon UK ASIN, when a single canonical product exists.
   asin?: string;
   // Only pass when a real, sourced owner-rating count exists.
@@ -124,16 +120,7 @@ export const productReviewSchema = (args: {
   ...(args.asin ? { sku: args.asin } : {}),
   ...(args.image ? { image: abs(args.image) } : {}),
   description: args.description,
-  ...(args.priceLow && args.priceHigh ? {
-    offers: {
-      '@type': 'AggregateOffer',
-      priceCurrency: 'GBP',
-      lowPrice: args.priceLow,
-      highPrice: args.priceHigh,
-      availability: 'https://schema.org/InStock',
-      ...(args.asin ? { url: amazonLink(args.asin) } : {}),
-    },
-  } : {}),
+  ...(args.asin ? { offers: { '@type': 'Offer', url: amazonLink(args.asin) } } : {}),
   ...(args.aggRating && args.aggCount ? {
     aggregateRating: {
       '@type': 'AggregateRating',
@@ -142,14 +129,6 @@ export const productReviewSchema = (args: {
       bestRating: 5,
     },
   } : {}),
-  review: {
-    '@type': 'Review',
-    reviewRating: { '@type': 'Rating', ratingValue: args.rating, bestRating: 5 },
-    author: { '@type': 'Organization', name: SITE.publisher },
-    datePublished: args.datePublished,
-    ...(args.dateModified ? { dateModified: args.dateModified } : {}),
-    ...(args.reviewBody ? { reviewBody: args.reviewBody } : {}),
-  },
 });
 
 export const howToSchema = (args: {
