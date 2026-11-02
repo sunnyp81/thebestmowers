@@ -9,6 +9,7 @@ export const orgSchema = () => ({
   '@id': `${SITE.url}/#org`,
   name: SITE.publisher,
   url: SITE.url,
+  description: SITE.description,
   logo: { '@type': 'ImageObject', url: abs(SITE.logo) },
   foundingDate: SITE.founded,
   // Entity corroboration for AI engines: only emitted once real profiles exist.
@@ -64,7 +65,7 @@ export const articleSchema = (args: {
   mainEntityOfPage: abs(args.url),
   datePublished: args.datePublished,
   dateModified: args.dateModified ?? args.datePublished,
-  author: { '@type': 'Organization', name: args.author ?? SITE.publisher },
+  author: { '@type': 'Organization', '@id': `${SITE.url}/#org` },
   publisher: { '@id': `${SITE.url}/#org` },
   ...(args.image ? { image: abs(args.image) } : {}),
   inLanguage: 'en-GB',

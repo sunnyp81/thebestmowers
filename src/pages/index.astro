@@ -3,13 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HowWeResearch from '../components/HowWeResearch.astro';
 import PickBlock from '../components/PickBlock.astro';
 import { POWER_TYPE_HUBS, BRAND_HUBS } from '../lib/site';
-import { articleSchema } from '../lib/schema';
 
 const title = 'The Best Mowers UK: Lawn Mower Reviews & Buying Guides';
 const description = 'Independent, research-led UK lawn mower buying guides. Compare the best cordless, battery, petrol, robot and ride-on mowers from every major brand.';
 const datePublished = '2026-05-10';
 
-const schema = [articleSchema({ headline: title, description, url: '/', datePublished })];
+const schema: unknown[] = [];
 
 const featured = [
   { slug: 'cordless-lawn-mowers', label: 'Cordless lawn mowers', tag: 'Most popular', tagline: 'Quiet, light, no fuel - the default choice for UK gardens under 600 m².' },

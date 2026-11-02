@@ -18,7 +18,9 @@ interface Props {
 const { title, description, canonical, noindex, ogImage, schema = [] } = Astro.props as Props;
 const url = canonical ?? new URL(Astro.url.pathname, SITE.url).toString();
 const og = ogImage ?? '/og-default.png';
-const allSchema = [orgSchema(), websiteSchema(), speakableSchema(url), ...schema].filter(Boolean);
+// Article nodes without an explicit image take the page's social image so Article.image always matches og:image.
+const withImage = (n: any) => (n && n['@type'] === 'Article' && !n.image ? { ...n, image: new URL(og, SITE.url).toString() } : n);
+const allSchema = [orgSchema(), websiteSchema(), speakableSchema(url), ...schema.map(withImage)].filter(Boolean);
 ---
 <!doctype html>
 <html lang="en-GB">
