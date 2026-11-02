@@ -5,6 +5,8 @@ import FAQ from '../../components/FAQ.astro';
 import PickCard from '../../components/PickCard.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import HowWeResearch from '../../components/HowWeResearch.astro';
+import AtAGlance from '../../components/AtAGlance.astro';
+import StickyBuy from '../../components/StickyBuy.astro';
 import RobotSlopeChart from '../../components/charts/RobotSlopeChart.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../lib/schema';
 import { amazonSearch } from '../../lib/affiliate';
@@ -94,10 +96,20 @@ const schema = [
       <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">UK Buyer's Guide · Updated May 2026</p>
       <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Best Robot Lawn Mowers UK 2026</h1>
       <p class="mt-4 text-lg text-slate-700 leading-relaxed">
-        For years, robot mowers were a curiosity - something for tidy-minded enthusiasts with a flat rectangular lawn and a healthy budget. Then 2024 happened. Suddenly there were two types. The new wire-free robots you can set up in 20 minutes via an app, and the proven boundary-cable models Husqvarna and Bosch have been quietly refining for a decade. Our picks here are built from manufacturer specifications, verified owner reviews on Amazon UK and retailer sites, and UK pricing data, cross-checked to find which ones actually keep a British lawn looking like a lawn, and which ones just gather mud.
+        The Husqvarna Automower 305 is our pick for boundary-cable lawns, and the Mammotion Luba 2 AWD 1000 is the wire-free pick. For years, robot mowers were a curiosity - something for tidy-minded enthusiasts with a flat rectangular lawn and a healthy budget. Then 2024 happened.
       </p>
       <p class="mt-3 text-sm text-slate-500">Independent · No manufacturer paid for placement.</p>
     </header>
+
+    <AtAGlance
+      picks={[
+        { label: 'Best overall', name: 'Husqvarna Automower 305', href: '/reviews/husqvarna-automower-305/', note: 'most refined firmware in the category' },
+        { label: 'Best wire-free', name: 'Mammotion Luba 2 AWD 1000', href: '/reviews/mammotion-luba-2-awd-1000/', note: 'no perimeter cable, true 4WD' },
+        { label: 'Best budget wire-free', name: 'Worx Landroid Vision M800', href: '/reviews/worx-landroid-vision-m800/', note: 'no cable to lay' },
+      ]}
+      featured={{ name: picks[0].name, affiliateUrl: picks[0].affiliateUrl }}
+    />
+    <p class="mb-10 text-slate-700 leading-relaxed">Suddenly there were two types. The new wire-free robots you can set up in 20 minutes via an app, and the proven boundary-cable models Husqvarna and Bosch have been quietly refining for a decade. Our picks here are built from manufacturer specifications, verified owner reviews on Amazon UK and retailer sites, and UK pricing data, cross-checked to find which ones actually keep a British lawn looking like a lawn, and which ones just gather mud.</p>
 
     <img
       src="/images/compact_robotic_lawn_mower.webp"
@@ -107,14 +119,7 @@ const schema = [
       loading="eager"
     />
 
-    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-12">
-      <h2 class="text-xl font-bold text-soil-900 mb-3">Our top three at a glance</h2>
-      <ul class="space-y-2 text-slate-800">
-        <li><strong>Best overall:</strong> <a href="/reviews/husqvarna-automower-305/" class="text-grass-700 underline">Husqvarna Automower 305</a> - most refined firmware in the category</li>
-        <li><strong>Best wire-free:</strong> <a href="/reviews/mammotion-luba-2-awd-1000/" class="text-grass-700 underline">Mammotion Luba 2 AWD 1000</a> - no perimeter cable, true 4WD</li>
-        <li><strong>Best budget wire-free:</strong> <a href="/reviews/worx-landroid-vision-m800/" class="text-grass-700 underline">Worx Landroid Vision M800</a> - under £1,000, no cable to lay</li>
-      </ul>
-    </aside>
+
 
     <div class="prose-mowers">
       <h2 id="what-is">So what is a robot lawn mower, exactly?</h2>
@@ -209,9 +214,10 @@ const schema = [
         <li><a href="/robot-lawn-mowers/no-perimeter-wire/">Best wire-free robot lawn mowers</a></li>
         <li><a href="/robot-lawn-mowers/large-lawns/">Best robot mowers for large lawns (1,000 m²+)</a></li>
         <li><a href="/compare/robot-vs-cordless/">Robot vs cordless mower - which makes more sense?</a></li>
-        <li><a href="/cordless-lawn-mowers/">Best cordless lawn mowers</a></li>
+        <li><a href="/best-battery-powered-lawn-mower-reviews-uk/">Best cordless lawn mowers</a></li>
       </ul>
     </div>
     <FAQ {faqs} />
   </article>
+  <StickyBuy name={picks[0].name} affiliateUrl={picks[0].affiliateUrl} />
 </BaseLayout>

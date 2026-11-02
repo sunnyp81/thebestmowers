@@ -10,7 +10,7 @@ export default defineConfig({
   vite: { plugins: [tailwindcss()] },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/draft/'),
+      filter: (page) => !page.includes('/draft/') && !page.includes('/cordless-lawn-mowers/best/'),
       changefreq: 'weekly',
     }),
   ],

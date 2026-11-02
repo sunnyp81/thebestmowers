@@ -1,0 +1,17 @@
+---
+import Disclosure from './Disclosure.astro';
+import { AFFILIATE_REL, amazonSearch } from '../lib/affiliate';
+// Tagged Amazon UK search links for consumables and tools. No ASINs, no prices.
+interface Props { heading: string; intro?: string; items: { label: string; query: string }[]; disclose?: boolean }
+const { heading, intro, items, disclose = true } = Astro.props as Props;
+---
+<section class="my-10">
+  {disclose && <Disclosure compact />}
+  <h2 class="text-2xl font-bold text-soil-900 mb-2">{heading}</h2>
+  {intro && <p class="text-slate-700 mb-4 leading-relaxed">{intro}</p>}
+  <ul class="flex flex-wrap gap-3">
+    {items.map((it) => (
+      <li><a href={amazonSearch(it.query)} rel={AFFILIATE_REL} target="_blank" class="btn-buy inline-flex items-center gap-1 text-sm font-semibold bg-grass-700 hover:bg-grass-800 text-white px-4 py-2 rounded-[4px] min-h-[44px]">{it.label} on Amazon →</a></li>
+    ))}
+  </ul>
+</section>

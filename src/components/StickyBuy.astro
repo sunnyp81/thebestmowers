@@ -1,0 +1,32 @@
+---
+import { AFFILIATE_REL, amazonLink, amazonSearch } from '../lib/affiliate';
+// Mobile-only bottom bar for the page's #1 pick. Appears once the At a glance card has scrolled out of view; dismissible.
+interface Props { name: string; asin?: string; affiliateUrl?: string; watch?: string }
+const { name, asin, affiliateUrl, watch = 'at-a-glance' } = Astro.props as Props;
+const url = (asin && amazonLink(asin)) || affiliateUrl || amazonSearch(`${name} lawn mower`);
+---
+<div id="sticky-buy" data-watch={watch} class="md:hidden hidden fixed bottom-0 inset-x-0 z-40 bg-white border-t border-steel-200 px-4 py-2 items-center gap-3 shadow-[0_-2px_8px_rgba(0,0,0,0.08)]">
+  <a href={url} rel={AFFILIATE_REL} target="_blank" class="btn-buy flex-1 inline-flex items-center justify-center bg-grass-700 hover:bg-grass-800 text-white text-sm font-semibold px-4 py-2 rounded-[4px] min-h-[44px] text-center">
+    Check price on Amazon: {name} →
+  </a>
+  <button type="button" id="sticky-buy-close" aria-label="Dismiss" class="shrink-0 min-h-[44px] min-w-[44px] text-slate-600 text-xl leading-none">×</button>
+</div>
+<script>
+  const bar = document.getElementById('sticky-buy');
+  if (bar) {
+    const target = document.getElementById(bar.dataset.watch || 'at-a-glance');
+    let dismissed = false;
+    const show = (on: boolean) => {
+      if (dismissed) return;
+      bar.classList.toggle('hidden', !on);
+      bar.classList.toggle('flex', on);
+    };
+    document.getElementById('sticky-buy-close')?.addEventListener('click', () => { dismissed = true; bar.classList.add('hidden'); bar.classList.remove('flex'); });
+    if (target && 'IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        const e = entries[0];
+        show(!e.isIntersecting && e.boundingClientRect.top < 0);
+      }).observe(target);
+    }
+  }
+</script>

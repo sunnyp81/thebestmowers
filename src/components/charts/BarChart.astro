@@ -80,7 +80,7 @@ const pct = (v: number) => (v / max) * 100;
     {note && <span class="block mb-1">{note}</span>}
     <span class="font-semibold text-soil-900">Source:</span>{' '}
     {sources.map((s, i) => (
-      <>{s.href ? <a href={s.href} class="underline underline-offset-2 hover:text-grass-800" rel="noopener" target={s.href.startsWith('http') ? '_blank' : undefined}>{s.text}</a> : s.text}{i < sources.length - 1 ? '; ' : '.'}</>
+      <>{s.href ? <a href={s.href} class="underline underline-offset-2 hover:text-grass-800" rel="noopener noreferrer" target={s.href.startsWith('http') ? '_blank' : undefined}>{s.text}</a> : s.text}{i < sources.length - 1 ? '; ' : '.'}</>
     ))}
   </figcaption>
 
@@ -91,7 +91,7 @@ const pct = (v: number) => (v / max) * 100;
         <thead><tr><th scope="col" class="text-left px-3 py-2 border border-steel-200 bg-stripe-dark">{labelHeader}</th><th scope="col" class="text-left px-3 py-2 border border-steel-200 bg-stripe-dark">{valueHeader ?? `Value (${unit})`}</th></tr></thead>
         <tbody>
           {rows.map((r) => (
-            <tr><th scope="row" class="text-left font-medium px-3 py-2 border border-steel-200">{r.href ? <a href={r.href} class="underline underline-offset-2 text-grass-800">{r.label}</a> : r.label}{r.sub ? ` (${r.sub})` : ''}</th><td class="num px-3 py-2 border border-steel-200">{r.value === null ? 'Not stated by maker' : (r.display ?? `${fmt(r.value)} ${unit}`)}</td></tr>
+            <tr><th scope="row" class="text-left font-medium px-3 py-2 border border-steel-200">{r.href ? <a href={r.href} class="underline underline-offset-2 text-grass-800" rel="noopener noreferrer" target={r.href.startsWith('http') ? '_blank' : undefined}>{r.label}</a> : r.label}{r.sub ? ` (${r.sub})` : ''}</th><td class="num px-3 py-2 border border-steel-200">{r.value === null ? 'Not stated by maker' : (r.display ?? `${fmt(r.value)} ${unit}`)}</td></tr>
           ))}
         </tbody>
       </table>

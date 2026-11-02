@@ -2,6 +2,7 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
 import FAQ from '../../../../components/FAQ.astro';
+import PickBlock from '../../../../components/PickBlock.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, howToSchema } from '../../../../lib/schema';
 
 const title = 'How to Clean a Clogged Lawn Mower Carburettor (2026 Guide)';
@@ -134,6 +135,8 @@ const schema = [
         <li><strong>Consider super unleaded</strong> - E5 fuel contains less ethanol than E10 and stores slightly better, though stabiliser matters more than the grade</li>
       </ul>
     </div>
+
+    <PickBlock keys={['honda']} heading="If you decide to replace a petrol mower" />
 
     <FAQ {faqs} />
   </article>

@@ -2,6 +2,7 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
 import FAQ from '../../../../components/FAQ.astro';
+import PickBlock from '../../../../components/PickBlock.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../../lib/schema';
 
 const title = 'UK Grass Cutting Height Chart: The Right Mowing Height (2026)';
@@ -150,6 +151,8 @@ const schema = [
         If you are choosing a new machine, height range is worth checking before you buy - our guides to <a href="/electric-lawn-mowers/">cordless and electric mowers</a> and <a href="/petrol-lawn-mowers/">petrol mowers</a> list the cutting height ranges for each model.
       </p>
     </div>
+
+    <PickBlock keys={['ego']} heading="A mower with a wide cut-height range" intro="The EGO Power+ LM2122E-SP has 7 cut-height positions from 20 to 80 mm (manufacturer spec)." />
 
     <FAQ {faqs} />
   </article>

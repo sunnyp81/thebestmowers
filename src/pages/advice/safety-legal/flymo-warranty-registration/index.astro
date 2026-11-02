@@ -2,10 +2,11 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
 import FAQ from '../../../../components/FAQ.astro';
+import PickBlock from '../../../../components/PickBlock.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../../lib/schema';
 
-const title = 'Flymo Warranty and Guarantee Registration UK: How It Works (2026)';
-const description = 'Register your Flymo guarantee at flymo.com with the model number, serial number and proof of purchase. What the warranty covers, what it excludes, and your rights.';
+const title = 'Flymo Warranty Registration UK: How It Works (2026)';
+const description = 'Register your Flymo guarantee at flymo.com with the model number, serial number and proof of purchase. What the warranty covers, excludes, and your rights.';
 const path = '/advice/safety-legal/flymo-warranty-registration/';
 const datePublished = '2026-07-07';
 
@@ -57,14 +58,14 @@ const schema = [
       <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">Consumer Guide · Updated July 2026</p>
       <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Flymo Warranty and Guarantee Registration</h1>
       <p class="mt-4 text-lg text-slate-700 leading-relaxed">
-        Short answer: register at the official Flymo website, <a href="https://www.flymo.com/" rel="noopener" target="_blank">flymo.com</a>, with your model number, serial number and proof of purchase. Here is what the guarantee gives you, what it excludes, and the consumer rights that apply on top.
+        Short answer: register at the official Flymo website, <a href="https://www.flymo.com/" rel="noopener noreferrer" target="_blank">flymo.com</a>, with your model number, serial number and proof of purchase. Here is what the guarantee gives you, what it excludes, and the consumer rights that apply on top.
       </p>
     </header>
 
     <div class="prose-mowers">
       <h2>How to register your Flymo guarantee</h2>
       <p>
-        Flymo handles guarantee registration through its own website rather than through retailers, so wherever you bought the mower, the process is the same. Go to <a href="https://www.flymo.com/" rel="noopener" target="_blank">flymo.com</a> and find the product or guarantee registration section. Have these to hand:
+        Flymo handles guarantee registration through its own website rather than through retailers, so wherever you bought the mower, the process is the same. Go to <a href="https://www.flymo.com/" rel="noopener noreferrer" target="_blank">flymo.com</a> and find the product or guarantee registration section. Have these to hand:
       </p>
       <ul>
         <li><strong>Model number:</strong> on the box, the manual and the rating label on the machine.</li>
@@ -112,6 +113,8 @@ const schema = [
         If the guarantee claim is the last straw rather than the first hiccup, it may be worth weighing a repair against an upgrade. Our <a href="/brands/flymo/">Flymo brand guide</a> covers the current range honestly: hover mowers remain the brand's real strength. Our <a href="/hover-lawn-mowers/">hover mower guide</a> compares them with wheeled alternatives. For out-of-warranty repairs, here is <a href="/advice/maintenance/lawn-mower-repairs-near-me/">how to find a repair shop near you</a>.
       </p>
     </div>
+
+    <PickBlock keys={['hovervac']} heading="The Flymo pick from our brand guide" />
 
     <FAQ {faqs} />
   </article>

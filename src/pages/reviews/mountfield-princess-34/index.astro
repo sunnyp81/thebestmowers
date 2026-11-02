@@ -29,7 +29,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ asin: 'B08GKZXFMB', name: 'Mountfield Princess 34', brand: 'Mountfield', description, rating: 4.2, url: path, datePublished, dateModified: '2026-06-05', image: '/images/innovative_electric_roller_mower-1.webp', priceLow: 200, priceHigh: 300, reviewBody: 'The cheapest way to get proper lawn stripes. Rear roller, 34cm deck, corded electric - honest and effective for small UK gardens that want that bowling-green look.' }),
+  productReviewSchema({ asin: 'B08GKZXFMB', name: 'Mountfield Princess 34', brand: 'Mountfield', description, url: path, datePublished, dateModified: '2026-06-05', image: '/images/innovative_electric_roller_mower-1.webp' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -48,7 +48,7 @@ const schema = [
       <div class="flex items-start justify-between gap-4 mb-3">
         <div>
           <p class="text-xs font-bold text-grass-700 uppercase tracking-wide mb-1">Our verdict</p>
-          <p class="text-2xl font-bold text-soil-900">4.2 / 5</p>
+          <p class="text-2xl font-bold text-soil-900">Research-led verdict</p>
         </div>
         <div class="text-right text-sm">
           <p class="font-semibold text-soil-900">£249 RRP</p>

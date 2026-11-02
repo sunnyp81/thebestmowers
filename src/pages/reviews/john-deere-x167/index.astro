@@ -5,7 +5,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
 
-const title = 'John Deere X167 Review - Entry-Level Ride-On With Serious Pedigree (2026)';
+const title = 'John Deere X167 Review - Entry-Level Ride-On (2026)';
 const description = "John Deere X167 ride-on mower review. 107cm deck, Kawasaki engine, hydrostatic drive - research-led verdict from specs and verified owner reviews.";
 const path = '/reviews/john-deere-x167/';
 const datePublished = '2026-05-10';
@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ name: 'John Deere X167', brand: 'John Deere', description, rating: 4.4, url: path, datePublished, dateModified: '2026-06-05', image: '/images/top_8_large_lawnmowers.webp', priceLow: 3100, priceHigh: 3600, reviewBody: 'Entry-level Deere ride-on with Kawasaki V-twin and proper hydrostatic drive. The ride-on you buy when you want it to last 15 years with dealer support.' }),
+  productReviewSchema({ name: 'John Deere X167', brand: 'John Deere', description, url: path, datePublished, dateModified: '2026-06-05', image: '/images/top_8_large_lawnmowers.webp' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -45,7 +45,7 @@ const schema = [
       <div class="flex items-start justify-between gap-4 mb-3">
         <div>
           <p class="text-xs font-bold text-grass-700 uppercase tracking-wide mb-1">Our verdict</p>
-          <p class="text-2xl font-bold text-soil-900">4.4 / 5</p>
+          <p class="text-2xl font-bold text-soil-900">Research-led verdict</p>
         </div>
         <div class="text-right text-sm">
           <p class="font-semibold text-soil-900">£3,299 RRP</p>

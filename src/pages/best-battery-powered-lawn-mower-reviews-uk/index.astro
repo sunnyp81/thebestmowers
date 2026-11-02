@@ -10,8 +10,10 @@ import CordlessAreaChart from '../../components/charts/CordlessAreaChart.astro';
 import VoltageGuide from '../../components/VoltageGuide.astro';
 import DeckWidthGuide from '../../components/DeckWidthGuide.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
+import AtAGlance from '../../components/AtAGlance.astro';
+import StickyBuy from '../../components/StickyBuy.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../lib/schema';
-import { amazonSearch } from '../../lib/affiliate';
+import { amazonSearch, amazonLink, AFFILIATE_REL } from '../../lib/affiliate';
 
 const title = 'Best Cordless & Battery Lawn Mowers UK 2026 - Ranked & Compared';
 const description = 'The best cordless and battery lawn mowers for UK gardens in 2026. Nine picks compared on voltage, cutting width, battery, runtime, weight and price - with honest pros, cons and who each is for.';
@@ -34,6 +36,7 @@ const picks = [
     voltage: '56 V', cut: '52 cm', battery: '1× 5.0 Ah', runtime: 'up to ~45 min claimed', weight: '~24 kg',
     reviewUrl: '/reviews/ego-lm2122e-sp/', affiliateUrl: '',
     image: '/images/cordless_lawn_mower_innovation.webp',
+    imageAlt: 'Orange cordless lawn mower with grass box, two batteries and charger',
     pros: ['56 V delivers genuinely petrol-like power', 'Variable-speed self-propelled drive', 'IPX4 weather-resistant; folds flat for storage'],
     cons: ['Expensive', 'Soft stripes vs a rear-roller mower'],
     verdict: 'The closest a cordless mower gets to the feel of a petrol self-propelled. The 56 V motor powers through long, damp grass that smaller batteries stall on, and the variable-speed drive makes a 600 m² lawn easy work. If your garden is over 400 m² and you want to ditch petrol, this is the one to beat.',
@@ -44,6 +47,7 @@ const picks = [
     voltage: '36 V', cut: '40 cm', battery: '1× 4.0 Ah (Power for All)', runtime: 'covers ~300 m² per charge', weight: '~14 kg',
     reviewUrl: '/reviews/bosch-easyrotak-36-550-lawnmower/', affiliateUrl: '',
     image: '/images/bosch_lawnmower_review_details.webp',
+    imageAlt: 'Green and black Bosch cordless lawn mower with two batteries and charger',
     pros: ['Quiet ProSilence motor', '36 V Power for All battery shared across Bosch garden tools', '50 L grass box is huge for the class'],
     cons: ['Plastic deck flexes on rough ground', 'Heavier than a compact 18 V mower'],
     verdict: 'If you already own Bosch garden kit, the shared 36 V Power for All battery makes the UniversalRotak the obvious pick - one battery runs the hedge trimmer, blower and strimmer too. The 50 L box and 40 cm deck are class-leading under £350.',
@@ -54,6 +58,7 @@ const picks = [
     voltage: '48 V', cut: '42 cm', battery: '1× 48 V 2.0 Ah, 50 L box', runtime: 'no maker area rating found', weight: '~12 kg',
     reviewUrl: '/reviews/gtech-clm50/', affiliateUrl: '',
     image: '/images/compact_cordless_easy_storage.webp',
+    imageAlt: 'Orange cordless lawn mower with grass box, two batteries and charger',
     pros: ['Light enough to carry one-handed', 'Huge 50 L grass box for the class', 'Simple, foolproof to live with'],
     cons: ['No rear roller, so no defined stripes', 'No mulching plug in the box'],
     verdict: 'The cordless we recommend most to first-time buyers. It cuts cleanly, the wide 42 cm deck gets through a small-to-medium lawn quickly, and the 50 L box means less stopping to empty. Note it uses a rear comb rather than a roller, so it will not leave defined stripes.',
@@ -64,6 +69,7 @@ const picks = [
     voltage: '36 V (2× 18 V)', cut: '38 cm', battery: '2× 5.0 Ah LXT', runtime: 'covers ~500 m² per charge', weight: '~17 kg',
     reviewUrl: '/reviews/makita-dlm382/', affiliateUrl: '',
     image: '/images/cordless_lawn_mower_details.webp',
+    imageAlt: 'Black and grey cordless lawn mower with two 18V batteries and a charger',
     pros: ['Runs on two standard 18 V LXT packs you may already own', 'Brushless motor, trade-grade build', 'Twin-port keeps cutting when one pack drains'],
     cons: ['Bare tool only at the best prices', 'No self-propelled option'],
     verdict: 'For the huge number of UK households with Makita LXT drills and drivers, the DLM382 is the cheapest route to a serious 38 cm cordless - buy bare and add the batteries you own. Brushless, well built, and quietly one of the best-value picks if the ecosystem fits.',
@@ -74,6 +80,7 @@ const picks = [
     voltage: '18 V', cut: '40 cm', battery: '1× 5.0 Ah ONE+', runtime: 'covers ~250 m² per charge', weight: '~16 kg',
     reviewUrl: '/reviews/ryobi-cordless/', affiliateUrl: '',
     image: '/images/battery_powered_ryobi_lawnmower_review.webp',
+    imageAlt: 'Green and black Ryobi cordless lawn mower with a fabric grass bag',
     pros: ['Slots into the 18 V ONE+ ecosystem (200+ tools)', 'Self-propelled drive on this model', 'Brushless motor for a long life'],
     cons: ['Single 18 V pack works hard on damp grass', 'Cut-height lever is fiddly'],
     verdict: 'If you already own a Ryobi drill or strimmer, the RY18LMX40A is the cheapest sensible cordless going - buy bare-tool and you are under £160 for a real 40 cm self-propelled deck. Not the most powerful here, but on a dry, regularly mown lawn it is more than enough.',
@@ -84,6 +91,7 @@ const picks = [
     voltage: '48 V', cut: '34 cm', battery: '1× 4.0 Ah', runtime: 'covers ~250 m² per charge', weight: '~17 kg',
     reviewUrl: '/brands/mountfield/', affiliateUrl: '',
     image: '/images/cordless_lawnmower_with_battery-3.webp',
+    imageAlt: 'Red and black cordless lawn mower with a fabric grass bag',
     pros: ['Steel deck feels solid', 'True rear roller for sharp stripes', '48 V system with decent torque'],
     cons: ['Only a 34 cm cut', 'Battery sold separately at some retailers'],
     verdict: 'A proper Italian-built striping mower for a fraction of a petrol Princess. If you care about stripes more than acreage, this is the cheapest way to get them from a battery mower with a metal deck.',
@@ -94,6 +102,7 @@ const picks = [
     voltage: '40 V', cut: '41 cm', battery: '2× 2.0 Ah, 50 L box', runtime: 'covers ~400-500 m² (twin battery)', weight: '~20 kg',
     reviewUrl: '/brands/greenworks/', affiliateUrl: '',
     image: '/images/cordless_lawn_mower_convenience-1.webp',
+    imageAlt: 'Orange cordless lawn mower with grass box, two batteries and charger',
     pros: ['Big 41 cm deck and 50 L box for the money', '40 V platform shared across Greenworks garden range', '2-in-1 mulch or collect, twin batteries included'],
     cons: ['Build is functional rather than premium', 'Heavier to manoeuvre in tight spots'],
     verdict: 'A lot of deck and grass box for around £300. If you have a 400-500 m² lawn and do not want to spend EGO money, the Greenworks 40 V (G40LM41) ships with two batteries and covers a lot of grass per session. The current UK model that replaced the older 45 cm version.',
@@ -104,6 +113,7 @@ const picks = [
     voltage: '40 V (2× 20 V)', cut: '34 cm', battery: '2× 4.0 Ah', runtime: 'rated for 250-400 m² by WORX', weight: '11.7 kg with batteries',
     reviewUrl: '/brands/worx/', affiliateUrl: '',
     image: '/images/cordless_lawn_mower_details.webp',
+    imageAlt: 'Black and grey cordless lawn mower with two 18V batteries and a charger',
     pros: ['Two batteries included at a low price', 'PowerShare packs run other WORX tools', 'Intellicut adjusts torque automatically in thick grass'],
     cons: ['34 cm deck is narrow for larger lawns', 'No self-propelled drive'],
     verdict: 'A lot of cordless for the money - twin 20 V packs in the box means no second purchase to get going. Best for a tidy lawn of up to about 400 m² where value matters more than a wide deck or stripes.',
@@ -112,8 +122,9 @@ const picks = [
     rank: 9, asin: 'B09MFXZL76', name: 'Bosch CityMower 18V-32-300', brand: 'Bosch',
     bestFor: 'small gardens under 200 m²', rating: 4.4, rrp: '£150-£190',
     voltage: '18 V', cut: '32 cm', battery: '1× 4.0 Ah (Power for All)', runtime: 'covers ~150 m² per charge', weight: '~10 kg',
-    reviewUrl: '/reviews/bosch-rotak-32-review/', affiliateUrl: '',
+    reviewUrl: '/brands/bosch/', affiliateUrl: '',
     image: '/images/compact_cordless_easy_storage.webp',
+    imageAlt: 'Orange cordless lawn mower with grass box, two batteries and charger',
     pros: ['Very light - easy to lift and store', 'Shares the 18 V Power for All battery', 'Cheapest way into a quality brand platform'],
     cons: ['32 cm deck is small for over 200 m²', 'Modest 31 L grass box'],
     verdict: 'The best small-garden battery mower under £200. Light, quiet, simple, and it shares the 18 V Power for All pack with Bosch drills and trimmers. For a courtyard or front lawn, you do not need more.',
@@ -134,6 +145,8 @@ const faqs = [
   { q: 'Are the prices on this page accurate?', a: 'We show typical UK price bands, not live prices - mower prices move constantly with deals and stock. Always check the current price on the retailer page before buying; the "Check price on Amazon" buttons go straight to the live listing.' },
 ];
 
+const buyHref = (p: { asin?: string; name: string }) => (p.asin && amazonLink(p.asin)) || amazonSearch(p.name + ' lawn mower');
+
 const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified, image: '/images/cordless_lawn_mower_convenience-1.webp' }),
@@ -153,38 +166,39 @@ const schema = [
       <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">UK Buyer's Guide · Updated June 2026</p>
       <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Best Cordless &amp; Battery Lawn Mowers UK 2026</h1>
       <p class="mt-4 text-lg text-slate-700 leading-relaxed">
-        Cordless has quietly become the default mower for British gardens. For anything under about 600&nbsp;m², a good battery mower now out-cuts a cheap petrol one: quieter, lighter, push-button start, no fuel or servicing. Below are the nine cordless and battery lawn mowers we rate most highly for 2026, compared on the specs that actually matter - voltage, cutting width, battery, runtime, weight and price - and ranked by who each one is for.
+        Cordless has quietly become the default mower for British gardens. For anything under about 600&nbsp;m², a good battery mower now out-cuts a cheap petrol one: quieter, lighter, push-button start, no fuel or servicing.
       </p>
     </header>
 
     <Disclosure />
 
+    <!-- Quick verdict -->
+    <AtAGlance
+      picks={[
+        { label: 'Best overall for big lawns', name: 'EGO Power+ LM2122E-SP', href: '/reviews/ego-lm2122e-sp/', note: 'petrol-equivalent 56 V power' },
+        { label: 'Best value', name: 'Bosch UniversalRotak 36-550', href: '/reviews/bosch-easyrotak-36-550-lawnmower/', note: 'huge box, shared battery platform' },
+        { label: 'Best for small gardens', name: 'Bosch CityMower 18V-32', href: '/brands/bosch/', note: 'light, simple' },
+        { label: 'Best for stripes', name: 'Mountfield Princess 34 Li-48', href: '/reviews/mountfield-princess-34/', note: 'steel deck, rear roller' },
+      ]}
+      featured={{ name: picks[0].name, affiliateUrl: buyHref(picks[0]) }}
+    />
     <img
       src="/images/cordless_lawn_mower_convenience-1.webp"
-      alt="Cordless battery lawn mower cutting a UK garden lawn"
+      alt="Orange cordless lawn mower with grass box, two batteries and charger"
       width="900" height="506"
       class="w-full rounded-xl my-6 object-cover"
       loading="eager" fetchpriority="high"
     />
 
-    <!-- Quick verdict -->
-    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-10">
-      <h2 class="text-xl font-bold text-soil-900 mb-3">Our top picks at a glance</h2>
-      <ul class="space-y-2 text-slate-800">
-        <li><strong>Best overall for big lawns:</strong> <a href="/reviews/ego-lm2122e-sp/" class="text-grass-700 underline">EGO Power+ LM2122E-SP</a> - petrol-equivalent 56&nbsp;V power</li>
-        <li><strong>Best value:</strong> <a href="/reviews/bosch-easyrotak-36-550-lawnmower/" class="text-grass-700 underline">Bosch UniversalRotak 36-550</a> - huge box, shared battery platform</li>
-        <li><strong>Best for small gardens:</strong> <a href="/reviews/bosch-rotak-32-review/" class="text-grass-700 underline">Bosch CityMower 18V-32</a> - light, simple, under £200</li>
-        <li><strong>Best for stripes:</strong> <a href="/reviews/mountfield-princess-34/" class="text-grass-700 underline">Mountfield Princess 34 Li-48</a> - steel deck, rear roller</li>
-      </ul>
-    </aside>
+    <p class="mb-10 text-slate-700 leading-relaxed">Below are the nine cordless and battery lawn mowers we rate most highly for 2026, compared on the specs that actually matter - voltage, cutting width, battery, runtime and weight - and ranked by who each one is for.</p>
 
     <!-- Comparison table -->
     <section class="prose-mowers">
       <h2 id="compare">Cordless lawn mowers compared</h2>
-      <p>Every pick at a glance. Runtime figures are manufacturer estimates or our coverage guide for a typical dry UK lawn - real runtime varies with grass length, dampness and cut height. Prices are typical UK bands, not live prices.</p>
+      <p>Every pick at a glance. Runtime figures are manufacturer estimates or our coverage guide for a typical dry UK lawn - real runtime varies with grass length, dampness and cut height. Use the Check price links for the current price.</p>
       <table>
         <thead>
-          <tr><th>Mower</th><th>Best for</th><th>Voltage</th><th>Cut width</th><th>Battery</th><th>Runtime / coverage</th><th>Weight</th><th>Price band</th></tr>
+          <tr><th>Mower</th><th>Best for</th><th>Voltage</th><th>Cut width</th><th>Battery</th><th>Runtime / coverage</th><th>Weight</th><th>Check price</th></tr>
         </thead>
         <tbody>
           {picks.map((p) => (
@@ -196,7 +210,7 @@ const schema = [
               <td>{p.battery}</td>
               <td>{p.runtime}</td>
               <td>{p.weight}</td>
-              <td>{p.rrp}</td>
+              <td><a href={buyHref(p)} rel={AFFILIATE_REL} target="_blank" class="whitespace-nowrap">Check price</a></td>
             </tr>
           ))}
         </tbody>
@@ -277,4 +291,5 @@ const schema = [
 
     <FAQ {faqs} />
   </article>
+  <StickyBuy name={picks[0].name} affiliateUrl={buyHref(picks[0])} />
 </BaseLayout>

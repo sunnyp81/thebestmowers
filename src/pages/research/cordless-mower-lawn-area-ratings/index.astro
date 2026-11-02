@@ -121,7 +121,7 @@ const schema = [
               <td class="num">{s.areaHigh > 0 ? areaDisplay(s) : 'Not stated'}</td>
               <td>{s.battery}</td>
               <td class="num">{s.grassboxL} L</td>
-              <td><a href={s.source} rel="noopener" target="_blank">{new URL(s.source).hostname.replace(/^www\./, '')}</a></td>
+              <td><a href={s.source} rel="noopener noreferrer" target="_blank">{new URL(s.source).hostname.replace(/^www\./, '')}</a></td>
             </tr>
           ))}
         </tbody>

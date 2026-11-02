@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import PickBlock from '../../../components/PickBlock.astro';
 import FAQ from '../../../components/FAQ.astro';
 import CordlessAreaChart from '../../../components/charts/CordlessAreaChart.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
@@ -45,6 +46,12 @@ const schema = [
       </p>
     </header>
 
+    <PickBlock
+      heading="A pick for each lawn size"
+      keys={['rotak32r','gtech','mountfieldSp46','ego','mountfield1538']}
+      labels={['Under 100 m²','100-300 m²','300-600 m²','600-1,000 m²','1,000 m² and over']}
+    />
+
     <div class="prose-mowers">
       <h2>Mower recommendations by lawn size</h2>
       <table>
@@ -55,7 +62,7 @@ const schema = [
           <tr><td>Under 100 m²</td><td>Corded electric or small cordless</td><td>30-33 cm</td><td>£80-£200</td></tr>
           <tr><td>100-300 m²</td><td>Cordless (18-36 V)</td><td>33-38 cm</td><td>£150-£350</td></tr>
           <tr><td>300-600 m²</td><td>Cordless (36-56 V) or petrol push</td><td>38-43 cm</td><td>£250-£500</td></tr>
-          <tr><td>600-1,000 m²</td><td>Self-propelled petrol, large cordless, or robot</td><td>43-51 cm</td><td>£400-£1,500</td></tr>
+          <tr><td>600-1,000 m²</td><td><a href="/petrol-lawn-mowers/self-propelled/" class="text-grass-700 underline">Self-propelled petrol</a>, large cordless, or robot</td><td>43-51 cm</td><td>£400-£1,500</td></tr>
           <tr><td>1,000 m²+</td><td>Ride-on or robot mower</td><td>76-107 cm</td><td>£800-£3,500</td></tr>
         </tbody>
       </table>
@@ -77,7 +84,7 @@ const schema = [
 
       <h2>300-600 m² - larger detached gardens</h2>
       <p>
-        You need at least 36 V cordless with a 40 cm+ deck, or a petrol push mower. Self-propelled becomes worth the extra at the top end of this range. The <a href="/reviews/ryobi-cordless/" class="text-grass-700 underline">Ryobi RY18LMX40A</a> or a Mountfield petrol are solid picks.
+        You need at least 36 V cordless with a 40 cm+ deck, or a petrol push mower. Self-propelled becomes worth the extra at the top end of this range. A Mountfield petrol is a solid pick; for 36 V cordless options see our <a href="/best-battery-powered-lawn-mower-reviews-uk/" class="text-grass-700 underline">cordless shortlist</a>.
       </p>
 
       <h2>600-1,000 m² - country houses and large gardens</h2>

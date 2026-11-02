@@ -2,9 +2,10 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
 import FAQ from '../../../../components/FAQ.astro';
+import PickBlock from '../../../../components/PickBlock.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../../lib/schema';
 
-const title = 'Lawn Mower Repairs Near Me: How to Find a UK Repair Shop (2026)';
+const title = 'Lawn Mower Repairs Near Me: Find a UK Repair Shop (2026)';
 const description = 'Where to get a lawn mower repaired in the UK: independent dealers, brand-authorised agents, mobile services, and when to repair versus replace.';
 const path = '/advice/maintenance/lawn-mower-repairs-near-me/';
 const datePublished = '2026-07-07';
@@ -75,7 +76,7 @@ const schema = [
       </p>
       <ul>
         <li>Warranty repairs normally <strong>must go through an authorised service agent</strong> - taking a mower under warranty to an independent shop, or opening it up yourself, can void the cover.</li>
-        <li>Warranties typically cover manufacturing faults, not wear items (blades, cables, pull cords) or damage from neglect such as stale fuel. The service agent will assess which side of the line your fault falls on.</li>
+        <li>Warranties typically cover manufacturing faults, not wear items (blades, cables, pull cords) or damage from neglect such as <a href="/advice/troubleshooting/clean-carburettor/" class="text-grass-700 underline">stale fuel</a>. The service agent will assess which side of the line your fault falls on.</li>
       </ul>
       <p>
         Dig out the receipt and check the brand's website for its warranty process; most ask you to contact the retailer or an authorised agent rather than the manufacturer directly.
@@ -124,6 +125,8 @@ const schema = [
         <li><a href="/advice/troubleshooting/">Common mower problems and fixes</a></li>
       </ul>
     </div>
+
+    <PickBlock keys={['honda']} heading="If you decide to replace a petrol mower" />
 
     <FAQ {faqs} />
   </article>

@@ -5,6 +5,8 @@ import FAQ from '../../components/FAQ.astro';
 import PickCard from '../../components/PickCard.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import HowWeResearch from '../../components/HowWeResearch.astro';
+import AtAGlance from '../../components/AtAGlance.astro';
+import StickyBuy from '../../components/StickyBuy.astro';
 import OwnerVoices from '../../components/OwnerVoices.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../lib/schema';
 import { amazonSearch } from '../../lib/affiliate';
@@ -21,41 +23,41 @@ const crumbs = [
 
 const picks = [
   {
-    rank: 1, name: 'Gtech CLM 2.0',
-    brand: 'Gtech', bestFor: 'small to medium UK gardens',
-    rating: 4.6, rrp: '£249',
-    reviewUrl: '/reviews/gtech-clm50/',
-    affiliateUrl: amazonSearch('Gtech CLM 2.0 lawn mower'),
-    pros: ['Light enough to carry one-handed', 'Stripes that genuinely look the part', 'Click-out battery lasts a 200 m² lawn easily'],
-    cons: ['No mulching plug in the box', 'Pricey vs supermarket brands'],
-    verdict: 'The CLM is the cordless mower we recommend most often to first-time buyers. It cuts cleanly, the rear roller leaves visible stripes on a typical British lawn, and the 36-minute runtime covers a 200 m² garden with a full battery to spare. Two niggles: no mulching plug as standard, and the 33 cm deck means a long mow on anything over 350 m².',
+    rank: 1, name: 'EGO Power+ LM2122E-SP',
+    brand: 'EGO', bestFor: 'large gardens (500-800 m²)',
+    rating: 4.7, rrp: '£550-£650',
+    reviewUrl: '/reviews/ego-lm2122e-sp/',
+    pros: ['56 V delivers genuinely petrol-like power', 'Variable-speed self-propelled drive', 'IPX4 weather-resistant; folds flat for storage'],
+    cons: ['Expensive', 'Soft stripes vs a rear-roller mower'],
+    verdict: 'The closest a cordless mower gets to the feel of a petrol self-propelled. The 56 V motor powers through long, damp grass that smaller batteries stall on, and the variable-speed drive makes a 600 m² lawn easy work. If your garden is over 400 m² and you want to ditch petrol, this is the one to beat.',
   },
   {
     rank: 2, asin: 'B0BTZWQD49', name: 'Bosch UniversalRotak 36-550',
-    brand: 'Bosch', bestFor: 'medium gardens up to 400 m²',
+    brand: 'Bosch', bestFor: 'best value, medium gardens to 400 m²',
     rating: 4.5, rrp: '£329',
     reviewUrl: '/reviews/bosch-easyrotak-36-550-lawnmower/',
     pros: ['ProSilence motor - genuinely quiet', 'Works on the 36 V Power for All platform', '50 L grass box is enormous for the class'],
-    cons: ['Heavier than the Gtech at 14 kg', 'Plastic deck flexes on uneven ground'],
+    cons: ['Plastic deck flexes on rough ground', 'Heavier than a compact 18 V mower'],
     verdict: 'If you already own Bosch garden tools, the 36 V Power for All battery shared across hedge trimmers, blowers and strimmers makes the UniversalRotak the obvious pick. The 50 L box and 40 cm deck are class-leading for a sub-£350 cordless.',
   },
   {
-    rank: 3, name: 'Ryobi RY18LMX40A-150',
+    rank: 3, name: 'Gtech CLM 2.0',
+    brand: 'Gtech', bestFor: 'small to medium gardens, ease of use',
+    rating: 4.6, rrp: '£230-£270',
+    reviewUrl: '/reviews/gtech-clm50/',
+    affiliateUrl: amazonSearch('Gtech CLM 2.0 lawn mower'),
+    pros: ['Light enough to carry one-handed', 'Huge 50 L grass box for the class', 'Simple, foolproof to live with'],
+    cons: ['No rear roller, so no defined stripes', 'No mulching plug in the box'],
+    verdict: 'The cordless we recommend most to first-time buyers. It cuts cleanly, the wide 42 cm deck gets through a small-to-medium lawn quickly, and the 50 L box means less stopping to empty. Note it uses a rear comb rather than a roller, so it will not leave defined stripes.',
+  },
+  {
+    rank: 4, name: 'Ryobi RY18LMX40A-150',
     brand: 'Ryobi', bestFor: 'Ryobi ONE+ owners',
     rating: 4.4, rrp: '£269 (with battery)',
     reviewUrl: '/reviews/ryobi-cordless/',
     pros: ['Slots into the 18 V ONE+ ecosystem (200+ tools)', 'Self-propelled drive on the 40 cm model', 'Brushless motor - long lifespan'],
     cons: ['Single 18 V battery struggles on damp grass', 'Cut height adjustment is fiddly'],
     verdict: 'For the half a million UK households that already own a Ryobi drill or strimmer, the RY18LMX40A is the cheapest sensible cordless mower on the market - buy bare-tool and you are spending under £160 for a real 40 cm deck. It is not the most powerful mower here, but on a dry, regularly mown lawn it is more than enough.',
-  },
-  {
-    rank: 4, name: 'EGO LM2122E-SP',
-    brand: 'EGO', bestFor: 'large gardens (500-800 m²)',
-    rating: 4.7, rrp: '£599',
-    reviewUrl: '/reviews/ego-lm2122e-sp/',
-    pros: ['56 V - petrol-equivalent power', 'Self-propelled at variable speed', 'IPX4-rated against rain'],
-    cons: ['Expensive', 'Stripes are softer than rear-roller mowers'],
-    verdict: 'The closest a cordless gets to the feel of a petrol self-propelled mower. The 56 V motor cuts long, wet grass that smaller cordless mowers stall on, and the variable-speed drive makes a 600 m² lawn an actual pleasure. If your garden is bigger than 400 m² and you want to ditch petrol, this is the one.',
   },
   {
     rank: 5, asin: 'B08J3VYPTZ', name: 'Mountfield Princess 34 Li-48',
@@ -87,7 +89,7 @@ const faqs = [
   },
   {
     q: 'Do cordless lawn mowers leave stripes?',
-    a: 'Only if the mower has a rear roller. A roller flattens the grass behind the blade, creating the light/dark stripe effect. Most cordless mowers under £250 use rear wheels instead and produce no stripes. If stripes matter, look for the Gtech CLM, Mountfield Princess, Hayter Spirit 41 or Webb Classic Roller.',
+    a: 'Only if the mower has a rear roller. A roller flattens the grass behind the blade, creating the light/dark stripe effect. Most cordless mowers under £250 use rear wheels instead and produce no stripes. If stripes matter, look for the Mountfield Princess, Hayter Spirit 41 or Webb Classic Roller.',
   },
   {
     q: 'How long do cordless lawn mower batteries last before they need replacing?',
@@ -118,12 +120,22 @@ const schema = [
       <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">UK Buyer's Guide · Updated May 2026</p>
       <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Cordless lawn mowers UK: how to choose</h1>
       <p class="mt-4 text-lg text-slate-700 leading-relaxed">
-        Five years ago, telling someone to buy a cordless mower for anything bigger than a courtyard would've earned you a funny look. Today a £300 battery mower will out-cut a £200 petrol all day long. Quieter, lighter, no fiddling with choke and primer, and on a typical 500 m² lawn it finishes on one charge. This guide explains how to pick the right one: voltage, deck size, battery and runtime, brands and where to buy.
+        The pick to beat for gardens over 400 m² is the EGO Power+ LM2122E-SP, with the Bosch UniversalRotak 36-550 as the best-value alternative. Five years ago, telling someone to buy a cordless mower for anything bigger than a courtyard would've earned you a funny look.
       </p>
       <p class="mt-3 text-sm text-slate-500">
         Independent · No manufacturer paid for placement · We may earn a commission on qualifying purchases.
       </p>
     </header>
+
+    <AtAGlance
+      picks={[
+        { label: 'Best overall', name: 'EGO Power+ LM2122E-SP', href: '/reviews/ego-lm2122e-sp/', note: 'petrol-equivalent power, the one to beat for gardens over 400 m²' },
+        { label: 'Best value', name: 'Bosch UniversalRotak 36-550', href: '/reviews/bosch-easyrotak-36-550-lawnmower/', note: 'biggest grass box and shared battery platform' },
+        { label: 'Best for small to medium gardens', name: 'Gtech CLM 2.0', href: '/reviews/gtech-clm50/', note: 'light, simple, 50 L box' },
+      ]}
+      featured={{ name: picks[0].name, affiliateUrl: amazonSearch(picks[0].name + ' lawn mower') }}
+    />
+    <p class="mb-8 text-slate-700 leading-relaxed">Today a £300 battery mower will out-cut a £200 petrol all day long. Quieter, lighter, no fiddling with choke and primer, and on a typical 500 m² lawn it finishes on one charge. This guide explains how to pick the right one: voltage, deck size, battery and runtime, brands and where to buy.</p>
 
     <aside class="bg-grass-700 text-white rounded-xl p-5 mb-10 flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
       <p class="font-semibold">Looking for our ranked picks? See the nine best cordless &amp; battery mowers for 2026.</p>
@@ -139,14 +151,7 @@ const schema = [
     />
 
     <!-- Quick verdict box -->
-    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-12">
-      <h2 class="text-xl font-bold text-soil-900 mb-3">Our top three at a glance</h2>
-      <ul class="space-y-2 text-slate-800">
-        <li><strong>Best overall:</strong> <a href="/reviews/gtech-clm50/" class="text-grass-700 underline">Gtech CLM 2.0</a> - the easiest, lightest cordless to live with for a small UK garden</li>
-        <li><strong>Best value:</strong> <a href="/reviews/bosch-easyrotak-36-550-lawnmower/" class="text-grass-700 underline">Bosch UniversalRotak 36-550</a> - biggest grass box and shared battery platform</li>
-        <li><strong>Best for big gardens:</strong> <a href="/reviews/ego-lm2122e-sp/" class="text-grass-700 underline">EGO LM2122E-SP</a> - petrol-equivalent power, genuinely</li>
-      </ul>
-    </aside>
+
 
     <div class="prose-mowers">
       <h2 id="what-is">So what actually is a cordless lawn mower?</h2>
@@ -205,7 +210,7 @@ const schema = [
 
       <h3>Voltage drives torque</h3>
       <p>
-        The bigger the number on the battery (18 V, 36 V, 40 V, 56 V, 80 V), the more torque the motor can deliver. Torque is what stops a mower stalling when you push it through a clump of long, damp grass. For a manicured front lawn that is mown every week, 18 V is plenty. For a tussocky back lawn that goes feral on holiday, you want 36 V or more. Anything advertised as "<a href="https://www.ego-power.com/uk/" rel="noopener" target="_blank">petrol-equivalent</a>" is normally 56 V or higher.
+        The bigger the number on the battery (18 V, 36 V, 40 V, 56 V, 80 V), the more torque the motor can deliver. Torque is what stops a mower stalling when you push it through a clump of long, damp grass. For a manicured front lawn that is mown every week, 18 V is plenty. For a tussocky back lawn that goes feral on holiday, you want 36 V or more. Anything advertised as "<a href="https://www.ego-power.com/uk/" rel="noopener noreferrer" target="_blank">petrol-equivalent</a>" is normally 56 V or higher.
       </p>
 
       <h3>Single battery or twin?</h3>
@@ -260,7 +265,7 @@ const schema = [
 
       <h2 id="related">Related guides on this site</h2>
       <ul>
-        <li><a href="/cordless-lawn-mowers/best/">Best cordless lawn mowers ranked</a></li>
+        <li><a href="/best-battery-powered-lawn-mower-reviews-uk/">Best cordless lawn mowers ranked</a></li>
         <li><a href="/cordless-lawn-mowers/under-200/">Best cordless lawn mowers under £200</a></li>
         <li><a href="/cordless-lawn-mowers/large-gardens/">Best cordless mowers for large gardens</a></li>
         <li><a href="/cordless-lawn-mowers/with-roller/">Cordless lawn mowers with a rear roller (for stripes)</a></li>
@@ -274,4 +279,5 @@ const schema = [
 
     <FAQ {faqs} />
   </article>
+  <StickyBuy name={picks[0].name} affiliateUrl={amazonSearch(picks[0].name + ' lawn mower')} />
 </BaseLayout>

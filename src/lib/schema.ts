@@ -9,6 +9,7 @@ export const orgSchema = () => ({
   '@id': `${SITE.url}/#org`,
   name: SITE.publisher,
   url: SITE.url,
+  description: SITE.description,
   logo: { '@type': 'ImageObject', url: abs(SITE.logo) },
   foundingDate: SITE.founded,
   // Entity corroboration for AI engines: only emitted once real profiles exist.
@@ -64,7 +65,7 @@ export const articleSchema = (args: {
   mainEntityOfPage: abs(args.url),
   datePublished: args.datePublished,
   dateModified: args.dateModified ?? args.datePublished,
-  author: { '@type': 'Organization', name: args.author ?? SITE.publisher },
+  author: { '@type': 'Organization', '@id': `${SITE.url}/#org` },
   publisher: { '@id': `${SITE.url}/#org` },
   ...(args.image ? { image: abs(args.image) } : {}),
   inLanguage: 'en-GB',
@@ -104,13 +105,9 @@ export const productReviewSchema = (args: {
   brand: string;
   image?: string;
   description: string;
-  rating: number;
   url: string;
-  reviewBody?: string;
-  datePublished: string;
+  datePublished?: string;
   dateModified?: string;
-  priceLow?: number;
-  priceHigh?: number;
   // Verified Amazon UK ASIN, when a single canonical product exists.
   asin?: string;
   // Only pass when a real, sourced owner-rating count exists.
@@ -124,16 +121,7 @@ export const productReviewSchema = (args: {
   ...(args.asin ? { sku: args.asin } : {}),
   ...(args.image ? { image: abs(args.image) } : {}),
   description: args.description,
-  ...(args.priceLow && args.priceHigh ? {
-    offers: {
-      '@type': 'AggregateOffer',
-      priceCurrency: 'GBP',
-      lowPrice: args.priceLow,
-      highPrice: args.priceHigh,
-      availability: 'https://schema.org/InStock',
-      ...(args.asin ? { url: amazonLink(args.asin) } : {}),
-    },
-  } : {}),
+  ...(args.asin ? { offers: { '@type': 'Offer', url: amazonLink(args.asin) } } : {}),
   ...(args.aggRating && args.aggCount ? {
     aggregateRating: {
       '@type': 'AggregateRating',
@@ -142,14 +130,6 @@ export const productReviewSchema = (args: {
       bestRating: 5,
     },
   } : {}),
-  review: {
-    '@type': 'Review',
-    reviewRating: { '@type': 'Rating', ratingValue: args.rating, bestRating: 5 },
-    author: { '@type': 'Organization', name: SITE.publisher },
-    datePublished: args.datePublished,
-    ...(args.dateModified ? { dateModified: args.dateModified } : {}),
-    ...(args.reviewBody ? { reviewBody: args.reviewBody } : {}),
-  },
 });
 
 export const howToSchema = (args: {

@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FAQ from '../../components/FAQ.astro';
+import SearchCtas from '../../components/SearchCtas.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../lib/schema';
 
 const title = 'Can I Use Chainsaw Oil in My Lawn Mower? (UK Guide)';
@@ -144,6 +145,8 @@ const schema = [
         <li><a href="/advice/maintenance/sharpen-blade/">How to sharpen a lawn mower blade</a></li>
       </ul>
     </div>
+
+    <SearchCtas heading="Engine oil for a petrol mower" intro="Check your mower handbook for the exact grade first, then search Amazon UK for the grades covered above." items={[{ label: '4-stroke SAE 30 oil', query: 'SAE 30 four-stroke lawn mower engine oil' },{ label: '10W-30 small engine oil', query: '10W-30 small engine oil lawn mower' }]} />
 
     <FAQ {faqs} />
   </article>

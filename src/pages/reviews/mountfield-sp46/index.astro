@@ -5,7 +5,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
 
-const title = 'Mountfield SP46 Review - UK\'s Best Value Self-Propelled Petrol (2026)';
+const title = 'Mountfield SP46 Review - Best Value Self-Propelled (2026)';
 const description = "Mountfield SP46 review. Research-led assessment of engine, build and value vs Honda and Cobra rivals - honest verdict for UK lawns.";
 const path = '/reviews/mountfield-sp46/';
 const datePublished = '2026-05-10';
@@ -28,7 +28,7 @@ const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified: '2026-06-05' }),
   faqSchema(faqs),
-  productReviewSchema({ asin: 'B08J86J92W', name: 'Mountfield SP46', brand: 'Mountfield', description, rating: 4.5, url: path, datePublished, dateModified: '2026-06-05', image: '/images/powerful_electric_lawn_mower.webp', priceLow: 290, priceHigh: 380, reviewBody: 'The default sub-£400 self-propelled petrol mower in the UK. Italian-built ST 140 engine, 46 cm steel deck, properly reliable.' }),
+  productReviewSchema({ asin: 'B08J86J92W', name: 'Mountfield SP46', brand: 'Mountfield', description, url: path, datePublished, dateModified: '2026-06-05', image: '/images/powerful_electric_lawn_mower.webp' }),
 ];
 ---
 <BaseLayout {title} {description} {schema}>
@@ -53,7 +53,7 @@ const schema = [
       <div class="flex items-start justify-between gap-4 mb-3">
         <div>
           <p class="text-xs font-bold text-grass-700 uppercase tracking-wide mb-1">Our verdict</p>
-          <p class="text-2xl font-bold text-soil-900">4.5 / 5</p>
+          <p class="text-2xl font-bold text-soil-900">Research-led verdict</p>
         </div>
         <div class="text-right text-sm">
           <p class="font-semibold text-soil-900">£329 RRP</p>
@@ -61,7 +61,7 @@ const schema = [
         </div>
       </div>
       <p class="text-slate-700 leading-relaxed">
-        The default sub-£400 self-propelled petrol mower in the UK. The Mountfield ST 140 OHV engine is Italian-built and properly reliable; the 46 cm steel deck shrugs off the kind of damp Norfolk grass that smaller cordless mowers stall on. Single-speed drive is the only real cost-cutting compromise. For 600-800 m² of typical British lawn, this is the cheapest mower we recommend without a caveat.
+        The default sub-£400 <a href="/petrol-lawn-mowers/self-propelled/" class="text-grass-700 underline">self-propelled petrol mower</a> in the UK. The Mountfield ST 140 OHV engine is Italian-built and properly reliable; the 46 cm steel deck shrugs off the kind of damp Norfolk grass that smaller cordless mowers stall on. Single-speed drive is the only real cost-cutting compromise. For 600-800 m² of typical British lawn, this is the cheapest mower we recommend without a caveat.
       </p>
           <BuyCta name="Mountfield SP46" asin="B08J86J92W" rrp="£329" />
     </aside>
@@ -117,22 +117,22 @@ const schema = [
 
       <blockquote>
         <p>"Definitely the Mountfield SP46. It is a good enough honda engine. They were a decent mid range brand but have been dropping quality wise, but still ok. Servicing and repairs are usually easy enough and parts available."</p>
-        <cite> -  u/Lunar-Mint, <a href="https://reddit.com/r/GardeningUK/comments/1jyyyw9/">r/GardeningUK</a></cite>
+        <cite> -  u/Lunar-Mint, <a href="https://reddit.com/r/GardeningUK/comments/1jyyyw9/" target="_blank" rel="noopener noreferrer">r/GardeningUK</a></cite>
       </blockquote>
 
       <blockquote>
         <p>"I have had the equivalent of the Mountfield (but older) for around 10 years. It has suffered much abuse due to the grass that we inherited when we moved here which was in terrible condition. It has kept going and going and has always been reliable."</p>
-        <cite> -  u/Disastrous_Proof1247, <a href="https://reddit.com/r/GardeningUK/comments/14jylpd/">r/GardeningUK</a></cite>
+        <cite> -  u/Disastrous_Proof1247, <a href="https://reddit.com/r/GardeningUK/comments/14jylpd/" target="_blank" rel="noopener noreferrer">r/GardeningUK</a></cite>
       </blockquote>
 
       <blockquote>
         <p>"Mountfield has the more established name, parts probably easier to get. If you have under 200m² of grass I'd seriously consider battery once you factor in fuel costs and servicing."</p>
-        <cite> -  u/UsefulAd8513, <a href="https://reddit.com/r/GardeningUK/comments/1jyyyw9/">r/GardeningUK</a></cite>
+        <cite> -  u/UsefulAd8513, <a href="https://reddit.com/r/GardeningUK/comments/1jyyyw9/" target="_blank" rel="noopener noreferrer">r/GardeningUK</a></cite>
       </blockquote>
 
       <blockquote>
         <p>"I've got a Mountfield and am not happy with it. It only runs on the freshest of fuel so no jerrycan sat in the garden for months."</p>
-        <cite> -  u/Careful_Adeptness799, <a href="https://reddit.com/r/GardeningUK/comments/1jyyyw9/">r/GardeningUK</a></cite>
+        <cite> -  u/Careful_Adeptness799, <a href="https://reddit.com/r/GardeningUK/comments/1jyyyw9/" target="_blank" rel="noopener noreferrer">r/GardeningUK</a></cite>
       </blockquote>
 
       <p>The honest Reddit picture: long-term owners (5-10 years) consistently praise reliability and parts availability. The recurring complaint is fuel sensitivity - modern small engines across all brands struggle with stale E10 petrol. The fix: use fuel stabiliser or buy alkylate fuel (Aspen 4T, about £12/L) if the mower sits unused for more than a month.</p>
