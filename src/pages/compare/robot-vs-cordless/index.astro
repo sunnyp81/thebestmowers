@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import PickBlock from '../../../components/PickBlock.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
 
@@ -42,6 +43,12 @@ const schema = [
         One mows itself, the other you push. But which actually makes more sense for your garden, your budget and your weekends?
       </p>
     </header>
+
+    <PickBlock
+      heading="Our top pick on each side"
+      keys={['husqvarna305','ego']}
+      labels={['Robot','Cordless']}
+    />
 
     <div class="prose-mowers">
       <h2>Side-by-side comparison</h2>

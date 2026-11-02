@@ -2,6 +2,7 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
 import FAQ from '../../../../components/FAQ.astro';
+import PickBlock from '../../../../components/PickBlock.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, howToSchema } from '../../../../lib/schema';
 
 const title = 'Mowed Through the Cable? How to Repair a Cut Lawn Mower Cable Safely (2026)';
@@ -107,6 +108,8 @@ const schema = [
         Cordless mowers remove the cable problem entirely, and they have closed the gap on corded power, which is why they now dominate UK sales for small and medium gardens. If this is your second or third strike, it may be the mower telling you something. Start with our <a href="/best-battery-powered-lawn-mower-reviews-uk/">best battery lawn mower guide</a> or browse <a href="/cordless-lawn-mowers/">cordless mowers by need</a>. If the repair has you weighing up a service instead, here is <a href="/advice/maintenance/lawn-mower-repairs-near-me/">how to find a lawn mower repair shop near you</a>.
       </p>
     </div>
+
+    <PickBlock keys={['bosch36']} heading="A cable-free alternative" />
 
     <FAQ {faqs} />
   </article>

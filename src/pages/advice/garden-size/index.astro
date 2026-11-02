@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import PickBlock from '../../../components/PickBlock.astro';
 import FAQ from '../../../components/FAQ.astro';
 import CordlessAreaChart from '../../../components/charts/CordlessAreaChart.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
@@ -44,6 +45,12 @@ const schema = [
         Garden size is the single most important factor in choosing a mower. Get this right and everything else falls into place.
       </p>
     </header>
+
+    <PickBlock
+      heading="A pick for each lawn size"
+      keys={['rotak32r','gtech','mountfieldSp46','ego','mountfield1538']}
+      labels={['Under 100 m²','100-300 m²','300-600 m²','600-1,000 m²','1,000 m² and over']}
+    />
 
     <div class="prose-mowers">
       <h2>Mower recommendations by lawn size</h2>

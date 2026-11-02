@@ -2,6 +2,7 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
 import FAQ from '../../../../components/FAQ.astro';
+import PickBlock from '../../../../components/PickBlock.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../../lib/schema';
 
 const title = 'Flymo Warranty and Guarantee Registration UK: How It Works (2026)';
@@ -112,6 +113,8 @@ const schema = [
         If the guarantee claim is the last straw rather than the first hiccup, it may be worth weighing a repair against an upgrade. Our <a href="/brands/flymo/">Flymo brand guide</a> covers the current range honestly: hover mowers remain the brand's real strength. Our <a href="/hover-lawn-mowers/">hover mower guide</a> compares them with wheeled alternatives. For out-of-warranty repairs, here is <a href="/advice/maintenance/lawn-mower-repairs-near-me/">how to find a repair shop near you</a>.
       </p>
     </div>
+
+    <PickBlock keys={['hovervac']} heading="The Flymo pick from our brand guide" />
 
     <FAQ {faqs} />
   </article>

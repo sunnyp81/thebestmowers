@@ -2,6 +2,7 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
 import FAQ from '../../../../components/FAQ.astro';
+import SearchCtas from '../../../../components/SearchCtas.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, howToSchema } from '../../../../lib/schema';
 
 const title = 'Cordless Mower Battery Care & Runtime: Get More From Your Battery';
@@ -143,6 +144,8 @@ const schema = [
         Choosing your first cordless mower, or weighing a battery one against petrol? See the <a href="/best-battery-powered-lawn-mower-reviews-uk/">best battery-powered mower reviews</a> and our <a href="/compare/cordless-vs-petrol/">cordless vs petrol vs electric guide</a>.
       </p>
     </div>
+
+    <SearchCtas heading="Spare batteries" items={[{ label: 'Spare EGO battery', query: 'EGO Power+ LM2122E-SP battery' },{ label: 'Spare Bosch 36 V Power for All battery', query: 'Bosch 36V Power for All battery' }]} />
 
     <FAQ {faqs} />
   </article>

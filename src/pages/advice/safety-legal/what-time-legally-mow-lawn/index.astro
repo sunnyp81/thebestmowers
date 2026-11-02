@@ -2,6 +2,7 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
 import FAQ from '../../../../components/FAQ.astro';
+import PickBlock from '../../../../components/PickBlock.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../../lib/schema';
 
 const title = 'What Time Can You Legally Mow Your Lawn in the UK? (2026)';
@@ -128,6 +129,8 @@ const schema = [
         <li><a href="/advice/safety-legal/can-drive-riding-road/">Can you drive a ride-on mower on UK roads?</a></li>
       </ul>
     </div>
+
+    <PickBlock keys={['bosch36']} heading="A quieter cordless pick" intro="The Bosch UniversalRotak 36-550 uses a ProSilence motor." />
 
     <FAQ {faqs} />
   </article>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HowWeResearch from '../components/HowWeResearch.astro';
+import PickBlock from '../components/PickBlock.astro';
 import { POWER_TYPE_HUBS, BRAND_HUBS } from '../lib/site';
 import { articleSchema } from '../lib/schema';
 
@@ -63,6 +64,10 @@ const featured = [
         ))}
       </div>
     </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 pt-4 pb-8">
+    <PickBlock keys={['ego','bosch36','gtech']} heading="Top cordless picks" />
   </section>
 
   <section class="max-w-5xl mx-auto px-4 py-16">

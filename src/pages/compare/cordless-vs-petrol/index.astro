@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import PickBlock from '../../../components/PickBlock.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
 
@@ -42,6 +43,12 @@ const schema = [
         The biggest decision in mower buying isn't brand or model: it's power type. Here's an honest side-by-side based on manufacturer specs, running-cost data and verified owner reviews of both.
       </p>
     </header>
+
+    <PickBlock
+      heading="Our top pick on each side"
+      keys={['ego','honda']}
+      labels={['Cordless','Petrol']}
+    />
 
     <div class="prose-mowers">
       <h2>Head-to-head comparison</h2>

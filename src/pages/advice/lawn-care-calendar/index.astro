@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
+import PickBlock from '../../../components/PickBlock.astro';
 import HowWeResearch from '../../../components/HowWeResearch.astro';
 import EmailCapture from '../../../components/EmailCapture.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
@@ -190,6 +191,8 @@ const schema = [
     </div>
 
     <EmailCapture />
+
+    <PickBlock keys={['ego']} heading="A cordless pick for the season" />
 
     <FAQ {faqs} />
   </article>

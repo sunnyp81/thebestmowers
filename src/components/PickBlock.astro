@@ -1,0 +1,16 @@
+---
+import Disclosure from './Disclosure.astro';
+import PickMini from './PickMini.astro';
+import { CTA_PICKS } from '../data/ctaPicks';
+// One or more existing picks with the affiliate disclosure. keys index CTA_PICKS; labels (optional) replace the "Best for" line.
+interface Props { keys: string[]; heading?: string; intro?: string; labels?: string[]; disclose?: boolean; id?: string }
+const { keys, heading, intro, labels = [], disclose = true, id } = Astro.props as Props;
+---
+<section class="my-10" id={id}>
+  {disclose && <Disclosure compact />}
+  {heading && <h2 class="text-2xl font-bold text-soil-900 mb-2">{heading}</h2>}
+  {intro && <p class="text-slate-700 mb-4 leading-relaxed">{intro}</p>}
+  <div class={keys.length > 1 ? 'grid sm:grid-cols-2 gap-4' : 'max-w-xl'}>
+    {keys.map((k, i) => <PickMini pick={CTA_PICKS[k]} label={labels[i]} />)}
+  </div>
+</section>
