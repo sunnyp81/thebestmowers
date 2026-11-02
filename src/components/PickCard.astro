@@ -21,6 +21,10 @@ const buyUrl = (asin && amazonLink(asin)) || affiliateUrl || amazonSearch(`${nam
 // Resolve a live product image: prefer an explicit prop, else the build-time Amazon hotlink for this ASIN.
 const imgMeta = asin ? ((amazonImages as any)?.items?.[asin]?.image ?? null) : null;
 const resolvedImage: string | null = image ?? imgMeta?.url ?? null;
+// Review link: brand-hub targets read "See the {brand} range"; no link when the target is the current page.
+const here = Astro.url.pathname.replace(/\/?$/, '/');
+const isBrandHub = reviewUrl.startsWith('/brands/');
+const showReview = reviewUrl !== here;
 const imgW = imgMeta?.width ?? 300;
 const imgH = imgMeta?.height ?? 300;
 ---
@@ -54,7 +58,7 @@ const imgH = imgMeta?.height ?? 300;
         </div>
       </div>
       <div class="flex flex-wrap gap-2">
-        <a href={reviewUrl} class="inline-flex items-center gap-1 text-sm font-semibold text-grass-700 hover:text-grass-900 underline underline-offset-2">Read full review →</a>
+        {showReview && <a href={reviewUrl} class="inline-flex items-center gap-1 text-sm font-semibold text-grass-700 hover:text-grass-900 underline underline-offset-2">{isBrandHub ? `See the ${brand} range →` : 'Read full review →'}</a>}
         <a href={buyUrl} rel={AFFILIATE_REL} target="_blank" class="btn-buy ml-auto inline-flex items-center gap-1 text-sm font-semibold bg-grass-700 hover:bg-grass-800 text-white px-4 py-2 rounded-[4px] min-h-[44px]">
           Check price on Amazon →
         </a>
