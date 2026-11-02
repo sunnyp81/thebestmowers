@@ -5,6 +5,7 @@ import OwnerVoices from '../../../components/OwnerVoices.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import Disclosure from '../../../components/Disclosure.astro';
+import StickyBuy from '../../../components/StickyBuy.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, productReviewSchema } from '../../../lib/schema';
 
 const title = 'Gtech CLM 2.0 Review - UK Cordless Mower (2026)';
@@ -53,7 +54,7 @@ const schema = [
       loading="eager" fetchpriority="high"
     />
 
-    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-10">
+    <aside id="at-a-glance" class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-10">
       <div class="flex items-start justify-between gap-4 mb-3">
         <div>
           <p class="text-xs font-bold text-grass-700 uppercase tracking-wide mb-1">Our verdict</p>
@@ -152,4 +153,5 @@ const schema = [
 
     <FAQ {faqs} />
   </article>
+  <StickyBuy name="Gtech CLM 2.0" />
 </BaseLayout>

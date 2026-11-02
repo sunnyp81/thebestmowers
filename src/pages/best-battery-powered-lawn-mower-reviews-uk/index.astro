@@ -10,8 +10,10 @@ import CordlessAreaChart from '../../components/charts/CordlessAreaChart.astro';
 import VoltageGuide from '../../components/VoltageGuide.astro';
 import DeckWidthGuide from '../../components/DeckWidthGuide.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
+import AtAGlance from '../../components/AtAGlance.astro';
+import StickyBuy from '../../components/StickyBuy.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../lib/schema';
-import { amazonSearch } from '../../lib/affiliate';
+import { amazonSearch, amazonLink, AFFILIATE_REL } from '../../lib/affiliate';
 
 const title = 'Best Cordless & Battery Lawn Mowers UK 2026 - Ranked & Compared';
 const description = 'The best cordless and battery lawn mowers for UK gardens in 2026. Nine picks compared on voltage, cutting width, battery, runtime, weight and price - with honest pros, cons and who each is for.';
@@ -134,6 +136,8 @@ const faqs = [
   { q: 'Are the prices on this page accurate?', a: 'We show typical UK price bands, not live prices - mower prices move constantly with deals and stock. Always check the current price on the retailer page before buying; the "Check price on Amazon" buttons go straight to the live listing.' },
 ];
 
+const buyHref = (p: { asin?: string; name: string }) => (p.asin && amazonLink(p.asin)) || amazonSearch(p.name + ' lawn mower');
+
 const schema = [
   breadcrumbSchema(crumbs),
   articleSchema({ headline: title, description, url: path, datePublished, dateModified, image: '/images/cordless_lawn_mower_convenience-1.webp' }),
@@ -153,7 +157,7 @@ const schema = [
       <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">UK Buyer's Guide · Updated June 2026</p>
       <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Best Cordless &amp; Battery Lawn Mowers UK 2026</h1>
       <p class="mt-4 text-lg text-slate-700 leading-relaxed">
-        Cordless has quietly become the default mower for British gardens. For anything under about 600&nbsp;m², a good battery mower now out-cuts a cheap petrol one: quieter, lighter, push-button start, no fuel or servicing. Below are the nine cordless and battery lawn mowers we rate most highly for 2026, compared on the specs that actually matter - voltage, cutting width, battery, runtime, weight and price - and ranked by who each one is for.
+        Cordless has quietly become the default mower for British gardens. For anything under about 600&nbsp;m², a good battery mower now out-cuts a cheap petrol one: quieter, lighter, push-button start, no fuel or servicing.
       </p>
     </header>
 
@@ -168,23 +172,24 @@ const schema = [
     />
 
     <!-- Quick verdict -->
-    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-10">
-      <h2 class="text-xl font-bold text-soil-900 mb-3">Our top picks at a glance</h2>
-      <ul class="space-y-2 text-slate-800">
-        <li><strong>Best overall for big lawns:</strong> <a href="/reviews/ego-lm2122e-sp/" class="text-grass-700 underline">EGO Power+ LM2122E-SP</a> - petrol-equivalent 56&nbsp;V power</li>
-        <li><strong>Best value:</strong> <a href="/reviews/bosch-easyrotak-36-550-lawnmower/" class="text-grass-700 underline">Bosch UniversalRotak 36-550</a> - huge box, shared battery platform</li>
-        <li><strong>Best for small gardens:</strong> <a href="/reviews/bosch-rotak-32-review/" class="text-grass-700 underline">Bosch CityMower 18V-32</a> - light, simple, under £200</li>
-        <li><strong>Best for stripes:</strong> <a href="/reviews/mountfield-princess-34/" class="text-grass-700 underline">Mountfield Princess 34 Li-48</a> - steel deck, rear roller</li>
-      </ul>
-    </aside>
+    <AtAGlance
+      picks={[
+        { label: 'Best overall for big lawns', name: 'EGO Power+ LM2122E-SP', href: '/reviews/ego-lm2122e-sp/', note: 'petrol-equivalent 56 V power' },
+        { label: 'Best value', name: 'Bosch UniversalRotak 36-550', href: '/reviews/bosch-easyrotak-36-550-lawnmower/', note: 'huge box, shared battery platform' },
+        { label: 'Best for small gardens', name: 'Bosch CityMower 18V-32', href: '/brands/bosch/', note: 'light, simple' },
+        { label: 'Best for stripes', name: 'Mountfield Princess 34 Li-48', href: '/reviews/mountfield-princess-34/', note: 'steel deck, rear roller' },
+      ]}
+      featured={{ name: picks[0].name, affiliateUrl: buyHref(picks[0]) }}
+    />
+    <p class="mb-10 text-slate-700 leading-relaxed">Below are the nine cordless and battery lawn mowers we rate most highly for 2026, compared on the specs that actually matter - voltage, cutting width, battery, runtime and weight - and ranked by who each one is for.</p>
 
     <!-- Comparison table -->
     <section class="prose-mowers">
       <h2 id="compare">Cordless lawn mowers compared</h2>
-      <p>Every pick at a glance. Runtime figures are manufacturer estimates or our coverage guide for a typical dry UK lawn - real runtime varies with grass length, dampness and cut height. Prices are typical UK bands, not live prices.</p>
+      <p>Every pick at a glance. Runtime figures are manufacturer estimates or our coverage guide for a typical dry UK lawn - real runtime varies with grass length, dampness and cut height. Use the Check price links for the current price.</p>
       <table>
         <thead>
-          <tr><th>Mower</th><th>Best for</th><th>Voltage</th><th>Cut width</th><th>Battery</th><th>Runtime / coverage</th><th>Weight</th><th>Price band</th></tr>
+          <tr><th>Mower</th><th>Best for</th><th>Voltage</th><th>Cut width</th><th>Battery</th><th>Runtime / coverage</th><th>Weight</th><th>Check price</th></tr>
         </thead>
         <tbody>
           {picks.map((p) => (
@@ -196,7 +201,7 @@ const schema = [
               <td>{p.battery}</td>
               <td>{p.runtime}</td>
               <td>{p.weight}</td>
-              <td>{p.rrp}</td>
+              <td><a href={buyHref(p)} rel={AFFILIATE_REL} target="_blank" class="whitespace-nowrap">Check price</a></td>
             </tr>
           ))}
         </tbody>
@@ -277,4 +282,5 @@ const schema = [
 
     <FAQ {faqs} />
   </article>
+  <StickyBuy name={picks[0].name} affiliateUrl={buyHref(picks[0])} />
 </BaseLayout>

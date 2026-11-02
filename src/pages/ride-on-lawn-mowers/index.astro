@@ -5,7 +5,10 @@ import FAQ from '../../components/FAQ.astro';
 import PickCard from '../../components/PickCard.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import HowWeResearch from '../../components/HowWeResearch.astro';
+import AtAGlance from '../../components/AtAGlance.astro';
+import StickyBuy from '../../components/StickyBuy.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../lib/schema';
+import { amazonSearch } from '../../lib/affiliate';
 
 const title = 'Best Ride-On Lawn Mowers UK 2026 - Compared & Ranked';
 const description = 'Independent UK guide to the best ride-on lawn mowers and lawn tractors. Mountfield, John Deere, Stiga, Cub Cadet, Cobra ranked by lawn size and price.';
@@ -48,10 +51,20 @@ const schema = [
       <p class="text-sm font-semibold text-grass-700 uppercase tracking-wide mb-2">UK Buyer's Guide · Updated May 2026</p>
       <h1 class="text-3xl md:text-5xl font-bold text-soil-900 leading-tight">Best Ride-On Lawn Mowers UK 2026</h1>
       <p class="mt-4 text-lg text-slate-700 leading-relaxed">
-        Somewhere around a quarter of an acre - 1,000 m² - pushing a mower stops being recreation and starts feeling like penance. That's where ride-on lawn mowers come in. Sometimes called "lawn tractors", sometimes "sit-on mowers" - same thing. We've cross-checked every model below against manufacturer specs, verified owner reviews and UK pricing, picking the ones that genuinely finish the job in an evening, rather than turning your Sunday into a chore.
+        Somewhere around a quarter of an acre - 1,000 m² - pushing a mower stops being recreation and starts feeling like penance. That's where ride-on lawn mowers come in.
       </p>
       <p class="mt-3 text-sm text-slate-500">Independent · No manufacturer paid for placement · We may earn a commission on qualifying purchases.</p>
     </header>
+
+    <AtAGlance
+      picks={[
+        { label: 'Best value', name: 'Mountfield 1538M-SD', href: '/reviews/mountfield-1538m-sd/', note: 'Italian-built' },
+        { label: 'Best premium', name: 'John Deere X167', href: '/reviews/john-deere-x167/', note: '20-year working life' },
+        { label: 'Best with collection', name: 'Stiga Estate 384M', href: '/reviews/stiga-estate-384m/', note: '300 L rear bin' },
+      ]}
+      featured={{ name: picks[0].name, affiliateUrl: amazonSearch(picks[0].name + ' ride-on lawn mower') }}
+    />
+    <p class="mb-10 text-slate-700 leading-relaxed">Sometimes called "lawn tractors", sometimes "sit-on mowers" - same thing. We've cross-checked every model below against manufacturer specs, verified owner reviews and UK pricing, picking the ones that genuinely finish the job in an evening, rather than turning your Sunday into a chore.</p>
 
     <img
       src="/images/top_8_large_lawnmowers.webp"
@@ -61,14 +74,7 @@ const schema = [
       loading="eager"
     />
 
-    <aside class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-12">
-      <h2 class="text-xl font-bold text-soil-900 mb-3">Our top three at a glance</h2>
-      <ul class="space-y-2 text-slate-800">
-        <li><strong>Best value:</strong> <a href="/reviews/mountfield-1538m-sd/" class="text-grass-700 underline">Mountfield 1538M-SD</a> - Italian-built, sub-£1,800</li>
-        <li><strong>Best premium:</strong> <a href="/reviews/john-deere-x167/" class="text-grass-700 underline">John Deere X167</a> - 20-year working life</li>
-        <li><strong>Best with collection:</strong> <a href="/reviews/stiga-estate-384m/" class="text-grass-700 underline">Stiga Estate 384M</a> - 300 L rear bin</li>
-      </ul>
-    </aside>
+
 
     <div class="prose-mowers">
       <h2 id="what-is">What is a ride-on lawn mower?</h2>
@@ -125,4 +131,5 @@ const schema = [
     </div>
     <FAQ {faqs} />
   </article>
+  <StickyBuy name={picks[0].name} affiliateUrl={amazonSearch(picks[0].name + ' ride-on lawn mower')} />
 </BaseLayout>

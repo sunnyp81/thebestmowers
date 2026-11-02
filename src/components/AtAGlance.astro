@@ -1,0 +1,24 @@
+---
+import { AFFILIATE_REL, amazonLink, amazonSearch } from '../lib/affiliate';
+// Numbered answer card for the first screen: top picks from the page's own list plus one tagged Amazon CTA. No prices, no ratings.
+interface Pick { label: string; name: string; href: string; note?: string }
+interface Featured { name: string; asin?: string; affiliateUrl?: string }
+interface Props { heading?: string; picks: Pick[]; featured?: Featured; id?: string }
+const { heading = 'Our top picks at a glance', picks, featured, id = 'at-a-glance' } = Astro.props as Props;
+const buyUrl = featured ? ((featured.asin && amazonLink(featured.asin)) || featured.affiliateUrl || amazonSearch(`${featured.name} lawn mower`)) : null;
+---
+<aside id={id} class="bg-grass-50 border-l-4 border-grass-700 rounded-r-lg p-5 mb-8">
+  <h2 class="text-xl font-bold text-soil-900 mb-3">{heading}</h2>
+  <ol class="list-decimal pl-5 space-y-2 text-slate-800">
+    {picks.map((p) => (
+      <li><strong>{p.label}:</strong> <a href={p.href} class="text-grass-700 underline">{p.name}</a>{p.note && <> - {p.note}</>}</li>
+    ))}
+  </ol>
+  {featured && buyUrl && (
+    <div class="mt-4">
+      <a href={buyUrl} rel={AFFILIATE_REL} target="_blank" class="btn-buy inline-flex items-center justify-center gap-2 bg-grass-700 hover:bg-grass-800 text-white font-semibold px-5 py-3 rounded-[4px] min-h-[44px]">
+        Check price on Amazon: {featured.name} →
+      </a>
+    </div>
+  )}
+</aside>
