@@ -3,6 +3,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../../components/Breadcrumbs.astro';
 import FAQ from '../../../../components/FAQ.astro';
 import SearchCtas from '../../../../components/SearchCtas.astro';
+import AtAGlance from '../../../../components/AtAGlance.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, howToSchema } from '../../../../lib/schema';
 
 const title = 'How to Sharpen Lawn Mower Blades - Step-by-Step UK Guide';
@@ -55,6 +56,17 @@ const schema = [
         A sharp blade is the single biggest thing you can do for your lawn's health. Dull blades tear grass instead of cutting it, leaving brown tips and making the lawn more vulnerable to disease. Here's how to sharpen yours in 20 minutes.
       </p>
     </header>
+
+    <AtAGlance
+      heading="At a glance: sharpen a blade in five steps"
+      steps={[
+        'Disconnect the power source and remove the blade.',
+        'Clamp the blade securely.',
+        'Sharpen with a flat file or angle grinder.',
+        'Check the balance.',
+        'Refit the blade.',
+      ]}
+    />
 
     <div class="prose-mowers">
       <h2>What you'll need</h2>
