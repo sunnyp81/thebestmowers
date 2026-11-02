@@ -1,14 +1,16 @@
 ---
 import { AFFILIATE_REL, amazonLink, amazonSearch } from '../lib/affiliate';
-interface Props { name: string; rrp?: string; asin?: string }
-const { name, rrp, asin } = Astro.props as Props;
+// Set disclose={false} when the page already renders <Disclosure /> elsewhere, to avoid two commission statements on one page.
+interface Props { name: string; asin?: string; disclose?: boolean }
+const { name, asin, disclose = true } = Astro.props as Props;
 const url = (asin && amazonLink(asin)) || amazonSearch(`${name} lawn mower`);
 ---
 <div class="mt-4 flex flex-col sm:flex-row sm:items-center gap-3 border-t border-grass-200 pt-4">
-  <a href={url} rel={AFFILIATE_REL} target="_blank" class="btn-buy inline-flex items-center justify-center gap-2 bg-grass-700 hover:bg-grass-800 text-white font-semibold px-5 py-3 rounded-md min-h-[44px]">
+  <a href={url} rel={AFFILIATE_REL} target="_blank" class="btn-buy inline-flex items-center justify-center gap-2 bg-grass-700 hover:bg-grass-800 text-white font-semibold px-5 py-3 rounded-[4px] min-h-[44px]">
     Check price on Amazon →
   </a>
   <p class="text-xs text-slate-500">
-    {rrp ? `Typically ${rrp}. ` : ''}Price at time of writing; check Amazon for the current price and stock. We may earn a commission, at no cost to you.
+    Check Amazon for the current price and stock.
+    {disclose && <>As an Amazon Associate I earn from qualifying purchases<br />It never affects our picks, at no extra cost to you.</>}
   </p>
 </div>

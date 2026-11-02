@@ -1,34 +1,36 @@
 ---
 import { POWER_TYPE_HUBS } from '../lib/site';
+const here = Astro.url.pathname;
+const isCurrent = (href: string) => here === href || here.startsWith(href);
 ---
 <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-grass-700 focus:text-white focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
-<header class="border-b border-slate-200 bg-white sticky top-0 z-30">
+<header class="bg-white sticky top-0 z-30 shadow-[0_1px_0_#d5dbd6]">
   <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-6">
-    <a href="/" class="flex items-center gap-2 text-grass-800 font-bold text-xl">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M3 19h18M5 19V9l7-5 7 5v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="12" cy="13" r="2.5" stroke="currentColor" stroke-width="2"/>
-      </svg>
+    <a href="/" class="flex items-center gap-2.5 text-grass-900 font-display font-extrabold text-xl tracking-tight" style="font-stretch:88%">
+      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="5" fill="#2a521e"/><path d="M4 6h4v20H4zM12 6h4v20h-4zM20 6h4v20h-4z" fill="#316621"/><path d="M8 6h4v20H8zM16 6h4v20h-4zM24 6h4v20h-4z" fill="#51a134"/></svg>
       The Best Mowers
     </a>
     <nav class="hidden md:flex items-center gap-5 text-sm font-medium">
       {POWER_TYPE_HUBS.map((h) => (
-        <a href={`/${h.slug}/`} class="text-slate-700 hover:text-grass-700">{h.label}</a>
+        <a href={`/${h.slug}/`} aria-current={isCurrent(`/${h.slug}/`) ? 'page' : undefined} class="py-1 text-slate-700 hover:text-grass-800 border-b-2 border-transparent hover:border-grass-500 aria-[current=page]:border-grass-700 aria-[current=page]:text-grass-900 aria-[current=page]:font-semibold">{h.label}</a>
       ))}
-      <a href="/brands/" class="text-slate-700 hover:text-grass-700">Brands</a>
-      <a href="/advice/" class="text-slate-700 hover:text-grass-700">Advice</a>
-      <a href="/best-lawn-mowers/" class="bg-grass-700 hover:bg-grass-800 text-white px-3 py-1.5 rounded-md">Best of {new Date().getFullYear()}</a>
+      <a href="/brands/" aria-current={isCurrent('/brands/') ? 'page' : undefined} class="py-1 text-slate-700 hover:text-grass-800 border-b-2 border-transparent hover:border-grass-500 aria-[current=page]:border-grass-700 aria-[current=page]:text-grass-900 aria-[current=page]:font-semibold">Brands</a>
+      <a href="/research/" aria-current={isCurrent('/research/') ? 'page' : undefined} class="py-1 text-slate-700 hover:text-grass-800 border-b-2 border-transparent hover:border-grass-500 aria-[current=page]:border-grass-700 aria-[current=page]:text-grass-900 aria-[current=page]:font-semibold">Data</a>
+      <a href="/advice/" aria-current={isCurrent('/advice/') ? 'page' : undefined} class="py-1 text-slate-700 hover:text-grass-800 border-b-2 border-transparent hover:border-grass-500 aria-[current=page]:border-grass-700 aria-[current=page]:text-grass-900 aria-[current=page]:font-semibold">Advice</a>
+      <a href="/best-lawn-mowers/" class="bg-grass-700 hover:bg-grass-800 text-white px-3 py-2 rounded-[4px] font-semibold">Best of {new Date().getFullYear()}</a>
     </nav>
     <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2 text-slate-700" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
     </button>
   </div>
+  <div class="stripe-rule" aria-hidden="true"></div>
   <nav id="mobile-menu" class="md:hidden hidden border-t border-slate-200 bg-white px-4 py-4" aria-label="Mobile navigation">
     <ul class="space-y-1 text-sm font-medium">
       {POWER_TYPE_HUBS.map((h) => (
         <li><a href={`/${h.slug}/`} class="block py-2 px-2 rounded text-slate-700 hover:bg-grass-50 hover:text-grass-700">{h.label} mowers</a></li>
       ))}
       <li class="border-t border-slate-100 mt-2 pt-2"><a href="/brands/" class="block py-2 px-2 rounded text-slate-700 hover:bg-grass-50 hover:text-grass-700">Brands</a></li>
+      <li><a href="/research/" class="block py-2 px-2 rounded text-slate-700 hover:bg-grass-50 hover:text-grass-700">Mower data</a></li>
       <li><a href="/advice/" class="block py-2 px-2 rounded text-slate-700 hover:bg-grass-50 hover:text-grass-700">Advice</a></li>
       <li class="mt-2"><a href="/best-lawn-mowers/" class="block text-center bg-grass-700 hover:bg-grass-800 text-white px-3 py-2.5 rounded-md">Best of {new Date().getFullYear()}</a></li>
     </ul>

@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
+import CordlessAreaChart from '../../../components/charts/CordlessAreaChart.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
 
 const title = 'Choosing a Lawn Mower by Garden Size - UK Guide 2026';
@@ -58,6 +59,11 @@ const schema = [
           <tr><td>1,000 m²+</td><td>Ride-on or robot mower</td><td>76-107 cm</td><td>£800-£3,500</td></tr>
         </tbody>
       </table>
+    </div>
+    <CordlessAreaChart />
+    <div class="prose-mowers">
+      <p>Cutting width is only a rough guide. The chart above shows what each maker says its cordless mower can handle; see our <a href="/research/cordless-mower-lawn-area-ratings/">cordless lawn-area data</a> for the battery each rating assumes.</p>
+
 
       <h2>Under 100 m² - front lawns and courtyards</h2>
       <p>

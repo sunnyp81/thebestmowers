@@ -1,7 +1,19 @@
 @import "tailwindcss";
 
+/* Archivo (SIL OFL, public/fonts/archivo-OFL.txt): variable weight + width. Width axis drives the condensed spec-plate numerals. */
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  src: url("/fonts/archivo-latin-var.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 @theme {
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 
   --color-grass-50:  #f3faf0;
   --color-grass-100: #e2f3da;
@@ -16,9 +28,24 @@
 
   --color-soil-50:  #faf7f2;
   --color-soil-900: #2b2620;
+
+  /* Mown-stripe surfaces: the two tones a roller leaves on a UK lawn. */
+  --color-stripe-light: #f1f6ea;
+  --color-stripe-dark:  #e3ecd6;
+  /* Blade steel: rules, axes and secondary data ink. */
+  --color-steel-200: #d5dbd6;
+  --color-steel-400: #8d9891;
+  --color-steel-600: #56615a;
+  /* Hi-vis signal (the orange of a safety bail lever): highlights the model a page is about. Graphics only below 700. */
+  --color-signal-500: #d9590b;
+  --color-signal-700: #9a3c06;
+  --color-signal-50:  #fff4ec;
+
+  --radius-plate: 4px;
 }
 
 html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 :focus-visible { outline: 2px solid var(--color-grass-600); outline-offset: 2px; }
 
 body {
@@ -26,6 +53,26 @@ body {
   color: var(--color-soil-900);
   background: #fff;
   text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  font-stretch: 92%;
+  letter-spacing: -0.012em;
+}
+h1 { font-stretch: 86%; letter-spacing: -0.02em; }
+
+/* Tabular, condensed numerals for spec readouts. */
+.num { font-family: var(--font-display); font-variant-numeric: tabular-nums; font-stretch: 80%; }
+
+/* Mown-lawn stripes: wide alternating bands, used as a surface, never behind body text blocks. */
+.lawn-stripes {
+  background-color: var(--color-stripe-light);
+  background-image: repeating-linear-gradient(90deg, var(--color-stripe-light) 0 72px, var(--color-stripe-dark) 72px 144px);
+}
+.stripe-rule {
+  height: 6px;
+  background-image: repeating-linear-gradient(90deg, var(--color-grass-700) 0 48px, var(--color-grass-500) 48px 96px);
 }
 
 .prose-mowers h2 { @apply text-2xl md:text-3xl font-bold mt-12 mb-4 text-soil-900 scroll-mt-24; }
@@ -37,10 +84,15 @@ body {
 /* Solid-fill CTA buttons keep their own colours: .prose-mowers a (0,1,1) otherwise beats .text-white (0,1,0). */
 .prose-mowers a.btn-buy,
 .prose-mowers a.btn-buy:hover { @apply text-white no-underline; }
-.prose-mowers table { @apply w-full text-sm border-collapse my-6; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.prose-mowers table { @apply w-full text-sm border-collapse my-6; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; font-variant-numeric: tabular-nums; }
 @media (min-width: 768px) { .prose-mowers table { display: table; overflow-x: visible; } }
-.prose-mowers th { @apply text-left px-3 py-2 bg-grass-50 border border-slate-200 font-semibold; }
-.prose-mowers td { @apply px-3 py-2 border border-slate-200 align-top; }
+.prose-mowers th { @apply text-left px-3 py-2 border border-steel-200 font-semibold; background: var(--color-stripe-dark); }
+.prose-mowers td { @apply px-3 py-2 border border-steel-200 align-top; }
+.prose-mowers tbody tr:nth-child(even) td { background: var(--color-stripe-light); }
 .prose-mowers blockquote { @apply border-l-4 border-grass-400 bg-grass-50 rounded-r-lg px-5 py-4 my-6 italic text-slate-700; }
 .prose-mowers blockquote p { @apply mb-1; }
 .prose-mowers blockquote cite { @apply not-italic text-xs text-slate-500 block mt-1; }
+
+/* Charts */
+.chart-figure { margin: 2.5rem 0; }
+.prose-mowers .chart-figure a { text-decoration: underline; }

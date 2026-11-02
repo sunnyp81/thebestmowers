@@ -2,6 +2,8 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
+import Disclosure from '../../../components/Disclosure.astro';
+import RobotAreaChart from '../../../components/charts/RobotAreaChart.astro';
 import { articleSchema, breadcrumbSchema, faqSchema } from '../../../lib/schema';
 
 const title = 'Best Robot Mowers for Large Lawns UK 2026 (1000 m²+)';
@@ -44,6 +46,8 @@ const schema = [
       </p>
     </header>
 
+    <Disclosure />
+
     <img
       src="/images/compact_robotic_lawn_mower.webp"
       alt="Robot mower on a large UK lawn"
@@ -57,17 +61,22 @@ const schema = [
       <p>
         Coverage area is the headline spec, but it's not the only one. Large lawns usually mean slopes, multiple zones (front and back), narrow passages between beds, and more obstacles. You need a mower with strong navigation, good battery life, and ideally multi-zone support so it can handle the whole property without you moving it manually.
       </p>
+    </div>
+    <RobotAreaChart />
+    <div class="prose-mowers">
+      <p>Slope ratings for the same models are in our <a href="/research/robot-mower-slope-and-area-ratings/">robot mower slope and area data</a>.</p>
+
 
       <h2>Three robot mowers for big gardens</h2>
 
-      <h3>1. Mammotion Luba 2 AWD 1000 (£1,399)</h3>
+      <h3>1. Mammotion Luba 2 AWD 1000</h3>
       <p>
         The wire-free option. RTK GPS navigation, all-wheel drive for slopes, and multi-zone support. Rated for 1,000 m² but Mammotion also make a 3000 model for genuinely large estates. The AWD system handles wet UK grass on slopes that trip up two-wheel-drive models. <a href="/reviews/mammotion-luba-2-awd-1000/" class="text-grass-700 underline">Read our Mammotion Luba review</a> <a href="https://www.amazon.co.uk/s?k=mammotion+luba+2+awd+1000+lawn+mower&amp;tag=thebestmowers-21" rel="nofollow sponsored noopener noreferrer" target="_blank" class="text-grass-700 underline whitespace-nowrap">Check price &rarr;</a>.
       </p>
 
       <h3>2. Husqvarna Automower 450X (£2,999)</h3>
       <p>
-        The professional-grade option for lawns up to 5,000 m². Perimeter wire required, but the navigation is impeccable, it handles slopes up to 45°, and Husqvarna's dealer network means servicing is never far away. Expensive, but built to last 10+ years.
+        The professional-grade option for lawns up to 5,000 m². Perimeter wire required, but the navigation is impeccable, it handles slopes up to 45% (about 24°), and Husqvarna's dealer network means servicing is never far away. Expensive, but built to last 10+ years.
       </p>
 
       <h3>3. Worx Landroid Vision L1600 (£1,499)</h3>

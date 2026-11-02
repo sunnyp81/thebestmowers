@@ -5,6 +5,7 @@ import FAQ from '../../components/FAQ.astro';
 import PickCard from '../../components/PickCard.astro';
 import Disclosure from '../../components/Disclosure.astro';
 import HowWeResearch from '../../components/HowWeResearch.astro';
+import RobotSlopeChart from '../../components/charts/RobotSlopeChart.astro';
 import { articleSchema, breadcrumbSchema, faqSchema, itemListSchema } from '../../lib/schema';
 import { amazonSearch } from '../../lib/affiliate';
 
@@ -58,18 +59,18 @@ const picks = [
   },
   {
     rank: 5, asin: 'B0GMRG616G', name: 'Stiga A 1500',
-    brand: 'Stiga', bestFor: 'large gardens (up to 1,500 m²)',
-    rating: 4.5, rrp: '£1,549',
+    brand: 'Stiga', bestFor: 'large gardens (up to 2,500 m²)',
+    rating: 4.5,
     reviewUrl: '/robot-lawn-mowers/',
-    pros: ['Up to 1,500 m² coverage', 'AGS Active Guidance System for efficient routing', 'Genuine UK after-sales via Stiga dealers'],
-    cons: ['Boundary cable required', 'Italian brand - fewer YouTube tutorials'],
-    verdict: 'For lawns between 800 and 1,500 m², Stiga undercuts the equivalent Husqvarna and Worx machines by £200-400 and the cut quality is identical. Well worth a look for big gardens.',
+    pros: ['Rated for up to 2,500 m² across ten zones', 'Wire-free RTK AGS guidance for efficient routing', 'Genuine UK after-sales via Stiga dealers'],
+    cons: ['Costs more than entry-level wire-free robots', 'Italian brand - fewer YouTube tutorials'],
+    verdict: 'Despite the name, Stiga rates the A 1500 for lawns up to 2,500 m², split across as many as ten zones, with no boundary cable to lay. Stiga also states a 45% maximum slope, second only to the Mammotion Luba 2 AWD in our spec data. Well worth a look for big or split gardens.',
   },
 ];
 
 const faqs = [
   { q: 'Are robot lawn mowers worth it in the UK?', a: 'For lawns between 200 and 1,500 m² that are mowed at least weekly during the season, yes. A robot keeps the lawn at a single height continuously, returns clippings as natural fertiliser, and frees up 60-80 hours of mowing time across an average UK growing season. They make less sense on tiny lawns (under 100 m²) or very irregular gardens with lots of obstacles.' },
-  { q: 'Do robot lawn mowers need a perimeter wire?', a: 'Older models do - you peg or bury a thin cable around the edge of your lawn and around any flower beds, and the robot uses it to know where to stop. Newer wire-free models (Mammotion Luba 2, Worx Landroid Vision, Husqvarna 410 NERA) use GPS, camera vision or a combination to set virtual boundaries via an app instead. Wire-free robots cost more but install in 20-30 minutes; wire-based robots are cheaper but you spend half a day pegging cable.' },
+  { q: 'Do robot lawn mowers need a perimeter wire?', a: 'Older models do - you peg or bury a thin cable around the edge of your lawn and around any flower beds, and the robot uses it to know where to stop. Newer wire-free models (Mammotion Luba 2, Worx Landroid Vision, Husqvarna NERA models using EPOS satellite navigation) use GPS, camera vision or a combination to set virtual boundaries via an app instead. Wire-free robots cost more but install in 20-30 minutes; wire-based robots are cheaper but you spend half a day pegging cable.' },
   { q: 'Will a robot lawn mower work on my sloped garden?', a: 'Most domestic robots handle 25-35% gradient (about 14-19 degrees). Husqvarna Automowers go to 40-45% on the X-Line. Hilly lawns benefit from 4WD models like the Mammotion Luba 2 AWD. Look for the maximum gradient figure in the spec - it is the single biggest spec difference between models.' },
   { q: 'How long does a robot lawn mower take to cut the lawn?', a: 'Robots are slow per pass - they cut a thin strip and overlap. A 500 m² lawn typically takes 6-10 hours of total mow time per week, but the robot does it in 1-2 hour bursts whenever you schedule, while you are at work. Most owners run them three to four sessions per week.' },
   { q: 'Are robot lawn mowers safe with pets and children?', a: 'Modern robots have lift, tilt and bump sensors that stop the blade in 0.2 seconds when the deck is lifted or tilted. They are designed to be safe around pets and children, but we still recommend scheduling them for early morning or late evening when the garden is quiet. Never run them when small children are unsupervised on the lawn.' },
@@ -95,7 +96,7 @@ const schema = [
       <p class="mt-4 text-lg text-slate-700 leading-relaxed">
         For years, robot mowers were a curiosity - something for tidy-minded enthusiasts with a flat rectangular lawn and a healthy budget. Then 2024 happened. Suddenly there were two types. The new wire-free robots you can set up in 20 minutes via an app, and the proven boundary-cable models Husqvarna and Bosch have been quietly refining for a decade. Our picks here are built from manufacturer specifications, verified owner reviews on Amazon UK and retailer sites, and UK pricing data, cross-checked to find which ones actually keep a British lawn looking like a lawn, and which ones just gather mud.
       </p>
-      <p class="mt-3 text-sm text-slate-500">Independent · No manufacturer paid for placement · We may earn a commission on qualifying purchases.</p>
+      <p class="mt-3 text-sm text-slate-500">Independent · No manufacturer paid for placement.</p>
     </header>
 
     <img
@@ -121,7 +122,7 @@ const schema = [
         Picture a Roomba, but for grass. A small, low-slung battery-powered machine that lives in a charging dock by the side of the lawn and trundles out on a schedule you set. It uses lightweight razor blades on a free-spinning disc - completely different from a rotary mower's heavy fixed blade - and takes only a tiny shaving off the grass each pass. Clippings drop back onto the lawn as fine mulch. You barely see them.
       </p>
       <p>
-        The category split in two in 2024. The old guard, <strong>boundary-cable robots</strong>, follow a thin wire pegged or buried around your lawn - that's Husqvarna Automower, Bosch Indego, Stiga, Robomow. The new wave, <strong>wire-free robots</strong>, use GPS-RTK satellites, on-board cameras, or both, and let you draw virtual boundaries in an app - that's Mammotion Luba, Worx Landroid Vision, Husqvarna NERA, Segway Navimow, EcoFlow Blade. The wire-free category is genuinely only two or three years old at the consumer end, and it gets noticeably better with every firmware update.
+        The category split in two in 2024. The old guard, <strong>boundary-cable robots</strong>, follow a thin wire pegged or buried around your lawn - that's most Husqvarna Automower models, Bosch Indego, Robomow and older Stiga models. The new wave, <strong>wire-free robots</strong>, use GPS-RTK satellites, on-board cameras, or both, and let you draw virtual boundaries in an app - that's Mammotion Luba, Worx Landroid Vision, Husqvarna NERA (wire-free with EPOS, built in on some models and an add-on for others), Segway Navimow, EcoFlow Blade. The wire-free category is genuinely only two or three years old at the consumer end, and it gets noticeably better with every firmware update.
       </p>
 
       <h2 id="wire-vs-wireless">Boundary cable or wire-free - which to buy</h2>
@@ -146,7 +147,7 @@ const schema = [
         Real talk: if your lawn is roughly rectangular, fairly flat, has a decent view of the sky, and you don't mind giving up one Saturday to lay cable, boundary cable still wins on both price and reliability. If your garden is awkwardly shaped, you move borders around often, or you'd rather just unbox-it-and-go - pay the wire-free premium. Worth it.
       </p>
 
-      <HowWeResearch heading="How we choose these robot mowers" />
+      <HowWeResearch heading="How we choose these robot mowers" disclose={false} />
 
       <h2 id="best-robot">Best robot lawn mowers for 2026</h2>
       <div class="space-y-6 mt-6">
@@ -162,14 +163,19 @@ const schema = [
       <ul>
         <li><strong>Up to 250 m²</strong> - entry-level robots. Bosch Indego S, Husqvarna 105, Worx Landroid S</li>
         <li><strong>250-600 m²</strong> - bestselling middle tier. Husqvarna Automower 305, Bosch Indego S+ 500, Robomow RX</li>
-        <li><strong>600-1,500 m²</strong> - Stiga A 1500, Husqvarna 415X, Mammotion Luba 1000</li>
-        <li><strong>1,500 m²+</strong> - Husqvarna 450X NERA, Mammotion Luba AWD 5000, dedicated commercial models</li>
+        <li><strong>600-1,500 m²</strong> - Husqvarna 415X, Mammotion Luba 2 AWD 1000</li>
+        <li><strong>1,500 m²+</strong> - Stiga A 1500 (rated 2,500 m²), Husqvarna 450X NERA, Mammotion Luba 2 AWD 3000 and 5000</li>
       </ul>
 
       <h3>Maximum slope</h3>
       <p>
-        The single most overlooked spec. Most domestic robots are rated 25-35%. A 35% gradient is the slope of an average UK suburban lawn corner, so 35% is fine for most. If your lawn includes a bank or a slope above 35%, you need an Automower X-Line (40%) or a 4WD robot like the Mammotion Luba 2 AWD (45%).
+        The single most overlooked spec. Five of the ten robots in our spec data are rated 30% (about 17°). Check the boundary figure too: makers often allow far less slope at the edge of the lawn than inside it. For a bank steeper than 30%, look at a model rated 40% or more, such as the Husqvarna Automower 305 (40% inside the lawn) or an all-wheel-drive robot like the Mammotion Luba 2 AWD (80% maximum climbing).
       </p>
+    </div>
+    <RobotSlopeChart highlight="Automower 305" />
+    <div class="prose-mowers">
+      <p>Full figures, including each boundary slope, are in our <a href="/research/robot-mower-slope-and-area-ratings/">robot mower slope and area data</a>.</p>
+
 
       <h3>Cutting width and number of blades</h3>
       <p>
@@ -188,11 +194,11 @@ const schema = [
 
       <h2 id="brands">The robot mower brands worth shortlisting</h2>
       <ul>
-        <li><strong><a href="/brands/husqvarna/">Husqvarna</a></strong> - invented the category, still the gold standard. Automower (cable) and NERA (wire-free) ranges.</li>
+        <li><strong><a href="/brands/husqvarna/">Husqvarna</a></strong> - invented the category, still the gold standard. Automower (cable) and NERA ranges; NERA models run wire-free with EPOS (built in on some models, an add-on for others) or on a cable.</li>
         <li><strong><a href="/brands/bosch/">Bosch</a></strong> - Indego with logical-cut mapping, best for tidy formal lawns.</li>
         <li><strong>Mammotion</strong> - leading wire-free brand. Luba 2 RTK + vision is the model to know.</li>
         <li><strong><a href="/brands/worx/">Worx</a></strong> - best budget option. Landroid Vision is the cheapest serious wire-free robot.</li>
-        <li><strong><a href="/brands/stiga/">Stiga</a></strong> - strong UK dealer network, good value at 1,000-1,500 m².</li>
+        <li><strong><a href="/brands/stiga/">Stiga</a></strong> - strong UK dealer network, good value at 2,500 m² with the A 1500.</li>
         <li><strong>Segway Navimow</strong> - newer entrant, RTK-based, improving.</li>
         <li><strong>EcoFlow Blade</strong> - premium wire-free with built-in trimmer arm. Niche but interesting.</li>
       </ul>
