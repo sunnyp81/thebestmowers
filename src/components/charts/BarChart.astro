@@ -80,7 +80,7 @@ const pct = (v: number) => (v / max) * 100;
     {note && <span class="block mb-1">{note}</span>}
     <span class="font-semibold text-soil-900">Source:</span>{' '}
     {sources.map((s, i) => (
-      <>{s.href ? <a href={s.href} class="underline underline-offset-2 hover:text-grass-800" rel="noopener" target={s.href.startsWith('http') ? '_blank' : undefined}>{s.text}</a> : s.text}{i < sources.length - 1 ? '; ' : '.'}</>
+      <>{s.href ? <a href={s.href} class="underline underline-offset-2 hover:text-grass-800" rel="noopener noreferrer" target={s.href.startsWith('http') ? '_blank' : undefined}>{s.text}</a> : s.text}{i < sources.length - 1 ? '; ' : '.'}</>
     ))}
   </figcaption>
 

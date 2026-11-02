@@ -87,7 +87,7 @@ const schema = [
               <td class="num">{s.edgeSlopePct ? `${s.edgeSlopePct}%` : 'Not stated separately'}</td>
               <td class="num">{s.areaM2.toLocaleString('en-GB')} m²{s.areaNote ? ` (${s.areaNote})` : ''}</td>
               <td>{s.wireFree ? 'Wire-free' : 'Boundary wire'}</td>
-              <td><a href={s.source} rel="noopener" target="_blank">{new URL(s.source).hostname.replace(/^www\./, '')}</a></td>
+              <td><a href={s.source} rel="noopener noreferrer" target="_blank">{new URL(s.source).hostname.replace(/^www\./, '')}</a></td>
             </tr>
           ))}
         </tbody>
