@@ -10,12 +10,13 @@ interface Props {
   affiliateUrl?: string;
   asin?: string;
   image?: string;
+  imageAlt?: string;
   verdict: string;
 }
 import { AFFILIATE_REL, amazonLink, amazonSearch } from '../lib/affiliate';
 import amazonImages from '../data/amazon-images.json';
 // Note: callers may still pass `rating`/`rrp` (unused) - Amazon compliance means we don't render a static price or star rating beside the buy link.
-const { rank, name, brand, bestFor, pros, cons, reviewUrl, affiliateUrl, asin, image, verdict } = Astro.props as Props;
+const { rank, name, brand, bestFor, pros, cons, reviewUrl, affiliateUrl, asin, image, imageAlt, verdict } = Astro.props as Props;
 // Buy CTA precedence: exact tagged /dp/ ASIN link, then any explicit affiliateUrl, then a tagged Amazon UK search.
 const buyUrl = (asin && amazonLink(asin)) || affiliateUrl || amazonSearch(`${name} lawn mower`);
 // Resolve a live product image: prefer an explicit prop, else the build-time Amazon hotlink for this ASIN.
@@ -34,7 +35,7 @@ const imgH = imgMeta?.height ?? 300;
       <span class="num absolute top-0 left-3 bg-grass-800 text-white text-base font-bold px-2.5 pt-1 pb-1.5 rounded-b-[4px]"><span class="sr-only">Rank </span>{rank}</span>
       {resolvedImage ? (
         <div class="w-full min-h-[180px] max-h-[260px] flex items-center justify-center rounded-[4px] border border-steel-200 bg-white p-4">
-          <img src={resolvedImage} alt={name} loading="lazy" decoding="async" width={imgW} height={imgH} class="object-contain max-h-[228px] w-auto" />
+          <img src={resolvedImage} alt={imageAlt ?? name} loading="lazy" decoding="async" width={imgW} height={imgH} class="object-contain max-h-[228px] w-auto" />
         </div>
       ) : (
         <div class="font-display w-28 h-28 rounded-[4px] bg-white border border-steel-200 flex items-center justify-center text-grass-800 text-4xl font-extrabold" aria-hidden="true">{brand.slice(0,1)}</div>
