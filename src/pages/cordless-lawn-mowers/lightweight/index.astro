@@ -137,6 +137,14 @@ const schema = [
 
     <Disclosure />
 
+    <AtAGlance
+      picks={[
+        { label: 'Best overall', name: 'Bosch CityMower 18V-32', href: '/brands/bosch/', note: 'around 8-9 kg, no cord, no cable, folds flat' },
+        { label: 'Easiest to push', name: 'Flymo Hovervac 250', href: '/reviews/flymo-hovervac-250-review/', note: 'around 6.6 kg and it floats on air' },
+        { label: 'Best budget', name: 'Bosch Rotak 32 R', href: '/reviews/bosch-rotak-32-review/', note: 'around 7 kg corded' },
+      ]}
+      featured={{ name: 'Bosch CityMower 18V-32', affiliateUrl: amazonSearch('Bosch CityMower 18V-32 lawn mower') }}
+    />
     <img
       src={heroImage}
       alt="Orange cordless lawn mower with grass box, two batteries and charger"
@@ -145,14 +153,6 @@ const schema = [
       loading="eager"
     />
 
-<AtAGlance
-      picks={[
-        { label: 'Best overall', name: 'Bosch CityMower 18V-32', href: '/brands/bosch/', note: 'around 8-9 kg, no cord, no cable, folds flat' },
-        { label: 'Easiest to push', name: 'Flymo Hovervac 250', href: '/reviews/flymo-hovervac-250-review/', note: 'around 6.6 kg and it floats on air' },
-        { label: 'Best budget', name: 'Bosch Rotak 32 R', href: '/reviews/bosch-rotak-32-review/', note: 'around 7 kg corded' },
-      ]}
-      featured={{ name: 'Bosch CityMower 18V-32', affiliateUrl: amazonSearch('Bosch CityMower 18V-32 lawn mower') }}
-    />
     <p class="mb-10 text-slate-700 leading-relaxed">This guide ranks the five lightest mowers worth buying and explains what actually makes a mower easy to live with beyond the number on the spec sheet.</p>
 
     <div class="prose-mowers">
